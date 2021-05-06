@@ -1,3 +1,3 @@
-# BSMove Server
+# BSMove front
 
-Made with Loopback 3.
+Made with React & NextJS.
