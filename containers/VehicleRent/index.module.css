@@ -1,0 +1,155 @@
+@media screen and (max-width: 750px) {
+    .vehicle_rent_presentation__header {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media screen and (min-width: 750px) {
+    .vehicle_rent_presentation__header {
+        display: flex;
+        background-color: #F9FAFB;
+        flex-direction: row;
+        min-width: 100vw;
+        width: 100%;
+        max-height: 55vh;
+    }
+    .vehicle_rent_presentation__left_section {
+        display: flex;
+        width: 55vw;
+        max-height: 55vh;
+        align-items: center;
+        justify-content: center;
+    }
+    .vehicle_rent_presentation__left_section_article {
+        max-width: 525px;
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+    }
+    .vehicle_rent_presentation__right_section {
+        background-color: #FFFFFF;
+        position: relative;
+        width: 45vw;
+        height: 45vh;
+        max-height: 574px;
+    }
+    .vehicle_rent_presentation__right_section_img {
+        width: 100%;
+        height: 100%;
+    }
+    .vehicle_rent_presentation__main {
+        background-color: #FFF;
+        width: 100vw;
+        height: 100%;
+        align-items: center;
+        padding: 10% 20%;
+        text-align: center;
+    }
+
+    .vehicle_rent_presentation__main_heading {
+        text-align: center;
+    }
+
+  }
+  .vehicle_rent_presentation__article {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  .vehicle_rent_presentation__steps_wrapper {
+      display: flex;
+      gap: 60px;
+      align-items: center;
+      justify-content: center;
+  }
+  .vehicle_rent_presentation__step_icon_wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1em;
+      min-width: 150px;
+  }
+  .vehicle_rent_presentation__step_circle {
+    border-radius: 50%;
+    width: 114px;
+    height: 114px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 7px 30px #0000000D;
+  }
+  .vehicle_rent_presentation__step_icon {
+    color: rgb(56, 199, 152);
+  }
+
+.vehicle_rent_faq__main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10% 0;
+}
+
+.vehicle_rent_faq__accordion_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  width: 100vw;
+  padding: 0 10%;
+}
+
+.vehicle_rent_faq__accordion_icon_active {
+  color: rgb(56, 199, 152);
+}
+
+.vehicle_rent_footer__content {
+  max-width: 700px;
+}
+
+.vehicle_rent_footer__main {
+  background-color: #2F4858;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100vw;
+  padding: 70px 0;
+  gap: 1em;
+}
+
+.vehicle_rent_search_section {
+  position: relative;
+  z-index: 999;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.vehicle_rent_search_section__container {
+  margin: -80px 20%;
+  background: #FFFFFF 0 0 no-repeat padding-box;
+  box-shadow: 0 7px 30px #00000012;
+  border-radius: 8px;
+}
+
+.vehicle_rent_search_section__tabs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.vehicle_rent_search_section__tab {
+  width: 50%;
+}
+
+.halfWidthTab {
+    flex: 1;
+    max-width: 50%;
+}
