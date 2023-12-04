@@ -16,6 +16,10 @@ import MUISelect from "@mui/material/Select";
 import MUIMenuItem from "@mui/material/MenuItem";
 import FloorSelect from "../../../components/Utilities/FloorSelect";
 import GeolocationInput from "../../../components/GeolocationInput";
+import {
+  FULL_DAY_DURATION,
+  HALF_DAY_DURATION,
+} from "../../../helpers/constants";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -143,25 +147,31 @@ const VehicleRentSearchSectionVehicle = () => {
               value={formik.values.duration}
               onChange={formik.handleChange}
             >
-              <MUIMenuItem value={4}>4h</MUIMenuItem>
-              <MUIMenuItem value={8}>8h</MUIMenuItem>
+              <MUIMenuItem value={HALF_DAY_DURATION}>4h</MUIMenuItem>
+              <MUIMenuItem value={FULL_DAY_DURATION}>8h</MUIMenuItem>
             </MUISelect>
             {formik.errors.duration && formik.touched.duration && (
               <span style={{ color: "red" }}>{formik.errors.duration}</span>
             )}
           </div>
         </div>
-        <div style={{ display: "flex", flexDirection: 'column' }}>
+        <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "1em" }}>
             <span style={{ fontWeight: 600 }}>Nombre de déménageurs</span>
             <Counter
               minValue={0}
               value={formik.values.nbMovingMen}
               handleInc={() =>
-                formik.setFieldValue("nbMovingMen", formik.values.nbMovingMen + 1)
+                formik.setFieldValue(
+                  "nbMovingMen",
+                  formik.values.nbMovingMen + 1
+                )
               }
               handleDec={() =>
-                formik.setFieldValue("nbMovingMen", formik.values.nbMovingMen - 1)
+                formik.setFieldValue(
+                  "nbMovingMen",
+                  formik.values.nbMovingMen - 1
+                )
               }
             />
             <FormControlLabel
@@ -181,10 +191,9 @@ const VehicleRentSearchSectionVehicle = () => {
           </div>
           <span style={{ fontStyle: "12px" }}>(En plus du chauffeur)</span>
         </div>
-        {formik.errors.nbMovingMen && formik.touched.nbMovingMen
-            ? <span style={{ color: "red" }}>{formik.errors.nbMovingMen}</span>
-            : null
-        }
+        {formik.errors.nbMovingMen && formik.touched.nbMovingMen ? (
+          <span style={{ color: "red" }}>{formik.errors.nbMovingMen}</span>
+        ) : null}
         <footer
           style={{
             display: "flex",
@@ -230,7 +239,7 @@ const LiftRentSection = () => {
     if (values.floors === null)
       errors.nbMovingMen = "Merci d'ajouter des déménageurs";
     if (!values.liftType)
-      errors.liftType = "Merci de bien choisir un monte-meuble"
+      errors.liftType = "Merci de bien choisir un monte-meuble";
     return errors;
   }
 
@@ -276,13 +285,15 @@ const LiftRentSection = () => {
               <span style={{ color: "red" }}>{formik.errors.startAddress}</span>
             )}
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
+          <div
+            style={{ display: "flex", flexDirection: "column", width: "50%" }}
+          >
             <label>Etage</label>
             <FloorSelect
-                label=""
-                name="floors"
-                value={formik.values.floors}
-                onChange={formik.handleChange}
+              label=""
+              name="floors"
+              value={formik.values.floors}
+              onChange={formik.handleChange}
             />
           </div>
         </div>
@@ -326,20 +337,26 @@ const LiftRentSection = () => {
             display: "flex",
             alignItems: "center",
             gap: "1em",
-            justifyContent: 'space-between',
+            justifyContent: "space-between",
           }}
         >
           <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
             <span style={{ fontWeight: 600 }}>Nombre de déménageurs</span>
             <Counter
-                minValue={0}
-                value={formik.values.nbMovingMen}
-                handleInc={() =>
-                    formik.setFieldValue("nbMovingMen", formik.values.nbMovingMen + 1)
-                }
-                handleDec={() =>
-                    formik.setFieldValue("nbMovingMen", formik.values.nbMovingMen - 1)
-                }
+              minValue={0}
+              value={formik.values.nbMovingMen}
+              handleInc={() =>
+                formik.setFieldValue(
+                  "nbMovingMen",
+                  formik.values.nbMovingMen + 1
+                )
+              }
+              handleDec={() =>
+                formik.setFieldValue(
+                  "nbMovingMen",
+                  formik.values.nbMovingMen - 1
+                )
+              }
             />
           </div>
         </div>
