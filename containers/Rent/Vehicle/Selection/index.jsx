@@ -4,7 +4,6 @@ import Image from "next/legacy/image";
 import DatePicker from "../../../../components/Pickers/DatePicker";
 import MUISelect from "@mui/material/Select";
 import MUIMenuItem from "@mui/material/MenuItem";
-import { useEffect, useMemo, useState } from "react";
 import Button from "../../../../components/Button";
 import {
   CURRENCY,
@@ -16,14 +15,12 @@ import GeolocationInput from "../../../../components/GeolocationInput";
 import { useRouter } from "next/router";
 import Routes from "../../../../helpers/routes";
 import Counter from "../../../../components/Counter";
-import messages from "../../../Estimate/Details/messages";
 
-// TODO : RETIRER FORMIK ET COPIER SUR CE QUI EST FAIT DANS ESTIMATE
 const RentSelectionHeader = () => {
   const {
-    rent: { vehicle },
-    handleVehicleRent,
+    rent: { vehicle, movers },
     handleVehicleRentByKey,
+    handleMoversRentByKey,
   } = useRent();
 
   return (
@@ -87,8 +84,8 @@ const RentSelectionHeader = () => {
           <MUISelect
             label=""
             name="nbMovingMen"
-            value={vehicle?.nbMovingMen}
-            onChange={(value) => handleVehicleRent("nbMovingMen", value)}
+            value={movers?.nbMovingMen}
+            onChange={(value) => handleMoversRentByKey("nbMovingMen", value)}
           >
             <MUIMenuItem value={1}>1</MUIMenuItem>
             <MUIMenuItem value={2}>2</MUIMenuItem>

@@ -122,8 +122,6 @@ export const EstimateProvider = ({ children, initialEstimate }) => {
     totalPrice: 0,
   });
 
-  console.log("estimate is : ", estimate);
-
   useEffect(() => {
     if (isObjectEmpty(estimate)) return; // ici checker toute les parties, sinon tout refaire à chaque fois?
     Cookie.set("estimate", JSON.stringify(estimate));
@@ -315,6 +313,7 @@ export const EstimateProvider = ({ children, initialEstimate }) => {
 
   function clearEstimate() {
     setEstimate({});
+    setPriceCalculator({});
     Cookie.remove("estimate");
   }
 

@@ -122,6 +122,13 @@ export const RentProvider = ({ children, initialValue }) => {
     }
   }, [rent.startAddress, rent.endAddress]);
 
+  function handleRentByKey(key, value) {
+    setRent((previousRent) => ({
+      ...previousRent,
+      [key]: value,
+    }));
+  }
+
   function handleVehicleRent(values) {
     console.log("values in rent hook : ", values);
     setRent((previousRent) => ({
@@ -269,6 +276,7 @@ export const RentProvider = ({ children, initialValue }) => {
         handleMoversRent,
         handleMoversRentByKey,
         clearRent,
+        handleRentByKey,
       }}
     >
       {children}

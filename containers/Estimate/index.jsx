@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useRouter } from "next/router";
 
 import styles from "./index.module.css";
@@ -12,7 +12,6 @@ import EstimateInventoryComponent from "./Inventory";
 import EstimateSummaryComponent from "./Summary";
 import { useEstimate } from "../../hooks/estimate";
 import { useCustomer } from "../../hooks/customer";
-import { omit } from "ramda";
 import api from "../../helpers/api";
 import { useLoading } from "../../hooks/loading";
 import { useAlert } from "../../hooks/alert";
@@ -185,6 +184,7 @@ function mapValuesToEstimateRequest(estimate, customer, extraData) {
     status: "WAITING_ACTION",
     customerInformations: customer,
     customerId: customer?.id,
+    totalPrice: extraData.priceCalculator?.totalPrice,
   };
 }
 
@@ -201,7 +201,7 @@ async function getDistanceWithCoordinates(start, end) {
 const EstimateContainer = ({ step = 0, setStep }) => {
   const [canContinue, setCanContinue] = useState(false);
   const router = useRouter();
-  const { estimate, clearEstimate } = useEstimate();
+  const { estimate, clearEstimate, priceCalculator } = useEstimate();
   const { auth, customer } = useCustomer();
   const { resetRedirect, addToGlobalStateByKey } = useGlobal();
   const { setGlobalLoading } = useLoading();
@@ -219,6 +219,7 @@ const EstimateContainer = ({ step = 0, setStep }) => {
     );
     const requestData = mapValuesToEstimateRequest(estimate, customer, {
       distance,
+      priceCalculator,
     });
     const res = await api.post("/Estimates", requestData, {
       headers: { Authorization: auth.id },

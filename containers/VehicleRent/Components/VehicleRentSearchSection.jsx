@@ -20,6 +20,7 @@ import {
   FULL_DAY_DURATION,
   HALF_DAY_DURATION,
 } from "../../../helpers/constants";
+import { useEstimate } from "../../../hooks/estimate";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -45,7 +46,7 @@ TabPanel.propTypes = {
 
 const VehicleRentSearchSectionVehicle = () => {
   const router = useRouter();
-  const { handleVehicleRent, handleMoversRent } = useRent();
+  const { handleVehicleRent, handleMoversRent, rent } = useRent();
 
   function validate(values) {
     const errors = {};
@@ -62,7 +63,12 @@ const VehicleRentSearchSectionVehicle = () => {
   }
 
   function handleSubmit(values) {
-    handleMoversRent(values);
+    console.log("nb men : ", values.nbMovingMen);
+    handleMoversRent({
+      ...rent.movers,
+      present: true,
+      nbMovingMen: values.nbMovingMen,
+    });
     if (values.onlyMovingMen) {
       router.push(Routes.MOVERS_RENT_PAGE_SUMMARY);
     } else {
@@ -225,9 +231,15 @@ const VehicleRentSearchSectionVehicle = () => {
   );
 };
 
+export const PARIS_PIN_POINT = {
+  lat: 48.866667,
+  lon: 2.333333,
+};
+
 const LiftRentSection = () => {
   const router = useRouter();
-  const { handleLiftRent } = useRent();
+  const { handleLiftRent, handleMoversRent, rent } = useRent();
+  const { getKmBetweenDistances } = useEstimate();
 
   function validate(values) {
     const errors = {};
@@ -238,13 +250,24 @@ const LiftRentSection = () => {
     if (!values.duration) errors.duration = "Merci d'ajouter une durée";
     if (values.floors === null)
       errors.nbMovingMen = "Merci d'ajouter des déménageurs";
-    if (!values.liftType)
-      errors.liftType = "Merci de bien choisir un monte-meuble";
     return errors;
   }
 
   function handleSubmit(values) {
-    handleLiftRent(values);
+    handleMoversRent({
+      ...rent.movers,
+      present: values.nbMovingMen > 0,
+      nbMovingMen: values.nbMovingMen,
+    });
+    handleLiftRent({
+      ...rent.lift,
+      present: true,
+      km: getKmBetweenDistances(PARIS_PIN_POINT, {
+        lat: values.startAddress.lat,
+        lon: values.startAddress.lng,
+      }),
+      ...values,
+    });
     router.push(Routes.LIFT_RENT_PAGE_SELECTION);
   }
 
@@ -257,6 +280,8 @@ const LiftRentSection = () => {
       liftType: "",
       type: "lift",
       nbMovingMen: 0,
+      isEntrancePresent: false,
+      entranceNotTallEnough: false,
     },
     validate,
     onSubmit: (values) => handleSubmit(values),
@@ -335,9 +360,9 @@ const LiftRentSection = () => {
         <div
           style={{
             display: "flex",
-            alignItems: "center",
+            alignItems: "flex-start",
             gap: "1em",
-            justifyContent: "space-between",
+            flexDirection: "column",
           }}
         >
           <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
@@ -359,6 +384,34 @@ const LiftRentSection = () => {
               }
             />
           </div>
+          <FormControlLabel
+            control={
+              <CheckBox
+                checked={formik.values.isEntrancePresent}
+                onChange={() =>
+                  formik.setFieldValue(
+                    "isEntrancePresent",
+                    !formik.values.isEntrancePresent
+                  )
+                }
+              />
+            }
+            label={<label>{"J'ai un passage ou une cour"}</label>}
+          />
+          <FormControlLabel
+            control={
+              <CheckBox
+                checked={formik.values.entranceNotTallEnough}
+                onChange={() =>
+                  formik.setFieldValue(
+                    "entranceNotTallEnough",
+                    !formik.values.entranceNotTallEnough
+                  )
+                }
+              />
+            }
+            label={<label>{"Mon passage fait plus de 2,2m de hauteur"}</label>}
+          />
         </div>
         <footer
           style={{
