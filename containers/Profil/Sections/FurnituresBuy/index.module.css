@@ -31,13 +31,17 @@
   color: rgba(71, 85, 105, 1);
 }
 
+.furnitures_buy_resume_header > span {
+  text-align: center;
+}
+
 .furnitures_buy_resume_content {
   width: 100%;
 }
 
 .furnitures_buy_resume_content > span {
   overflow: hidden;
-  text-align: left;
+  text-align: center;
   text-overflow: ellipsis;
   white-space: nowrap;
 }

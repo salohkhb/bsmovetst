@@ -130,7 +130,6 @@ export const RentProvider = ({ children, initialValue }) => {
   }
 
   function handleVehicleRent(values) {
-    console.log("values in rent hook : ", values);
     setRent((previousRent) => ({
       ...previousRent,
       vehicle: values,
@@ -155,6 +154,13 @@ export const RentProvider = ({ children, initialValue }) => {
     setRent((previousRent) => ({
       ...previousRent,
       movers: values,
+    }));
+  }
+
+  function handlePassageRent(values) {
+    setRent((previousRent) => ({
+      ...previousRent,
+      passage: values,
     }));
   }
 
@@ -198,6 +204,16 @@ export const RentProvider = ({ children, initialValue }) => {
     }));
   }
 
+  function handlePassageRentByKey(key, value) {
+    setRent((previousRent) => ({
+      ...previousRent,
+      passage: {
+        ...previousRent.passage,
+        [key]: value,
+      },
+    }));
+  }
+
   useEffect(() => {
     async function getRentKm() {
       if (rent?.vehicle?.startAddress && rent?.vehicle?.endAddress) {
@@ -217,40 +233,40 @@ export const RentProvider = ({ children, initialValue }) => {
     getRentKm();
   }, [rent?.vehicle?.startAddress, rent?.vehicle?.endAddress]);
 
-  useEffect(() => {
-    async function getRentKm() {
-      if (rent?.movers?.startAddress && rent?.movers?.endAddress) {
-        const km = await getKmBetweenDistances(
-          {
-            lon: rent?.movers?.startAddress?.lng,
-            lat: rent?.movers?.startAddress?.lat,
-          },
-          {
-            lon: rent?.movers?.endAddress?.lng,
-            lat: rent?.movers?.endAddress?.lat,
-          }
-        );
-        handleMoversRentByKey("km", km);
-      }
-    }
-    getRentKm();
-  }, [rent?.movers?.startAddress, rent?.movers?.endAddress]);
-
-  useEffect(() => {
-    async function getRentKm() {
-      if (rent?.lift?.startAddress && rent?.lift?.endAddress) {
-        const km = await getKmBetweenDistances(
-          {
-            lon: rent?.lift?.startAddress?.lng,
-            lat: rent?.lift?.startAddress?.lat,
-          },
-          { lon: rent?.lift?.endAddress?.lng, lat: rent?.lift?.endAddress?.lat }
-        );
-        handleLiftRentByKey("km", km);
-      }
-    }
-    getRentKm();
-  }, [rent?.lift?.startAddress, rent?.lift?.endAddress]);
+  // useEffect(() => {
+  //   async function getRentKm() {
+  //     if (rent?.movers?.startAddress && rent?.movers?.endAddress) {
+  //       const km = await getKmBetweenDistances(
+  //         {
+  //           lon: rent?.movers?.startAddress?.lng,
+  //           lat: rent?.movers?.startAddress?.lat,
+  //         },
+  //         {
+  //           lon: rent?.movers?.endAddress?.lng,
+  //           lat: rent?.movers?.endAddress?.lat,
+  //         }
+  //       );
+  //       handleMoversRentByKey("km", km);
+  //     }
+  //   }
+  //   getRentKm();
+  // }, [rent?.movers?.startAddress, rent?.movers?.endAddress]);
+  //
+  // useEffect(() => {
+  //   async function getRentKm() {
+  //     if (rent?.lift?.startAddress && rent?.lift?.endAddress) {
+  //       const km = await getKmBetweenDistances(
+  //         {
+  //           lon: rent?.lift?.startAddress?.lng,
+  //           lat: rent?.lift?.startAddress?.lat,
+  //         },
+  //         { lon: rent?.lift?.endAddress?.lng, lat: rent?.lift?.endAddress?.lat }
+  //       );
+  //       handleLiftRentByKey("km", km);
+  //     }
+  //   }
+  //   getRentKm();
+  // }, [rent?.lift?.startAddress, rent?.lift?.endAddress]);
 
   useEffect(() => {
     if (isObjectEmpty(rent)) return; // ici checker toute les parties, sinon tout refaire à chaque fois?
@@ -277,6 +293,8 @@ export const RentProvider = ({ children, initialValue }) => {
         handleMoversRentByKey,
         clearRent,
         handleRentByKey,
+        handlePassageRent,
+        handlePassageRentByKey,
       }}
     >
       {children}

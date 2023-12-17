@@ -5,7 +5,6 @@ import messages from "../messages";
 import { useEstimate } from "../../../../hooks/estimate";
 import { METRICS } from "../../../../helpers/constants";
 import { EstimateSummaryInformationBlock, UNKNOW } from "../index";
-import { DEPARTURE_FOOT_DISTANCE_OPTIONS } from "../../Details/constants";
 import {
   FRIDGE_OPTIONS,
   PIANO_OPTIONS,
@@ -41,7 +40,9 @@ const SummaryInventorySection = () => {
           mountingType,
           items,
           extraFurnitures: {
-            items: extraFurnituresItems = [],
+            standard: { items: standardItems = [] } = {},
+            fragile: { items: fragileItems = [] } = {},
+            others: { items: othersItems = [] } = {},
             needed: extraFurnituresNeeded = false,
           } = {},
         } = {},
@@ -173,7 +174,18 @@ const SummaryInventorySection = () => {
       {extraFurnituresNeeded ? (
         <section style={{ paddingTop: "1em" }}>
           <EstimateSection title={messages.sections.inventory.extraFurnitures}>
-            <EstimateSummaryItemList itemList={extraFurnituresItems} />
+            <div style={{ padding: "0.5em" }}>
+              <h3>Non-Fragile</h3>
+              <EstimateSummaryItemList itemList={standardItems} />
+            </div>
+            <div style={{ padding: "0.5em" }}>
+              <h3>Fragile</h3>
+              <EstimateSummaryItemList itemList={fragileItems} />
+            </div>
+            <div style={{ padding: "0.5em" }}>
+              <h3>Autre</h3>
+              <EstimateSummaryItemList itemList={othersItems} />
+            </div>
           </EstimateSection>
         </section>
       ) : null}

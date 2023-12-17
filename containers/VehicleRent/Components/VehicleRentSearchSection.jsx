@@ -14,11 +14,13 @@ import { useRouter } from "next/router";
 import { useRent } from "../../../hooks/rent";
 import MUISelect from "@mui/material/Select";
 import MUIMenuItem from "@mui/material/MenuItem";
+import Fade from "@mui/material/Fade";
 import FloorSelect from "../../../components/Utilities/FloorSelect";
 import GeolocationInput from "../../../components/GeolocationInput";
 import {
   FULL_DAY_DURATION,
   HALF_DAY_DURATION,
+  PASSAGE_DURATION,
 } from "../../../helpers/constants";
 import { useEstimate } from "../../../hooks/estimate";
 
@@ -236,9 +238,13 @@ export const PARIS_PIN_POINT = {
   lon: 2.333333,
 };
 
+export function getPassagePrice(km) {
+  return (110 + km * 0.7) * 1.2;
+}
 const LiftRentSection = () => {
   const router = useRouter();
-  const { handleLiftRent, handleMoversRent, rent } = useRent();
+  const { handleLiftRent, handleMoversRent, rent, handlePassageRent } =
+    useRent();
   const { getKmBetweenDistances } = useEstimate();
 
   function validate(values) {
@@ -247,25 +253,34 @@ const LiftRentSection = () => {
       errors.startAddress = "Merci d'ajouter une addresse de départ";
     if (!values.startDate)
       errors.startDate = "Merci d'ajouter une date de départ";
-    if (!values.duration) errors.duration = "Merci d'ajouter une durée";
-    if (values.floors === null)
-      errors.nbMovingMen = "Merci d'ajouter des déménageurs";
+    if (!values.onlyPassage) {
+      if (!values.duration) errors.duration = "Merci d'ajouter une durée";
+      if (values.floors === null) errors.floors = "Merci d'ajouter l'étage";
+    }
     return errors;
   }
 
-  function handleSubmit(values) {
+  function getMoversPrice(duration) {
+    if (duration === PASSAGE_DURATION) return 0;
+    return duration === HALF_DAY_DURATION ? 75 : 150;
+  }
+
+  async function handleSubmit(values) {
+    const km = await getKmBetweenDistances(PARIS_PIN_POINT, {
+      lat: values.startAddress.lat,
+      lon: values.startAddress.lng,
+    });
     handleMoversRent({
       ...rent.movers,
       present: values.nbMovingMen > 0,
       nbMovingMen: values.nbMovingMen,
+      totalPrice: getMoversPrice(values.nbMovingMen, km),
+      km,
     });
     handleLiftRent({
       ...rent.lift,
       present: true,
-      km: getKmBetweenDistances(PARIS_PIN_POINT, {
-        lat: values.startAddress.lat,
-        lon: values.startAddress.lng,
-      }),
+      km,
       ...values,
     });
     router.push(Routes.LIFT_RENT_PAGE_SELECTION);
@@ -349,8 +364,11 @@ const LiftRentSection = () => {
               value={formik.values.duration}
               onChange={formik.handleChange}
             >
-              <MUIMenuItem value={4}>4h</MUIMenuItem>
-              <MUIMenuItem value={8}>8h</MUIMenuItem>
+              <MUIMenuItem value={PASSAGE_DURATION}>Passage (1h)</MUIMenuItem>
+              <MUIMenuItem value={HALF_DAY_DURATION}>
+                Demi journée (4h)
+              </MUIMenuItem>
+              <MUIMenuItem value={FULL_DAY_DURATION}>Journée (8h)</MUIMenuItem>
             </MUISelect>
             {formik.errors.duration && formik.touched.duration && (
               <span style={{ color: "red" }}>{formik.errors.duration}</span>
@@ -384,34 +402,42 @@ const LiftRentSection = () => {
               }
             />
           </div>
-          <FormControlLabel
-            control={
-              <CheckBox
-                checked={formik.values.isEntrancePresent}
-                onChange={() =>
-                  formik.setFieldValue(
-                    "isEntrancePresent",
-                    !formik.values.isEntrancePresent
-                  )
+          <section
+            style={{ display: "flex", flexDirection: "column", gap: "0.5em" }}
+          >
+            <FormControlLabel
+              control={
+                <CheckBox
+                  checked={formik.values.isEntrancePresent}
+                  onChange={() =>
+                    formik.setFieldValue(
+                      "isEntrancePresent",
+                      !formik.values.isEntrancePresent
+                    )
+                  }
+                />
+              }
+              label={<label>{"J'ai un passage ou une cour"}</label>}
+            />
+            <Fade in={formik.values.isEntrancePresent}>
+              <FormControlLabel
+                control={
+                  <CheckBox
+                    checked={formik.values.entranceNotTallEnough}
+                    onChange={() =>
+                      formik.setFieldValue(
+                        "entranceNotTallEnough",
+                        !formik.values.entranceNotTallEnough
+                      )
+                    }
+                  />
+                }
+                label={
+                  <label>{"Mon passage fait plus de 2,2m de hauteur"}</label>
                 }
               />
-            }
-            label={<label>{"J'ai un passage ou une cour"}</label>}
-          />
-          <FormControlLabel
-            control={
-              <CheckBox
-                checked={formik.values.entranceNotTallEnough}
-                onChange={() =>
-                  formik.setFieldValue(
-                    "entranceNotTallEnough",
-                    !formik.values.entranceNotTallEnough
-                  )
-                }
-              />
-            }
-            label={<label>{"Mon passage fait plus de 2,2m de hauteur"}</label>}
-          />
+            </Fade>
+          </section>
         </div>
         <footer
           style={{

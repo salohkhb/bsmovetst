@@ -61,6 +61,7 @@ export const NAV_HEADER_LIFT_RENT_STEPS = [
 
 export const NAV_HEADER_MOVERS_RENT_STEPS = ["Renseignements", "Réservation"];
 
+export const PASSAGE_DURATION = 1;
 export const HALF_DAY_DURATION = 4;
 export const FULL_DAY_DURATION = 8;
 
