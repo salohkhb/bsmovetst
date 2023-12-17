@@ -175,10 +175,29 @@ function mapValuesToEstimateRequest(estimate, customer, extraData) {
       },
       extraFurnitures: {
         needed: estimate?.inventory?.mounting?.extraFurnitures?.needed || false,
-        isHelpNeededToWrap:
-          estimate?.inventory?.mounting?.extraFurnitures?.isHelpNeededToWrap ||
-          false,
-        items: estimate?.inventory?.mounting?.extraFurnitures?.items || [],
+        standard: {
+          isHelpNeededToWrap:
+            estimate?.inventory?.mounting?.extraFurnitures?.standard
+              ?.isHelpNeededToWrap || false,
+          items:
+            estimate?.inventory?.mounting?.extraFurnitures?.standard?.items ||
+            [],
+        },
+        fragile: {
+          isHelpNeededToWrap:
+            estimate?.inventory?.mounting?.extraFurnitures?.fragile
+              ?.isHelpNeededToWrap || false,
+          items:
+            estimate?.inventory?.mounting?.extraFurnitures?.fragile?.items ||
+            [],
+        },
+        others: {
+          isHelpNeededToWrap:
+            estimate?.inventory?.mounting?.extraFurnitures?.others
+              ?.isHelpNeededToWrap || false,
+          items:
+            estimate?.inventory?.mounting?.extraFurnitures?.others?.items || [],
+        },
       },
     },
     status: "WAITING_ACTION",
