@@ -12,12 +12,15 @@ import Routes from "../../../../helpers/routes";
 import api from "../../../../helpers/api";
 import { useLoading } from "../../../../hooks/loading";
 import { useAlert } from "../../../../hooks/alert";
+import Divider from "@mui/material/Divider";
+import { getMoversPrice } from "../../../../helpers/prices";
+import { CURRENCY } from "../../../../helpers/constants";
 
 function mapMoversRentDataToAPI(data = {}) {
   return {
-    startAddress: data.lift.startAddress,
-    startDate: data.lift.startDate,
-    duration: data.lift.duration,
+    startAddress: data.movers.startAddress,
+    startDate: data.movers.startDate,
+    duration: data.movers.duration,
     vehicle: {
       present: false,
       endAddress: null,
@@ -26,15 +29,16 @@ function mapMoversRentDataToAPI(data = {}) {
     },
     lift: {
       present: true,
-      floors: data.lift.floors,
-      items: data.lift.items,
-      km: data.lift.km,
-      isEntrancePresent: data.lift.isEntrancePresent,
-      entranceNotTallEnough: data.lift.entranceNotTallEnough,
+      floors: 0,
+      items: [],
+      km: 0,
+      isEntrancePresent: false,
+      entranceNotTallEnough: false,
     },
     movers: {
       present: data?.movers?.nbMovingMen > 0,
-      nbMovingMen: data?.movers?.nbMovingMen, // no movers necessary
+      onlyMovers: true,
+      nbMovingMen: data?.movers?.nbMovingMen,
     },
     customerInfos: {
       firstName: data.customerInfos?.firstName,
@@ -45,16 +49,26 @@ function mapMoversRentDataToAPI(data = {}) {
       zipCode: data.customerInfos?.zipCode,
       country: data.customerInfos?.country,
     },
-    totalQuantity: 1,
-    totalPrice: data.lift.totalPrice,
+    totalQuantity: data.movers.nbMovingMen,
+    totalPrice: data.movers.totalPrice,
   };
 }
 const RentSummaryLeft = () => {
   const { auth, customer } = useCustomer();
   const { setGlobalLoading } = useLoading();
   const { setAlert } = useAlert();
-  const { rent = {}, clearRent } = useRent();
+  const { rent = {}, clearRent, handleMoversRent } = useRent();
   const router = useRouter();
+
+  useEffect(() => {
+    handleMoversRent({
+      ...rent.movers,
+      totalPrice: getMoversPrice(
+        rent.movers?.nbMovingMen,
+        rent.movers?.duration
+      ),
+    });
+  }, [rent?.movers?.nbMovingMen]);
 
   const [initialValues, setInitialValues] = useState({
     lastName: customer?.lastName || "",
@@ -111,7 +125,7 @@ const RentSummaryLeft = () => {
   async function handleSubmit(values) {
     setGlobalLoading(true);
     const requestData = mapMoversRentDataToAPI({ ...rent, ...values });
-    const res = await api.post("/Rent", requestData, {
+    const res = await api.post("/Rentals", requestData, {
       headers: { Authorization: auth.id },
     });
     setGlobalLoading(false);
@@ -331,6 +345,7 @@ const RentSummaryLeft = () => {
 const RentSummaryRight = () => {
   const { rent } = useRent();
   const router = useRouter();
+  console.log("where does it not work ? ");
   return (
     <article
       style={{ display: "flex", flexDirection: "column", width: "100%" }}
@@ -376,9 +391,9 @@ const RentSummaryRight = () => {
             </span>
           </div>
           <div style={{ display: "flex", flexDirection: "column" }}>
-            <span style={{ fontWeight: "bold" }}>Adresse de d'arrivée</span>
+            <span style={{ fontWeight: "bold" }}>Dureée de manutention</span>
             <span style={{ color: "#8B9197" }}>
-              {rent?.movers?.endAddress?.placeName}
+              {rent?.movers?.duration} heures
             </span>
           </div>
         </div>
@@ -389,22 +404,19 @@ const RentSummaryRight = () => {
           </span>
         </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <span style={{ fontWeight: "bold" }}>Kilométrage</span>
-          <span style={{ color: "#8B9197" }}>
-            {parseInt(rent?.movers?.km) || "-- "}km
-          </span>
-        </div>
-        <div style={{ display: "flex", flexDirection: "column" }}>
           <span style={{ fontWeight: "bold" }}>Nombre de déménageurs</span>
           <span style={{ color: "#8B9197" }}>
-            {parseInt(rent?.movers?.nbMovingMen || 0)}
+            {parseInt(rent?.movers?.nbMovingMen)}
           </span>
         </div>
-        {/*<Divider />*/}
-        {/*<div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>*/}
-        {/*    <h2 style={{ margin: 0 }}>Total :</h2>*/}
-        {/*    <span>{rent?.movers?.vehicle?.price}{CURRENCY.EUR}</span>*/}
-        {/*</div>*/}
+        <Divider />
+        <div style={{ display: "flex", flexDirection: "row", gap: "0.5em" }}>
+          <span style={{ fontWeight: "bold" }}>Total: </span>
+          <span style={{ color: "#8B9197" }}>
+            {rent.movers?.totalPrice}
+            {CURRENCY.EUR}
+          </span>
+        </div>
       </div>
       <div
         style={{

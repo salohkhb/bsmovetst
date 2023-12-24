@@ -37,6 +37,7 @@ function mapLiftRentDataToAPI(data = {}) {
     },
     movers: {
       present: data?.movers?.nbMovingMen > 0,
+      onlyMovers: false,
       nbMovingMen: data?.movers?.nbMovingMen, // no movers necessary
     },
     customerInfos: {
@@ -49,7 +50,7 @@ function mapLiftRentDataToAPI(data = {}) {
       country: data.customerInfos?.country,
     },
     totalQuantity: 1,
-    totalPrice: data.lift.totalPrice,
+    totalPrice: data.lift.totalPrice + data.movers.totalPrice,
   };
 }
 
@@ -403,9 +404,7 @@ const LiftRentSummaryRight = () => {
           </div>
           <div style={{ display: "flex", flexDirection: "column" }}>
             <span style={{ fontWeight: "bold" }}>Etage</span>
-            <span style={{ color: "#8B9197" }}>
-              {formatDate(rent?.lift?.floors)}
-            </span>
+            <span style={{ color: "#8B9197" }}>{rent?.lift?.floors}</span>
           </div>
         </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
@@ -424,7 +423,7 @@ const LiftRentSummaryRight = () => {
         >
           <h2 style={{ margin: 0 }}>Total :</h2>
           <span>
-            {rent?.lift?.totalPrice}
+            {rent?.lift?.totalPrice + rent?.movers?.totalPrice}
             {CURRENCY.EUR}
           </span>
         </div>

@@ -27,6 +27,7 @@ function mapVehicleRentDataToAPI(data = {}) {
       endAddress: data.vehicle.endAddress,
       km: data.vehicle.km,
       items: data.vehicle.items,
+      floors: data.vehicle.floors,
     },
     lift: {
       present: false,
@@ -50,7 +51,7 @@ function mapVehicleRentDataToAPI(data = {}) {
       zipCode: data.customerInfos?.zipCode,
       country: data.customerInfos?.country,
     },
-    totalPrice: data.vehicle.totalPrice,
+    totalPrice: data.vehicle.totalPrice + data.movers.totalPrice,
     totalQuantity: data.vehicle.totalQuantity,
   };
 }

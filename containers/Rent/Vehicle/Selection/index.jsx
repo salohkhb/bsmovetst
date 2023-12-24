@@ -1,5 +1,4 @@
 import { useRent } from "../../../../hooks/rent";
-import { useFormik } from "formik";
 import Image from "next/legacy/image";
 import DatePicker from "../../../../components/Pickers/DatePicker";
 import MUISelect from "@mui/material/Select";

@@ -23,6 +23,7 @@ import {
   PASSAGE_DURATION,
 } from "../../../helpers/constants";
 import { useEstimate } from "../../../hooks/estimate";
+import { getMoversPrice } from "../../../helpers/prices";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -70,8 +71,16 @@ const VehicleRentSearchSectionVehicle = () => {
       ...rent.movers,
       present: true,
       nbMovingMen: values.nbMovingMen,
+      totalPrice: getMoversPrice(values.nbMovingMen, values.duration),
     });
     if (values.onlyMovingMen) {
+      handleMoversRent({
+        ...rent.movers,
+        present: true,
+        nbMovingMen: values.nbMovingMen,
+        totalPrice: getMoversPrice(values.nbMovingMen, values.duration),
+        ...values,
+      });
       router.push(Routes.MOVERS_RENT_PAGE_SUMMARY);
     } else {
       handleVehicleRent(values);
@@ -243,8 +252,7 @@ export function getPassagePrice(km) {
 }
 const LiftRentSection = () => {
   const router = useRouter();
-  const { handleLiftRent, handleMoversRent, rent, handlePassageRent } =
-    useRent();
+  const { handleLiftRent, handleMoversRent, rent } = useRent();
   const { getKmBetweenDistances } = useEstimate();
 
   function validate(values) {
@@ -253,16 +261,9 @@ const LiftRentSection = () => {
       errors.startAddress = "Merci d'ajouter une addresse de départ";
     if (!values.startDate)
       errors.startDate = "Merci d'ajouter une date de départ";
-    if (!values.onlyPassage) {
-      if (!values.duration) errors.duration = "Merci d'ajouter une durée";
-      if (values.floors === null) errors.floors = "Merci d'ajouter l'étage";
-    }
+    if (!values.duration) errors.duration = "Merci d'ajouter une durée";
+    if (values.floors === null) errors.floors = "Merci d'ajouter l'étage";
     return errors;
-  }
-
-  function getMoversPrice(duration) {
-    if (duration === PASSAGE_DURATION) return 0;
-    return duration === HALF_DAY_DURATION ? 75 : 150;
   }
 
   async function handleSubmit(values) {
@@ -274,7 +275,7 @@ const LiftRentSection = () => {
       ...rent.movers,
       present: values.nbMovingMen > 0,
       nbMovingMen: values.nbMovingMen,
-      totalPrice: getMoversPrice(values.nbMovingMen, km),
+      totalPrice: getMoversPrice(values.nbMovingMen, values.duration),
       km,
     });
     handleLiftRent({
@@ -401,6 +402,7 @@ const LiftRentSection = () => {
                 )
               }
             />
+            <span>(L'opérateur est déjà inclus)</span>
           </div>
           <section
             style={{ display: "flex", flexDirection: "column", gap: "0.5em" }}

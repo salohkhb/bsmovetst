@@ -10,18 +10,22 @@ import {
   CURRENCY,
   FULL_DAY_DURATION,
   HALF_DAY_DURATION,
+  PASSAGE_DURATION,
 } from "../../../../helpers/constants";
 import GeolocationInput from "../../../../components/GeolocationInput";
 import { useRouter } from "next/router";
 import Routes from "../../../../helpers/routes";
 import FloorSelect from "../../../../components/Utilities/FloorSelect";
+import { getLiftPrice, getMoversPrice } from "../../../../helpers/prices";
 
 const LiftRentSelectionHeader = () => {
   const {
-    rent: { lift, movers } = {},
+    rent: { lift = {}, movers = {} } = {},
     handleLiftRentByKey,
     handleMoversRentByKey,
   } = useRent();
+
+  console.log("lift is : ", lift);
 
   return (
     <header style={{ padding: "54px 0", width: "100vw" }}>
@@ -36,7 +40,7 @@ const LiftRentSelectionHeader = () => {
         <div style={{ width: "278px" }}>
           <label>Départ</label>
           <GeolocationInput
-            initialValue={lift?.startAddress?.placeName}
+            initialInputValue={lift?.startAddress?.placeName}
             name={"startAddress"}
             onChange={(value) => handleLiftRentByKey("startAddress", value)}
             placeholder={"Adresse de départ"}
@@ -66,6 +70,7 @@ const LiftRentSelectionHeader = () => {
               handleLiftRentByKey("duration", event.target.value);
             }}
           >
+            <MUIMenuItem value={PASSAGE_DURATION}>1h</MUIMenuItem>
             <MUIMenuItem value={HALF_DAY_DURATION}>4h</MUIMenuItem>
             <MUIMenuItem value={FULL_DAY_DURATION}>8h</MUIMenuItem>
           </MUISelect>
@@ -103,20 +108,40 @@ const LiftRentSelectionHeader = () => {
 };
 
 function getPriceForItem(item, lift) {
-  switch (item.id) {
-    case 1:
-      return 1;
-    case 2:
-      return 2;
-    case 3:
-      return 3;
+  switch (item.name) {
+    case "Échelle électrique":
+      return getLiftPrice(
+        lift.km,
+        "Échelle électrique",
+        lift.duration,
+        lift.floors
+      );
+    case "Monte meuble auto-porté":
+      return getLiftPrice(
+        lift.km,
+        "Monte meuble auto-porté",
+        lift.duration,
+        lift.floors
+      );
+    case "Monte meuble tracté":
+      return getLiftPrice(
+        lift.km,
+        "Échelle électrique",
+        lift.duration,
+        lift.floors
+      );
     default:
-      return 3;
+      return getLiftPrice(
+        lift.km,
+        "Monte meuble tracté",
+        lift.duration,
+        lift.floors
+      );
   }
 }
 
 const RentCard = ({ item }) => {
-  const { handleLiftRent, rent = {} } = useRent();
+  const { handleLiftRent, handleMoversRent, rent = {} } = useRent();
   const router = useRouter();
 
   function handleRentItem() {
@@ -124,6 +149,10 @@ const RentCard = ({ item }) => {
       ...rent.lift,
       items: [{ ...item }],
       totalPrice: getPriceForItem(item, rent.lift),
+    });
+    handleMoversRent({
+      ...rent.movers,
+      totalPrice: getMoversPrice(rent.movers?.nbMovingMen, rent.lift?.duration),
     });
     router.push(Routes.LIFT_RENT_PAGE_SUMMARY);
   }
@@ -178,7 +207,6 @@ const RentCard = ({ item }) => {
               {getPriceForItem(item, rent?.lift)}
               {CURRENCY.EUR}
             </h2>
-            <h2 style={{ margin: 0, padding: 0 }}>Total</h2>
             <Button onClick={handleRentItem}>Louer ce monte-meubles</Button>
           </div>
         </div>
@@ -259,7 +287,6 @@ const RentSelection = () => {
   }, [rent?.lift?.floors]);
 
   function computeList() {
-    console.log("called ");
     const itemList = [
       {
         id: 1,
