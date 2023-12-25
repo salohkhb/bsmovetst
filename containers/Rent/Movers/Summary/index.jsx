@@ -345,7 +345,6 @@ const RentSummaryLeft = () => {
 const RentSummaryRight = () => {
   const { rent } = useRent();
   const router = useRouter();
-  console.log("where does it not work ? ");
   return (
     <article
       style={{ display: "flex", flexDirection: "column", width: "100%" }}

@@ -153,6 +153,7 @@ const ExtraFurnituresComponent = ({
   type = "standard",
   list = [],
   title = "",
+  isBoxFurnitures = true,
 }) => {
   const {
     addToEstimateInventoryByKey,
@@ -187,21 +188,23 @@ const ExtraFurnituresComponent = ({
                 <ExtraFurnitureCard item={item} key={index} />
               ))}
             </div>
-            <FormControlLabel
-              key="helpWrapping"
-              id="helpWrapping"
-              control={
-                <CheckBox
-                  name="helpWrapping"
-                  checked={
-                    inventory?.mounting?.extraFurnitures?.[type]
-                      ?.isHelpNeededToWrap
-                  }
-                />
-              }
-              label="J'ai besoin d'aide pour l'emballage des cartons"
-              onChange={handleNeedHelpToWrapToggle}
-            />
+            {isBoxFurnitures ? (
+              <FormControlLabel
+                key="helpWrapping"
+                id="helpWrapping"
+                control={
+                  <CheckBox
+                    name="helpWrapping"
+                    checked={
+                      inventory?.mounting?.extraFurnitures?.[type]
+                        ?.isHelpNeededToWrap
+                    }
+                  />
+                }
+                label="J'ai besoin d'aide pour l'emballage des cartons"
+                onChange={handleNeedHelpToWrapToggle}
+              />
+            ) : null}
           </section>
         </div>
       </div>
@@ -235,8 +238,6 @@ const ExtraFurnituresContainer = ({
       },
     });
   }
-
-  console.log("inventory is : ", inventory);
 
   function separateItemsByCategories(dataList) {
     const dupList = [...items];
@@ -302,6 +303,7 @@ const ExtraFurnituresContainer = ({
                 list={items[2]?.items}
                 type="others"
                 title="Autres fournitures"
+                isBoxFurnitures={false}
               />
             </>
           )}

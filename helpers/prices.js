@@ -51,8 +51,6 @@ export function getLiftPrice(km, liftName, duration, floors) {
 
 // Movers price, PASSAGE_DURATION is 75 too for now
 export function getMoversPrice(nbMovers = 0, duration) {
-  console.log("nb movers : ", nbMovers);
-  console.log("duration : ", duration);
   return duration === FULL_DAY_DURATION ? nbMovers * 150 : nbMovers * 75;
 }
 

@@ -6,7 +6,7 @@ import { formatDate } from "../../../../helpers/functions";
 import {
   DEPARTURE_FOOT_DISTANCE_OPTIONS,
   DEPARTURE_FURNITURES_LIFT_OPTIONS,
-  DEPARTURE_LIFT_OPTIONS,
+  DEPARTURE_ELEVATOR_OPTIONS,
 } from "../../Details/constants";
 import { EstimateSummaryInformationBlock, UNKNOW } from "../index";
 import { useEstimate } from "../../../../hooks/estimate";
@@ -22,7 +22,6 @@ const SummaryAddressSection = () => {
     } = {},
   } = useEstimate();
 
-  console.log("arrival informations : ", arrivalInformations);
   return (
     <EstimateSection title={messages.sections.informations.title}>
       <div className={styles.estimate_informations_container}>
@@ -47,8 +46,8 @@ const SummaryAddressSection = () => {
         <EstimateSummaryInformationBlock
           label={messages.sections.informations.blockLabel.departureElevator}
           content={
-            departureInformations?.furnituresLift
-              ? DEPARTURE_LIFT_OPTIONS.find(
+            departureInformations?.elevator
+              ? DEPARTURE_ELEVATOR_OPTIONS.find(
                   (option) => option.value === departureInformations?.elevator
                 )?.label
               : UNKNOW
@@ -58,21 +57,14 @@ const SummaryAddressSection = () => {
           label={
             messages.sections.informations.blockLabel.departureHasFurnituresLift
           }
-          content={
-            departureInformations?.furnituresLift
-              ? DEPARTURE_FURNITURES_LIFT_OPTIONS.find(
-                  (option) =>
-                    option.value === departureInformations?.furnituresLift
-                )?.label
-              : UNKNOW
-          }
+          content={departureInformations?.furnituresLift ? "Oui" : "Non"}
         />
         <EstimateSummaryInformationBlock
           label={
             messages.sections.informations.blockLabel.departureFootDistance
           }
           content={
-            departureInformations?.furnituresLift
+            departureInformations?.footDistance
               ? DEPARTURE_FOOT_DISTANCE_OPTIONS.find(
                   (option) =>
                     option.value === departureInformations?.footDistance
@@ -103,8 +95,8 @@ const SummaryAddressSection = () => {
         <EstimateSummaryInformationBlock
           label={messages.sections.informations.blockLabel.arrivalElevator}
           content={
-            arrivalInformations?.furnituresLift
-              ? DEPARTURE_LIFT_OPTIONS.find(
+            arrivalInformations?.elevator
+              ? DEPARTURE_ELEVATOR_OPTIONS.find(
                   (option) => option.value === arrivalInformations?.elevator
                 )?.label
               : UNKNOW
@@ -114,14 +106,7 @@ const SummaryAddressSection = () => {
           label={
             messages.sections.informations.blockLabel.arrivalHasFurnituresLift
           }
-          content={
-            arrivalInformations?.furnituresLift
-              ? DEPARTURE_FURNITURES_LIFT_OPTIONS.find(
-                  (option) =>
-                    option.value === arrivalInformations?.furnituresLift
-                )?.label
-              : UNKNOW
-          }
+          content={arrivalInformations?.furnituresLift ? "Oui" : "Non"}
         />
         <EstimateSummaryInformationBlock
           label={messages.sections.informations.blockLabel.arrivalFootDistance}

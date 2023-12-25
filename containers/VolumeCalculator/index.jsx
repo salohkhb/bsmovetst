@@ -230,7 +230,6 @@ const VolumeCalculatorContainer = () => {
   const [roomDialogOpen, setRoomDialogOpen] = useState(false);
 
   function addRoom(name) {
-    console.log("add room, inventory right now : ", inventory);
     addToEstimateInventoryByKey("volume", {
       rooms: [
         ...(inventory?.volume?.rooms || []),
@@ -274,8 +273,6 @@ const VolumeCalculatorContainer = () => {
       fetchObjectList();
     }
   }, [inventory?.volume?.rooms]);
-
-  console.log("inventory : ", inventory?.volume);
 
   function handleRoomDialog() {
     return setRoomDialogOpen((prevState) => !prevState);

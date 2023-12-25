@@ -25,8 +25,6 @@ const LiftRentSelectionHeader = () => {
     handleMoversRentByKey,
   } = useRent();
 
-  console.log("lift is : ", lift);
-
   return (
     <header style={{ padding: "54px 0", width: "100vw" }}>
       <div

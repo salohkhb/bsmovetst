@@ -12,7 +12,7 @@ import {
   departureInformationsOptions,
   DEPARTURE_FOOT_DISTANCE_OPTIONS,
   DEPARTURE_FURNITURES_LIFT_OPTIONS,
-  DEPARTURE_LIFT_OPTIONS,
+  DEPARTURE_ELEVATOR_OPTIONS,
 } from "./constants";
 import styles from "./index.module.css";
 import messages from "./messages";
@@ -97,9 +97,11 @@ const DepartureInformationsSection = ({
   addToEstimateDetailsByKey,
 }) => {
   const [currentRadioValue, setCurrentRadioValue] = useState("no");
-  const { estimate: { details } } = useEstimate()
+  const {
+    estimate: { details },
+  } = useEstimate();
   const [values, setValues] = useState({
-    address: departureInformations?.address?.placeName || '',
+    address: departureInformations?.address?.placeName || "",
     floor: departureInformations?.floor || false,
     elevator: departureInformations?.elevator || false,
     footDistance: departureInformations?.footDistance || 0,
@@ -108,7 +110,7 @@ const DepartureInformationsSection = ({
   });
 
   useEffect(() => {
-    setValues(prev => ({
+    setValues((prev) => ({
       ...prev,
       address: departureInformations?.address?.placeName,
       floor: departureInformations?.floor,
@@ -116,8 +118,8 @@ const DepartureInformationsSection = ({
       footDistance: departureInformations?.footDistance,
       furnituresLift: departureInformations?.furnituresLift,
       parkingPermit: departureInformations?.parkingPermit,
-    }))
-  }, [details])
+    }));
+  }, [details]);
 
   async function handleChange(event) {
     addToEstimateDetailsByKey("departureInformations", {
@@ -172,7 +174,7 @@ const DepartureInformationsSection = ({
               name={messages.selects.elevator.name}
               onChange={handleChange}
               value={values?.elevator}
-              options={DEPARTURE_LIFT_OPTIONS}
+              options={DEPARTURE_ELEVATOR_OPTIONS}
             />
           ) : null}
           <Select
@@ -223,10 +225,12 @@ const ArrivalInformationsSection = ({
   addToEstimateDetailsByKey,
 }) => {
   const [currentRadioValue, setCurrentRadioValue] = useState("no");
-  const { estimate: { details } } = useEstimate()
+  const {
+    estimate: { details },
+  } = useEstimate();
 
   const [values, setValues] = useState({
-    address: arrivalInformations?.address?.placeName || '',
+    address: arrivalInformations?.address?.placeName || "",
     floor: arrivalInformations?.floor || false,
     elevator: arrivalInformations?.elevator || false,
     footDistance: arrivalInformations?.footDistance || 0,
@@ -235,7 +239,7 @@ const ArrivalInformationsSection = ({
   });
 
   useEffect(() => {
-    setValues(prev => ({
+    setValues((prev) => ({
       ...prev,
       address: arrivalInformations?.address?.placeName,
       floor: arrivalInformations?.floor,
@@ -243,8 +247,8 @@ const ArrivalInformationsSection = ({
       footDistance: arrivalInformations?.footDistance,
       furnituresLift: arrivalInformations?.furnituresLift,
       parkingPermit: arrivalInformations?.parkingPermit,
-    }))
-  }, [details])
+    }));
+  }, [details]);
 
   function handleChange(event) {
     addToEstimateDetailsByKey("arrivalInformations", {
@@ -299,7 +303,7 @@ const ArrivalInformationsSection = ({
               name={messages.selects.elevator.name}
               onChange={handleChange}
               value={values?.elevator}
-              options={DEPARTURE_LIFT_OPTIONS}
+              options={DEPARTURE_ELEVATOR_OPTIONS}
             />
           ) : null}
           <Select

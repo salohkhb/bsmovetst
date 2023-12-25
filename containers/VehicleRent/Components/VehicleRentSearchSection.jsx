@@ -66,7 +66,6 @@ const VehicleRentSearchSectionVehicle = () => {
   }
 
   function handleSubmit(values) {
-    console.log("nb men : ", values.nbMovingMen);
     handleMoversRent({
       ...rent.movers,
       present: true,
