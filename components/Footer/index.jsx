@@ -1,45 +1,67 @@
 import Image from "next/legacy/image";
 import { string } from "prop-types";
+import { useRouter } from "next/router";
+import Link from "next/link";
 
 import messages from "./messages";
 import styles from "./index.module.css";
 import Logo from "../Logo";
+import Routes from "../../helpers/routes";
 
 const MainFooter = () => {
+  const router = useRouter();
   return (
-    <div className={styles.main_footer_container}>
-      <div className={styles.main_footer_right}>
-        <div className={styles.main_footer_blocks}>
+    <footer className={styles.main_footer_container}>
+      <section className={styles.main_footer_right}>
+        <div
+          className={styles.main_footer_blocks}
+          onClick={() => router.push(Routes.HOME_PAGE)}
+        >
           <div className={styles.logo_block}>
             <Logo />
           </div>
         </div>
-        <div className={styles.main_footer_blocks}>
-          <div className={styles.main_footer_blocks_title}>
+        <section className={styles.main_footer_blocks}>
+          <span className={styles.main_footer_blocks_title}>
             {messages.mainFooter.contactsBlock.title}
-          </div>
-          <div className={styles.main_footer_blocks_content}>
+          </span>
+          <a
+            href={`tel:${process.env.NEXT_PUBLIC_CONTACT_PHONE_NUMBER}`}
+            className={styles.main_footer_blocks_content}
+          >
             {process.env.NEXT_PUBLIC_CONTACT_PHONE_NUMBER}
-          </div>
-          <div className={styles.main_footer_blocks_content}>
+          </a>
+          <a
+            href={`mailto:${process.env.NEXT_PUBLIC_CONTACT_EMAIL}`}
+            className={styles.main_footer_blocks_content}
+          >
             {process.env.NEXT_PUBLIC_CONTACT_EMAIL}
-          </div>
-        </div>
-        <div className={styles.main_footer_blocks}>
-          <div className={styles.main_footer_blocks_title}>
+          </a>
+        </section>
+        <section className={styles.main_footer_blocks}>
+          <span className={styles.main_footer_blocks_title}>
             {messages.mainFooter.servicesBlock.title}
-          </div>
-          <div className={styles.main_footer_blocks_content}>
+          </span>
+          <Link
+            href={Routes.ESTIMATE_DETAILS_PAGE}
+            className={styles.main_footer_blocks_content}
+          >
             {messages.mainFooter.servicesBlock.moving}
-          </div>
-          <div className={styles.main_footer_blocks_content}>
+          </Link>
+          <Link
+            href={Routes.VEHICLE_RENT_PAGE}
+            className={styles.main_footer_blocks_content}
+          >
             {messages.mainFooter.servicesBlock.vehicleRent}
-          </div>
-          <div className={styles.main_footer_blocks_content}>
+          </Link>
+          <Link
+            href={Routes.FURNITURES_BUY_PAGE}
+            className={styles.main_footer_blocks_content}
+          >
             {messages.mainFooter.servicesBlock.furnituresBuy}
-          </div>
-        </div>
-        <div className={styles.main_footer_blocks}>
+          </Link>
+        </section>
+        <section className={styles.main_footer_blocks}>
           <div className={styles.main_footer_blocks_title}>
             {messages.mainFooter.legalsBlock.title}
           </div>
@@ -52,9 +74,9 @@ const MainFooter = () => {
           <div className={styles.main_footer_blocks_content}>
             {messages.mainFooter.legalsBlock.confidentialPolitics}
           </div>
-        </div>
-      </div>
-    </div>
+        </section>
+      </section>
+    </footer>
   );
 };
 
