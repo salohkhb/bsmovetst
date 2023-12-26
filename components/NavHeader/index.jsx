@@ -43,7 +43,7 @@ const ServicesMenu = ({ label = "", handleOpen, open, anchorRef }) => {
     if (
       route !== Routes.FURNITURES_BUY_PAGE &&
       route !== Routes.ESTIMATE_DETAILS_PAGE &&
-        route !== Routes.VEHICLE_RENT_PAGE
+      route !== Routes.VEHICLE_RENT_PAGE
     ) {
       return setAlert({
         severity: "info",
@@ -229,13 +229,11 @@ const PrimaryNavHeader = ({ initialTab }) => {
           }}
         />
       </S.Tabs>
-      <div className={styles.button_container}>
-        <div
-          onClick={() => router.push(Routes.ESTIMATE_DETAILS_PAGE)}
-          className={styles.button_component}
-        >
-          {messages.estimate}
-        </div>
+      <div
+        className={styles.button_container}
+        onClick={() => router.push(Routes.ESTIMATE_DETAILS_PAGE)}
+      >
+        <div className={styles.button_component}>{messages.estimate}</div>
       </div>
     </div>
   );

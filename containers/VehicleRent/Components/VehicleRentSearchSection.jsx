@@ -14,8 +14,16 @@ import { useRouter } from "next/router";
 import { useRent } from "../../../hooks/rent";
 import MUISelect from "@mui/material/Select";
 import MUIMenuItem from "@mui/material/MenuItem";
+import Fade from "@mui/material/Fade";
 import FloorSelect from "../../../components/Utilities/FloorSelect";
 import GeolocationInput from "../../../components/GeolocationInput";
+import {
+  FULL_DAY_DURATION,
+  HALF_DAY_DURATION,
+  PASSAGE_DURATION,
+} from "../../../helpers/constants";
+import { useEstimate } from "../../../hooks/estimate";
+import { getMoversPrice } from "../../../helpers/prices";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -41,7 +49,7 @@ TabPanel.propTypes = {
 
 const VehicleRentSearchSectionVehicle = () => {
   const router = useRouter();
-  const { handleVehicleRent, handleMoversRent } = useRent();
+  const { handleVehicleRent, handleMoversRent, rent } = useRent();
 
   function validate(values) {
     const errors = {};
@@ -58,8 +66,20 @@ const VehicleRentSearchSectionVehicle = () => {
   }
 
   function handleSubmit(values) {
-    handleMoversRent(values);
+    handleMoversRent({
+      ...rent.movers,
+      present: true,
+      nbMovingMen: values.nbMovingMen,
+      totalPrice: getMoversPrice(values.nbMovingMen, values.duration),
+    });
     if (values.onlyMovingMen) {
+      handleMoversRent({
+        ...rent.movers,
+        present: true,
+        nbMovingMen: values.nbMovingMen,
+        totalPrice: getMoversPrice(values.nbMovingMen, values.duration),
+        ...values,
+      });
       router.push(Routes.MOVERS_RENT_PAGE_SUMMARY);
     } else {
       handleVehicleRent(values);
@@ -143,25 +163,31 @@ const VehicleRentSearchSectionVehicle = () => {
               value={formik.values.duration}
               onChange={formik.handleChange}
             >
-              <MUIMenuItem value={4}>4h</MUIMenuItem>
-              <MUIMenuItem value={8}>8h</MUIMenuItem>
+              <MUIMenuItem value={HALF_DAY_DURATION}>4h</MUIMenuItem>
+              <MUIMenuItem value={FULL_DAY_DURATION}>8h</MUIMenuItem>
             </MUISelect>
             {formik.errors.duration && formik.touched.duration && (
               <span style={{ color: "red" }}>{formik.errors.duration}</span>
             )}
           </div>
         </div>
-        <div style={{ display: "flex", flexDirection: 'column' }}>
+        <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "1em" }}>
             <span style={{ fontWeight: 600 }}>Nombre de déménageurs</span>
             <Counter
               minValue={0}
               value={formik.values.nbMovingMen}
               handleInc={() =>
-                formik.setFieldValue("nbMovingMen", formik.values.nbMovingMen + 1)
+                formik.setFieldValue(
+                  "nbMovingMen",
+                  formik.values.nbMovingMen + 1
+                )
               }
               handleDec={() =>
-                formik.setFieldValue("nbMovingMen", formik.values.nbMovingMen - 1)
+                formik.setFieldValue(
+                  "nbMovingMen",
+                  formik.values.nbMovingMen - 1
+                )
               }
             />
             <FormControlLabel
@@ -181,10 +207,9 @@ const VehicleRentSearchSectionVehicle = () => {
           </div>
           <span style={{ fontStyle: "12px" }}>(En plus du chauffeur)</span>
         </div>
-        {formik.errors.nbMovingMen && formik.touched.nbMovingMen
-            ? <span style={{ color: "red" }}>{formik.errors.nbMovingMen}</span>
-            : null
-        }
+        {formik.errors.nbMovingMen && formik.touched.nbMovingMen ? (
+          <span style={{ color: "red" }}>{formik.errors.nbMovingMen}</span>
+        ) : null}
         <footer
           style={{
             display: "flex",
@@ -216,9 +241,18 @@ const VehicleRentSearchSectionVehicle = () => {
   );
 };
 
+export const PARIS_PIN_POINT = {
+  lat: 48.866667,
+  lon: 2.333333,
+};
+
+export function getPassagePrice(km) {
+  return (110 + km * 0.7) * 1.2;
+}
 const LiftRentSection = () => {
   const router = useRouter();
-  const { handleLiftRent } = useRent();
+  const { handleLiftRent, handleMoversRent, rent } = useRent();
+  const { getKmBetweenDistances } = useEstimate();
 
   function validate(values) {
     const errors = {};
@@ -227,15 +261,28 @@ const LiftRentSection = () => {
     if (!values.startDate)
       errors.startDate = "Merci d'ajouter une date de départ";
     if (!values.duration) errors.duration = "Merci d'ajouter une durée";
-    if (values.floors === null)
-      errors.nbMovingMen = "Merci d'ajouter des déménageurs";
-    if (!values.liftType)
-      errors.liftType = "Merci de bien choisir un monte-meuble"
+    if (values.floors === null) errors.floors = "Merci d'ajouter l'étage";
     return errors;
   }
 
-  function handleSubmit(values) {
-    handleLiftRent(values);
+  async function handleSubmit(values) {
+    const km = await getKmBetweenDistances(PARIS_PIN_POINT, {
+      lat: values.startAddress.lat,
+      lon: values.startAddress.lng,
+    });
+    handleMoversRent({
+      ...rent.movers,
+      present: values.nbMovingMen > 0,
+      nbMovingMen: values.nbMovingMen,
+      totalPrice: getMoversPrice(values.nbMovingMen, values.duration),
+      km,
+    });
+    handleLiftRent({
+      ...rent.lift,
+      present: true,
+      km,
+      ...values,
+    });
     router.push(Routes.LIFT_RENT_PAGE_SELECTION);
   }
 
@@ -248,6 +295,8 @@ const LiftRentSection = () => {
       liftType: "",
       type: "lift",
       nbMovingMen: 0,
+      isEntrancePresent: false,
+      entranceNotTallEnough: false,
     },
     validate,
     onSubmit: (values) => handleSubmit(values),
@@ -276,13 +325,15 @@ const LiftRentSection = () => {
               <span style={{ color: "red" }}>{formik.errors.startAddress}</span>
             )}
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
+          <div
+            style={{ display: "flex", flexDirection: "column", width: "50%" }}
+          >
             <label>Etage</label>
             <FloorSelect
-                label=""
-                name="floors"
-                value={formik.values.floors}
-                onChange={formik.handleChange}
+              label=""
+              name="floors"
+              value={formik.values.floors}
+              onChange={formik.handleChange}
             />
           </div>
         </div>
@@ -313,8 +364,11 @@ const LiftRentSection = () => {
               value={formik.values.duration}
               onChange={formik.handleChange}
             >
-              <MUIMenuItem value={4}>4h</MUIMenuItem>
-              <MUIMenuItem value={8}>8h</MUIMenuItem>
+              <MUIMenuItem value={PASSAGE_DURATION}>Passage (1h)</MUIMenuItem>
+              <MUIMenuItem value={HALF_DAY_DURATION}>
+                Demi journée (4h)
+              </MUIMenuItem>
+              <MUIMenuItem value={FULL_DAY_DURATION}>Journée (8h)</MUIMenuItem>
             </MUISelect>
             {formik.errors.duration && formik.touched.duration && (
               <span style={{ color: "red" }}>{formik.errors.duration}</span>
@@ -324,24 +378,67 @@ const LiftRentSection = () => {
         <div
           style={{
             display: "flex",
-            alignItems: "center",
+            alignItems: "flex-start",
             gap: "1em",
-            justifyContent: 'space-between',
+            flexDirection: "column",
           }}
         >
           <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
             <span style={{ fontWeight: 600 }}>Nombre de déménageurs</span>
             <Counter
-                minValue={0}
-                value={formik.values.nbMovingMen}
-                handleInc={() =>
-                    formik.setFieldValue("nbMovingMen", formik.values.nbMovingMen + 1)
-                }
-                handleDec={() =>
-                    formik.setFieldValue("nbMovingMen", formik.values.nbMovingMen - 1)
-                }
+              minValue={0}
+              value={formik.values.nbMovingMen}
+              handleInc={() =>
+                formik.setFieldValue(
+                  "nbMovingMen",
+                  formik.values.nbMovingMen + 1
+                )
+              }
+              handleDec={() =>
+                formik.setFieldValue(
+                  "nbMovingMen",
+                  formik.values.nbMovingMen - 1
+                )
+              }
             />
+            <span>(L'opérateur est déjà inclus)</span>
           </div>
+          <section
+            style={{ display: "flex", flexDirection: "column", gap: "0.5em" }}
+          >
+            <FormControlLabel
+              control={
+                <CheckBox
+                  checked={formik.values.isEntrancePresent}
+                  onChange={() =>
+                    formik.setFieldValue(
+                      "isEntrancePresent",
+                      !formik.values.isEntrancePresent
+                    )
+                  }
+                />
+              }
+              label={<label>{"J'ai un passage ou une cour"}</label>}
+            />
+            <Fade in={formik.values.isEntrancePresent}>
+              <FormControlLabel
+                control={
+                  <CheckBox
+                    checked={formik.values.entranceNotTallEnough}
+                    onChange={() =>
+                      formik.setFieldValue(
+                        "entranceNotTallEnough",
+                        !formik.values.entranceNotTallEnough
+                      )
+                    }
+                  />
+                }
+                label={
+                  <label>{"Mon passage fait plus de 2,2m de hauteur"}</label>
+                }
+              />
+            </Fade>
+          </section>
         </div>
         <footer
           style={{

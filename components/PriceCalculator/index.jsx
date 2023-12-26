@@ -7,43 +7,52 @@ import { CURRENCY } from "../../helpers/constants";
 
 function mapPriceCalculatorValues(priceCalculator) {
   return [
-    {label: 'Km et volume', value: priceCalculator.priceWithKmAndVolume},
-    {label: 'Avec ascenseur et monte meubles', value: priceCalculator.priceWithElevator},
-    {label: 'Avec portage', value: priceCalculator.priceWithPortage},
-  ]
+    { label: "Km et volume", value: priceCalculator.priceWithKmAndVolume },
+    {
+      label: "Avec ascenseur et monte meubles",
+      value: priceCalculator.priceWithElevator,
+    },
+    { label: "Avec portage", value: priceCalculator.priceWithPortage },
+  ];
 }
 
 const PriceCalculator = () => {
-  const { priceCalculator } = useEstimate();
+  const { estimate = {}, priceCalculator: { km, totalPrice = 0 } = {} } =
+    useEstimate();
 
-  const values = mapPriceCalculatorValues(priceCalculator)
   return (
-    <Fade in={priceCalculator.totalPrice !== 0} timeout={1000}>
+    <Fade in={estimate?.inventory?.volume?.volume && km} timeout={500}>
       <section className={styles.price_calculator__container}>
         <div className={styles.price_calculator__content}>
           <article className={styles.price_calculator__main}>
             <div>
               <h3 className={styles.price_calculator__header}>
-                Calculateur de prix (estimation)
+                Calculateur de prix
               </h3>
               <Divider />
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1em', paddingTop: '1em' }}>
-                { values.map((item) => (
-                        <div key={item.label} style={{ display: "flex", gap: '1em', alignItems: 'center', justifyContent: 'space-between' }}>
-                          <span style={{ fontWeight: 'bold' }}>{item.label}: </span>
-                          <span>{parseInt(item.value)}{CURRENCY.EUR}</span>
-                        </div>
-                    )
-                )}
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "1em",
+                  paddingTop: "1em",
+                  justifyContent: "space-between",
+                }}
+              >
+                <span style={{ fontWeight: "bold" }}>Total :</span>
+                <span style={{ fontWeight: "bold" }}>
+                  {totalPrice}
+                  {CURRENCY.EUR}
+                </span>
               </div>
             </div>
           </article>
           <article>
             <Divider />
             <p className={styles.price_calculator__footer}>
-              <span style={{ fontWeight: 'bold' }}>Prix total estimé : </span>
+              <span style={{ fontWeight: "bold" }}>Prix total estimé : </span>
               <span>
-                {priceCalculator.totalPrice}
+                {totalPrice}
                 {CURRENCY.EUR}
               </span>
             </p>

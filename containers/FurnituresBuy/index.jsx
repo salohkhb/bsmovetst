@@ -41,15 +41,15 @@ const categories = [
   { label: messages.items.filters.all, filter: null, value: 0 },
   {
     label: messages.items.filters.boxes,
-    filter: '"Carton déménagement"',
+    filter: '"standard"',
     value: 1,
   },
   {
     label: messages.items.filters.bonding,
-    filter: '"Protections et calages"',
+    filter: '"fragile"',
     value: 2,
   },
-  { label: messages.items.filters.others, filter: '"Autres"', value: 3 },
+  { label: messages.items.filters.others, filter: '"others"', value: 3 },
 ];
 //
 const Categories = ({ categories = [], handleFetchItems }) => {

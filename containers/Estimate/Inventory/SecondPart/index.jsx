@@ -144,30 +144,33 @@ const MountingHelpSection = ({ inventory, addToEstimateInventoryByKey }) => {
   );
 };
 
-const ExtraFurnituresComponent = ({ type = "solid" }) => {
-  const [items, setItems] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+// get images
+// filter them with 1 loop
+// add them by id in any case
+// add 3 categories of extra furnitures in json
+
+const ExtraFurnituresComponent = ({
+  type = "standard",
+  list = [],
+  title = "",
+  isBoxFurnitures = true,
+}) => {
   const {
     addToEstimateInventoryByKey,
     estimate: { inventory },
   } = useEstimate();
 
-  useEffect(() => {
-    async function fetchItems(type) {
-      setIsLoading(true);
-      const res = await api.get("/Products");
-      setIsLoading(false);
-      setItems(res.data);
-    }
-    fetchItems(type);
-  }, [type]);
-
-  function handleChange() {
+  function handleNeedHelpToWrapToggle() {
+    if (!type) return;
     addToEstimateInventoryByKey("mounting", {
       ...inventory?.mounting,
       extraFurnitures: {
         ...inventory?.mounting?.extraFurnitures,
-        isHelpNeededToWrap: !inventory?.extraFurnitures?.isHelpNeededToWrap,
+        [type]: {
+          ...inventory?.mounting?.extraFurnitures?.[type],
+          isHelpNeededToWrap:
+            !inventory?.mounting?.extraFurnitures?.[type]?.isHelpNeededToWrap,
+        },
       },
     });
   }
@@ -176,53 +179,36 @@ const ExtraFurnituresComponent = ({ type = "solid" }) => {
     <div>
       <div className={styles.furnitures_buy_items_grid}>
         <div>
-          {isLoading ? (
-            <LoadingComponent />
-          ) : (
-            <section
-              style={{ display: "flex", flexDirection: "column", gap: "1em" }}
-            >
-              <div className={styles.furnitures_buy_items_grid_content}>
-                {items?.map((item, index) => (
-                  <ExtraFurnitureCard item={item} key={index} />
-                ))}
-              </div>
+          <section
+            style={{ display: "flex", flexDirection: "column", gap: "1em" }}
+          >
+            <h2>{title}</h2>
+            <div className={styles.furnitures_buy_items_grid_content}>
+              {list?.map((item, index) => (
+                <ExtraFurnitureCard item={item} key={index} />
+              ))}
+            </div>
+            {isBoxFurnitures ? (
               <FormControlLabel
                 key="helpWrapping"
                 id="helpWrapping"
                 control={
                   <CheckBox
                     name="helpWrapping"
-                    checked={inventory?.extraFurnitures?.isHelpNeededToWrap}
+                    checked={
+                      inventory?.mounting?.extraFurnitures?.[type]
+                        ?.isHelpNeededToWrap
+                    }
                   />
                 }
                 label="J'ai besoin d'aide pour l'emballage des cartons"
-                onChange={handleChange}
+                onChange={handleNeedHelpToWrapToggle}
               />
-            </section>
-          )}
+            ) : null}
+          </section>
         </div>
       </div>
     </div>
-  );
-};
-
-const ExtraFurnituresSections = ({
-  inventory,
-  addToEstimateInventoryByKey,
-}) => {
-  return (
-    <div className={styles.furnitures_buy_items_grid}>
-      <div className={styles.furnitures_buy_items_grid_content}>
-        <Pager />
-      </div>
-      {/*<div className={styles.furnitures_buy_items_grid_content}>*/}
-      {/*    {items.map((item, index) => <ExtraFurnitureCard item={item} key={index} />)}*/}
-      {/*</div>*/}
-    </div>
-    // <div>
-    //     <Pager />
-    // </div>
   );
 };
 
@@ -230,6 +216,12 @@ const ExtraFurnituresContainer = ({
   inventory,
   addToEstimateInventoryByKey,
 }) => {
+  const [items, setItems] = useState([
+    { type: "standard", items: [] },
+    { type: "fragile", items: [] },
+    { type: "others", items: [] },
+  ]);
+  const [isLoading, setIsLoading] = useState(false);
   const [currentRadioValue, setCurrentRadioValue] = useState(
     inventory?.mounting?.extraFurnitures?.needed
       ? mountingExtraFurnituresOptions[1].value
@@ -247,6 +239,37 @@ const ExtraFurnituresContainer = ({
     });
   }
 
+  function separateItemsByCategories(dataList) {
+    const dupList = [...items];
+    dataList.forEach((item) => {
+      switch (item.category) {
+        case "standard": {
+          dupList[0].items.push(item);
+          break;
+        }
+        case "fragile": {
+          dupList[1].items.push(item);
+          break;
+        }
+        default: {
+          dupList[2].items.push(item);
+          break;
+        }
+      }
+    });
+    setItems(dupList);
+  }
+
+  useEffect(() => {
+    async function fetchItems() {
+      setIsLoading(true);
+      const res = await api.get("/Products");
+      setIsLoading(false);
+      separateItemsByCategories(res.data);
+    }
+    fetchItems();
+  }, []);
+
   return (
     <EstimateSection title={messages.sections.extraFurnitures.title}>
       <div>
@@ -262,11 +285,27 @@ const ExtraFurnituresContainer = ({
       <Fade timeout={500} in={true}>
         <div>
           {currentRadioValue ===
-          mountingExtraFurnituresOptions[0].value ? null : (
-            <ExtraFurnituresComponent
-              inventory={inventory}
-              addToEstimateInventoryByKey={addToEstimateInventoryByKey}
-            />
+          mountingExtraFurnituresOptions[0].value ? null : isLoading ? (
+            <LoadingComponent />
+          ) : (
+            <>
+              <ExtraFurnituresComponent
+                list={items[0]?.items}
+                type="standard"
+                title="Pour le non-fragile"
+              />
+              <ExtraFurnituresComponent
+                list={items[1]?.items}
+                type="fragile"
+                title="Pour le fragile"
+              />
+              <ExtraFurnituresComponent
+                list={items[2]?.items}
+                type="others"
+                title="Autres fournitures"
+                isBoxFurnitures={false}
+              />
+            </>
           )}
         </div>
       </Fade>

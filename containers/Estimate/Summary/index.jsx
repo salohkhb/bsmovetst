@@ -6,7 +6,7 @@ import SummaryAddressSection from "./components/SummaryAddressSection";
 
 export const EstimateSummaryInformationBlock = ({
   label = "",
-  content = "test",
+  content = "",
 }) => {
   return (
     <div className={styles.estimate_informations_block_container}>

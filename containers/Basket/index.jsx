@@ -20,7 +20,7 @@ import Counter from "../../components/Counter";
 import { useOrder } from "../../hooks/order";
 import DeleteDialog from "../../components/DeleteDialog";
 import { useGlobal } from "../../hooks/global";
-import {useCustomer} from "../../hooks/customer";
+import { useCustomer } from "../../hooks/customer";
 
 const BasketPageItem = ({ item }) => {
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
@@ -72,7 +72,7 @@ const BasketPageItem = ({ item }) => {
               <Image
                 className={styles.basket_item_img_illustration}
                 layout="fill"
-                src={item.photos?.[0] || "/images/logo.png"}
+                src={item.base64 || "/images/logo.png"}
                 alt={`${item.name}--${item.id}`}
               />
             </div>
@@ -176,12 +176,12 @@ const MobileBasketTotal = ({ basket: { totalPrice, delivery } }) => {
 
 const BasketPageContent = () => {
   const router = useRouter();
-  const { auth } = useCustomer()
+  const { auth } = useCustomer();
   const { basket } = useBasket();
   const { addToOrderByKey } = useOrder();
   const {
     global: { screenWidth },
-    addToGlobalStateByKey
+    addToGlobalStateByKey,
   } = useGlobal();
 
   function handleEmptyBasketRedirection() {
@@ -191,8 +191,8 @@ const BasketPageContent = () => {
   function handleContinueFunnel() {
     addToOrderByKey("items", basket?.items);
     if (!auth?.id) {
-      addToGlobalStateByKey('redirect', Routes.DELIVERY_PAGE)
-      return router.push(Routes.LOGIN_PAGE)
+      addToGlobalStateByKey("redirect", Routes.DELIVERY_PAGE);
+      return router.push(Routes.LOGIN_PAGE);
     }
     return router.push(Routes.DELIVERY_PAGE);
   }

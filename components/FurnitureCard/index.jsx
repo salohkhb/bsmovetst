@@ -7,7 +7,7 @@ import Counter from "../Counter";
 const FurnitureCard = ({ item }) => {
   const { addToBasket, removeFromBasket, basket } = useBasket();
   const [count, setCount] = useState(0);
-  const { id, name, description, price, photos, stock } = item;
+  const { id, name, description, price, base64, stock } = item;
 
   useEffect(() => {
     if (basket.items?.length > 0) {
@@ -40,7 +40,7 @@ const FurnitureCard = ({ item }) => {
           <Image
             className="furniture-card-component__furniture_card_img_illustration"
             layout="fill"
-            src={photos?.[0] || "/images/logo.png"}
+            src={base64 || "/images/logo.png"}
             alt={`${name}-${id}`}
           />
         </div>

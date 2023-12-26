@@ -25,73 +25,51 @@ function getBasePrice(km, volume = 1) {
   return basePrice;
 }
 
-function getPriceWithElevator(
-  basePrice = 0,
-  volume = 1,
-  nbOfFloors,
-  elevatorValue,
-  hasLift
-) {
+function getPriceWithElevator(volume = 1, nbOfFloors, elevatorValue, hasLift) {
+  let priceWithElevator = 0;
   if (
     !nbOfFloors || // Ground floor -> no additional cost
-    elevatorValue === ""
+    !elevatorValue
   ) {
-    return basePrice;
+    return priceWithElevator;
   }
-  let priceWithElevator = 0;
   if (hasLift) {
-    priceWithElevator = basePrice + nbOfFloors * volume * 1.5 * 0.1 + 250;
+    priceWithElevator = nbOfFloors * volume * 1.5 * 0.1 + 250;
   } else {
-    if (elevatorValue === false) {
-      priceWithElevator = basePrice + nbOfFloors * volume * 1.5;
+    if (elevatorValue === "no") {
+      priceWithElevator = nbOfFloors * volume * 1.5;
     } else if (elevatorValue === "more") {
-      priceWithElevator = basePrice + nbOfFloors * volume * 1.5 * 0.1;
+      priceWithElevator = nbOfFloors * volume * 1.5 * 0.1;
     } else if (elevatorValue === "five_to_six") {
-      priceWithElevator = basePrice + nbOfFloors * volume * 1.5 * 0.2;
+      priceWithElevator = nbOfFloors * volume * 1.5 * 0.2;
     } else if (elevatorValue === "three_to_four") {
-      priceWithElevator = basePrice + nbOfFloors * volume * 1.5 * 0.35;
+      priceWithElevator = nbOfFloors * volume * 1.5 * 0.35;
     } else if (elevatorValue === "one_to_two") {
-      priceWithElevator = basePrice + nbOfFloors * volume * 1.5 * 0.5;
+      priceWithElevator = nbOfFloors * volume * 1.5 * 0.5;
     }
   }
   return priceWithElevator;
 }
 
-// TODO : Replace with wording Carrying
-function getPriceWithPortage(
-  basePrice = 0,
-  priceWithElevator = 0,
-  volume = 1,
-  portageValue
-) {
+function getPriceWithPortage(volume = 1, portageValue) {
   if (!volume || !portageValue) {
-    return basePrice;
+    return 0;
   }
 
   let priceWithPortage;
   if (portageValue === "11_20") {
-    priceWithPortage = priceWithElevator + 0.5 * volume * 10;
+    priceWithPortage = 0.5 * volume * 10;
   } else if (portageValue === "21_30") {
-    priceWithPortage = priceWithElevator + 0.5 * volume * 20;
+    priceWithPortage = 0.5 * volume * 20;
   } else if (portageValue === "31_40") {
-    priceWithPortage = priceWithElevator + 0.5 * volume * 30;
+    priceWithPortage = 0.5 * volume * 30;
   } else if (portageValue === "41_50") {
-    priceWithPortage = priceWithElevator + 0.5 * volume * 40;
+    priceWithPortage = 0.5 * volume * 40;
   } else if (portageValue === "more") {
-    priceWithPortage = priceWithElevator + 0.5 * volume * 50;
+    priceWithPortage = 0.5 * volume * 50;
   }
   return priceWithPortage;
 }
-
-// function getTotalVolumeFromRooms(rooms) {
-//   if (!rooms?.length) return 0
-//   let total = 0;
-//   total = rooms.reduce((acc, room) => {
-//     if (room.total) acc += Number(room.total)
-//     return acc
-//   }, 0)
-//   return total
-// }
 
 export function getTotalVolumeAndQuantityFromRooms(rooms) {
   if (!rooms?.length) return { volume: 0, quantity: 0 };
@@ -112,6 +90,139 @@ export function getTotalVolumeAndQuantityFromRooms(rooms) {
   return total;
 }
 
+export function getPriceForHeavyObjects(heavyObjectList, defaultFloors = 1) {
+  let heavyObjectsPrice = 0;
+  Object.entries(heavyObjectList).forEach(([objKey, heavyObject]) => {
+    if (heavyObject.type && heavyObject.floors) {
+      switch (heavyObject.type) {
+        case "straight_piano": {
+          heavyObjectsPrice += 250 + 50 * (heavyObject.floors || defaultFloors);
+          break;
+        }
+        case "pool_table":
+        case "safe":
+        case "other": {
+          heavyObjectsPrice += 200 + 50 * (heavyObject.floors || defaultFloors);
+          break;
+        }
+        case "american_fridge": {
+          heavyObjectsPrice += 150 + 25 * (heavyObject.floors || defaultFloors);
+          break;
+        }
+        case "one_quarter_piano": {
+          heavyObjectsPrice += 300 + 75 * (heavyObject.floors || defaultFloors);
+          break;
+        }
+        case "one_half_piano": {
+          heavyObjectsPrice += 350 + 80 * (heavyObject.floors || defaultFloors);
+          break;
+        }
+        case "three_third_piano": {
+          heavyObjectsPrice += 400 + 90 * (heavyObject.floors || defaultFloors);
+          break;
+        }
+        default:
+          heavyObjectsPrice += 200 + 50 * (heavyObject.floors || defaultFloors);
+          break;
+      }
+    }
+  });
+  return heavyObjectsPrice;
+}
+
+// mountingType
+// items
+function getPriceForMounting(mounting) {
+  if (!mounting.mountingType || mounting.mountingType === "no") {
+    return 0;
+  }
+  let mountingPrice = 0;
+  if (mounting.mountingType === "disassemblingMounting") {
+    Object.entries(mounting.items).forEach(([objKey, item]) => {
+      switch (objKey) {
+        case "simple": {
+          mountingPrice += (item.count || 0) * 20;
+          break;
+        }
+        case "medium": {
+          mountingPrice += (item.count || 0) * 50;
+          break;
+        }
+        case "hard": {
+          mountingPrice += (item.count || 0) * 80;
+          break;
+        }
+      }
+    });
+  } else {
+    Object.entries(mounting.items).forEach(([objKey, item]) => {
+      switch (objKey) {
+        case "simple": {
+          mountingPrice += (item.count || 0) * 10;
+          break;
+        }
+        case "medium": {
+          mountingPrice += (item.count || 0) * 25;
+          break;
+        }
+        case "hard": {
+          mountingPrice += (item.count || 0) * 40;
+          break;
+        }
+      }
+    });
+  }
+  return mountingPrice;
+}
+
+function getPriceForExtraFurnitures(extraFurnitures) {
+  let priceForExtraFurnitures = 0;
+  if (extraFurnitures.standard?.items?.length) {
+    let totalStandardBoxesQuantity = 0;
+    let totalStandardBoxesPrice = 0;
+    totalStandardBoxesPrice = extraFurnitures.standard.items.reduce(
+      (accumulator, current) => {
+        accumulator += current.count * parseInt(current.price);
+        totalStandardBoxesQuantity += current.count;
+        return accumulator;
+      },
+      0
+    );
+    if (extraFurnitures.standard.isHelpNeededToWrap) {
+      priceForExtraFurnitures += totalStandardBoxesQuantity * 1.5;
+    }
+    priceForExtraFurnitures += totalStandardBoxesPrice;
+  }
+  if (extraFurnitures.fragile?.items?.length) {
+    let totalFragileBoxesQuantity = 0;
+    let totalFragileBoxesPrice = 0;
+    totalFragileBoxesPrice = extraFurnitures.fragile.items.reduce(
+      (accumulator, current) => {
+        accumulator += current.count * parseInt(current.price);
+        totalFragileBoxesQuantity += current.count;
+        return accumulator;
+      },
+      0
+    );
+    if (extraFurnitures.fragile.isHelpNeededToWrap) {
+      priceForExtraFurnitures += totalFragileBoxesQuantity * 3.5;
+    }
+    priceForExtraFurnitures += totalFragileBoxesPrice;
+  }
+  if (extraFurnitures.others?.items?.length) {
+    let totalOthersBoxesPrice = 0;
+    totalOthersBoxesPrice = extraFurnitures.others.items.reduce(
+      (accumulator, current) => {
+        accumulator += current.count * parseInt(current.price);
+        return accumulator;
+      },
+      0
+    );
+    priceForExtraFurnitures += totalOthersBoxesPrice;
+  }
+  return priceForExtraFurnitures;
+}
+
 export const EstimateProvider = ({ children, initialEstimate }) => {
   const [estimate, setEstimate] = useState({});
   const [priceCalculator, setPriceCalculator] = useState({
@@ -119,10 +230,10 @@ export const EstimateProvider = ({ children, initialEstimate }) => {
     priceWithKmAndVolume: 0,
     priceWithElevator: 0,
     priceWithPortage: 0,
+    priceHeavyObjects: 0,
+    priceMounting: 0,
     totalPrice: 0,
   });
-
-  console.log("estimate is : ", estimate);
 
   useEffect(() => {
     if (isObjectEmpty(estimate)) return; // ici checker toute les parties, sinon tout refaire à chaque fois?
@@ -167,20 +278,28 @@ export const EstimateProvider = ({ children, initialEstimate }) => {
     }
   }
 
+  // calcul for total price
   useEffect(() => {
     setPriceCalculator((prevPriceCalculator) => ({
       ...prevPriceCalculator,
       totalPrice:
         priceCalculator.priceWithKmAndVolume +
         priceCalculator.priceWithElevator +
-        priceCalculator.priceWithPortage,
+        priceCalculator.priceWithPortage +
+        priceCalculator.priceHeavyObjects +
+        priceCalculator.priceExtraFurnitures +
+        priceCalculator.priceMounting,
     }));
   }, [
     priceCalculator.priceWithKmAndVolume,
     priceCalculator.priceWithElevator,
     priceCalculator.priceWithPortage,
+    priceCalculator.priceHeavyObjects,
+    priceCalculator.priceExtraFurnitures,
+    priceCalculator.priceMounting,
   ]);
 
+  // Effect to get the km
   useEffect(() => {
     if (
       !estimate?.details?.departureInformations?.address?.lat ||
@@ -219,15 +338,16 @@ export const EstimateProvider = ({ children, initialEstimate }) => {
     estimate?.details?.arrivalInformations?.address,
   ]);
 
+  // EFFECT WHEN WE HAVE THE KM TO GET THE BASE PRICE
   useEffect(() => {
     if (priceCalculator.km) {
-      if (estimate?.inventory?.volume?.size) {
+      if (estimate?.inventory?.volume?.volume) {
         setPriceCalculator((prevPriceCalculator) => ({
           ...prevPriceCalculator,
           priceWithKmAndVolume: parseInt(
             getBasePrice(
               priceCalculator.km,
-              parseInt(estimate?.inventory?.volume?.size)
+              parseInt(estimate?.inventory?.volume?.volume)
             )
           ),
         }));
@@ -238,47 +358,96 @@ export const EstimateProvider = ({ children, initialEstimate }) => {
         }));
       }
     }
-  }, [priceCalculator.km, estimate?.inventory?.volume?.size]);
+  }, [priceCalculator.km, estimate?.inventory?.volume?.volume]);
 
+  // EFFECT WHEN WE ALREADY HAVE THE priceWithKmAndVolume PRICE
   useEffect(() => {
+    const departurePrice = getPriceWithElevator(
+      estimate?.inventory?.volume?.volume,
+      estimate?.details?.departureInformations?.floor,
+      estimate?.details?.departureInformations?.elevator,
+      estimate?.details?.departureInformations?.furnituresLift
+    );
+    const arrivalPrice = getPriceWithElevator(
+      estimate?.inventory?.volume?.volume,
+      estimate?.details?.arrivalInformations?.floor,
+      estimate?.details?.arrivalInformations?.elevator,
+      estimate?.details?.arrivalInformations?.furnituresLift
+    );
     setPriceCalculator((prevPriceCalculator) => ({
       ...prevPriceCalculator,
-      priceWithElevator: parseInt(
-        getPriceWithElevator(
-          priceCalculator.priceWithKmAndVolume,
-          estimate?.inventory?.volume?.size,
-          estimate?.details?.departureInformations?.floor,
-          estimate?.details?.departureInformations?.elevator,
-          estimate?.details?.departureInformations?.furnituresLift
-        )
-      ),
+      priceWithElevator: parseInt((departurePrice || 0) + (arrivalPrice || 0)),
     }));
   }, [
-    priceCalculator.priceWithKmAndVolume,
-    parseInt(estimate?.inventory?.volume?.size),
     estimate?.details?.departureInformations?.floor,
     estimate?.details?.departureInformations?.elevator,
     estimate?.details?.departureInformations?.furnituresLift,
+    estimate?.details?.arrivalInformations?.floor,
+    estimate?.details?.arrivalInformations?.elevator,
+    estimate?.details?.arrivalInformations?.furnituresLift,
   ]);
 
+  // EFFECT WHEN WE ALREADY HAVE THE PRICE WITH ELEVATOR
   useEffect(() => {
+    const departurePrice = getPriceWithPortage(
+      estimate?.inventory?.volume?.volume || 1,
+      estimate?.details?.departureInformations?.footDistance
+    );
+    const arrivalPrice = getPriceWithPortage(
+      estimate?.inventory?.volume?.volume || 1,
+      estimate?.details?.arrivalInformations?.footDistance
+    );
     setPriceCalculator((prevPriceCalculator) => ({
       ...prevPriceCalculator,
-      priceWithPortage: parseInt(
-        getPriceWithPortage(
-          priceCalculator.priceWithKmAndVolume,
-          priceCalculator.priceWithElevator,
-          parseInt(estimate?.inventory?.volume?.size),
-          estimate?.details?.departureInformations?.footDistance
-        )
-      ),
+      priceWithPortage: parseInt(departurePrice + arrivalPrice),
     }));
   }, [
-    priceCalculator.priceWithKmAndVolume,
-    priceCalculator.priceWithElevator,
-    estimate?.inventory?.volume?.size,
+    estimate?.inventory?.volume?.volume,
     estimate?.details?.departureInformations?.footDistance,
+    estimate?.details?.arrivalInformations?.footDistance,
   ]);
+
+  // price for heavy objects in inventory
+  useEffect(() => {
+    if (estimate?.inventory?.heavyObjects?.hasHeavyObjects) {
+      const heavyPrice = getPriceForHeavyObjects(
+        estimate?.inventory?.heavyObjects?.items,
+        estimate?.details?.departureInformations?.floors +
+          estimate?.details?.arrivalInformations?.floors
+      );
+      setPriceCalculator((previousPrice) => ({
+        ...previousPrice,
+        priceHeavyObjects: heavyPrice,
+      }));
+    } else {
+      setPriceCalculator((previousPrice) => ({
+        ...previousPrice,
+        priceHeavyObjects: 0,
+      }));
+    }
+  }, [estimate?.inventory?.heavyObjects]);
+
+  // price for mounting in inventory
+  useEffect(() => {
+    if (estimate?.inventory?.mounting) {
+      setPriceCalculator((previousPriceCalculator) => ({
+        ...previousPriceCalculator,
+        priceMounting: getPriceForMounting(estimate?.inventory?.mounting),
+      }));
+    }
+  }, [estimate?.inventory?.mounting]);
+
+  useEffect(() => {
+    if (estimate?.inventory?.mounting?.extraFurnitures?.needed) {
+      const priceExtraFurnitures = getPriceForExtraFurnitures(
+        estimate?.inventory?.mounting?.extraFurnitures
+      );
+      setPriceCalculator((previousPriceCalculator) => ({
+        ...previousPriceCalculator,
+        priceExtraFurnitures,
+      }));
+    }
+  }, [estimate?.inventory?.mounting?.extraFurnitures]);
 
   function addToEstimateByKey(key, value) {
     return setEstimate((previousEstimate) => ({
@@ -315,14 +484,13 @@ export const EstimateProvider = ({ children, initialEstimate }) => {
 
   function clearEstimate() {
     setEstimate({});
+    setPriceCalculator({});
     Cookie.remove("estimate");
   }
 
   function isFirstEstimateStepValid() {
     return !isObjectEmpty(estimate.details);
   }
-
-  console.log("rooms : ", estimate?.inventory?.volume);
 
   return (
     <EstimateContext.Provider

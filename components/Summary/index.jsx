@@ -13,7 +13,7 @@ import { number } from "prop-types";
 export const SummaryFurnitureItem = ({
   item: {
     id,
-    photos = [],
+    base64 = "",
     price = 0,
     quantity = 0,
     name = "[nom_non_defini]",
@@ -24,7 +24,7 @@ export const SummaryFurnitureItem = ({
       <Image
         className="summary-component__content_main_item_preview_illustration"
         layout="fill"
-        src={photos?.[0] || "/images/logo.png"}
+        src={base64 || "/images/logo.png"}
         alt={`${name}-${id}`}
       />
     </div>

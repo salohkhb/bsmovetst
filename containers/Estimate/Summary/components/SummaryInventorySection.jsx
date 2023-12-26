@@ -3,9 +3,8 @@ import styles from "../index.module.css";
 import EstimateSection from "../../section";
 import messages from "../messages";
 import { useEstimate } from "../../../../hooks/estimate";
-import { METRICS } from "../../../../helpers/constants";
+import { CURRENCY, METRICS } from "../../../../helpers/constants";
 import { EstimateSummaryInformationBlock, UNKNOW } from "../index";
-import { DEPARTURE_FOOT_DISTANCE_OPTIONS } from "../../Details/constants";
 import {
   FRIDGE_OPTIONS,
   PIANO_OPTIONS,
@@ -41,7 +40,9 @@ const SummaryInventorySection = () => {
           mountingType,
           items,
           extraFurnitures: {
-            items: extraFurnituresItems = [],
+            standard: { items: standardItems = [] } = {},
+            fragile: { items: fragileItems = [] } = {},
+            others: { items: othersItems = [] } = {},
             needed: extraFurnituresNeeded = false,
           } = {},
         } = {},
@@ -49,8 +50,8 @@ const SummaryInventorySection = () => {
         heavyObjects,
       } = {},
     },
+    priceCalculator: { totalPrice = 0 } = {},
   } = useEstimate();
-  console.log("heavy outside mounting : ", heavyObjects);
   return (
     <EstimateSection title={messages.sections.inventory.title}>
       <Divider />
@@ -173,10 +174,67 @@ const SummaryInventorySection = () => {
       {extraFurnituresNeeded ? (
         <section style={{ paddingTop: "1em" }}>
           <EstimateSection title={messages.sections.inventory.extraFurnitures}>
-            <EstimateSummaryItemList itemList={extraFurnituresItems} />
+            {standardItems?.length ? (
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "0.5em",
+                  padding: "0.5em",
+                }}
+              >
+                <h3>Non-Fragile :</h3>
+                <Divider />
+                <EstimateSummaryItemList itemList={standardItems} />
+              </div>
+            ) : null}
+            {fragileItems?.length ? (
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "0.5em",
+                  padding: "0.5em",
+                }}
+              >
+                <h3>Fragile :</h3>
+                <Divider />
+                <EstimateSummaryItemList itemList={fragileItems} />
+              </div>
+            ) : null}
+            {othersItems?.length ? (
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "0.5em",
+                  padding: "0.5em",
+                }}
+              >
+                <h3>Autres :</h3>
+                <Divider />
+                <EstimateSummaryItemList itemList={othersItems} />
+              </div>
+            ) : null}
           </EstimateSection>
         </section>
       ) : null}
+      <Divider />
+      <section
+        style={{
+          paddingTop: "2em",
+          display: "flex",
+          flexDirection: "row",
+          gap: "1em",
+          alignItems: "center",
+        }}
+      >
+        <h3 style={{ fontWeight: "bold" }}>Total</h3>
+        <span>
+          {totalPrice}
+          {CURRENCY.EUR}
+        </span>
+      </section>
     </EstimateSection>
   );
 };

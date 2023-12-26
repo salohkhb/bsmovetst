@@ -98,7 +98,7 @@
 .furnitures_buy_items_grid {
   display: grid;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .furnitures_buy_items_grid_content {

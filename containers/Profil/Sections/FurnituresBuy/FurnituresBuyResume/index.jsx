@@ -1,4 +1,3 @@
-
 import { Divider } from "@mui/material";
 import Image from "next/legacy/image";
 import { formatDate, getOrderStatus } from "../../../../../helpers/functions";
@@ -80,7 +79,7 @@ const FurnituresBuyResumeComponent = ({ order, handleSeeDetails }) => {
                             styles.furnitures_buy_resume_article_img_illustration
                           }
                           layout="fill"
-                          src={item.photos?.[0] || "/images/logo.png"}
+                          src={item.base64 || "/images/logo.png"}
                           alt={`${item?.name}--${item?.id}`}
                         />
                       </div>

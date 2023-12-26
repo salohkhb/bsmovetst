@@ -153,6 +153,7 @@ const HeavyItemsChecklist = ({ inventory, addToEstimateInventoryByKey }) => {
         ...inventory?.heavyObjects?.items,
         other: {
           ...inventory?.heavyObjects?.items?.other,
+          type: "other",
           item: {
             ...inventory?.heavyObjects?.items?.other?.item,
             value: event.target.value,
@@ -185,8 +186,6 @@ const HeavyItemsChecklist = ({ inventory, addToEstimateInventoryByKey }) => {
       },
     });
   }
-
-  console.log("inventory looks like : ", inventory.heavyObjects);
 
   return (
     <div className={styles.inventory_heavy_objects_sections_container}>

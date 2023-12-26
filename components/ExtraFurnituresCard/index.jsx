@@ -7,6 +7,7 @@ import { isObjectEmpty } from "../../helpers/functions";
 import styles from "./index.module.css";
 import Counter from "../Counter";
 import { useEstimate } from "../../hooks/estimate";
+import { omit } from "ramda";
 
 const S = {};
 
@@ -16,16 +17,27 @@ S.IconButton = styled(IconButton)`
   color: ${({ theme }) => theme.colors.border};
 `;
 
+function getExtraFurnitureItemCountFromEstimateInventory(
+  inventory,
+  type,
+  item
+) {
+  const itemInInventory = inventory?.mounting?.extraFurnitures[
+    type
+  ]?.items?.find((inventoryItem) => inventoryItem?.id === item?.id);
+  return itemInInventory?.count ?? 0;
+}
+
 const ExtraFurnitureCard = ({ item }) => {
   const { addToEstimateInventoryByKey, estimate } = useEstimate();
   const [count, setCount] = useState(0);
 
-  const { id, name, description, price, photos } = item;
+  const { id, name, description, price, base64 } = item;
 
   useEffect(() => {
     if (!isObjectEmpty(item) && item.name) {
       const furnitureList =
-        estimate?.inventory?.mounting?.extraFurnitures?.items;
+        estimate?.inventory?.mounting?.extraFurnitures[item.category]?.items;
       const furniture = furnitureList?.find(
         (furniture) => furniture.name === item?.name
       );
@@ -36,7 +48,8 @@ const ExtraFurnitureCard = ({ item }) => {
   async function handleCountInc() {
     setCount((prevCount) => (prevCount ? prevCount + 1 : 1));
     const furnituresList =
-      estimate?.inventory?.mounting?.extraFurnitures?.items || [];
+      estimate?.inventory?.mounting?.extraFurnitures[item.category]?.items ||
+      [];
     const furnitureItem = furnituresList.find(
       (furniture) => furniture.id === item?.id
     );
@@ -46,7 +59,10 @@ const ExtraFurnitureCard = ({ item }) => {
         ...estimate?.inventory?.mounting,
         extraFurnitures: {
           ...estimate?.inventory?.mounting?.extraFurnitures,
-          items: furnituresList,
+          [item.category]: {
+            ...estimate?.inventory?.mounting?.extraFurnitures[item.category],
+            items: furnituresList,
+          },
         },
       });
     } else {
@@ -55,17 +71,26 @@ const ExtraFurnitureCard = ({ item }) => {
             ...estimate?.inventory?.mounting,
             extraFurnitures: {
               ...estimate?.inventory?.mounting?.extraFurnitures,
-              items: [
-                ...estimate?.inventory?.mounting?.extraFurnitures?.items,
-                { ...item, count: 1 },
-              ],
+              [item.category]: {
+                items: [
+                  ...estimate?.inventory?.mounting?.extraFurnitures[
+                    item.category
+                  ]?.items,
+                  { ...omit(["base64"], item), count: 1 },
+                ],
+              },
             },
           })
         : addToEstimateInventoryByKey("mounting", {
             ...estimate?.inventory?.mounting,
             extraFurnitures: {
               ...estimate?.inventory?.mounting?.extraFurnitures,
-              items: [{ ...item, count: 1 }],
+              [item.category]: {
+                ...estimate?.inventory?.mounting?.extraFurnitures[
+                  item.category
+                ],
+                items: [{ ...omit(["base64"], item), count: 1 }],
+              },
             },
           });
     }
@@ -77,7 +102,8 @@ const ExtraFurnitureCard = ({ item }) => {
       return prevCount - 1;
     });
     const furnituresList =
-      estimate?.inventory?.mounting?.extraFurnitures?.items || [];
+      estimate?.inventory?.mounting?.extraFurnitures[item.category]?.items ||
+      [];
     const furnitureItem = furnituresList.find(
       (furniture) => furniture.name === item?.name
     );
@@ -90,7 +116,10 @@ const ExtraFurnitureCard = ({ item }) => {
         ...estimate?.inventory?.mounting,
         extraFurnitures: {
           ...estimate?.inventory?.mounting?.extraFurnitures,
-          items: furnituresList,
+          [item.category]: {
+            ...estimate?.inventory?.mounting?.extraFurnitures[item.category],
+            items: furnituresList,
+          },
         },
       });
     }
@@ -103,7 +132,7 @@ const ExtraFurnitureCard = ({ item }) => {
           <Image
             className={styles.furniture_card_img_illustration}
             layout="fill"
-            src={photos?.[0] || "/images/logo.png"}
+            src={base64 || "/images/logo.png"}
             alt={`${name}-${id}`}
           />
         </div>
@@ -116,7 +145,11 @@ const ExtraFurnitureCard = ({ item }) => {
         <div>{`${price}€`}</div>
         <Counter
           minValue={0}
-          value={count}
+          value={getExtraFurnitureItemCountFromEstimateInventory(
+            estimate?.inventory,
+            item.category,
+            item
+          )}
           handleInc={handleCountInc}
           handleDec={handleCountDec}
           margin="50% 0 0 0"
