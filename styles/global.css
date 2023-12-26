@@ -149,8 +149,8 @@ input:-webkit-autofill:active
 
 .furniture-card-component__furniture_card_img_illustration_container {
   position: relative;
-  width: 50%;
-  height: 6em;
+  width: 180px;
+  height: 120px;
 }
 
 .furniture-card-component__furniture_card_img_container {
