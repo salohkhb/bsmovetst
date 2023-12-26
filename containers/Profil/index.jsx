@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
 import messages from "./messages";
@@ -10,7 +10,7 @@ import VerticalTabs from "../../components/VerticalTabs";
 
 import ProfilContentSection from "./Sections";
 import { useEstimate } from "../../hooks/estimate";
-import {useGlobal} from "../../hooks/global";
+import { useGlobal } from "../../hooks/global";
 
 const profilTabs = [
   { title: messages.settings.categories.personalInformations, value: 0 },
@@ -19,8 +19,8 @@ const profilTabs = [
 ];
 
 const mySpaceTabs = [
-  { title: messages.mySpace.categories.moving, value: 3 },
-  { title: messages.mySpace.categories.vehiclesRent, value: 4 },
+  // { title: messages.mySpace.categories.moving, value: 3 },
+  // { title: messages.mySpace.categories.vehiclesRent, value: 4 },
   { title: messages.mySpace.categories.furnitures, value: 5 },
 ];
 
@@ -60,11 +60,11 @@ const ProfilContainer = ({ initialTab = 0 }) => {
   const router = useRouter();
   const { clearEstimate } = useEstimate();
   const { clearAuth, clearCustomer } = useCustomer();
-  const { resetRedirect, global } = useGlobal()
+  const { resetRedirect, global } = useGlobal();
 
   useEffect(() => {
-    resetRedirect()
-  }, [global])
+    resetRedirect();
+  }, [global]);
   function handleTabChange(tabValue) {
     return setActiveTab(tabValue);
   }
