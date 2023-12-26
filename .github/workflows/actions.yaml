@@ -1,0 +1,28 @@
+name: Deploy Frontend on Heroku
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      # Install dependencies
+      - name: Install Dependencies
+        run: npm install
+
+      # Build the Next.js app
+      - name: Build
+        run: npm run build
+
+      # Deploy to Heroku
+      - uses: akhileshns/heroku-deploy@v3.12.13
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "bsmove-front" # Replace with your Heroku app name
+          heroku_email: "samiboudoukha@gmail.com"
+          buildpack: https://github.com/mars/heroku-nextjs-build.git
