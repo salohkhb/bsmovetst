@@ -90,7 +90,10 @@ export function getTotalVolumeAndQuantityFromRooms(rooms) {
   return total;
 }
 
-export function getPriceForHeavyObjects(heavyObjectList, defaultFloors = 1) {
+export function getPriceForHeavyObjects(
+  heavyObjectList = {},
+  defaultFloors = 1
+) {
   let heavyObjectsPrice = 0;
   Object.entries(heavyObjectList).forEach(([objKey, heavyObject]) => {
     if (heavyObject.type && heavyObject.floors) {
@@ -130,10 +133,12 @@ export function getPriceForHeavyObjects(heavyObjectList, defaultFloors = 1) {
   return heavyObjectsPrice;
 }
 
-// mountingType
-// items
-function getPriceForMounting(mounting) {
-  if (!mounting.mountingType || mounting.mountingType === "no") {
+function getPriceForMounting(mounting = {}) {
+  if (
+    !mounting.mountingType ||
+    mounting.mountingType === "no" ||
+    !mounting.items
+  ) {
     return 0;
   }
   let mountingPrice = 0;
