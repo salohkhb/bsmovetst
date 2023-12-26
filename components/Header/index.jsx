@@ -174,7 +174,9 @@ const MobileHeader = ({ basket, handleCartButton, handleProfilButton }) => {
               >
                 <ListItem>
                   <ListItemText
-                    onClick={handleUnavailableRoute}
+                    onClick={() =>
+                      handleRedirection(Routes.ESTIMATE_DETAILS_PAGE)
+                    }
                     className={styles.header_drawer_category_label}
                     primary={
                       messages.mobile.categories.services.subCategories.moving
@@ -183,7 +185,7 @@ const MobileHeader = ({ basket, handleCartButton, handleProfilButton }) => {
                 </ListItem>
                 <ListItem>
                   <ListItemText
-                    onClick={handleUnavailableRoute}
+                    onClick={() => handleRedirection(Routes.VEHICLE_RENT_PAGE)}
                     className={styles.header_drawer_category_label}
                     primary={
                       messages.mobile.categories.services.subCategories
@@ -205,32 +207,8 @@ const MobileHeader = ({ basket, handleCartButton, handleProfilButton }) => {
                     />
                   </Link>
                 </ListItem>
-                <ListItem>
-                  <ListItemText
-                    onClick={handleUnavailableRoute}
-                    className={styles.header_drawer_category_label}
-                    primary={
-                      messages.mobile.categories.services.subCategories
-                        .warehouse
-                    }
-                  />
-                </ListItem>
               </List>
             </Collapse>
-            <ListItem>
-              <ListItemText
-                onClick={handleUnavailableRoute}
-                className={styles.header_drawer_category_label}
-                primary={messages.mobile.categories.advices}
-              />
-            </ListItem>
-            <ListItem>
-              <ListItemText
-                onClick={handleUnavailableRoute}
-                className={styles.header_drawer_category_label}
-                primary={messages.mobile.categories.news}
-              />
-            </ListItem>
             <ListItem>
               <ListItemText
                 onClick={() => handleRedirection(Routes.CONTACT_PAGE)}
@@ -249,21 +227,21 @@ function Header() {
   const router = useRouter();
   const {
     global: { screenWidth },
-    addToGlobalStateByKey
+    addToGlobalStateByKey,
   } = useGlobal();
-  const { auth } = useCustomer()
+  const { auth } = useCustomer();
   const { basket } = useBasket();
 
   function handleProfilButton() {
     if (!auth?.id) {
-      addToGlobalStateByKey('redirect', Routes.PROFIL_PAGE)
-      return router.push(Routes.LOGIN_PAGE)
+      addToGlobalStateByKey("redirect", Routes.PROFIL_PAGE);
+      return router.push(Routes.LOGIN_PAGE);
     }
-    router.push(Routes.PROFIL_PAGE)
+    router.push(Routes.PROFIL_PAGE);
   }
 
   function handleCartButton() {
-    router.push(Routes.BASKET_PAGE)
+    router.push(Routes.BASKET_PAGE);
   }
 
   return (
