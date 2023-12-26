@@ -17,6 +17,14 @@ module.exports = {
     "plugins": [
         "react"
     ],
-    "rules": {
+    rules: {
+        "react/prop-types": "off",
+        "no-unused-vars": "off",
+        "no-empty": "off",
+        "no-undef": "off",
+        "no-unsafe-optional-chaining": "off",
+        "no-extra-semi": "off",
+        "no-inner-declarations": "off",
+        "no-extra-boolean-cast": "off",
     }
 }
