@@ -25,7 +25,12 @@ function getBasePrice(km, volume = 1) {
   return basePrice;
 }
 
-function getPriceWithElevator(volume = 1, nbOfFloors, elevatorValue, hasLift) {
+function getPriceWithElevator(
+  volume = 1,
+  nbOfFloors,
+  elevatorValue,
+  hasLift = false
+) {
   let priceWithElevator = 0;
   if (
     !nbOfFloors || // Ground floor -> no additional cost
@@ -237,6 +242,7 @@ export const EstimateProvider = ({ children, initialEstimate }) => {
     priceWithPortage: 0,
     priceHeavyObjects: 0,
     priceMounting: 0,
+    priceExtraFurnitures: 0,
     totalPrice: 0,
   });
 
