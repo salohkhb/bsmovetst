@@ -390,7 +390,7 @@ const RentSummaryRight = () => {
             </span>
           </div>
           <div style={{ display: "flex", flexDirection: "column" }}>
-            <span style={{ fontWeight: "bold" }}>Dureée de manutention</span>
+            <span style={{ fontWeight: "bold" }}>Dureée de la manutention</span>
             <span style={{ color: "#8B9197" }}>
               {rent?.movers?.duration} heures
             </span>

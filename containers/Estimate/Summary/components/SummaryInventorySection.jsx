@@ -59,7 +59,7 @@ const SummaryInventorySection = () => {
       <section className={styles.estimate_informations_container}>
         <EstimateSummaryInformationBlock
           label={messages.sections.informations.blockLabel.volume}
-          content={(volume && `${volume}${METRICS.CUBE}`) || UNKNOW}
+          content={(volume && `${volume?.toFixed(2)}${METRICS.CUBE}`) || UNKNOW}
         />
       </section>
       <Divider />

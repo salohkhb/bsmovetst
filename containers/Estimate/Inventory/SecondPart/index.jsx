@@ -144,16 +144,12 @@ const MountingHelpSection = ({ inventory, addToEstimateInventoryByKey }) => {
   );
 };
 
-// get images
-// filter them with 1 loop
-// add them by id in any case
-// add 3 categories of extra furnitures in json
-
 const ExtraFurnituresComponent = ({
   type = "standard",
   list = [],
   title = "",
   isBoxFurnitures = true,
+  helpWrappingLabel = "J'ai besoin d'aide pour l'emballage des cartons",
 }) => {
   const {
     addToEstimateInventoryByKey,
@@ -185,7 +181,7 @@ const ExtraFurnituresComponent = ({
             <h2>{title}</h2>
             <div className={styles.furnitures_buy_items_grid_content}>
               {list?.map((item, index) => (
-                <ExtraFurnitureCard item={item} key={index} />
+                <ExtraFurnitureCard item={item} key={index} withoutPrice />
               ))}
             </div>
             {isBoxFurnitures ? (
@@ -201,7 +197,7 @@ const ExtraFurnituresComponent = ({
                     }
                   />
                 }
-                label="J'ai besoin d'aide pour l'emballage des cartons"
+                label={helpWrappingLabel}
                 onChange={handleNeedHelpToWrapToggle}
               />
             ) : null}
@@ -293,11 +289,13 @@ const ExtraFurnituresContainer = ({
                 list={items[0]?.items}
                 type="standard"
                 title="Pour le non-fragile"
+                helpWrappingLabel="J'ai besoin d'aide pour l'emballage des cartons non-fragiles"
               />
               <ExtraFurnituresComponent
                 list={items[1]?.items}
                 type="fragile"
                 title="Pour le fragile"
+                helpWrappingLabel="J'ai besoin d'aide pour l'emballage des cartons fragiles"
               />
               <ExtraFurnituresComponent
                 list={items[2]?.items}

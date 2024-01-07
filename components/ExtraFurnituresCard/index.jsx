@@ -8,6 +8,7 @@ import styles from "./index.module.css";
 import Counter from "../Counter";
 import { useEstimate } from "../../hooks/estimate";
 import { omit } from "ramda";
+import { CURRENCY } from "../../helpers/constants";
 
 const S = {};
 
@@ -28,7 +29,7 @@ function getExtraFurnitureItemCountFromEstimateInventory(
   return itemInInventory?.count ?? 0;
 }
 
-const ExtraFurnitureCard = ({ item }) => {
+const ExtraFurnitureCard = ({ item, withoutPrice = false }) => {
   const { addToEstimateInventoryByKey, estimate } = useEstimate();
   const [count, setCount] = useState(0);
 
@@ -142,7 +143,7 @@ const ExtraFurnitureCard = ({ item }) => {
         <div className={styles.furniture_card_short_description}>
           {description}
         </div>
-        <div>{`${price}€`}</div>
+        {withoutPrice ? null : <div>{`${price}${CURRENCY.EUR}`}</div>}
         <Counter
           minValue={0}
           value={getExtraFurnitureItemCountFromEstimateInventory(

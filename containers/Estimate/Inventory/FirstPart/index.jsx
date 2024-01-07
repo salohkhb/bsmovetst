@@ -65,8 +65,9 @@ const VolumeEstimateSection = ({
     if (touched && !event.target.value)
       setErrors({ volume: messages.sections.volume.input.errors.empty });
     else if (touched && event.target.value) setErrors({});
+    const fixedValue = Number(event.target.value)?.toFixed(2);
     addToEstimateInventoryByKey("volume", {
-      volume: Number(event.target.value),
+      volume: Number(fixedValue),
     });
   }
 
@@ -113,8 +114,8 @@ const VolumeEstimateSection = ({
               placeholder={messages.sections.volume.input.placeholder}
               error={touched && errors.volume}
               name="volume"
-              values={inventory?.volume?.volume?.toFixed(2)}
-              value={inventory?.volume?.volume?.toFixed(2)}
+              values={inventory?.volume?.volume}
+              value={inventory?.volume?.volume}
               onChange={handleChange}
               onFocus={() => setTouched(true)}
               // onBlur={formik.handleBlur}

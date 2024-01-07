@@ -408,7 +408,7 @@ const RentSummaryRight = () => {
             <Image
               layout="fill"
               src="/images/logo.png"
-              alt={rent?.vehicle?.vehicle?.name || "test"}
+              alt={rent?.vehicle?.vehicle?.name || "Camion"}
             />
           </div>
         </div>
@@ -431,7 +431,7 @@ const RentSummaryRight = () => {
             </span>
           </div>
           <div style={{ display: "flex", flexDirection: "column" }}>
-            <span style={{ fontWeight: "bold" }}>Adresse de d'arrivée</span>
+            <span style={{ fontWeight: "bold" }}>Adresse d'arrivée</span>
             <span style={{ color: "#8B9197" }}>
               {rent?.vehicle?.endAddress?.placeName}
             </span>
@@ -446,11 +446,13 @@ const RentSummaryRight = () => {
         <div style={{ display: "flex", flexDirection: "column" }}>
           <span style={{ fontWeight: "bold" }}>Kilométrage</span>
           <span style={{ color: "#8B9197" }}>
-            {parseInt(rent?.vehicle?.km) || "-- "}km
+            {rent?.vehicle?.km?.toFixed(2) || "-- "}km
           </span>
         </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <span style={{ fontWeight: "bold" }}>Nombre de déménageurs</span>
+          <span style={{ fontWeight: "bold" }}>
+            Nombre de déménageurs (chauffeurs + déménageurs supplémentaires)
+          </span>
           <span style={{ color: "#8B9197" }}>
             {parseInt(
               (rent?.movers?.nbMovingMen || 0) +
