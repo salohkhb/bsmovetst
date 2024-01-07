@@ -113,8 +113,8 @@ const VolumeEstimateSection = ({
               placeholder={messages.sections.volume.input.placeholder}
               error={touched && errors.volume}
               name="volume"
-              values={inventory?.volume?.volume}
-              value={inventory?.volume?.volume}
+              values={inventory?.volume?.volume?.toFixed(2)}
+              value={inventory?.volume?.volume?.toFixed(2)}
               onChange={handleChange}
               onFocus={() => setTouched(true)}
               // onBlur={formik.handleBlur}

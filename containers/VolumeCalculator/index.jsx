@@ -31,10 +31,6 @@ import {
 import Routes from "../../helpers/routes";
 import { METRICS } from "../../helpers/constants";
 
-// TODO :
-// - CREER DES ROOMS
-// - UTILISER LES CHANGEMENTS DANS LA LISTE DES ROOMS POUR UPDATE LE TOTAL (reduceTot?)
-
 const VolumeCalculatorRoomItem = ({
   roomId,
   item = {},
@@ -260,7 +256,6 @@ const VolumeCalculatorContainer = () => {
 
   useEffect(() => {
     async function fetchObjectList() {
-      // const res = await API.get(`/Products?filter={"where": {"tags": {"inq": ["boxes"] }, "stock": { "gt": 0 } }}`);
       const res = await API.get(`/Furnitures`);
       if (res?.data?.error && res.data.error.statusCode > 300) {
         return;
@@ -410,8 +405,9 @@ const VolumeCalculatorContainer = () => {
                     styles.volume_calculator_page_resume_total_volume_number
                   }
                 >{`${
-                  getTotalVolumeAndQuantityFromRooms(inventory?.volume?.rooms)
-                    .volume || 0
+                  getTotalVolumeAndQuantityFromRooms(
+                    inventory?.volume?.rooms
+                  ).volume?.toFixed(2) || 0
                 } ${METRICS.CUBE}`}</div>
                 <div
                   className={
