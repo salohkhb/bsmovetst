@@ -1,104 +1,3 @@
-// import {debounce} from "lodash";
-// import styles from "../../containers/Estimate/Details/index.module.css";
-// import messages from "../../containers/Estimate/Details/messages";
-// import AsyncSelect from "react-select/async";
-// import {useEffect, useRef, useState} from "react";
-// import Autocomplete from '@mui/material/Autocomplete';
-// import TextField from '@mui/material/TextField';
-// import Input from "../Input";
-// import placeholder from "lodash/fp/placeholder";
-//
-// export const NOMINATIM_BASE_URL = "https://nominatim.openstreetmap.org/search?";
-//
-// function mapPlaceApiToData(result) {
-//   if (!result) return
-//   const mapped = result?.map((item) => ({
-//     value: item?.display_name.toLowerCase(),
-//     label: item?.display_name,
-//     placeName: item?.display_name || "",
-//     lng: Number(item?.lon) || 0,
-//     lat: Number(item?.lat) || 0,
-//     country: item?.address?.country || "",
-//     shortenedAddress:
-//         `${item?.address?.house_number || ''} ${item?.address?.road}, ${item?.address?.postcode}, ${item?.address?.municipality}, ${item?.address?.country}`,
-//   }));
-//   return mapped;
-// }
-//
-// export const InputAsyncSelect = ({
-//   initialValue = '',
-//   name,
-//   placeholder,
-//   onChange,
-// }) => {
-//   const [options, setOptions] = useState([]);
-//   const [isLoading, setIsLoading] = useState(false);
-//   const [inputValue, setInputValue] = useState(initialValue);
-//   const [menuPortalTarget, setMenuPortalTarget] = useState(null);
-//   const [selected, setSelected] = useState(null);
-//
-//   async function fetchAddresses(address) {
-//     if (address) {
-//       const requestOptions = {
-//         method: "GET",
-//         redirect: "follow",
-//       };
-//       const localizationResult = await fetch(
-//           `${NOMINATIM_BASE_URL}q=${address}&countryCode=fr&format=json&addressdetails=1`
-//           ,
-//         requestOptions
-//       );
-//       const result = await localizationResult.text();
-//       const mappedResult = mapPlaceApiToData(JSON.parse(result));
-//       setOptions(mappedResult)
-//       return mappedResult;
-//     }
-//   }
-//
-//   useEffect(() => {
-//     const fetchOptions = debounce(async (inputValue) => {
-//       setIsLoading(true);
-//       const res = await fetchAddresses(inputValue.toLowerCase());
-//       console.log('result of search : ', res)
-//       setIsLoading(false);
-//       setOptions(res)
-//     }, 500)
-//
-//     if (inputValue?.length > 2) {
-//       fetchOptions(inputValue);
-//     }
-//     return () => {
-//       // Cleanup the debounce function
-//       fetchOptions.cancel();
-//     };
-//   }, [inputValue]);
-//
-//   const handleChange = (event) => {
-//     const newValue = event.target.value;
-//     setInputValue(newValue);
-//   };
-//
-//   return (
-//     <>
-//       <Autocomplete
-//           disablePortal
-//           autoComplete
-//           includeInputInList
-//           id={`${name}-address-input`}
-//           options={options}
-//           value={inputValue}
-//           loading={isLoading}
-//           sx={{ width: '100%' }}
-//           renderInput={
-//             (params) =>
-//                 <TextField {...params} value={inputValue} onChange={handleChange} label={placeholder} />}
-//       />
-//     </>
-//   );
-// };
-//
-// export default InputAsyncSelect;
-
 import * as React from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
@@ -139,6 +38,10 @@ function getPlacePredictions(input, callback) {
 function mapPlaceApiToData(item) {
   if (!item) return;
   console.log("item is : ", item);
+  const city =
+    item?.address?.town ||
+    item?.address?.village ||
+    item?.address?.municipality;
   const mapped = {
     value: item?.display_name.toLowerCase(),
     label: item?.display_name,
@@ -146,12 +49,10 @@ function mapPlaceApiToData(item) {
     lng: Number(item?.lon) || 0,
     lat: Number(item?.lat) || 0,
     country: item?.address?.country || "",
-    city: item?.address?.municipality,
+    city,
     shortenedAddress: `${item?.address?.house_number || ""} ${
       item?.address?.road
-    }, ${item?.address?.postcode}, ${item?.address?.municipality}, ${
-      item?.address?.country
-    }`,
+    }, ${item?.address?.postcode}, ${city}, ${item?.address?.country}`,
   };
   return mapped;
 }
