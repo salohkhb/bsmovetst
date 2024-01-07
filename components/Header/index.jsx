@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import IconButton from "@mui/material/IconButton";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
@@ -20,6 +20,7 @@ import ExpandMore from "@mui/icons-material/ExpandMore";
 import messages from "./messages";
 import styles from "./index.module.css";
 import { useCustomer } from "../../hooks/customer";
+import { redirectNotLogged } from "../../helpers/functions";
 import Routes from "../../helpers/routes";
 import { useBasket } from "../../hooks/basket";
 import Badge from "../Badge";
@@ -61,7 +62,15 @@ S.Divider = styled(Divider)`
 const DesktopHeader = ({ basket, handleCartButton, handleProfilButton }) => {
   return (
     <>
-      <S.LeftHeader>{messages.help}</S.LeftHeader>
+      <S.LeftHeader>
+        {messages.help}
+        <a
+          style={{ color: "rgb(249,250,251)" }}
+          href={`tel:${process.env.NEXT_PUBLIC_CONTACT_PHONE_NUMBER}`}
+        >
+          {process.env.NEXT_PUBLIC_CONTACT_PHONE_NUMBER}
+        </a>
+      </S.LeftHeader>
       <S.Divider orientation="vertical" />
       <S.RightHeader>
         <IconButton
@@ -174,9 +183,7 @@ const MobileHeader = ({ basket, handleCartButton, handleProfilButton }) => {
               >
                 <ListItem>
                   <ListItemText
-                    onClick={() =>
-                      handleRedirection(Routes.ESTIMATE_DETAILS_PAGE)
-                    }
+                    onClick={handleUnavailableRoute}
                     className={styles.header_drawer_category_label}
                     primary={
                       messages.mobile.categories.services.subCategories.moving
@@ -185,7 +192,7 @@ const MobileHeader = ({ basket, handleCartButton, handleProfilButton }) => {
                 </ListItem>
                 <ListItem>
                   <ListItemText
-                    onClick={() => handleRedirection(Routes.VEHICLE_RENT_PAGE)}
+                    onClick={handleUnavailableRoute}
                     className={styles.header_drawer_category_label}
                     primary={
                       messages.mobile.categories.services.subCategories
@@ -207,8 +214,32 @@ const MobileHeader = ({ basket, handleCartButton, handleProfilButton }) => {
                     />
                   </Link>
                 </ListItem>
+                <ListItem>
+                  <ListItemText
+                    onClick={handleUnavailableRoute}
+                    className={styles.header_drawer_category_label}
+                    primary={
+                      messages.mobile.categories.services.subCategories
+                        .warehouse
+                    }
+                  />
+                </ListItem>
               </List>
             </Collapse>
+            <ListItem>
+              <ListItemText
+                onClick={handleUnavailableRoute}
+                className={styles.header_drawer_category_label}
+                primary={messages.mobile.categories.advices}
+              />
+            </ListItem>
+            <ListItem>
+              <ListItemText
+                onClick={handleUnavailableRoute}
+                className={styles.header_drawer_category_label}
+                primary={messages.mobile.categories.news}
+              />
+            </ListItem>
             <ListItem>
               <ListItemText
                 onClick={() => handleRedirection(Routes.CONTACT_PAGE)}
@@ -225,27 +256,22 @@ const MobileHeader = ({ basket, handleCartButton, handleProfilButton }) => {
 
 function Header() {
   const router = useRouter();
+  const { auth } = useCustomer();
   const {
     global: { screenWidth },
-    addToGlobalStateByKey,
   } = useGlobal();
-  const { auth } = useCustomer();
   const { basket } = useBasket();
 
   function handleProfilButton() {
-    if (!auth?.id) {
-      addToGlobalStateByKey("redirect", Routes.PROFIL_PAGE);
-      return router.push(Routes.LOGIN_PAGE);
-    }
-    router.push(Routes.PROFIL_PAGE);
+    return redirectNotLogged(auth, router, Routes.PROFIL_PAGE);
   }
 
   function handleCartButton() {
-    router.push(Routes.BASKET_PAGE);
+    return redirectNotLogged(auth, router, Routes.BASKET_PAGE);
   }
 
   return (
-    <div className={styles.header_container}>
+    <header className={styles.header_container}>
       {screenWidth >= 750 ? (
         <DesktopHeader
           basket={basket}
@@ -259,7 +285,7 @@ function Header() {
           handleProfilButton={handleProfilButton}
         />
       )}
-    </div>
+    </header>
   );
 }
 
