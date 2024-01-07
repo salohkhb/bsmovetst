@@ -29,9 +29,10 @@
 
 @media screen and (min-width: 750px) {
   .volume_calculator_page_container {
-    margin: 5% 8%;
+    padding: 5% 8%;
     display: flex;
     flex-direction: row;
+    min-height: 60vh;
   }
 
   .volume_calculator_page_calculator {
