@@ -263,11 +263,13 @@ function Header() {
   const { basket } = useBasket();
 
   function handleProfilButton() {
-    return redirectNotLogged(auth, router, Routes.PROFIL_PAGE);
+    router.push(Routes.PROFIL_PAGE);
+    // return redirectNotLogged(auth, router, Routes.PROFIL_PAGE);
   }
 
   function handleCartButton() {
-    return redirectNotLogged(auth, router, Routes.BASKET_PAGE);
+    router.push(Routes.BASKET_PAGE);
+    // return redirectNotLogged(auth, router, Routes.BASKET_PAGE);
   }
 
   return (

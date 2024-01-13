@@ -41,6 +41,7 @@ function mapPlaceApiToData(item) {
   const city =
     item?.address?.town ||
     item?.address?.village ||
+    item?.address?.city ||
     item?.address?.municipality;
   const mapped = {
     value: item?.display_name.toLowerCase(),
