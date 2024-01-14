@@ -360,11 +360,35 @@ const EstimateDetailsComponent = ({ handleContinue, canContinue = false }) => {
       (details?.arrivalDateInformations?.departureDate ||
         details?.arrivalDateInformations?.flexible === true) &&
       !isObjectEmpty(details?.departureInformations?.address) &&
-      !isObjectEmpty(details?.arrivalInformations?.address)
+      !isObjectEmpty(details?.arrivalInformations?.address) &&
+      details?.arrivalInformations?.floor !== undefined &&
+      details?.arrivalInformations?.footDistance !== undefined &&
+      details?.departureInformations?.floor !== undefined &&
+      details?.departureInformations?.footDistance !== undefined
     ) {
+      if (
+        (details?.departureInformations?.floor > 0 &&
+          details?.departureInformations?.elevator === undefined) ||
+        (details?.arrivalInformations?.floor > 0 &&
+          details?.arrivalInformations?.elevator === undefined)
+      ) {
+        handleContinue(false);
+        return;
+      }
+      if (
+        (details?.departureInformations?.floor > 0 &&
+          details?.departureInformations?.furnituresLift === undefined) ||
+        (details?.arrivalInformations?.floor > 0 &&
+          details?.arrivalInformations?.furnituresLift === undefined)
+      ) {
+        handleContinue(false);
+        return;
+      }
       handleContinue(true);
+      return;
     } else {
       handleContinue(false);
+      return;
     }
   }, [details]);
 

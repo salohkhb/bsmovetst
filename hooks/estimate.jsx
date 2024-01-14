@@ -13,7 +13,7 @@ const openRouteServiceUrl =
 
 // TODO : CREER UNE VARIABLE DANS LE DASHBOARD POUR RECUPERER UNE VARIABLE DE PRIX
 const VARIABLE_COEFFICIENT = 1.15; // rename in english
-function getBasePrice(km, volume = 1) {
+function getBasePrice(km = 1, volume = 1) {
   // si pas volume ou km, retour 0
   let basePrice;
   if (volume >= 10) {
@@ -351,23 +351,21 @@ export const EstimateProvider = ({ children, initialEstimate }) => {
 
   // EFFECT WHEN WE HAVE THE KM TO GET THE BASE PRICE
   useEffect(() => {
-    if (priceCalculator.km) {
-      if (estimate?.inventory?.volume?.volume) {
-        setPriceCalculator((prevPriceCalculator) => ({
-          ...prevPriceCalculator,
-          priceWithKmAndVolume: parseInt(
-            getBasePrice(
-              priceCalculator.km,
-              parseInt(estimate?.inventory?.volume?.volume)
-            )
-          ),
-        }));
-      } else {
-        setPriceCalculator((prevPriceCalculator) => ({
-          ...prevPriceCalculator,
-          priceWithKmAndVolume: parseInt(getBasePrice(priceCalculator.km, 1)),
-        }));
-      }
+    if (estimate?.inventory?.volume?.volume) {
+      setPriceCalculator((prevPriceCalculator) => ({
+        ...prevPriceCalculator,
+        priceWithKmAndVolume: parseInt(
+          getBasePrice(
+            priceCalculator.km,
+            parseInt(estimate?.inventory?.volume?.volume)
+          )
+        ),
+      }));
+    } else {
+      setPriceCalculator((prevPriceCalculator) => ({
+        ...prevPriceCalculator,
+        priceWithKmAndVolume: parseInt(getBasePrice(priceCalculator.km, 1)),
+      }));
     }
   }, [priceCalculator.km, estimate?.inventory?.volume?.volume]);
 
