@@ -61,7 +61,7 @@ function getPriceWithPortage(volume = 1, portageValue) {
     return 0;
   }
 
-  let priceWithPortage;
+  let priceWithPortage = 0;
   if (portageValue === "11_20") {
     priceWithPortage = 0.5 * volume * 10;
   } else if (portageValue === "21_30") {
