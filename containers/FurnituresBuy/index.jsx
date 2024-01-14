@@ -165,7 +165,7 @@ const FurnituresBuyContainer = () => {
                 <Image
                   className={styles.furnitures_buy_description_illustration_img}
                   layout="fill"
-                  src="/images/furnitures_buy_illustration.png"
+                  src="/images/prestation_3.png"
                   alt="illustration_achat_fournitures"
                 />
               </div>
@@ -176,7 +176,7 @@ const FurnituresBuyContainer = () => {
                 <Image
                   className={styles.furnitures_buy_description_illustration_img}
                   layout="fill"
-                  src="/images/furnitures_buy_illustration.png"
+                  src="/images/prestation_3.png"
                   alt="illustration_achat_fournitures"
                 />
               </div>

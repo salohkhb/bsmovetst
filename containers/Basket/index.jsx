@@ -96,18 +96,16 @@ const BasketPageItem = ({ item }) => {
             <div className={styles.basket_item_total_price}>{`${(
               Number(item?.price) * item?.quantity
             ).toFixed(2)}€`}</div>
-            <div>
-              <IconButton
-                edge="end"
-                onClick={handleDialogOpen}
-                disableRipple
-                className={styles.delete_icon}
-                size="large"
-              >
-                <DeleteForeverIcon fontSize="small" />
-              </IconButton>
-            </div>
           </div>
+          <IconButton
+            edge="end"
+            onClick={handleDialogOpen}
+            disableRipple
+            className={styles.delete_icon}
+            size="large"
+          >
+            <DeleteForeverIcon fontSize="small" />
+          </IconButton>
         </div>
       </div>
       <DeleteDialog

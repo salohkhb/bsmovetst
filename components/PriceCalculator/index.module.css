@@ -41,6 +41,17 @@
         justify-content: space-between;
         gap: 0.5em
     }
+    .price_calculator__price_details_list {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+    }
+    .price_calculator__price_detail {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: rgb(255, 255, 255);
+    }
 }
 @media screen and (max-width: 750px) {
     .price_calculator__container {
@@ -61,7 +72,8 @@
         display: flex;
         gap: 0.5em;
     }
-    .price_calculator__separator {
+    .price_calculator__separator,
+    .price_calculator__price_details_list {
         display: none;
     }
     .price_calculator__price {

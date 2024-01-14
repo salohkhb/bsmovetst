@@ -17,6 +17,7 @@ import { useRouter } from "next/router";
 import Routes from "../../../../helpers/routes";
 import FloorSelect from "../../../../components/Utilities/FloorSelect";
 import { getLiftPrice, getMoversPrice } from "../../../../helpers/prices";
+import styles from "../../index.module.css";
 
 const LiftRentSelectionHeader = () => {
   const {
@@ -170,7 +171,12 @@ const RentCard = ({ item }) => {
       <div style={{ display: "flex", width: "100%", gap: "2em" }}>
         <div style={{ position: "relative", width: "350px" }}>
           <div style={{ position: "absolute", width: "100%", height: "100%" }}>
-            <Image layout="fill" src="/images/logo.png" alt={item.name} />
+            <Image
+              layout="fill"
+              src={item.src || "/images/logo.png"}
+              alt={item.name}
+              className={styles.vehicle_illustration}
+            />
           </div>
         </div>
         <div
@@ -265,14 +271,22 @@ const ITEM_LIST = [
   {
     id: 1,
     name: "Échelle électrique",
+    description: "Échelle électrique utilisée pour les étages assez bas",
+    src: "/images/echelle-electrique.png",
   },
   {
     id: 2,
     name: "Monte meuble tracté",
+    description:
+      "Monte meuble tracté, pas utilisable si l'entrée fait moins de 2m2, et que c'est au delà du 6eme etage",
+    src: "/images/lifter.png",
   },
   {
     id: 3,
     name: "Monte meuble auto-porté",
+    description:
+      "Monte meuble tracté, pas utilisable si l'entrée fait moins de 2m2, convient aux étages au delà de 6",
+    src: "/images/lifter-2.png",
   },
 ];
 
@@ -285,13 +299,7 @@ const RentSelection = () => {
   }, [rent?.lift?.floors]);
 
   function computeList() {
-    const itemList = [
-      {
-        id: 1,
-        name: "Échelle électrique",
-        description: "Échelle électrique utilisée pour les étages assez bas",
-      },
-    ];
+    const itemList = [ITEM_LIST[0]];
     if (rent?.lift?.isEntrancePresent && rent?.lift?.entranceNotTallEnough) {
       if (rent?.lift?.floors <= 6) {
         itemList.push({
@@ -303,25 +311,9 @@ const RentSelection = () => {
       }
     } else {
       if (rent?.lift?.floors > 6) {
-        itemList.push({
-          id: 3,
-          name: "Monte meuble auto-porté",
-        });
+        itemList.push(ITEM_LIST[2]);
       } else {
-        itemList.push(
-          {
-            id: 3,
-            name: "Monte meuble auto-porté",
-            description:
-              "Monte meuble tracté, pas utilisable si l'entrée fait moins de 2m2, convient aux étages au delà de 6",
-          },
-          {
-            id: 2,
-            name: "Monte meuble tracté",
-            description:
-              "Monte meuble tracté, pas utilisable si l'entrée fait moins de 2m2, et que c'est au delà du 6eme etage",
-          }
-        );
+        itemList.push(ITEM_LIST[1], ITEM_LIST[2]);
       }
     }
     return itemList;

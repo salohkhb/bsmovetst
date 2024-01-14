@@ -14,6 +14,7 @@ import GeolocationInput from "../../../../components/GeolocationInput";
 import { useRouter } from "next/router";
 import Routes from "../../../../helpers/routes";
 import Counter from "../../../../components/Counter";
+import styles from "../../index.module.css";
 
 const RentSelectionHeader = () => {
   const {
@@ -39,6 +40,7 @@ const RentSelectionHeader = () => {
             name={"startAddress"}
             onChange={(value) => handleVehicleRentByKey("startAddress", value)}
             placeholder={"Adresse de départ"}
+            withoutLabel
           />
         </div>
         <div style={{ width: "278px" }}>
@@ -48,6 +50,7 @@ const RentSelectionHeader = () => {
             name={"endAddress"}
             onChange={(value) => handleVehicleRentByKey("endAddress", value)}
             placeholder={"Adresse d'arrivée"}
+            withoutLabel
           />
         </div>
         <div style={{ width: "180px" }}>
@@ -90,6 +93,10 @@ const RentSelectionHeader = () => {
             <MUIMenuItem value={2}>2</MUIMenuItem>
             <MUIMenuItem value={3}>3</MUIMenuItem>
             <MUIMenuItem value={4}>4</MUIMenuItem>
+            <MUIMenuItem value={5}>5</MUIMenuItem>
+            <MUIMenuItem value={6}>6</MUIMenuItem>
+            <MUIMenuItem value={7}>7</MUIMenuItem>
+            <MUIMenuItem value={8}>8</MUIMenuItem>
           </MUISelect>
         </div>
       </section>
@@ -103,10 +110,6 @@ const RentCard = ({ item }) => {
     rent: { vehicle = {}, km },
   } = useRent();
 
-  // function addVehicleToRent(vehicle) {
-  //   handleVehicleRentByKey("items", {});
-  // }
-
   function getVehicleQuantity() {
     const vehicleFound = vehicle?.items?.find(
       (vehicleItem) => vehicleItem?.id === item?.id
@@ -118,6 +121,7 @@ const RentCard = ({ item }) => {
     const itemFound = vehicle?.items?.find(
       (itemList) => itemList?.id === item.id
     );
+    console.log("vehicle : ", item);
     if (itemFound) {
       const newItemList = vehicle?.items?.map((vehicleItem) => {
         return vehicleItem?.id === item.id
@@ -177,7 +181,12 @@ const RentCard = ({ item }) => {
       <div style={{ display: "flex", width: "100%", gap: "2em" }}>
         <div style={{ position: "relative", width: "350px" }}>
           <div style={{ position: "absolute", width: "100%", height: "100%" }}>
-            <Image layout="fill" src="/images/logo.png" alt={item.name} />
+            <Image
+              layout="fill"
+              src={item.src || "/images/logo.png"}
+              alt={item.name}
+              className={styles.vehicle_illustration}
+            />
           </div>
         </div>
         <div
@@ -293,16 +302,13 @@ const RentSelectionContent = ({ list = [] }) => {
   );
 };
 
-const RentSelection = () => {
-  // HERE WITH BACKEND GET THE TRUCKS
-  return (
-    <section>
-      <article>
-        <RentSelectionHeader />
-        <RentSelectionContent list={VEHICLE_LIST} />
-      </article>
-    </section>
-  );
-};
+const RentSelection = () => (
+  <section>
+    <article>
+      <RentSelectionHeader />
+      <RentSelectionContent list={VEHICLE_LIST} />
+    </article>
+  </section>
+);
 
 export default RentSelection;

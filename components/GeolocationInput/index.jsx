@@ -6,8 +6,9 @@ const GeolocationInput = ({
   isDisabled = false,
   onChange,
   placeholder,
-  initialInputValue = '',
-  label = ''
+  initialInputValue = "",
+  label = "",
+  withoutLabel = false,
 }) => (
   <InputAsyncSelect
     initialInputValue={initialInputValue}
@@ -16,6 +17,7 @@ const GeolocationInput = ({
     onSelect={onChange}
     placeholder={placeholder}
     label={label}
+    withoutLabel={withoutLabel}
   />
 );
 
@@ -25,7 +27,7 @@ GeolocationInput.propTypes = {
   placeholder: string,
   onChange: any,
   initialInputValue: string,
-  label: string
+  label: string,
 };
 
 export default GeolocationInput;

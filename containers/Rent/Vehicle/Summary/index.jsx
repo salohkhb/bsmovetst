@@ -16,6 +16,7 @@ import { useGlobal } from "../../../../hooks/global";
 import { useLoading } from "../../../../hooks/loading";
 import { useAlert } from "../../../../hooks/alert";
 import api from "../../../../helpers/api";
+import styles from "../../index.module.css";
 
 function mapVehicleRentDataToAPI(data = {}) {
   return {
@@ -403,18 +404,24 @@ const RentSummaryRight = () => {
             Modifier
           </span>
         </div>
-        <div style={{ position: "relative", width: "250px", height: "120px" }}>
-          <div style={{ position: "absolute", width: "100%", height: "100%" }}>
+        <div style={{ position: "relative", width: "120px", height: "120px" }}>
+          <div
+            style={{
+              position: "absolute",
+              width: "100%",
+              height: "100%",
+              left: "0",
+            }}
+          >
             <Image
               layout="fill"
-              src="/images/logo.png"
+              src={rent?.vehicle?.items[0]?.src || "/images/logo.png"}
               alt={rent?.vehicle?.vehicle?.name || "Camion"}
+              class={styles.vehicle_illustration}
             />
           </div>
         </div>
-        <span style={{ maxWidth: "50%" }}>
-          {rent?.vehicle?.vehicle?.name || "Description"}
-        </span>
+
         <Divider />
         <div
           style={{
@@ -484,6 +491,7 @@ const RentSummaryRight = () => {
           gap: "1em",
           marginTop: "2em",
           backgroundColor: "#F1F9F5",
+          width: "470px",
         }}
       >
         <h2 style={{ margin: 0 }}>Inclus</h2>

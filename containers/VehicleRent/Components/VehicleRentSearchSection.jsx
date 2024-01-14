@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "../index.module.css";
 import { Tabs, Tab } from "@mui/material";
 import { any, number } from "prop-types";
@@ -119,6 +119,7 @@ const VehicleRentSearchSectionVehicle = () => {
               name={"startAddress"}
               onChange={(value) => formik.setFieldValue("startAddress", value)}
               placeholder={"Adresse de départ"}
+              withoutLabel
             />
             {formik.errors.startAddress && formik.touched.startAddress && (
               <span style={{ color: "red" }}>{formik.errors.startAddress}</span>
@@ -130,6 +131,7 @@ const VehicleRentSearchSectionVehicle = () => {
               name={"endAddress"}
               onChange={(value) => formik.setFieldValue("endAddress", value)}
               placeholder={"Adresse d'arrivée"}
+              withoutLabel
             />
             {formik.errors.endAddress && formik.touched.endAddress && (
               <span style={{ color: "red" }}>{formik.errors.endAddress}</span>
@@ -320,6 +322,7 @@ const LiftRentSection = () => {
               name={"startAddress"}
               onChange={(value) => formik.setFieldValue("startAddress", value)}
               placeholder={"Adresse de départ"}
+              withoutLabel
             />
             {formik.errors.startAddress && formik.touched.startAddress && (
               <span style={{ color: "red" }}>{formik.errors.startAddress}</span>
@@ -472,7 +475,19 @@ const LiftRentSection = () => {
 };
 
 const VehicleRentSearchSection = () => {
-  const [activeTab, setActiveTab] = useState(0);
+  const router = useRouter();
+  console.log("router : ", router);
+  const [activeTab, setActiveTab] = useState(
+    router?.query?.tab === "lift" ? 1 : 0
+  );
+
+  useEffect(() => {
+    if (router?.query?.tab === "lift") {
+      setActiveTab(1);
+    } else {
+      setActiveTab(0);
+    }
+  }, [router.query]);
 
   function handleTabChange(e, newTab = 0) {
     if (newTab === activeTab) return;
@@ -498,7 +513,7 @@ const VehicleRentSearchSection = () => {
             className={styles.halfWidthTab}
             sx={{
               backgroundColor: activeTab === 0 ? "#F1F9F5" : "inherit",
-              color: "#1B2032 !important",
+              fontWeight: "bold",
             }}
           />
           <Tab
@@ -507,7 +522,7 @@ const VehicleRentSearchSection = () => {
             className={styles.halfWidthTab}
             sx={{
               backgroundColor: activeTab === 1 ? "#F1F9F5" : "inherit",
-              color: "#1B2032 !important",
+              fontWeight: "bold",
             }}
           />
         </Tabs>

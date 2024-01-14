@@ -4,6 +4,8 @@ import Avatar from "@mui/material/Avatar";
 import CardContent from "@mui/material/CardContent";
 
 import styles from "./index.module.css";
+import { useAlert } from "../../hooks/alert";
+import { useState } from "react";
 
 const S = {};
 
@@ -32,9 +34,18 @@ const fakefeedback =
   "Très bon professionnel. Nous sommes déjà passé trois fois par lui et toujours avec satisfaction. Très réactif et toujours à l'écoute pour gérer le déménagement.";
 
 const FeedbackCard = ({ feedback = "coucou", user, imgSrc }) => {
+  const [raised, setRaised] = useState(false);
+
+  function toggleRaised() {
+    return setRaised((prevRaised) => !prevRaised);
+  }
   return (
     <>
-      <S.Card elevation={4}>
+      <S.Card
+        onMouseOver={toggleRaised}
+        onMouseOut={toggleRaised}
+        raised={raised}
+      >
         <CardContent>
           <div className={styles.feedback_user_container}>
             <S.Avatar src={imgSrc} />

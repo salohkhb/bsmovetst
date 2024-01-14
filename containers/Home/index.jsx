@@ -4,17 +4,18 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import IconButton from "@mui/material/IconButton";
 import Card from "@mui/material/Card";
 
-import Routes from '../../helpers/routes';
-import Button from '../../components/Button';
+import Routes from "../../helpers/routes";
+import Button from "../../components/Button";
 
-import styles from './index.module.css';
-import messages from './messages';
-import {useAlert} from "../../hooks/alert";
-import {useRouter} from "next/router";
-import HomeEstimateSection from './HomeEstimateSection/HomeEstimateSection';
-import HomeFeedbacksSection from './HomeFeedbacksSection/HomeFeedbacksSection';
-import CategoryPreview from './CategoryPreview/CategoryPreview';
+import styles from "./index.module.css";
+import messages from "./messages";
+import { useAlert } from "../../hooks/alert";
+import { useRouter } from "next/router";
+import HomeEstimateSection from "./HomeEstimateSection/HomeEstimateSection";
+import HomeFeedbacksSection from "./HomeFeedbacksSection/HomeFeedbacksSection";
+import CategoryPreview from "./CategoryPreview/CategoryPreview";
 import HomePrestationsSection from "./HomePrestationsSection/HomePrestationsSection";
+import { useState } from "react";
 
 const HomeGuidelineSection = () => (
   <div className={styles.guideline_section}>
@@ -89,23 +90,35 @@ const HomeGuidelineSection = () => (
   </div>
 );
 
-const S = {}
+const S = {};
 
 S.AdvantageCard = styled(Card)`
   max-width: 376px;
   min-width: 320px;
-  margin: 1em;
-  border-radius: 16px;
 `;
 
-const AdvantageCard = ({ title, content }) => (
-  <S.AdvantageCard elevation={1}>
-    <div className={styles.advantages_card_container}>
-      <div className={styles.advantages_card_title}>{title}</div>
-      <div className={styles.section_content}>{content}</div>
-    </div>
-  </S.AdvantageCard>
-);
+const AdvantageCard = ({ title, content }) => {
+  const [raised, setRaised] = useState(false);
+
+  function toggleRaised() {
+    return setRaised((prevRaised) => !prevRaised);
+  }
+  return (
+    <Card
+      onMouseOver={toggleRaised}
+      onMouseOut={toggleRaised}
+      raised={raised}
+      sx={{ backgroundColor: "transparent !important" }}
+    >
+      <S.AdvantageCard elevation={1}>
+        <div className={styles.advantages_card_container}>
+          <div className={styles.advantages_card_title}>{title}</div>
+          <div className={styles.section_content}>{content}</div>
+        </div>
+      </S.AdvantageCard>
+    </Card>
+  );
+};
 
 const HomeAdvantagesSection = () => (
   <div className={styles.advantages_section}>

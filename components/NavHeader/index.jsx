@@ -20,7 +20,8 @@ import { useAlert } from "../../hooks/alert";
 
 const categories = [
   { name: "estimate/details", label: "Déménagement" },
-  { name: "vehicle-rent", label: "Location véhicules" },
+  { name: "vehicle-rent", label: "Location véhicules", state: "vehicle" },
+  { name: "vehicle-rent", label: "Location monte-meuble", state: "lift" },
   { name: "furnitures-buy", label: "Achat matériel" },
 ];
 
@@ -39,19 +40,22 @@ const ServicesMenu = ({ label = "", handleOpen, open, anchorRef }) => {
 
   function handleCategoryClicked(category) {
     handleOpen();
-    const route = `/${category}`;
-    if (
-      route !== Routes.FURNITURES_BUY_PAGE &&
-      route !== Routes.ESTIMATE_DETAILS_PAGE &&
-      route !== Routes.VEHICLE_RENT_PAGE
-    ) {
-      return setAlert({
-        severity: "info",
-        content:
-          "Cette page est en cours de construction, elle sera bientôt disponible",
-      });
-    }
-    router.push(category ? route : "/");
+    const route = `/${category.name}`;
+    // if (
+    //   route !== Routes.FURNITURES_BUY_PAGE &&
+    //   route !== Routes.ESTIMATE_DETAILS_PAGE &&
+    //   route !== Routes.VEHICLE_RENT_PAGE
+    // ) {
+    //   return setAlert({
+    //     severity: "info",
+    //     content:
+    //       "Cette page est en cours de construction, elle sera bientôt disponible",
+    //   });
+    // }
+    router.push({
+      pathname: category ? route : "/",
+      query: { tab: category.state },
+    });
   }
 
   return (
@@ -84,7 +88,7 @@ const ServicesMenu = ({ label = "", handleOpen, open, anchorRef }) => {
             <MenuItem
               key={category?.name}
               className={styles.menu_item_container}
-              onClick={() => handleCategoryClicked(category.name)}
+              onClick={() => handleCategoryClicked(category)}
             >
               <div className={styles.menu_item_label}>{category.label}</div>
               <ChevronRight />

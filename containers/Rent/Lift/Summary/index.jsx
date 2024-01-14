@@ -15,6 +15,7 @@ import Routes from "../../../../helpers/routes";
 import api from "../../../../helpers/api";
 import { useLoading } from "../../../../hooks/loading";
 import { useAlert } from "../../../../hooks/alert";
+import styles from "../../index.module.css";
 
 function mapLiftRentDataToAPI(data = {}) {
   return {
@@ -339,12 +340,11 @@ const LiftRentSummaryRight = () => {
   const router = useRouter();
   return (
     <article
-      style={{ display: "flex", flexDirection: "column", width: "100%" }}
+      style={{ display: "flex", flexDirection: "column", width: "470px" }}
     >
       <div
         style={{
           display: "flex",
-          width: "470px",
           flexDirection: "column",
           border: "1px solid #DEDEDE",
           borderRadius: "12px",
@@ -367,12 +367,13 @@ const LiftRentSummaryRight = () => {
             Modifier
           </span>
         </div>
-        <div style={{ position: "relative", width: "250px", height: "120px" }}>
+        <div style={{ position: "relative", width: "120px", height: "120px" }}>
           <div style={{ position: "absolute", width: "100%", height: "100%" }}>
             <Image
               layout="fill"
-              src="/images/logo.png"
-              alt={rent?.lift?.lift?.name || "test"}
+              src={rent?.lift?.items[0]?.src || "/images/logo.png"}
+              alt={"img-lift"}
+              className={styles.vehicle_illustration}
             />
           </div>
         </div>

@@ -65,6 +65,7 @@ const OpenStreetMapAutocomplete = ({
   placeholder,
   initialInputValue,
   label,
+  withoutLabel = false,
 }) => {
   const [value, setValue] = React.useState();
   const [inputValue, setInputValue] = React.useState(initialInputValue || "");
@@ -143,7 +144,7 @@ const OpenStreetMapAutocomplete = ({
         <TextField
           {...params}
           value={inputValue}
-          label={label || placeholder}
+          label={withoutLabel ? null : label || placeholder}
           placeholder={placeholder}
           fullWidth
         />
