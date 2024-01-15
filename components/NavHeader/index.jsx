@@ -8,6 +8,7 @@ import Tabs from "@mui/material/Tabs";
 import clsx from "clsx";
 import styled from "styled-components";
 import { ChevronRight } from "@mui/icons-material";
+import Link from "next/link";
 
 import messages from "./messages";
 import Logo from "../Logo";
@@ -41,17 +42,6 @@ const ServicesMenu = ({ label = "", handleOpen, open, anchorRef }) => {
   function handleCategoryClicked(category) {
     handleOpen();
     const route = `/${category.name}`;
-    // if (
-    //   route !== Routes.FURNITURES_BUY_PAGE &&
-    //   route !== Routes.ESTIMATE_DETAILS_PAGE &&
-    //   route !== Routes.VEHICLE_RENT_PAGE
-    // ) {
-    //   return setAlert({
-    //     severity: "info",
-    //     content:
-    //       "Cette page est en cours de construction, elle sera bientôt disponible",
-    //   });
-    // }
     router.push({
       pathname: category ? route : "/",
       query: { tab: category.state },
@@ -59,7 +49,7 @@ const ServicesMenu = ({ label = "", handleOpen, open, anchorRef }) => {
   }
 
   return (
-    <>
+    <nav>
       <span className={styles.menu_label_container}>
         <span className={styles.menu_label_span}>{label}</span>
         <ExpandMoreIcon
@@ -95,7 +85,7 @@ const ServicesMenu = ({ label = "", handleOpen, open, anchorRef }) => {
             </MenuItem>
           ))}
       </Menu>
-    </>
+    </nav>
   );
 };
 
@@ -157,7 +147,9 @@ const PrimaryNavHeader = ({ initialTab }) => {
   return (
     <div className={styles.container}>
       <div className={styles.primary_logo_container}>
-        <Logo />
+        <Link href={Routes.HOME_PAGE}>
+          <Logo />
+        </Link>
       </div>
       <S.Tabs
         value={value}
@@ -188,38 +180,11 @@ const PrimaryNavHeader = ({ initialTab }) => {
             },
           }}
         />
-        {/* TODO : ADD THAT IF THE ACTU AND BLOG ARE ASKED */}
-        {/*<Tab*/}
-        {/*  label={*/}
-        {/*    <div className={styles.menu_label_span}>{messages.advises}</div>*/}
-        {/*  }*/}
-        {/*  sx={{*/}
-        {/*    color: "#000000",*/}
-        {/*    fontWeight: 600,*/}
-        {/*    fontFamily: "proxima-nova",*/}
-        {/*    fontSize: "80%",*/}
-        {/*    minWidth: "8rem",*/}
-        {/*    "& Mui-Selected:": {*/}
-        {/*      color: "rgb(56, 199, 152)",*/}
-        {/*    },*/}
-        {/*  }}*/}
-        {/*/>*/}
-        {/*<Tab*/}
-        {/*  label={<div className={styles.menu_label_span}>{messages.news}</div>}*/}
-        {/*  sx={{*/}
-        {/*    color: "#000000",*/}
-        {/*    fontWeight: 600,*/}
-        {/*    fontFamily: "proxima-nova",*/}
-        {/*    fontSize: "80%",*/}
-        {/*    minWidth: "8rem",*/}
-        {/*    "& Mui-Selected:": {*/}
-        {/*      color: "rgb(56, 199, 152)",*/}
-        {/*    },*/}
-        {/*  }}*/}
-        {/*/>*/}
         <Tab
           label={
-            <div className={styles.menu_label_span}>{messages.contact}</div>
+            <Link href={Routes.CONTACT_PAGE}>
+              <span className={styles.menu_label_span}>{messages.contact}</span>
+            </Link>
           }
           sx={{
             color: "#000000",
@@ -233,12 +198,12 @@ const PrimaryNavHeader = ({ initialTab }) => {
           }}
         />
       </S.Tabs>
-      <div
+      <Link
         className={styles.button_container}
-        onClick={() => router.push(Routes.ESTIMATE_DETAILS_PAGE)}
+        href={Routes.ESTIMATE_DETAILS_PAGE}
       >
         <div className={styles.button_component}>{messages.estimate}</div>
-      </div>
+      </Link>
     </div>
   );
 };
@@ -251,7 +216,9 @@ const SecondaryNavHeader = ({ initialStep = 0, steps = [] }) => {
   return (
     <div className={styles.secondary_nav_header_container}>
       <div className={styles.logo_container}>
-        <Logo />
+        <Link href={Routes.HOME_PAGE}>
+          <Logo />
+        </Link>
       </div>
       <div className={styles.secondary_nav_header_stepper}>
         <Stepper activeStep={initialStep} alternativeLabel={screenWidth <= 750}>

@@ -134,7 +134,9 @@ const MobileHeader = ({ basket, handleCartButton, handleProfilButton }) => {
         </IconButton>
         <div className={styles.header_mobile_logo_container}>
           <div className={styles.header_mobile_logo_component}>
-            <Logo />
+            <Link href={Routes.HOME_PAGE}>
+              <Logo />
+            </Link>
           </div>
         </div>
         <S.RightHeader>
@@ -160,7 +162,6 @@ const MobileHeader = ({ basket, handleCartButton, handleProfilButton }) => {
       </div>
       <SwipeableDrawer
         classes={{ paper: styles.header_mobile_menu_container }}
-        // className={styles.header_mobile_menu_container}
         anchor="left"
         open={menuOpen}
         onClose={handleMenuOpen}
@@ -183,7 +184,12 @@ const MobileHeader = ({ basket, handleCartButton, handleProfilButton }) => {
               >
                 <ListItem>
                   <ListItemText
-                    onClick={handleUnavailableRoute}
+                    onClick={() =>
+                      handleRedirection({
+                        pathname: Routes.ESTIMATE_DETAILS_PAGE,
+                        query: { tab: "vehicle" },
+                      })
+                    }
                     className={styles.header_drawer_category_label}
                     primary={
                       messages.mobile.categories.services.subCategories.moving
@@ -192,11 +198,30 @@ const MobileHeader = ({ basket, handleCartButton, handleProfilButton }) => {
                 </ListItem>
                 <ListItem>
                   <ListItemText
-                    onClick={handleUnavailableRoute}
+                    onClick={() =>
+                      handleRedirection({
+                        pathname: Routes.VEHICLE_RENT_PAGE,
+                        query: { tab: "vehicle" },
+                      })
+                    }
                     className={styles.header_drawer_category_label}
                     primary={
                       messages.mobile.categories.services.subCategories
                         .rentVehicles
+                    }
+                  />
+                </ListItem>
+                <ListItem>
+                  <ListItemText
+                    onClick={() =>
+                      handleRedirection({
+                        pathname: Routes.VEHICLE_RENT_PAGE,
+                        query: { tab: "lift" },
+                      })
+                    }
+                    className={styles.header_drawer_category_label}
+                    primary={
+                      messages.mobile.categories.services.subCategories.rentLift
                     }
                   />
                 </ListItem>
@@ -214,32 +239,8 @@ const MobileHeader = ({ basket, handleCartButton, handleProfilButton }) => {
                     />
                   </Link>
                 </ListItem>
-                <ListItem>
-                  <ListItemText
-                    onClick={handleUnavailableRoute}
-                    className={styles.header_drawer_category_label}
-                    primary={
-                      messages.mobile.categories.services.subCategories
-                        .warehouse
-                    }
-                  />
-                </ListItem>
               </List>
             </Collapse>
-            <ListItem>
-              <ListItemText
-                onClick={handleUnavailableRoute}
-                className={styles.header_drawer_category_label}
-                primary={messages.mobile.categories.advices}
-              />
-            </ListItem>
-            <ListItem>
-              <ListItemText
-                onClick={handleUnavailableRoute}
-                className={styles.header_drawer_category_label}
-                primary={messages.mobile.categories.news}
-              />
-            </ListItem>
             <ListItem>
               <ListItemText
                 onClick={() => handleRedirection(Routes.CONTACT_PAGE)}

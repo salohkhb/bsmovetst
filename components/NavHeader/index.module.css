@@ -135,6 +135,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
+  line-height: normal;
 }
 
 .menu_label_icon {
@@ -172,8 +173,8 @@
 }
 
 .menu_item_label {
-  max-width: 70%;
-  width: 70%;
+  max-width: 90%;
+  width: 90%;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;

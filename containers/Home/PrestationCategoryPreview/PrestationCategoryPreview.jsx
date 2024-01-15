@@ -6,6 +6,7 @@ import { useAlert } from "../../../hooks/alert";
 import { useRouter } from "next/router";
 import CategoryPreview from "../CategoryPreview/CategoryPreview";
 import { shape, string } from "prop-types";
+import Link from "next/link";
 
 const PrestationCategoryPreview = ({
   category: { src, title = "", href } = {},
@@ -27,20 +28,24 @@ const PrestationCategoryPreview = ({
 
   return (
     <div className={styles.prestation_section_category_container}>
-      <Card
-        onMouseOver={toggleRaised}
-        onMouseOut={toggleRaised}
-        raised={raised}
-        onClick={categoryOnClick}
-      >
-        <div className={styles.prestation_section_category_thumbnail_container}>
-          <CategoryPreview href={href} title={title} src={src} />
-        </div>
-        <div className={styles.prestation_section_category_content}>
-          <div>{title}</div>
-          <ArrowForwardIcon />
-        </div>
-      </Card>
+      <Link href={href}>
+        <Card
+          onMouseOver={toggleRaised}
+          onMouseOut={toggleRaised}
+          raised={raised}
+          onClick={categoryOnClick}
+        >
+          <div
+            className={styles.prestation_section_category_thumbnail_container}
+          >
+            <CategoryPreview href={href} title={title} src={src} />
+          </div>
+          <div className={styles.prestation_section_category_content}>
+            <div>{title}</div>
+            <ArrowForwardIcon />
+          </div>
+        </Card>
+      </Link>
     </div>
   );
 };
