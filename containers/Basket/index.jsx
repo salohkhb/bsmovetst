@@ -78,9 +78,6 @@ const BasketPageItem = ({ item }) => {
             </div>
             <div>
               <div>{item.name}</div>
-              <div className={styles.basket_item_short_description}>
-                {item.description}
-              </div>
             </div>
           </div>
           <div className={styles.basket_page_item_informations}>

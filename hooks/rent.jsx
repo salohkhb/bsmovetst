@@ -13,50 +13,51 @@ function getVehiclePriceFromKm(vehicleVolume, km, quantity, duration) {
   switch (vehicleVolume) {
     case 5: {
       if (duration === HALF_DAY_DURATION) {
-        price = (142 + 1.34 * km) * quantity;
+        price = (142 + 1.34 * km) * quantity * 1.2;
       } else if (duration === FULL_DAY_DURATION) {
-        price = (207 + 1.34 * km) * quantity;
+        price = (207 + 1.34 * km) * quantity * 1.2;
       }
       break;
     }
     case 12: {
       if (duration === HALF_DAY_DURATION) {
-        price = (150 + 1.5 * km) * quantity;
+        price = (150 + 1.5 * km) * quantity * 1.2;
       } else if (duration === FULL_DAY_DURATION) {
-        price = (225 + 1.5 * km) * quantity;
+        price = (225 + 1.5 * km) * quantity * 1.2;
       }
       break;
     }
     case 22: {
       if (duration === HALF_DAY_DURATION) {
-        price = (164.5 + 1.79 * km) * quantity;
+        price = (164.5 + 1.79 * km) * quantity * 1.2;
       } else if (duration === FULL_DAY_DURATION) {
-        price = (239.5 + 1.79 * km) * quantity;
+        price = (239.5 + 1.79 * km) * quantity * 1.2;
       }
       break;
     }
     case 32: {
       if (duration === HALF_DAY_DURATION) {
-        price = (187 + 2.24 * km) * quantity;
+        price = (187 + 2.24 * km) * quantity * 1.2;
       } else if (duration === FULL_DAY_DURATION) {
-        price = (262 + 2.24 * km) * quantity;
+        price = (262 + 2.24 * km) * quantity * 1.2;
       }
       break;
     }
+    // les camions suivants -> que les 8h, changer la séléction de véhicule possible
     case 42: {
-      price = (374.5 + 2.69 * km) * quantity;
+      price = (374.5 + 2.69 * km) * quantity * 1.2;
       break;
     }
     case 50: {
-      price = (394.75 + 3.1 * km) * quantity;
+      price = (394.75 + 3.1 * km) * quantity * 1.2;
       break;
     }
     case 60: {
-      price = (415 + 3.5 * km) * quantity;
+      price = (415 + 3.5 * km) * quantity * 1.2;
       break;
     }
     case 100: {
-      price = (505 + 5.3 * km) * quantity;
+      price = (505 + 5.3 * km) * quantity * 1.2;
       break;
     }
     default:

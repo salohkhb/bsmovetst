@@ -125,7 +125,7 @@ function getPriceForItem(item, lift) {
     case "Monte meuble tracté":
       return getLiftPrice(
         lift.km,
-        "Échelle électrique",
+        "Monte meuble tracté",
         lift.duration,
         lift.floors
       );
@@ -279,7 +279,7 @@ const ITEM_LIST = [
     name: "Monte meuble tracté",
     description:
       "Monte meuble tracté, pas utilisable si l'entrée fait moins de 2m2, et que c'est au delà du 6eme etage",
-    src: "/images/lifter.png",
+    src: "/images/lifter-1.png",
   },
   {
     id: 3,
@@ -298,6 +298,8 @@ const RentSelection = () => {
     setItemList(computeList());
   }, [rent?.lift?.floors]);
 
+  // ECHELLE ELEC A SUPPRIMER SI > 6 ETAGES
+
   function computeList() {
     const itemList = [ITEM_LIST[0]];
     if (rent?.lift?.isEntrancePresent && rent?.lift?.entranceNotTallEnough) {
@@ -306,7 +308,7 @@ const RentSelection = () => {
           id: 2,
           name: "Monte meuble tracté",
           description:
-            "Monte meuble tracté, pas utilisable si l'entrée fait moins de 2m2, et que c'est au delà du 6eme etage",
+            "Monte meuble tracté, pas utilisable si l'entrée fait moins de 2m2ou que c'est au delà du 6eme etage",
         });
       }
     } else {

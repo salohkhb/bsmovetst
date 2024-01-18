@@ -51,10 +51,22 @@ const MainFooter = () => {
             {messages.mainFooter.servicesBlock.moving}
           </Link>
           <Link
-            href={Routes.VEHICLE_RENT_PAGE}
+            href={{
+              pathname: Routes.VEHICLE_RENT_PAGE,
+              query: { tab: "vehicle" },
+            }}
             className={styles.main_footer_blocks_content}
           >
             {messages.mainFooter.servicesBlock.vehicleRent}
+          </Link>
+          <Link
+            href={{
+              pathname: Routes.VEHICLE_RENT_PAGE,
+              query: { tab: "lift" },
+            }}
+            className={styles.main_footer_blocks_content}
+          >
+            {messages.mainFooter.servicesBlock.liftRent}
           </Link>
           <Link
             href={Routes.FURNITURES_BUY_PAGE}
@@ -64,12 +76,9 @@ const MainFooter = () => {
           </Link>
         </section>
         <section className={styles.main_footer_blocks}>
-          <div className={styles.main_footer_blocks_title}>
+          <Link href={Routes.CGU} className={styles.main_footer_blocks_title}>
             {messages.mainFooter.legalsBlock.title}
-          </div>
-          <div className={styles.main_footer_blocks_content}>
-            {messages.mainFooter.legalsBlock.cgv}
-          </div>
+          </Link>
           <div className={styles.main_footer_blocks_content}>
             {messages.mainFooter.legalsBlock.cgu}
           </div>

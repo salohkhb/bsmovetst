@@ -11,24 +11,22 @@ const EstimateContext = createContext({
 const openRouteServiceUrl =
   "https://api.openrouteservice.org/v2/directions/driving-car";
 
-// TODO : CREER UNE VARIABLE DANS LE DASHBOARD POUR RECUPERER UNE VARIABLE DE PRIX
-const VARIABLE_COEFFICIENT = 1.15; // rename in english
+const COEFFICIENT = 1.15; // rename in english
 function getBasePrice(km = 1, volume = 1) {
-  // si pas volume ou km, retour 0
-  let basePrice;
-  if (volume >= 10) {
+  let basePrice = 0;
+  if (volume > 10) {
     basePrice =
-      (((volume - 20) * 0.045 + 1.7) * km + 32 * volume) * VARIABLE_COEFFICIENT;
+      (((volume - 20) * 0.045 + 1.7) * km + 32 * volume) * COEFFICIENT;
   } else {
-    basePrice = (1.34 * km + (23 * volume + 300)) * VARIABLE_COEFFICIENT;
+    basePrice = 1.34 * km + (23 * volume + 300) * COEFFICIENT;
   }
   return basePrice;
 }
 
 function getPriceWithElevator(
   volume = 1,
-  nbOfFloors,
-  elevatorValue,
+  nbOfFloors, // étages
+  elevatorValue, // type d'ascenseur
   hasLift = false
 ) {
   let priceWithElevator = 0;
@@ -39,6 +37,7 @@ function getPriceWithElevator(
     return priceWithElevator;
   }
   if (hasLift) {
+    // a un monte meuble
     priceWithElevator = nbOfFloors * volume * 1.5 * 0.1 + 250;
   } else {
     if (elevatorValue === "no") {

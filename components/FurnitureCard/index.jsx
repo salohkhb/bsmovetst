@@ -46,13 +46,12 @@ const FurnitureCard = ({ item }) => {
         </div>
       </div>
       <div className="furniture-card-component__furniture_card_description">
-        <div className="furniture-card-component__furniture_card_title">
-          {name}
-        </div>
-        <div className="furniture-card-component__furniture_card_short_description">
-          {description}
-        </div>
-        <div>{`${price}€`}</div>
+        <section>
+          <div className="furniture-card-component__furniture_card_title">
+            {name}
+          </div>
+          <div>{`${price}€`}</div>
+        </section>
         <Counter
           minValue={0}
           maxValue={stock || 20}

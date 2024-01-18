@@ -33,7 +33,10 @@ const ExtraFurnitureCard = ({ item, withoutPrice = false }) => {
   const { addToEstimateInventoryByKey, estimate } = useEstimate();
   const [count, setCount] = useState(0);
 
-  const { id, name, description, price, base64 } = item;
+  const { id, name, price, base64 } = item;
+
+  // CHECK ICI PRIX ARRONDIS ? -> différent du shop
+  // CHANGER LE BULL CRAFT ET TOUT CE QU'IL Y A SUR LE SCREENSHOT EN FRAGILE
 
   useEffect(() => {
     if (!isObjectEmpty(item) && item.name) {
@@ -140,9 +143,6 @@ const ExtraFurnitureCard = ({ item, withoutPrice = false }) => {
       </div>
       <div className={styles.furniture_card_description}>
         <div className={styles.furniture_card_title}>{name}</div>
-        <div className={styles.furniture_card_short_description}>
-          {description}
-        </div>
         {withoutPrice ? null : <div>{`${price}${CURRENCY.EUR}`}</div>}
         <Counter
           minValue={0}

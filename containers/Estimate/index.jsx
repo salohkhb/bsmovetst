@@ -207,7 +207,7 @@ function mapValuesToEstimateRequest(estimate, customer, extraData) {
   };
 }
 
-async function getDistanceWithCoordinates(start, end) {
+export async function getDistanceWithCoordinates(start, end) {
   const result = await fetch(
     `https://router.project-osrm.org/route/v1/driving/${start.lng},${start.lat};${end.lng},${end.lat}?overview=false`
   );

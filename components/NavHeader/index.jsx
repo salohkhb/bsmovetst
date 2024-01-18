@@ -21,7 +21,7 @@ import { useAlert } from "../../hooks/alert";
 
 const categories = [
   { name: "estimate/details", label: "Déménagement" },
-  { name: "vehicle-rent", label: "Location véhicules", state: "vehicle" },
+  { name: "vehicle-rent", label: "Location camion", state: "vehicle" },
   { name: "vehicle-rent", label: "Location monte-meuble", state: "lift" },
   { name: "furnitures-buy", label: "Achat matériel" },
 ];
@@ -42,10 +42,14 @@ const ServicesMenu = ({ label = "", handleOpen, open, anchorRef }) => {
   function handleCategoryClicked(category) {
     handleOpen();
     const route = `/${category.name}`;
-    router.push({
-      pathname: category ? route : "/",
-      query: { tab: category.state },
-    });
+    if (category.name !== Routes.VEHICLE_RENT_PAGE) {
+      router.push(category ? route : "/");
+    } else {
+      router.push({
+        pathname: category ? route : "/",
+        query: { tab: category.state },
+      });
+    }
   }
 
   return (

@@ -7,8 +7,8 @@ export default {
         title: "Services",
         subCategories: {
           moving: "Déménagement",
-          buyFurnitures: "Achat de matériels",
-          rentVehicles: "Locations de véhicules",
+          buyFurnitures: "Achat de matériel",
+          rentVehicles: "Locations de camion",
           rentLift: "Location de monte-meuble",
         },
       },

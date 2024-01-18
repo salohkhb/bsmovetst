@@ -10,9 +10,12 @@ import {
 } from "../../Details/constants";
 import { EstimateSummaryInformationBlock, UNKNOW } from "../index";
 import { useEstimate } from "../../../../hooks/estimate";
+import { useEffect, useState } from "react";
+import { getDistanceWithCoordinates } from "../../index";
 
 const SummaryAddressSection = () => {
   const {
+    estimate,
     estimate: {
       details: {
         departureInformations = {},
@@ -21,6 +24,20 @@ const SummaryAddressSection = () => {
       } = {},
     } = {},
   } = useEstimate();
+  const [km, setKm] = useState("0");
+
+  useEffect(() => {
+    async function getKm() {
+      const km = await getDistanceWithCoordinates(
+        departureInformations?.address,
+        arrivalInformations?.address
+      );
+      setKm((km || 0).toFixed(0));
+    }
+    if (departureInformations?.address && arrivalInformations.address) {
+      getKm();
+    }
+  }, [arrivalInformations, departureInformations]);
 
   return (
     <EstimateSection title={messages.sections.informations.title}>
@@ -123,6 +140,10 @@ const SummaryAddressSection = () => {
             messages.sections.informations.blockLabel.arrivalNeedParkingPermit
           }
           content={arrivalInformations?.parkingPermit ? "Oui" : "Non"}
+        />
+        <EstimateSummaryInformationBlock
+          label={messages.sections.informations.blockLabel.km}
+          content={km}
         />
       </div>
     </EstimateSection>

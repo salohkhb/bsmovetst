@@ -1,7 +1,7 @@
-import styles from '../index.module.css';
-import Image from 'next/legacy/image';
-import {Subtitle} from '../../../components/Texts';
-import {S} from '../index';
+import styles from "../index.module.css";
+import Image from "next/legacy/image";
+import { Subtitle } from "../../../components/Texts";
+import { S } from "../index";
 
 const VehicleRentPresentationHeaderSection = () => (
   <div>
@@ -23,7 +23,7 @@ const VehicleRentPresentationHeaderSection = () => (
         <Image
           layout={"fill"}
           className={styles.vehicle_rent_presentation__right_section_img}
-          src={"/images/prestation_3.png"}
+          src={"/images/prestation_2.png"}
           alt={"vehicle_rent_illustration"}
         />
       </section>
