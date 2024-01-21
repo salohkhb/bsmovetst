@@ -43,6 +43,7 @@ const LiftRentSelectionHeader = () => {
             name={"startAddress"}
             onChange={(value) => handleLiftRentByKey("startAddress", value)}
             placeholder={"Adresse de départ"}
+            withoutLabel
           />
         </div>
         <div style={{ width: "180px" }}>
@@ -298,24 +299,17 @@ const RentSelection = () => {
     setItemList(computeList());
   }, [rent?.lift?.floors]);
 
-  // ECHELLE ELEC A SUPPRIMER SI > 6 ETAGES
-
   function computeList() {
-    const itemList = [ITEM_LIST[0]];
+    const itemList = [];
     if (rent?.lift?.isEntrancePresent && rent?.lift?.entranceNotTallEnough) {
       if (rent?.lift?.floors <= 6) {
-        itemList.push({
-          id: 2,
-          name: "Monte meuble tracté",
-          description:
-            "Monte meuble tracté, pas utilisable si l'entrée fait moins de 2m2ou que c'est au delà du 6eme etage",
-        });
+        itemList.push(ITEM_LIST[0], ITEM_LIST[1]);
       }
     } else {
       if (rent?.lift?.floors > 6) {
         itemList.push(ITEM_LIST[2]);
       } else {
-        itemList.push(ITEM_LIST[1], ITEM_LIST[2]);
+        itemList.push(ITEM_LIST[0], ITEM_LIST[1], ITEM_LIST[2]);
       }
     }
     return itemList;
