@@ -2,7 +2,7 @@ export default {
   description: {
     title: "Achat de matériels pour un déménagement parfait",
     content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean viverra posuere vehicula. Nulla erat tortor, lobortis sed commodo et, commodo vel urna. usce ultricies nibh tortor, in pellentesque est ultrices eget",
+      "Nous vous proposons une sélection soigneusement choisie, comprenant des cartons robustes, du matériel d’emballage professionnel et bien plus encore. Simplifiez votre préparation en choisissant les meilleurs outils pour un déménagement réussi. Faites confiance à Bsmove Déménagement pour des achats de matériel fiables et adaptés à vos besoins.",
     action: "Voir notre matériel",
   },
   items: {

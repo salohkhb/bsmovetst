@@ -12,10 +12,12 @@ const VehicleRentPresentationHeaderSection = () => (
         >
           <Subtitle>{"Location d'un véhicule avec déménageur"}</Subtitle>
           <S.Content>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-            viverra posuere vehicula. Nulla erat tortor, lobortis sed commodo
-            et, commodo vel urna. usce ultricies nibh tortor, in pellentesque
-            est ultrices eget
+            Découvrez notre gamme de services de location, offrant une
+            flexibilité totale. Louez un monte-meuble avec opérateur, un camion
+            avec chauffeur ou des déménageurs qualifiés selon vos besoins. Chez
+            Bsmove, nous vous garantissons une expérience de déménagement
+            personnalisée, avec des solutions de qualité pour chaque étape de
+            votre transition.
           </S.Content>
         </article>
       </section>

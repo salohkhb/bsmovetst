@@ -278,7 +278,11 @@ const EstimateContainer = ({ step = 0, setStep }) => {
       <PriceCalculator />
       <div className={styles.estimate_page_header}>
         <Subtitle>{step === 3 ? messages.summary : messages.title}</Subtitle>
-        <div className={styles.estimate_page_subtitle}>{messages.subtitle}</div>
+        {step === 1 || step === 2 ? (
+          <div className={styles.estimate_page_subtitle}>
+            {messages.subtitle}
+          </div>
+        ) : null}
       </div>
       <div className={styles.estimate_page_content_container}>
         <div className={styles.estimate_page_left_container}>

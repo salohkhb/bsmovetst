@@ -143,7 +143,7 @@ const SummaryAddressSection = () => {
         />
         <EstimateSummaryInformationBlock
           label={messages.sections.informations.blockLabel.km}
-          content={km}
+          content={`${km}km`}
         />
       </div>
     </EstimateSection>

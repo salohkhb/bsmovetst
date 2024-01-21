@@ -356,6 +356,7 @@
   flex-direction: column;
   text-align: left;
   padding: 2rem 4rem 2rem 2rem;
+  min-height: 336px;
 }
 
 .advantages_card_title {

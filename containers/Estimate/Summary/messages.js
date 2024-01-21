@@ -18,7 +18,7 @@ export default {
         date: "Date",
         volume: "Volume",
         heavy: "Objets lourds",
-        km: "Nombres de km",
+        km: "Distance",
       },
     },
     inventory: {

@@ -1,109 +1,123 @@
 export default {
   estimateSection: {
-    title: 'BS MOVE VOTRE PARTENAIRE DEMENAGEMENT',
+    title: "BS MOVE VOTRE PARTENAIRE DEMENAGEMENT",
     content: {
-      main: 'Offrez-vous un déménagement à la hauteur de vos attentes',
-      secondary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vestibulum lacus eget est imperdiet vulputate. Fusce imperdiet venenatis turpis eget aliquet.',
+      main: "Offrez-vous un déménagement à la hauteur de vos attentes",
+      secondary:
+        "Chez Bsmove déménagement, nous adaptons nos services à vos besoins. Que vous recherchiez un déménagement complet, de l’emballage à l’installation, ou simplement un coup de main sur certaines étapes, nous sommes là pour répondre à vos exigences. Optez pour la flexibilité et la personnalisation avec Bsmove Déménagement, votre partenaire de confiance pour une transition sans stress.",
     },
     actions: {
-      leftButton: 'Obtenir un devis',
-      rightButton: 'En savoir plus',
-    }
+      leftButton: "Obtenir un devis",
+      rightButton: "En savoir plus",
+    },
   },
   feedbackSection: {
-    title: 'Témoignages',
-    subtitle: 'Ce que nos clients pensent de nous',
-    action: 'Voir plus d\'avis',
+    title: "Témoignages",
+    subtitle: "Ce que nos clients pensent de nous",
+    action: "Voir plus d'avis",
   },
   prestationsSection: {
-    title: 'ce que nous faisons',
+    title: "ce que nous faisons",
     subtitles: {
-      leftPart: 'Prestations proposées par',
-      title: 'BS Move'
+      leftPart: "Prestations proposées par",
+      title: "BS Move",
     },
-    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur lobortis, arcu ut tincidunt sodales, urna enim accumsan diam, ut efficitur dui massa sit amet mauris.fdfdfdf',
+    content:
+      "Bsmove vous offre des options flexibles pour votre déménagement. Choisissez parmi le déménagement complet , la location de monte-meuble, de camion avec chauffeur, ou l’achat de matériel. Personnalisez votre prestation selon vos besoins. Avec Bsmove, déménager devient simple et sur mesure.",
     categories: {
-      moving: 'Déménagement',
-      vehicleRent: 'Location véhicules',
-      furnituresBuy: 'Achat matériels',
-      furnituresGuard: 'Garde meubles',
-    }
+      moving: "Déménagement",
+      vehicleRent: "Location véhicules",
+      furnituresBuy: "Achat matériels",
+      furnituresGuard: "Garde meubles",
+    },
   },
   guidelineSection: {
-    title: 'Comment ça marche ?',
-    subtitle: 'Obtenez votre devis en ligne immédiatement & gratuitement',
+    title: "Comment ça marche ?",
+    subtitle: "Obtenez votre devis en ligne immédiatement & gratuitement",
     steps: {
       first: {
-        title: 'Etape 1',
-        content: 'Je demande mon devis pour mon déménagement en ligne en quelques minutes ou avec l’aide d’un conseiller.',
+        title: "Etape 1",
+        content:
+          "Je demande mon devis pour mon déménagement en ligne en quelques minutes ou avec l’aide d’un conseiller.",
       },
       second: {
-        title: 'Etape 2',
-        content: 'J’obtiens mon estimation et je réserve mon déménagement à l’avance pour bénéficier des meilleurs tarifs.',
+        title: "Etape 2",
+        content:
+          "J’obtiens mon estimation et je réserve mon déménagement à l’avance pour bénéficier des meilleurs tarifs.",
       },
       third: {
-        title: 'Etape 3',
-        content: 'J’organise mon déménagement en effectuant toutes les démarches administratives.',
+        title: "Etape 3",
+        content:
+          "J’organise mon déménagement en effectuant toutes les démarches administratives.",
       },
-    }
+    },
   },
   advantagesSection: {
-    title: 'avantages',
-    subtitle: 'Pourquoi choisir BS Move',
+    title: "avantages",
+    subtitle: "Pourquoi choisir BS Move",
     advantages: {
       first: {
-        title: 'Gain de temps',
-        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pellentesque pretium elit',
+        title: "Gain de temps",
+        content:
+          "Notre équipe expérimentée prend en charge l'emballage efficace de vos biens, la coordination logistique complète, et les formalités administratives. Vous économisez ainsi un temps précieux, pouvant vous concentrer sur d'autres aspects importants de votre transition.",
       },
       second: {
-        title: 'Accompagnement expert',
-        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pellentesque pretium elit',
+        title: "Accompagnement expert",
+        content:
+          "Nous vous accompagnons à chaque étape de votre déménagement. Du premier contact à l'installation dans votre nouveau lieu de vie, nos experts sont là pour répondre à vos questions, résoudre les problèmes potentiels et assurer une expérience sans stress.",
       },
       third: {
-        title: 'Service professionnel',
-        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pellentesque pretium elit',
+        title: "Service professionnel",
+        content:
+          "En choisissant Bs Move Déménagement , vous optez pour un service professionnel de qualité. Notre équipe dévouée garantit un emballage soigné, un transport sécurisé et une attention méticuleuse aux détails. Vous pouvez avoir confiance en notre engagement envers la satisfaction totale de nos clients.",
       },
-    }
+    },
   },
   competencesSection: {
-    title: 'OFFREZ-VOUS L\'EXPERTISE DE BS MOVE',
-    subtitle: 'BS Move déménagement, une équipe professionnelle.',
+    title: "OFFREZ-VOUS L'EXPERTISE DE BS MOVE",
+    subtitle: "BS Move déménagement, une équipe professionnelle.",
     contents: {
-      firstPart: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pellentesque pretium elit, ac egestas lacus euismod eget. Quisque cursus nisi augue, quis tristique nisi faucibus id. Sed tincidunt sollicitudin purus eget accumsan. Etiam imperdiet interdum lorem, sit amet imperdiet justo. Curabitur ac venenatis turpis. Donec a turpis id mauris varius vehicula. Nullam sed vehicula purus.',
-      secondPart: 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nulla vel lectus bibendum, sagittis eros quis, mattis nibh.',
+      firstPart:
+        "Chez Bsmove Déménagement, notre équipe incarne l’excellence. Composée de professionnels chevronnés, notre équipe est déterminée à offrir un service de déménagement de première classe. De l’emballage méticuleux de vos biens à une logistique sans faille, chaque membre de notre équipe s’engage à assurer la sécurité de vos possessions et la fluidité de votre transition. Fiers de notre expertise, nous sommes prêts à relever tous les défis pour faire de votre déménagement une expérience sans stress. Avec Bsmove Déménagement, confiez vos précieux souvenirs à une équipe qui comprend l’importance de chaque détail.",
+      secondPart: "",
     },
-    action: 'Votre devis en ligne',
+    action: "Votre devis en ligne",
   },
   presentationSection: {
-    title: 'Nous sommes',
-    subtitle: 'En Ile de France',
-    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur lobortis, arcu ut tincidunt sodales, urna enim accumsan diam, ut efficitur dui massa sit amet mauris. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    title: "Nous sommes",
+    subtitle: "En Ile de France",
+    content:
+      "Basés au cœur de l’Île-de-France, chez Bsmove Déménagement, nous sommes fiers de servir notre communauté locale tout en étendant notre expertise à travers toute la France et au-delà des frontières. Que votre destination soit Paris, une autre ville en France ou même un lieu à travers l’Europe, notre équipe expérimentée est prête à vous accompagner. Notre présence stratégique en Île-de-France nous permet d’offrir des services de déménagement personnalisés et fiables, où que vous soyez. Optez pour Bsmove Déménagement, votre partenaire de confiance pour des transitions en douceur, de la région parisienne aux horizons européens.",
   },
   blogSection: {
-    title: 'Blog',
-    subtitle: 'Découvrez notre actualités',
-    action: 'Voir plus d\'articles',
+    title: "Blog",
+    subtitle: "Découvrez notre actualités",
+    action: "Voir plus d'articles",
     articles: {
       first: {
-        title: 'Comment déménager tout seul, sans stress et pas cher !',
-        content: 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nulla vel lectus bibendum, sagittis eros quis, mattis nibh.',
-        action: 'Voir l\'article',
+        title: "Comment déménager tout seul, sans stress et pas cher !",
+        content:
+          "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nulla vel lectus bibendum, sagittis eros quis, mattis nibh.",
+        action: "Voir l'article",
       },
       second: {
-        title: 'Comment déménager tout seul, sans stress et pas cher !',
-        content: 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nulla vel lectus bibendum, sagittis eros quis, mattis nibh.',
-        action: 'Voir l\'article',
+        title: "Comment déménager tout seul, sans stress et pas cher !",
+        content:
+          "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nulla vel lectus bibendum, sagittis eros quis, mattis nibh.",
+        action: "Voir l'article",
       },
       third: {
-        title: 'Comment déménager tout seul, sans stress et pas cher !',
-        content: 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nulla vel lectus bibendum, sagittis eros quis, mattis nibh.',
-        action: 'Voir l\'article',
+        title: "Comment déménager tout seul, sans stress et pas cher !",
+        content:
+          "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nulla vel lectus bibendum, sagittis eros quis, mattis nibh.",
+        action: "Voir l'article",
       },
-    }
+    },
   },
   gettingStartedSection: {
-    subtitle: 'Prêt à déménager ?',
-    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur lobortis, arcu ut tincidunt sodales, urna enim accumsan diam, ut efficitur dui massa sit amet mauris. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    action: 'Déménageons ensemble',
+    subtitle: "Prêt à déménager ?",
+    content:
+      "Le jour J approche, et nous sommes là pour vous simplifier la vie. De l’emballage méticuleux à une logistique bien huilée, notre équipe expérimentée prend en charge chaque étape. Que vous changiez de quartier ou franchissiez les frontières européennes, nous sommes prêts à rendre votre déménagement sans stress. Donnez le coup d’envoi à cette nouvelle aventure avec la confiance que seul Bsmove peut offrir. Prêt à déménager ? Nous sommes à vos côtés.",
+    action: "Déménageons ensemble",
   },
-}
+};
