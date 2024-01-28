@@ -181,7 +181,12 @@ const ExtraFurnituresComponent = ({
             <h2>{title}</h2>
             <div className={styles.furnitures_buy_items_grid_content}>
               {list?.map((item, index) => (
-                <ExtraFurnitureCard item={item} key={index} withoutPrice />
+                <ExtraFurnitureCard
+                  item={item}
+                  key={index}
+                  withoutPrice
+                  category={type}
+                />
               ))}
             </div>
             {isBoxFurnitures ? (
@@ -244,7 +249,7 @@ const ExtraFurnituresContainer = ({
           break;
         }
         case "fragile":
-        case "protections": {
+        case "protection": {
           dupList[1].items.push(item);
           break;
         }

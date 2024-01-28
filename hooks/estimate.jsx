@@ -184,54 +184,6 @@ function getPriceForMounting(mounting = {}) {
   return mountingPrice;
 }
 
-function getPriceForExtraFurnitures(extraFurnitures) {
-  let priceForExtraFurnitures = 0;
-  if (extraFurnitures.standard?.items?.length) {
-    let totalStandardBoxesQuantity = 0;
-    let totalStandardBoxesPrice = 0;
-    totalStandardBoxesPrice = extraFurnitures.standard.items.reduce(
-      (accumulator, current) => {
-        accumulator += current.count * parseInt(current.price);
-        totalStandardBoxesQuantity += current.count;
-        return accumulator;
-      },
-      0
-    );
-    if (extraFurnitures.standard.isHelpNeededToWrap) {
-      priceForExtraFurnitures += totalStandardBoxesQuantity * 1.5;
-    }
-    priceForExtraFurnitures += totalStandardBoxesPrice;
-  }
-  if (extraFurnitures.fragile?.items?.length) {
-    let totalFragileBoxesQuantity = 0;
-    let totalFragileBoxesPrice = 0;
-    totalFragileBoxesPrice = extraFurnitures.fragile.items.reduce(
-      (accumulator, current) => {
-        accumulator += current.count * parseInt(current.price);
-        totalFragileBoxesQuantity += current.count;
-        return accumulator;
-      },
-      0
-    );
-    if (extraFurnitures.fragile.isHelpNeededToWrap) {
-      priceForExtraFurnitures += totalFragileBoxesQuantity * 3.5;
-    }
-    priceForExtraFurnitures += totalFragileBoxesPrice;
-  }
-  if (extraFurnitures.others?.items?.length) {
-    let totalOthersBoxesPrice = 0;
-    totalOthersBoxesPrice = extraFurnitures.others.items.reduce(
-      (accumulator, current) => {
-        accumulator += current.count * parseInt(current.price);
-        return accumulator;
-      },
-      0
-    );
-    priceForExtraFurnitures += totalOthersBoxesPrice;
-  }
-  return priceForExtraFurnitures;
-}
-
 export const EstimateProvider = ({ children, initialEstimate }) => {
   const [estimate, setEstimate] = useState({});
   const [priceCalculator, setPriceCalculator] = useState({
@@ -241,9 +193,89 @@ export const EstimateProvider = ({ children, initialEstimate }) => {
     priceWithPortage: 0,
     priceHeavyObjects: 0,
     priceMounting: 0,
+    priceForStandardFurnitures: 0,
+    priceForStandardWrapping: 0,
+    priceForFragileFurnitures: 0,
+    priceForFragileWrapping: 0,
+    priceForOtherFurnitures: 0,
     priceExtraFurnitures: 0,
     totalPrice: 0,
   });
+
+  function getPriceForExtraFurnitures(extraFurnitures) {
+    let priceForExtraFurnitures = 0;
+    if (extraFurnitures.standard?.items?.length) {
+      let totalStandardBoxesQuantity = 0;
+      let totalStandardBoxesPrice = 0;
+      totalStandardBoxesPrice = extraFurnitures.standard.items.reduce(
+        (accumulator, current) => {
+          accumulator += current.count * parseInt(current.price);
+          totalStandardBoxesQuantity += current.count;
+          return accumulator;
+        },
+        0
+      );
+      setPriceCalculator((prev) => ({
+        ...prev,
+        priceForStandardFurnitures: totalStandardBoxesPrice,
+      }));
+      if (extraFurnitures.standard.isHelpNeededToWrap) {
+        priceForExtraFurnitures += totalStandardBoxesQuantity * 1.5;
+        setPriceCalculator((prev) => ({
+          ...prev,
+          priceForStandardWrapping: totalStandardBoxesQuantity * 1.5,
+        }));
+      } else {
+        setPriceCalculator((prev) => ({
+          ...prev,
+          priceForStandardWrapping: 0,
+        }));
+      }
+      priceForExtraFurnitures += totalStandardBoxesPrice;
+    }
+    if (extraFurnitures.fragile?.items?.length) {
+      let totalFragileBoxesQuantity = 0;
+      let totalFragileBoxesPrice = 0;
+      totalFragileBoxesPrice = extraFurnitures.fragile.items.reduce(
+        (accumulator, current) => {
+          accumulator += current.count * parseInt(current.price);
+          totalFragileBoxesQuantity +=
+            current.category === "fragile" ? current.count : 0;
+          return accumulator;
+        },
+        0
+      );
+      setPriceCalculator((prev) => ({
+        ...prev,
+        priceForFragileFurnitures: totalFragileBoxesPrice,
+      }));
+      if (extraFurnitures.fragile.isHelpNeededToWrap) {
+        priceForExtraFurnitures += totalFragileBoxesQuantity * 3.5;
+        setPriceCalculator((prev) => ({
+          ...prev,
+          priceForFragileWrapping: totalFragileBoxesQuantity * 3.5,
+        }));
+      } else {
+        setPriceCalculator((prev) => ({
+          ...prev,
+          priceForFragileWrapping: 0,
+        }));
+      }
+      priceForExtraFurnitures += totalFragileBoxesPrice;
+    }
+    if (extraFurnitures.others?.items?.length) {
+      let totalOthersBoxesPrice = 0;
+      totalOthersBoxesPrice = extraFurnitures.others.items.reduce(
+        (accumulator, current) => {
+          accumulator += current.count * parseInt(current.price);
+          return accumulator;
+        },
+        0
+      );
+      priceForExtraFurnitures += totalOthersBoxesPrice;
+    }
+    return priceForExtraFurnitures;
+  }
 
   useEffect(() => {
     if (isObjectEmpty(estimate)) return; // ici checker toute les parties, sinon tout refaire à chaque fois?

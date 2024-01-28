@@ -48,11 +48,42 @@ const PriceCalculator = () => {
                 </span>
               </div>
             ) : null}
-            {priceCalculator.priceExtraFurnitures ? (
+            {priceCalculator.priceForStandardFurnitures ? (
               <div className={styles.price_calculator__price_detail}>
-                <span>Fournitures et emballage:</span>
+                <span>Fournitures standards:</span>
                 <span>
-                  {priceCalculator.priceExtraFurnitures}
+                  {priceCalculator.priceForStandardFurnitures}
+                  {CURRENCY.EUR}
+                </span>
+              </div>
+            ) : null}
+            {priceCalculator.priceForStandardWrapping ? (
+              <div className={styles.price_calculator__price_detail}>
+                <span>
+                  Prix de l'aide à l'emballage des fournitures standards:
+                </span>
+                <span>
+                  {priceCalculator.priceForStandardWrapping}
+                  {CURRENCY.EUR}
+                </span>
+              </div>
+            ) : null}
+            {priceCalculator.priceForFragileFurnitures ? (
+              <div className={styles.price_calculator__price_detail}>
+                <span>Fournitures fragiles:</span>
+                <span>
+                  {priceCalculator.priceForFragileFurnitures}
+                  {CURRENCY.EUR}
+                </span>
+              </div>
+            ) : null}
+            {priceCalculator.priceForFragileWrapping ? (
+              <div className={styles.price_calculator__price_detail}>
+                <span>
+                  Prix de l'aide à l'emballage des fournitures fragiles:
+                </span>
+                <span>
+                  {priceCalculator.priceForFragileWrapping}
                   {CURRENCY.EUR}
                 </span>
               </div>

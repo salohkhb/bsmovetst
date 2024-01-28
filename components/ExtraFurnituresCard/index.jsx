@@ -29,7 +29,11 @@ function getExtraFurnitureItemCountFromEstimateInventory(
   return itemInInventory?.count ?? 0;
 }
 
-const ExtraFurnitureCard = ({ item, withoutPrice = false }) => {
+const ExtraFurnitureCard = ({
+  item,
+  withoutPrice = false,
+  category = item.category,
+}) => {
   const { addToEstimateInventoryByKey, estimate } = useEstimate();
   const [count, setCount] = useState(0);
 
@@ -41,7 +45,7 @@ const ExtraFurnitureCard = ({ item, withoutPrice = false }) => {
   useEffect(() => {
     if (!isObjectEmpty(item) && item.name) {
       const furnitureList =
-        estimate?.inventory?.mounting?.extraFurnitures[item.category]?.items;
+        estimate?.inventory?.mounting?.extraFurnitures[category]?.items;
       const furniture = furnitureList?.find(
         (furniture) => furniture.name === item?.name
       );
@@ -52,8 +56,7 @@ const ExtraFurnitureCard = ({ item, withoutPrice = false }) => {
   async function handleCountInc() {
     setCount((prevCount) => (prevCount ? prevCount + 1 : 1));
     const furnituresList =
-      estimate?.inventory?.mounting?.extraFurnitures[item.category]?.items ||
-      [];
+      estimate?.inventory?.mounting?.extraFurnitures[category]?.items || [];
     const furnitureItem = furnituresList.find(
       (furniture) => furniture.id === item?.id
     );
@@ -63,8 +66,8 @@ const ExtraFurnitureCard = ({ item, withoutPrice = false }) => {
         ...estimate?.inventory?.mounting,
         extraFurnitures: {
           ...estimate?.inventory?.mounting?.extraFurnitures,
-          [item.category]: {
-            ...estimate?.inventory?.mounting?.extraFurnitures[item.category],
+          [category]: {
+            ...estimate?.inventory?.mounting?.extraFurnitures[category],
             items: furnituresList,
           },
         },
@@ -75,11 +78,10 @@ const ExtraFurnitureCard = ({ item, withoutPrice = false }) => {
             ...estimate?.inventory?.mounting,
             extraFurnitures: {
               ...estimate?.inventory?.mounting?.extraFurnitures,
-              [item.category]: {
+              [category]: {
                 items: [
-                  ...estimate?.inventory?.mounting?.extraFurnitures[
-                    item.category
-                  ]?.items,
+                  ...estimate?.inventory?.mounting?.extraFurnitures[category]
+                    ?.items,
                   { ...omit(["base64"], item), count: 1 },
                 ],
               },
@@ -89,10 +91,8 @@ const ExtraFurnitureCard = ({ item, withoutPrice = false }) => {
             ...estimate?.inventory?.mounting,
             extraFurnitures: {
               ...estimate?.inventory?.mounting?.extraFurnitures,
-              [item.category]: {
-                ...estimate?.inventory?.mounting?.extraFurnitures[
-                  item.category
-                ],
+              [category]: {
+                ...estimate?.inventory?.mounting?.extraFurnitures[category],
                 items: [{ ...omit(["base64"], item), count: 1 }],
               },
             },
@@ -106,8 +106,7 @@ const ExtraFurnitureCard = ({ item, withoutPrice = false }) => {
       return prevCount - 1;
     });
     const furnituresList =
-      estimate?.inventory?.mounting?.extraFurnitures[item.category]?.items ||
-      [];
+      estimate?.inventory?.mounting?.extraFurnitures[category]?.items || [];
     const furnitureItem = furnituresList.find(
       (furniture) => furniture.name === item?.name
     );
@@ -120,8 +119,8 @@ const ExtraFurnitureCard = ({ item, withoutPrice = false }) => {
         ...estimate?.inventory?.mounting,
         extraFurnitures: {
           ...estimate?.inventory?.mounting?.extraFurnitures,
-          [item.category]: {
-            ...estimate?.inventory?.mounting?.extraFurnitures[item.category],
+          [category]: {
+            ...estimate?.inventory?.mounting?.extraFurnitures[category],
             items: furnituresList,
           },
         },
@@ -148,7 +147,7 @@ const ExtraFurnitureCard = ({ item, withoutPrice = false }) => {
           minValue={0}
           value={getExtraFurnitureItemCountFromEstimateInventory(
             estimate?.inventory,
-            item.category,
+            category,
             item
           )}
           handleInc={handleCountInc}
