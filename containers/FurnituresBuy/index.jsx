@@ -47,6 +47,8 @@ const categories = [
   {
     label: messages.items.filters.bonding,
     filter: '"fragile"',
+    filter_two: '"protection"',
+    multiple: true,
     value: 2,
   },
   { label: messages.items.filters.others, filter: '"others"', value: 3 },
@@ -57,7 +59,11 @@ const Categories = ({ categories = [], handleFetchItems }) => {
 
   async function handleCategoryChange(category) {
     setActiveCategory(category?.value);
-    handleFetchItems(category?.filter);
+    if (category.multiple) {
+      handleFetchItems([category.filter, category.filter_two], true);
+    } else {
+      handleFetchItems(category?.filter);
+    }
   }
   return (
     <div className={styles.furnitures_buy_items_categories_container}>
@@ -83,11 +89,21 @@ const FurnituresBuyItems = () => {
   const { setAlert = () => {} } = useAlert();
   const { setGlobalLoading = () => {} } = useLoading();
 
-  async function handleFetchItems(filter) {
+  async function handleFetchItems(filter, multiple = false) {
     setGlobalLoading(true);
-    const response = filter
-      ? await api.get(`/Products?filter={"where": { "category": ${filter} } }`)
-      : await api.get("/Products");
+    let response;
+    if (multiple) {
+      console.log("filter : ", filter);
+      response = await api.get(
+        `/Products?filter={"where": { "or": [{ "category": ${filter[0]} }, { "category": ${filter[1]} }] } }`
+      );
+    } else {
+      response = filter
+        ? await api.get(
+            `/Products?filter={"where": { "category": ${filter} } }`
+          )
+        : await api.get("/Products");
+    }
     setGlobalLoading(false);
     if (!response || !response.ok) {
       setAlert({

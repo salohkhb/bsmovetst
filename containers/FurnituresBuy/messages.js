@@ -7,10 +7,10 @@ export default {
   },
   items: {
     filters: {
-      all: "Voir tout",
+      all: "Tout",
       boxes: "Cartons",
-      bonding: "Protections/Calage",
-      others: "Autres",
+      bonding: "Cartons fragiles",
+      others: "Protections/autres",
     },
   },
   footer: {
