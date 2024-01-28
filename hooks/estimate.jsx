@@ -209,7 +209,7 @@ export const EstimateProvider = ({ children, initialEstimate }) => {
       let totalStandardBoxesPrice = 0;
       totalStandardBoxesPrice = extraFurnitures.standard.items.reduce(
         (accumulator, current) => {
-          accumulator += current.count * parseInt(current.price);
+          accumulator += current.count * Number(current.price);
           totalStandardBoxesQuantity += current.count;
           return accumulator;
         },
@@ -238,7 +238,7 @@ export const EstimateProvider = ({ children, initialEstimate }) => {
       let totalFragileBoxesPrice = 0;
       totalFragileBoxesPrice = extraFurnitures.fragile.items.reduce(
         (accumulator, current) => {
-          accumulator += current.count * parseInt(current.price);
+          accumulator += current.count * Number(current.price);
           totalFragileBoxesQuantity +=
             current.category === "fragile" ? current.count : 0;
           return accumulator;
@@ -267,7 +267,7 @@ export const EstimateProvider = ({ children, initialEstimate }) => {
       let totalOthersBoxesPrice = 0;
       totalOthersBoxesPrice = extraFurnitures.others.items.reduce(
         (accumulator, current) => {
-          accumulator += current.count * parseInt(current.price);
+          accumulator += current.count * Number(current.price);
           return accumulator;
         },
         0

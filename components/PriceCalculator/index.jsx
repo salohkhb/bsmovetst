@@ -34,7 +34,7 @@ const PriceCalculator = () => {
               <div className={styles.price_calculator__price_detail}>
                 <span>Objets lourds:</span>
                 <span>
-                  {priceCalculator.priceHeavyObjects}
+                  {priceCalculator.priceHeavyObjects.toFixed(2)}
                   {CURRENCY.EUR}
                 </span>
               </div>
@@ -43,7 +43,7 @@ const PriceCalculator = () => {
               <div className={styles.price_calculator__price_detail}>
                 <span>Démontages/Remontages:</span>
                 <span>
-                  {priceCalculator.priceMounting}
+                  {priceCalculator.priceMounting.toFixed(2)}
                   {CURRENCY.EUR}
                 </span>
               </div>
@@ -52,7 +52,7 @@ const PriceCalculator = () => {
               <div className={styles.price_calculator__price_detail}>
                 <span>Fournitures standards:</span>
                 <span>
-                  {priceCalculator.priceForStandardFurnitures}
+                  {priceCalculator.priceForStandardFurnitures.toFixed(2)}
                   {CURRENCY.EUR}
                 </span>
               </div>
@@ -63,7 +63,7 @@ const PriceCalculator = () => {
                   Prix de l'aide à l'emballage des fournitures standards:
                 </span>
                 <span>
-                  {priceCalculator.priceForStandardWrapping}
+                  {priceCalculator.priceForStandardWrapping.toFixed(2)}
                   {CURRENCY.EUR}
                 </span>
               </div>
@@ -72,7 +72,7 @@ const PriceCalculator = () => {
               <div className={styles.price_calculator__price_detail}>
                 <span>Fournitures fragiles:</span>
                 <span>
-                  {priceCalculator.priceForFragileFurnitures}
+                  {priceCalculator.priceForFragileFurnitures.toFixed(2)}
                   {CURRENCY.EUR}
                 </span>
               </div>
@@ -83,7 +83,7 @@ const PriceCalculator = () => {
                   Prix de l'aide à l'emballage des fournitures fragiles:
                 </span>
                 <span>
-                  {priceCalculator.priceForFragileWrapping}
+                  {priceCalculator.priceForFragileWrapping.toFixed(2)}
                   {CURRENCY.EUR}
                 </span>
               </div>
@@ -93,7 +93,7 @@ const PriceCalculator = () => {
         <div className={styles.price_calculator__price}>
           <span>Total:</span>
           <span>
-            {totalPrice}
+            {totalPrice.toFixed(2)}
             {CURRENCY.EUR}
           </span>
         </div>
