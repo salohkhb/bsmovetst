@@ -60,7 +60,7 @@ const PriceCalculator = () => {
             {priceCalculator.priceForStandardWrapping ? (
               <div className={styles.price_calculator__price_detail}>
                 <span>
-                  Prix de l'aide à l'emballage des fournitures standards:
+                  {"Prix de l'aide à l'emballage des fournitures standards:"}
                 </span>
                 <span>
                   {priceCalculator.priceForStandardWrapping.toFixed(2)}
@@ -80,7 +80,7 @@ const PriceCalculator = () => {
             {priceCalculator.priceForFragileWrapping ? (
               <div className={styles.price_calculator__price_detail}>
                 <span>
-                  Prix de l'aide à l'emballage des fournitures fragiles:
+                  {"Prix de l'aide à l'emballage des fournitures fragiles:"}
                 </span>
                 <span>
                   {priceCalculator.priceForFragileWrapping.toFixed(2)}
