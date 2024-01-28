@@ -171,7 +171,7 @@
   width: 100%;
   flex-basis: 100%;
   flex-wrap: wrap;
-  row-gap: 1em;
+  gap: 1em;
 }
 
 .feedbacks_section_actions_container {
@@ -241,6 +241,7 @@
   min-height: 100%;
   min-width: 100%;
   cursor: pointer;
+  object-fit: contain;
 }
 
 .prestation_section_category_content {
@@ -384,14 +385,15 @@
   top: 0;
   height: 100%;
   width: 100%;
+  object-fit: contain;
 }
 
 .competences_section_infos {
   display: flex;
   flex-direction: column;
-  margin: 7rem 0 7rem 0;
   text-align: left;
   width: 50%;
+  justify-content: center;
 }
 
 .competences_section_infos_content {
@@ -400,7 +402,6 @@
   gap: 1.5em;
   font-size: 1.25rem;
   font-weight: 600;
-  height: 25.5rem;
   margin: 2.25rem 0;
   color: rgba(27, 32, 50, 0.77);
 }
@@ -596,6 +597,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
     width: 100vw;
     background-color: #F9FAFB;
     margin: 0
@@ -605,12 +607,10 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     height: 100%;
     width: 100%;
     max-width: 100%;
     margin: 0;
-    padding: 2em;
     font-family: 'proxima-nova, black';
   }
 
@@ -619,6 +619,7 @@
     flex-direction: row;
     justify-content: center;
     margin-top: 40px;
+    width: 100%
   }
 
   .section_title {
@@ -742,13 +743,13 @@
     height: 45%;
     width: 100%;
     min-width: 100%;
-    object-fit: contain;
   }
   
   .competences_section_illustration {
     position: absolute;
     height: 100%;
     width: 100%;
+    object-fit: contain;
   }
   
   .competences_section_infos {

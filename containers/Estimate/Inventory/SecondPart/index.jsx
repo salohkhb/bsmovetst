@@ -243,7 +243,8 @@ const ExtraFurnituresContainer = ({
           dupList[0].items.push(item);
           break;
         }
-        case "fragile": {
+        case "fragile":
+        case "protections": {
           dupList[1].items.push(item);
           break;
         }

@@ -10,11 +10,10 @@ import { useState } from "react";
 const S = {};
 
 S.Card = styled(Card)`
-  margin: 0 0.8rem;
-  padding: 0;
+  padding: 0px;
   border-radius: 7px;
   min-width: 23rem;
-  max-height: 288px;
+  height: 320px !important;
   max-width: 20%;
   height: 100%;
 `;
@@ -26,8 +25,8 @@ S.CardContent = styled(CardContent)`
 `;
 
 S.Avatar = styled(Avatar)`
-  width: 3.7rem;
-  height: 3.7rem;
+  width: 32px;
+  height: 32px;
 `;
 
 const fakefeedback =
@@ -56,7 +55,7 @@ const FeedbackCard = ({ feedback = "coucou", user, imgSrc }) => {
           </div>
         </CardContent>
         <S.CardContent>
-          <div className={styles.feedback_content}>{fakefeedback}</div>
+          <div className={styles.feedback_content}>{feedback}</div>
         </S.CardContent>
       </S.Card>
     </>
