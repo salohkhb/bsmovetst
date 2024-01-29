@@ -50,7 +50,7 @@ const PriceCalculator = () => {
             ) : null}
             {priceCalculator.priceForStandardFurnitures ? (
               <div className={styles.price_calculator__price_detail}>
-                <span>Fournitures standards:</span>
+                <span>Cartons non-fragiles:</span>
                 <span>
                   {priceCalculator.priceForStandardFurnitures.toFixed(2)}
                   {CURRENCY.EUR}
@@ -60,7 +60,7 @@ const PriceCalculator = () => {
             {priceCalculator.priceForStandardWrapping ? (
               <div className={styles.price_calculator__price_detail}>
                 <span>
-                  {"Prix de l'aide à l'emballage des fournitures standards:"}
+                  {"Prix de l'aide à l'emballage des cartons non-fragiles:"}
                 </span>
                 <span>
                   {priceCalculator.priceForStandardWrapping.toFixed(2)}
