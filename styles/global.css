@@ -96,7 +96,7 @@ div {
 
 a {
   color: rgb(28, 33, 50);
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 a:hover {
