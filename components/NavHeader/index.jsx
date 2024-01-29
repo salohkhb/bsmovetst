@@ -42,7 +42,7 @@ const ServicesMenu = ({ label = "", handleOpen, open, anchorRef }) => {
   function handleCategoryClicked(category) {
     handleOpen();
     const route = `/${category.name}`;
-    if (category.name !== Routes.VEHICLE_RENT_PAGE) {
+    if (route !== Routes.VEHICLE_RENT_PAGE) {
       router.push(category ? route : "/");
     } else {
       router.push({

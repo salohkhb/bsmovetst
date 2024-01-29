@@ -118,6 +118,7 @@ const MobileHeader = ({ basket, handleCartButton, handleProfilButton }) => {
   }
 
   function handleRedirection(route) {
+    handleMenuOpen();
     return router.push(route);
   }
 
@@ -187,7 +188,6 @@ const MobileHeader = ({ basket, handleCartButton, handleProfilButton }) => {
                     onClick={() =>
                       handleRedirection({
                         pathname: Routes.ESTIMATE_DETAILS_PAGE,
-                        query: { tab: "vehicle" },
                       })
                     }
                     className={styles.header_drawer_category_label}
