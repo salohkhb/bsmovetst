@@ -188,6 +188,41 @@
   padding: 0.5em 0;
 }
 
+.furnitures_buy_footer_socials {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2em;
+  align-items: center;
+}
+
+.furnitures_buy_footer_social_nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none !important;
+}
+
+.furnitures_buy_footer_social_wrapper {
+  position: relative;
+  height: 48px;
+  width: 48px;
+}
+
+.furnitures_buy_footer_social_logo_illustration {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.furnitures_buy_footer_social_logo_label {
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
 .furnitures_buy_footer_action_container {
   width: 10.75em;
 }
