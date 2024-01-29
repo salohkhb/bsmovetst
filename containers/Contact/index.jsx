@@ -166,7 +166,7 @@ const ContactContainer = () => {
             {messages.contact.address.city}
           </div>
           <div className={styles.contact_page_section_content}>
-            {proccess.env.NEXT_PUBLIC_CONTACT_PHONE_NUMBER}
+            {process.env.NEXT_PUBLIC_CONTACT_PHONE_NUMBER}
           </div>
         </div>
         <div className={styles.contact_page_contact_section_container}>
