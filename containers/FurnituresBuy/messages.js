@@ -9,8 +9,8 @@ export default {
     filters: {
       all: "Tout",
       boxes: "Cartons",
-      bonding: "Cartons fragiles",
-      others: "Protections/autres",
+      bonding: "Protections/calage",
+      others: "Autres",
     },
   },
   footer: {
