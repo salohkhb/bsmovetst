@@ -437,7 +437,7 @@ const LiftRentSection = () => {
                   />
                 }
                 label={
-                  <label>{"Mon passage fait plus de 2,2m de hauteur"}</label>
+                  <label>{"Mon passage fait moins de 2,2m de hauteur"}</label>
                 }
               />
             </Fade>

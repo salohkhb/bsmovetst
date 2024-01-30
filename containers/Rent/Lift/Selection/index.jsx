@@ -272,21 +272,22 @@ const ITEM_LIST = [
   {
     id: 1,
     name: "Échelle électrique",
-    description: "Échelle électrique utilisée pour les étages assez bas",
+    description:
+      "Échelle électrique utilisée pour les étages assez bas et les accès les plus compliqués ( se monte et se démonte sur place )",
     src: "/images/echelle-electrique.png",
   },
   {
     id: 2,
     name: "Monte meuble tracté",
     description:
-      "Monte meuble tracté, pas utilisable si l'entrée fait moins de 2m2, et que c'est au delà du 6eme etage",
+      "Le tractée utilisable si l’entrée fait moins de 2m2 et que ça ne dépasse pas 6 étages",
     src: "/images/lifter-1.png",
   },
   {
     id: 3,
     name: "Monte meuble auto-porté",
     description:
-      "Monte meuble tracté, pas utilisable si l'entrée fait moins de 2m2, convient aux étages au delà de 6",
+      "Monte meuble auto-porteé, pas utilisable si l'entrée fait moins de 2m2, convient aux étages au delà de 6",
     src: "/images/lifter-2.png",
   },
 ];
