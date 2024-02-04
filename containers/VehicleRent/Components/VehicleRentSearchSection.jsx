@@ -102,18 +102,13 @@ const VehicleRentSearchSectionVehicle = () => {
   });
 
   return (
-    <div>
+    <section>
       <form
         onSubmit={formik.handleSubmit}
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "1em",
-          padding: "50px 98px",
-        }}
+        className={styles.vehicle_rent_search_section__vehicle_container}
       >
-        <div style={{ display: "flex", gap: "1em" }}>
-          <div style={{ width: "50%" }}>
+        <div className={styles.vehicle_rent_search_section__line_wrapper}>
+          <div className={styles.vehicle_rent_search_section__input_wrapper}>
             <label>Départ</label>
             <GeolocationInput
               name={"startAddress"}
@@ -125,7 +120,7 @@ const VehicleRentSearchSectionVehicle = () => {
               <span style={{ color: "red" }}>{formik.errors.startAddress}</span>
             )}
           </div>
-          <div style={{ width: "50%" }}>
+          <div className={styles.vehicle_rent_search_section__input_wrapper}>
             <label>Arrivée</label>
             <GeolocationInput
               name={"endAddress"}
@@ -138,25 +133,10 @@ const VehicleRentSearchSectionVehicle = () => {
             )}
           </div>
         </div>
-        <div style={{ display: "flex", gap: "1em" }}>
-          <div style={{ width: "50%" }}>
-            <label>Date de votre déménagement</label>
-            <DatePicker
-              defaultValue={null}
-              name="startDate"
-              value={formik.values.startDate}
-              handleChange={(newValue) => {
-                formik.setFieldValue("startDate", newValue);
-              }}
-              fullWidth={true}
-              error={formik.errors.startDate}
-            />
-            {formik.errors.startDate && formik.touched.startDate && (
-              <span style={{ color: "red" }}>{formik.errors.startDate}</span>
-            )}
-          </div>
+        <div className={styles.vehicle_rent_search_section__line_wrapper}>
           <div
-            style={{ width: "50%", display: "flex", flexDirection: "column" }}
+            className={styles.vehicle_rent_search_section__input_wrapper}
+            style={{ display: "flex", flexDirection: "column" }}
           >
             <label>Durée de la manutention</label>
             <MUISelect
@@ -170,6 +150,22 @@ const VehicleRentSearchSectionVehicle = () => {
             </MUISelect>
             {formik.errors.duration && formik.touched.duration && (
               <span style={{ color: "red" }}>{formik.errors.duration}</span>
+            )}
+          </div>
+          <div className={styles.vehicle_rent_search_section__input_wrapper}>
+            <label>Date de votre déménagement</label>
+            <DatePicker
+              defaultValue={null}
+              name="startDate"
+              value={formik.values.startDate}
+              handleChange={(newValue) => {
+                formik.setFieldValue("startDate", newValue);
+              }}
+              fullWidth={true}
+              error={formik.errors.startDate}
+            />
+            {formik.errors.startDate && formik.touched.startDate && (
+              <span style={{ color: "red" }}>{formik.errors.startDate}</span>
             )}
           </div>
         </div>
@@ -212,34 +208,21 @@ const VehicleRentSearchSectionVehicle = () => {
         {formik.errors.nbMovingMen && formik.touched.nbMovingMen ? (
           <span style={{ color: "red" }}>{formik.errors.nbMovingMen}</span>
         ) : null}
-        <footer
-          style={{
-            display: "flex",
-            paddingTop: "1em",
-            width: "100%",
-            justifyContent: "flex-end",
-            alignItems: "center",
-          }}
-        >
+        <footer className={styles.vehicle_rent_search_section__footer}>
           <MUIButton
             type="click"
             variant="text"
             onClick={() => router.push(Routes.CONTACT_PAGE)}
-            sx={{
-              color: "black",
-              fontWeight: 600,
-              width: "100%",
-              justifyContent: "flex-end",
-            }}
+            className={styles.vehicle_rent_search_section__button_contact}
           >
             Je souhaite être rappelé
           </MUIButton>
-          <div style={{ width: "25%" }}>
+          <div className={styles.vehicle_rent_search_section__button_validate}>
             <Button type="submit">Valider et rechercher</Button>
           </div>
         </footer>
       </form>
-    </div>
+    </section>
   );
 };
 
@@ -476,7 +459,6 @@ const LiftRentSection = () => {
 
 const VehicleRentSearchSection = () => {
   const router = useRouter();
-  console.log("router : ", router);
   const [activeTab, setActiveTab] = useState(
     router?.query?.tab === "lift" ? 1 : 0
   );
@@ -500,12 +482,7 @@ const VehicleRentSearchSection = () => {
         <Tabs
           value={activeTab}
           onChange={handleTabChange}
-          sx={{
-            width: "100%",
-            display: "flex",
-            justifyContent: "center",
-            flexGrow: 1,
-          }}
+          className={styles.vehicle_rent_search_section__tabs}
         >
           <Tab
             label="Location d'un camion de déménagement"

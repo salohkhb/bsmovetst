@@ -220,6 +220,7 @@ const ExtraFurnituresContainer = ({
   const [items, setItems] = useState([
     { type: "standard", items: [] },
     { type: "fragile", items: [] },
+    { type: "protection", items: [] },
     { type: "others", items: [] },
   ]);
   const [isLoading, setIsLoading] = useState(false);
@@ -253,8 +254,12 @@ const ExtraFurnituresContainer = ({
           dupList[1].items.push(item);
           break;
         }
+        case "others": {
+          dupList[3].items.push(item);
+          break;
+        }
         default: {
-          dupList[2].items.push(item);
+          dupList[3].items.push(item);
           break;
         }
       }
@@ -304,7 +309,7 @@ const ExtraFurnituresContainer = ({
                 helpWrappingLabel="J'ai besoin d'aide pour l'emballage des cartons fragiles"
               />
               <ExtraFurnituresComponent
-                list={items[2]?.items}
+                list={items[3]?.items}
                 type="others"
                 title="Autres fournitures"
                 isBoxFurnitures={false}
