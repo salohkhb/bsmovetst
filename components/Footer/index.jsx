@@ -11,7 +11,7 @@ import Routes from "../../helpers/routes";
 const MainFooter = () => {
   const router = useRouter();
   return (
-    <footer className={styles.main_footer_container}>
+    <section className={styles.main_footer_container}>
       <section className={styles.main_footer_right}>
         <div
           className={styles.main_footer_blocks}
@@ -87,7 +87,7 @@ const MainFooter = () => {
           </div>
         </section>
       </section>
-    </footer>
+    </section>
   );
 };
 
@@ -96,52 +96,48 @@ const ShopFooter = () => {
 };
 
 const SecondaryFooter = () => (
-  <div className={styles.secondary_footer_container}>
+  <section className={styles.secondary_footer_container}>
     <div className={styles.secondary_footer_left}>{messages.copyright}</div>
     <div className={styles.secondary_footer_right}>
-      <div className={styles.secondary_footer_logo_container}>
+      <section className={styles.secondary_footer_logo_container}>
         <Image
           quality={100}
-          className={styles.secondary_footer_logo_illustration}
+          className={styles.secondary_footer_logo_component}
           layout="fill"
           src="/images/logo_mastercard.png"
           alt="footer_logo_mastercard"
         />
-      </div>
-      <div className={styles.secondary_footer_logo_container}>
-        <div className={styles.secondary_footer_logo_illustration}>
-          <Image
-            quality={100}
-            className={styles.secondary_footer_logo_illustration}
-            layout="fill"
-            src="/images/logo_visa.png"
-            alt="footer_logo_visa"
-          />
-        </div>
-      </div>
-      <div className={styles.secondary_footer_logo_container}>
-        <div className={styles.secondary_footer_logo_illustration}>
-          <Image
-            quality={100}
-            className={styles.secondary_footer_logo_illustration}
-            layout="fill"
-            src="/images/logo_paypal.png"
-            alt="footer_logo_paypal"
-          />
-        </div>
-      </div>
+      </section>
+      <section className={styles.secondary_footer_logo_container}>
+        <Image
+          quality={100}
+          className={styles.secondary_footer_logo_component}
+          layout="fill"
+          src="/images/logo_visa.png"
+          alt="footer_logo_visa"
+        />
+      </section>
+      <section className={styles.secondary_footer_logo_container}>
+        <Image
+          quality={100}
+          className={styles.secondary_footer_logo_component}
+          layout="fill"
+          src="/images/logo_paypal.png"
+          alt="footer_logo_paypal"
+        />
+      </section>
     </div>
-  </div>
+  </section>
 );
 
 // Footer type can be main or shop
 
 const Footer = ({ type = "main" }) => {
   return (
-    <div className={styles.footer_container}>
+    <footer className={styles.footer_container}>
       {type === "main" ? <MainFooter /> : <ShopFooter />}
       <SecondaryFooter />
-    </div>
+    </footer>
   );
 };
 
