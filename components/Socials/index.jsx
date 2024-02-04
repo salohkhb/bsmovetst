@@ -42,6 +42,7 @@ const SocialsComponent = ({ little = false, noLabel = false }) => {
         >
           <a
             target="_blank"
+            rel="noreferrer"
             href={social.link}
             className={
               little
@@ -59,7 +60,7 @@ const SocialsComponent = ({ little = false, noLabel = false }) => {
             />
           </a>
           {noLabel ? null : (
-            <a target="_blank" href={social.link}>
+            <a target="_blank" rel="noreferrer" href={social.link}>
               <label
                 htmlFor={social.id}
                 className={styles.furnitures_buy_footer_social_logo_label}
