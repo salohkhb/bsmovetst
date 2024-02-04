@@ -17,6 +17,7 @@ import { useLoading } from "../../../../hooks/loading";
 import { useAlert } from "../../../../hooks/alert";
 import api from "../../../../helpers/api";
 import styles from "../../index.module.css";
+import messages from "../messages";
 
 function mapVehicleRentDataToAPI(data = {}) {
   return {
@@ -494,18 +495,8 @@ const RentSummaryRight = () => {
           width: "470px",
         }}
       >
-        <h2 style={{ margin: 0 }}>Inclus</h2>
-        <span style={{ color: "#8B9197" }}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-          viverra posuere vehicula. Nulla erat tortor, lobortis sed commodo et,
-          commodo vel urna. usce ultricies nibh tortor, in pellentesque est
-          ultrices eget
-        </span>
-        <span style={{ color: "#8B9197" }}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-          viverra posuere vehicula. Nulla erat tortor, lobortis sed commodo et,
-          commodo vel urna. usce ultricies nibh tortor.
-        </span>
+        <h2 style={{ margin: 0 }}>{messages.summary.included.title}</h2>
+        <p style={{ color: "#8B9197" }}>{messages.summary.included.content}</p>
       </div>
     </article>
   );
