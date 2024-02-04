@@ -385,8 +385,10 @@ const EstimateDetailsComponent = ({ handleContinue, canContinue = false }) => {
 
   useEffect(() => {
     if (
-      (details?.arrivalDateInformations?.departureDate ||
-        details?.arrivalDateInformations?.flexible === true) &&
+      (details?.arrivalDateInformations?.departureStartDate ||
+        (details?.arrivalDateInformations?.flexible === true &&
+          details?.arrivalDateInformations?.departureStartDate &&
+          details?.arrivalDateInformations?.departureEndDate)) &&
       !isObjectEmpty(details?.departureInformations?.address) &&
       !isObjectEmpty(details?.arrivalInformations?.address) &&
       details?.arrivalInformations?.floor !== undefined &&
