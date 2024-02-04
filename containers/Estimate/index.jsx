@@ -102,9 +102,13 @@ function mapValuesToEstimateRequest(estimate, customer, extraData) {
           estimate?.details?.arrivalInformations?.address?.country || "France",
       },
     },
-    time:
-      estimate?.details?.arrivalDateInformations?.departureDate ||
-      new Date().toISOString(),
+    time: {
+      departureStartDate:
+        estimate?.details?.arrivalDateInformations?.departureStartDate ||
+        new Date().toISOString(),
+      departureEndDate:
+        estimate?.details?.arrivalDateInformations?.departureEndDate || null,
+    },
     timeFlexible: estimate?.details?.arrivalDateInformations?.flexible || false,
     volume: {
       volume: estimate?.inventory?.volume?.volume,

@@ -12,7 +12,15 @@ S.DatePicker = styled(DatePicker)`
   width: 100%;
 `;
 
-const DateInput = ({ value, handleChange, fullWidth = false, error }) => {
+const DateInput = ({
+  id,
+  value,
+  handleChange,
+  fullWidth = false,
+  error,
+  minDate = new Date(),
+  disabled = false,
+}) => {
   const today = new Date();
   let maxDate = new Date();
   maxDate.setFullYear(maxDate.getFullYear() + 1);
@@ -28,8 +36,9 @@ const DateInput = ({ value, handleChange, fullWidth = false, error }) => {
   return (
     <LocalizationProvider adapterLocale={fr} dateAdapter={AdapterDateFns}>
       <S.DatePicker
+        id={id}
         placeholder="jj/mm/aaaa"
-        minDate={today}
+        minDate={minDate || today}
         disablePast
         maxDate={maxDate}
         autoOk
@@ -42,6 +51,7 @@ const DateInput = ({ value, handleChange, fullWidth = false, error }) => {
         onChange={handleChange}
         renderInput={(props) => <TextField label="date input" {...props} />}
         fullWidth={fullWidth}
+        disabled={disabled}
         slotProps={{
           textField: {
             helperText: errorMessage,

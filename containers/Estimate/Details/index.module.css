@@ -214,4 +214,13 @@
 
 .estimate_arrival_date_information_section_content_date_picker_container {
   width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.estimate_arrival_date_information_section_content_date_picker_flexible_container {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
 }

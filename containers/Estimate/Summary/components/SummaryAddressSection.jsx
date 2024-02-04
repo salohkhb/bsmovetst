@@ -20,7 +20,11 @@ const SummaryAddressSection = () => {
       details: {
         departureInformations = {},
         arrivalInformations = {},
-        arrivalDateInformations: { departureDate, flexible } = {},
+        arrivalDateInformations: {
+          departureStartDate,
+          departureEndDate,
+          flexible,
+        } = {},
       } = {},
     } = {},
   } = useEstimate();
@@ -46,8 +50,14 @@ const SummaryAddressSection = () => {
         <h3>Départ</h3>
         <EstimateSummaryInformationBlock
           label={messages.sections.informations.blockLabel.date}
-          content={flexible ? "Flexible" : formatDate(departureDate, "LLLL")}
+          content={formatDate(departureStartDate, "LL")}
         />
+        {flexible && departureEndDate ? (
+          <EstimateSummaryInformationBlock
+            label={messages.sections.informations.blockLabel.endDate}
+            content={formatDate(departureEndDate, "LL")}
+          />
+        ) : null}
         <EstimateSummaryInformationBlock
           label={messages.sections.informations.blockLabel.departure}
           content={departureInformations?.address?.placeName || UNKNOW}

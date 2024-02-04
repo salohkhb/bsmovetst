@@ -25,15 +25,28 @@ const arrivalDateInformationsSectionOptions = [
   { label: messages.radio.arrivalDateInformations.flexible, value: "flexible" },
 ];
 
+// departureDate: {
+//    flexible: true,
+//    departureStartRange: ...,
+//    departureEndRange: ...,
+// }
+
 const ArrivalDateInformationsSection = ({
   flexible,
   addToEstimateDetailsByKey,
 }) => {
-  const [departureDateValue, setDepartureDateValue] = useState(new Date());
+  const [departureDateValue, setDepartureDateValue] = useState({
+    start: new Date(),
+    end: null,
+  });
   const [currentValue, setCurrentValue] = useState("fixe");
 
-  async function handleDateChange(newDate) {
-    setDepartureDateValue(newDate);
+  function handleDateChange(newDate, type = "start") {
+    console.log("type : ", type);
+    setDepartureDateValue((prevDepartureDateValue) => ({
+      ...prevDepartureDateValue,
+      [type]: newDate,
+    }));
   }
 
   function handleRadioChange(event) {
@@ -42,24 +55,29 @@ const ArrivalDateInformationsSection = ({
     addToEstimateDetailsByKey("arrivalDateInformations", {
       flexible: event.target.value === "flexible",
     });
+    if (event.target.value === "fixe") {
+      setDepartureDateValue((prev) => ({ ...prev, end: null }));
+    }
   }
 
   useEffect(() => {
-    if (departureDateValue && !flexible) {
+    if (departureDateValue.start) {
       addToEstimateDetailsByKey("arrivalDateInformations", {
-        departureDate: departureDateValue,
+        departureStartDate: departureDateValue.start,
       });
-    } else if (flexible) {
-      setCurrentValue("flexible");
+    }
+    if (departureDateValue.end && flexible) {
       addToEstimateDetailsByKey("arrivalDateInformations", {
-        departureDate: null,
+        departureEndDate: departureDateValue.end,
       });
     }
   }, [departureDateValue, flexible]);
 
   return (
     <EstimateSection title={messages.sections.details.movingDate}>
-      <div className={styles.estimate_arrival_date_information_section_content}>
+      <section
+        className={styles.estimate_arrival_date_information_section_content}
+      >
         <FormGroup
           name={messages.radio.arrivalDateInformations.name}
           label=""
@@ -68,20 +86,43 @@ const ArrivalDateInformationsSection = ({
           currentValue={currentValue}
           onChange={handleRadioChange}
         />
-        {!flexible ? (
+        <section
+          className={
+            styles.estimate_arrival_date_information_section_content_date_picker_flexible_container
+          }
+        >
           <div
             className={
               styles.estimate_arrival_date_information_section_content_date_picker_container
             }
           >
+            {flexible && <label htmlFor={"start-date-picker"}>Début</label>}
             <DatePicker
+              id={"start-date-picker"}
               defaultValue={null}
-              value={departureDateValue}
-              handleChange={handleDateChange}
+              value={departureDateValue.start || new Date()}
+              handleChange={(newDate) => handleDateChange(newDate, "start")}
             />
           </div>
-        ) : null}
-      </div>
+          {flexible ? (
+            <div
+              className={
+                styles.estimate_arrival_date_information_section_content_date_picker_container
+              }
+            >
+              <label htmlFor={"end-date-picker"}>Fin</label>
+              <DatePicker
+                id={"end-date-picker"}
+                defaultValue={departureDateValue.start}
+                value={departureDateValue.end}
+                disabled={!departureDateValue.start}
+                minDate={departureDateValue.start}
+                handleChange={(newDate) => handleDateChange(newDate, "end")}
+              />
+            </div>
+          ) : null}
+        </section>
+      </section>
     </EstimateSection>
   );
 };
