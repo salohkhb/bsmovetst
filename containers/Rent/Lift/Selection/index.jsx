@@ -94,7 +94,15 @@ const LiftRentSelectionHeader = () => {
             label=""
             name="nbMovingMen"
             value={movers?.nbMovingMen}
-            onChange={(value) => handleMoversRentByKey("nbMovingMen", value)}
+            onChange={(event) => {
+              handleMoversRentByKey("nbMovingMen", event.target.value);
+              handleMoversRentByKey("present", !!event.target.value);
+              handleMoversRentByKey(
+                "price",
+                getMoversPrice(event.target.value, lift.duration)
+              );
+              console.log("!!event.target.value : ", movers);
+            }}
           >
             <MUIMenuItem value={1}>1</MUIMenuItem>
             <MUIMenuItem value={2}>2</MUIMenuItem>
@@ -241,9 +249,9 @@ const LiftRentSelectionContent = ({ list = [] }) => (
     >
       <h3>Information</h3>
       <p style={{ maxWidth: "75%", color: "#8B9197" }}>
-        Vous allez commencer votre pré-réservation de véhicule de déménagement.
-        Une fois terminée, l'agence concernée prendra contact avec vous pour
-        valider votre dossier ainsi que la disponibilité du véhicule.
+        Vous allez commencer votre pré-réservation de monte-meuble. Une fois
+        terminée, l'agence concernée prendra contact avec vous pour valider
+        votre dossier ainsi que la disponibilité du monte-meuble.
       </p>
     </div>
     <div style={{ display: "flex", flexDirection: "column" }}>

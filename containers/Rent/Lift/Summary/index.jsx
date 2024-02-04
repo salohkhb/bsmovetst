@@ -378,9 +378,7 @@ const LiftRentSummaryRight = () => {
             />
           </div>
         </div>
-        <span style={{ maxWidth: "50%" }}>
-          {rent?.lift?.lift?.name || "Description"}
-        </span>
+        <span style={{ maxWidth: "50%" }}>{rent?.lift?.items[0]?.name}</span>
         <Divider />
         <div
           style={{
