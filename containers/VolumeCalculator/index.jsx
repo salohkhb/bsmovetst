@@ -97,6 +97,7 @@ const VolumeCalculatorRoom = ({
   return (
     <>
       <Accordion
+        defaultExpanded
         square={false}
         className={styles.volume_calculator_page_room_accordion}
       >
