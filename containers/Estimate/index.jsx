@@ -276,15 +276,17 @@ const EstimateContainer = ({ step = 0, setStep }) => {
   return (
     <div className={styles.estimate_page_container}>
       <PriceCalculator />
-      <div className={styles.estimate_page_header}>
-        <Subtitle>{step === 3 ? messages.summary : messages.title}</Subtitle>
+      <section className={styles.estimate_page_header}>
+        <h1 className={styles.estimate_page_title}>
+          {step === 3 ? messages.summary : messages.title}
+        </h1>
         {step === 1 || step === 2 ? (
           <div className={styles.estimate_page_subtitle}>
             {messages.subtitle}
           </div>
         ) : null}
-      </div>
-      <div className={styles.estimate_page_content_container}>
+      </section>
+      <section className={styles.estimate_page_content_container}>
         <div className={styles.estimate_page_left_container}>
           {step === 0 ? (
             <EstimateDetailsComponent
@@ -325,7 +327,7 @@ const EstimateContainer = ({ step = 0, setStep }) => {
             <HelpBox />
           </div>
         )}
-      </div>
+      </section>
     </div>
   );
 };

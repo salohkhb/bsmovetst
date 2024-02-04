@@ -204,15 +204,12 @@
 }
 
 .estimate_details_page_parking_permit_link {
-  text-decoration: underline;
-  cursor: pointer;
 }
 
 .estimate_parking_permit_question {
   display: flex;
   flex-direction: row;
   align-items: center;
-  column-gap: 0.3em;
 }
 
 .estimate_arrival_date_information_section_content_date_picker_container {

@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
-import { IconButton } from "@mui/material";
 
 import { useEstimate } from "../../../hooks/estimate";
 import DatePicker from "../../../components/Pickers/DatePicker";
@@ -20,6 +18,7 @@ import { isObjectEmpty } from "../../../helpers/functions";
 import FloorSelect from "../../../components/Utilities/FloorSelect";
 import { any, bool } from "prop-types";
 import GeolocationInput from "../../../components/GeolocationInput";
+import Subtitle from "../../../components/Texts/Subtitle";
 
 const arrivalDateInformationsSectionOptions = [
   { label: messages.radio.arrivalDateInformations.fixe, value: "fixe" },
@@ -199,12 +198,6 @@ const DepartureInformationsSection = ({
             <span className={styles.estimate_page_subtitle}>
               {messages.sections.details.departure.parkingPermit.text}
             </span>
-            <span className={styles.estimate_details_page_parking_permit_link}>
-              {messages.sections.details.departure.parkingPermit.link}
-            </span>
-            <IconButton onClick={() => {}} size="large">
-              <InfoOutlinedIcon fontSize="small" />
-            </IconButton>
           </div>
           <FormGroup
             name={messages.radio.departureInformations.name}
@@ -328,12 +321,6 @@ const ArrivalInformationsSection = ({
             <span className={styles.estimate_page_subtitle}>
               {messages.sections.details.arrival.parkingPermit.text}
             </span>
-            <span className={styles.estimate_details_page_parking_permit_link}>
-              {messages.sections.details.arrival.parkingPermit.link}
-            </span>
-            <IconButton onClick={() => {}} size="large">
-              <InfoOutlinedIcon fontSize="small" />
-            </IconButton>
           </div>
           <FormGroup
             name={messages.radio.arrivalInformations.name}
@@ -394,6 +381,7 @@ const EstimateDetailsComponent = ({ handleContinue, canContinue = false }) => {
 
   return (
     <div className={styles.estimate_page_sections_container}>
+      <p>{messages.sections.details.description}</p>
       <ArrivalDateInformationsSection
         flexible={details?.arrivalDateInformations?.flexible}
         addToEstimateDetailsByKey={addToEstimateDetailsByKey}

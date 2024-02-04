@@ -1,3 +1,43 @@
+@media screen and (max-width: 500px) {
+  .estimate_page_title {
+    font-size: 1.4em !important;
+    font-weight: 600;
+    color: #1B2032;
+  }
+}
+
+@media screen and (min-width: 501px) and (max-width: 800px) {
+  .estimate_page_title {
+    font-size: 1.6em !important;
+    font-weight: 600;
+    color: #1B2032;
+  }
+}
+
+@media screen and (min-width: 801px) and (max-width: 1100px) {
+  .estimate_page_title {
+    font-size: 1.8em !important;
+    font-weight: 600;
+    color: #1B2032;
+  }
+}
+
+@media screen and (min-width: 1101px) and (max-width: 1300px) {
+  .estimate_page_title {
+    font-size: 2em !important;
+    color: #1B2032;
+    font-weight: 600;
+  }
+}
+
+@media screen and (min-width: 1301px) {
+  .estimate_page_title {
+    font-size: 2.25em !important;
+    font-weight: 600;
+    color: #1B2032;
+  }
+}
+
 @media screen and (max-width: 750px) {
   .estimate_page_content_container {
     display: flex;
