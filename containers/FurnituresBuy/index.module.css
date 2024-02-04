@@ -193,7 +193,7 @@
   width: 100%;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 2em;
+  gap: 1em;
   align-items: center;
 }
 
@@ -209,6 +209,12 @@
   position: relative;
   height: 48px;
   width: 48px;
+}
+
+.furnitures_buy_footer_social_wrapper_little {
+  position: relative;
+  height: 24px;
+  width: 24px;
 }
 
 .furnitures_buy_footer_social_logo_illustration {

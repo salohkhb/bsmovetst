@@ -14,6 +14,7 @@ import { ALERT } from "../../helpers/constants";
 import messages from "./messages";
 import styles from "./index.module.css";
 import { useGlobal } from "../../hooks/global";
+import Socials from "../../components/Socials";
 
 const darkWithOpacity = "rgba(27, 32, 50, 0.4)";
 //
@@ -144,37 +145,6 @@ const FurnituresBuyItems = () => {
   );
 };
 
-const socials = [
-  {
-    id: "social-fb",
-    label: "Facebook",
-    img: "/images/logo-fb.png",
-    link: "https://m.facebook.com/profile.php/?id=100080108089416",
-    alt: "Logo with link to Facebook",
-  },
-  {
-    id: "social-insta",
-    label: "Instagram",
-    img: "/images/logo-instagram.png",
-    link: "https://www.instagram.com/bsmovedemenagement/",
-    alt: "Logo with link to Instagram",
-  },
-  {
-    id: "social-linkedin",
-    label: "LinkedIn",
-    img: "/images/logo-linkedin.png",
-    link: "https://www.linkedin.com/in/bs-move-d%C3%A9m%C3%A9nagement-4449282a1?trk=contact-info",
-    alt: "Logo with link to LinkedIn",
-  },
-  {
-    id: "social-youtube",
-    label: "YouTube",
-    img: "/images/logo-yt.webp",
-    link: "https://www.youtube.com/@Bsmovedemenagement",
-    alt: "Logo with link to YouTube",
-  },
-];
-
 const FurnituresBuyContainer = () => {
   const {
     global: { screenWidth },
@@ -256,36 +226,9 @@ const FurnituresBuyContainer = () => {
             <div className={styles.furnitures_buy_footer_subtitle}>
               {messages.footer.subtitle}
             </div>
-            <div className={styles.furnitures_buy_footer_socials}>
-              {socials.map((social) => (
-                <nav className={styles.furnitures_buy_footer_social_nav}>
-                  <a
-                    target="_blank"
-                    href={social.link}
-                    className={styles.furnitures_buy_footer_social_wrapper}
-                  >
-                    <Image
-                      id={social.id}
-                      quality={100}
-                      className={
-                        styles.furnitures_buy_footer_social_logo_illustration
-                      }
-                      layout="fill"
-                      src={social.img}
-                      alt={social.alt}
-                    />
-                  </a>
-                  <a target="_blank" href={social.link}>
-                    <label
-                      htmlFor={social.id}
-                      className={styles.furnitures_buy_footer_social_logo_label}
-                    >
-                      {social.label}
-                    </label>
-                  </a>
-                </nav>
-              ))}
-            </div>
+            <section className={styles.furnitures_buy_footer_socials}>
+              <Socials />
+            </section>
           </section>
         </footer>
       </div>

@@ -7,6 +7,7 @@ import messages from "./messages";
 import styles from "./index.module.css";
 import Logo from "../Logo";
 import Routes from "../../helpers/routes";
+import SocialsComponent from "../Socials";
 
 const MainFooter = () => {
   const router = useRouter();
@@ -39,6 +40,9 @@ const MainFooter = () => {
           >
             {process.env.NEXT_PUBLIC_CONTACT_EMAIL}
           </a>
+          <section className={styles.main_footer_social_block}>
+            <SocialsComponent little noLabel />
+          </section>
         </section>
         <section className={styles.main_footer_blocks}>
           <span className={styles.main_footer_blocks_title}>
