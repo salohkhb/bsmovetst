@@ -12,7 +12,7 @@ const PriceCalculator = () => {
   } = useEstimate();
 
   return (
-    <Fade in={estimate?.inventory?.volume?.volume && km} timeout={500}>
+    <Fade in={estimate?.inventory?.volume?.volume} timeout={500}>
       <section className={styles.price_calculator__container}>
         <section>
           <div className={styles.price_calculator__header}>

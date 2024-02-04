@@ -12,7 +12,7 @@ const openRouteServiceUrl =
   "https://api.openrouteservice.org/v2/directions/driving-car";
 
 const COEFFICIENT = 1.15; // rename in english
-function getBasePrice(km = 1, volume = 1) {
+function getBasePrice(km = 0, volume = 1) {
   let basePrice = 0;
   if (volume > 10) {
     basePrice =
