@@ -429,17 +429,11 @@ const RentSummaryRight = () => {
         }}
       >
         <h2 style={{ margin: 0 }}>Inclus</h2>
-        <span style={{ color: "#8B9197" }}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-          viverra posuere vehicula. Nulla erat tortor, lobortis sed commodo et,
-          commodo vel urna. usce ultricies nibh tortor, in pellentesque est
-          ultrices eget
-        </span>
-        <span style={{ color: "#8B9197" }}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-          viverra posuere vehicula. Nulla erat tortor, lobortis sed commodo et,
-          commodo vel urna. usce ultricies nibh tortor.
-        </span>
+        <p style={{ color: "#8B9197" }}>
+          Les sangles et les chariots, disponibles sur demande. Bénéficiez de
+          l’expertise et de l’expérience de nos déménageurs pour un transport
+          sécurisé et une manipulation professionnelle de vos biens.”
+        </p>
       </div>
     </article>
   );
