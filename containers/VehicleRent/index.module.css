@@ -185,11 +185,23 @@
     .vehicle_rent__container {
         display: flex;
         flex-direction: column;
-        gap: 1em;
+        width: 100%;
+        gap: 32px;
     }
     .vehicle_rent_presentation__header {
         display: flex;
         flex-direction: column-reverse;
+    }
+    .vehicle_rent_presentation__left_section {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 100%;
+        padding: 0 16px;
+    }
+    .vehicle_rent_presentation__left_section_article {
+        display: flex;
+        flex-direction: column;
     }
     .vehicle_rent_presentation__right_section {
         background-color: #FFFFFF;
@@ -224,7 +236,7 @@
     }
     .halfWidthTab {
         flex: 1;
-        width: 50%;
+        min-width: 50%;
     }
     .vehicle_rent_search_section__vehicle_container {
         display: flex;

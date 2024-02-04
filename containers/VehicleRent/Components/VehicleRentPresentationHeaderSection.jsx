@@ -28,11 +28,7 @@ const VehicleRentPresentationHeaderSection = () => {
           <Image
             layout={"fill"}
             className={styles.vehicle_rent_presentation__right_section_img}
-            src={
-              screenWidth > 1100
-                ? "/images/prestation_2.png"
-                : "/images/bsmove-mobile-rent.jpg"
-            }
+            src={"/images/prestation_2.png"}
             alt={"vehicle_rent_illustration"}
           />
         </section>

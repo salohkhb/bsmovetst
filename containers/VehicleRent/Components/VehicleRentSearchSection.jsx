@@ -491,6 +491,7 @@ const VehicleRentSearchSection = () => {
             sx={{
               backgroundColor: activeTab === 0 ? "#F1F9F5" : "inherit",
               fontWeight: "bold",
+              minWidth: "50%",
             }}
           />
           <Tab
@@ -500,6 +501,7 @@ const VehicleRentSearchSection = () => {
             sx={{
               backgroundColor: activeTab === 1 ? "#F1F9F5" : "inherit",
               fontWeight: "bold",
+              minWidth: "50%",
             }}
           />
         </Tabs>
