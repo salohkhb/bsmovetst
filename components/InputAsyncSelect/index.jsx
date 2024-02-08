@@ -37,7 +37,6 @@ function getPlacePredictions(input, callback) {
 
 function mapPlaceApiToData(item) {
   if (!item) return;
-  console.log("item is : ", item);
   const city =
     item?.address?.town ||
     item?.address?.village ||

@@ -101,7 +101,6 @@ const LiftRentSelectionHeader = () => {
                 "price",
                 getMoversPrice(event.target.value, lift.duration)
               );
-              console.log("!!event.target.value : ", movers);
             }}
           >
             <MUIMenuItem value={1}>1</MUIMenuItem>

@@ -42,7 +42,6 @@ const ArrivalDateInformationsSection = ({
   const [currentValue, setCurrentValue] = useState("fixe");
 
   function handleDateChange(newDate, type = "start") {
-    console.log("type : ", type);
     setDepartureDateValue((prevDepartureDateValue) => ({
       ...prevDepartureDateValue,
       [type]: newDate,

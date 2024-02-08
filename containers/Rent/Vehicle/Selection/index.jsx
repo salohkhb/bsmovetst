@@ -15,6 +15,7 @@ import { useRouter } from "next/router";
 import Routes from "../../../../helpers/routes";
 import Counter from "../../../../components/Counter";
 import styles from "../../index.module.css";
+import { getMoversPrice } from "../../../../helpers/prices";
 
 const RentSelectionHeader = () => {
   const {
@@ -73,7 +74,9 @@ const RentSelectionHeader = () => {
             label=""
             name="duration"
             value={vehicle?.duration}
-            onChange={(value) => handleVehicleRentByKey("duration", value)}
+            onChange={(event) =>
+              handleVehicleRentByKey("duration", event.target.value)
+            }
           >
             <MUIMenuItem value={HALF_DAY_DURATION}>4h</MUIMenuItem>
             <MUIMenuItem value={FULL_DAY_DURATION}>8h</MUIMenuItem>
@@ -90,7 +93,10 @@ const RentSelectionHeader = () => {
             onChange={(event) => {
               handleMoversRentByKey("nbMovingMen", event.target.value);
               handleMoversRentByKey("present", !!event.target.value);
-              console.log("!!event.target.value : ", !!event.target.value);
+              handleMoversRentByKey(
+                "price",
+                getMoversPrice(event.target.value, vehicle.duration)
+              );
             }}
           >
             <MUIMenuItem value={1}>1</MUIMenuItem>
@@ -125,7 +131,6 @@ const RentCard = ({ item }) => {
     const itemFound = vehicle?.items?.find(
       (itemList) => itemList?.id === item.id
     );
-    console.log("vehicle : ", item);
     if (itemFound) {
       const newItemList = vehicle?.items?.map((vehicleItem) => {
         return vehicleItem?.id === item.id

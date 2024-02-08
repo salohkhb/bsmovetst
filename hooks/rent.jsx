@@ -99,7 +99,7 @@ export const RentProvider = ({ children, initialValue }) => {
         ),
       });
     }
-  }, [rent?.vehicle?.items]);
+  }, [rent?.vehicle?.items, rent?.vehicle?.km, rent?.vehicle?.duration]);
 
   useEffect(() => {
     async function getKm() {

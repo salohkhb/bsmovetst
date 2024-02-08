@@ -39,20 +39,13 @@ const ExtraFurnitureCard = ({
 
   const { id, name, price, base64 } = item;
 
-  // CHECK ICI PRIX ARRONDIS ? -> différent du shop
-  // CHANGER LE BULL CRAFT ET TOUT CE QU'IL Y A SUR LE SCREENSHOT EN FRAGILE
-
   useEffect(() => {
-    console.log("type is in extra furniture card : ", category);
-    console.log("item is in extra furniture card : ", item);
     if (!isObjectEmpty(item) && item.name) {
       const furnitureList =
         estimate?.inventory?.mounting?.extraFurnitures[category]?.items;
-      console.log("furniture list : ", furnitureList);
       const furniture = furnitureList?.find(
         (furniture) => furniture.name === item?.name
       );
-      console.log("furniture is : ", furniture);
       setCount(isObjectEmpty(furniture) ? 0 : furniture?.count);
     }
   }, [item]);

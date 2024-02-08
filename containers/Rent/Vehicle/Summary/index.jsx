@@ -478,7 +478,7 @@ const RentSummaryRight = () => {
         >
           <h2 style={{ margin: 0 }}>Total :</h2>
           <span>
-            {rent?.vehicle?.totalPrice}
+            {(rent?.vehicle?.totalPrice || 0) + (rent?.movers?.price || 0)}
             {CURRENCY.EUR}
           </span>
         </div>

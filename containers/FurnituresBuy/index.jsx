@@ -94,7 +94,6 @@ const FurnituresBuyItems = () => {
     setGlobalLoading(true);
     let response;
     if (multiple) {
-      console.log("filter : ", filter);
       response = await api.get(
         `/Products?filter={"where": { "or": [{ "category": ${filter[0]} }, { "category": ${filter[1]} }] } }`
       );
