@@ -27,16 +27,9 @@ const LiftRentSelectionHeader = () => {
   } = useRent();
 
   return (
-    <header style={{ padding: "54px 0", width: "100vw" }}>
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "0.5em",
-          justifyContent: "center",
-        }}
-      >
-        <div style={{ width: "278px" }}>
+    <header className={styles.rent_selection__header}>
+      <section className={styles.rent_selection__filters}>
+        <div className={styles.rent_selection__filter}>
           <label>Départ</label>
           <GeolocationInput
             initialInputValue={lift?.startAddress?.placeName}
@@ -46,7 +39,7 @@ const LiftRentSelectionHeader = () => {
             withoutLabel
           />
         </div>
-        <div style={{ width: "180px" }}>
+        <div className={styles.rent_selection__filter}>
           <label>Date</label>
           <DatePicker
             defaultValue={null}
@@ -58,9 +51,7 @@ const LiftRentSelectionHeader = () => {
             fullWidth={true}
           />
         </div>
-        <div
-          style={{ width: "80px", display: "flex", flexDirection: "column" }}
-        >
+        <div className={styles.rent_selection__filter}>
           <label>Durée</label>
           <MUISelect
             label=""
@@ -75,7 +66,7 @@ const LiftRentSelectionHeader = () => {
             <MUIMenuItem value={FULL_DAY_DURATION}>8h</MUIMenuItem>
           </MUISelect>
         </div>
-        <div style={{ display: "flex", flexDirection: "column" }}>
+        <div className={styles.rent_selection__filter}>
           <label>Etages</label>
           <FloorSelect
             label=""
@@ -86,9 +77,7 @@ const LiftRentSelectionHeader = () => {
             value={lift?.floors}
           />
         </div>
-        <div
-          style={{ width: "80px", display: "flex", flexDirection: "column" }}
-        >
+        <div className={styles.rent_selection__filter}>
           <label>Déménageurs</label>
           <MUISelect
             label=""
@@ -109,7 +98,7 @@ const LiftRentSelectionHeader = () => {
             <MUIMenuItem value={4}>4</MUIMenuItem>
           </MUISelect>
         </div>
-      </div>
+      </section>
     </header>
   );
 };
@@ -164,20 +153,9 @@ const RentCard = ({ item }) => {
     router.push(Routes.LIFT_RENT_PAGE_SUMMARY);
   }
   return (
-    <div
-      style={{
-        boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)",
-        borderRadius: "12px",
-        border: "1px solid #DEDEDE",
-        transition: "0.3s",
-        backgroundColor: "white",
-        display: "flex",
-        padding: "26px",
-        minHeight: "259px",
-      }}
-    >
-      <div style={{ display: "flex", width: "100%", gap: "2em" }}>
-        <div style={{ position: "relative", width: "350px" }}>
+    <div className={styles.rent_selection__card}>
+      <div className={styles.rent_selection__card_content}>
+        <div className={styles.rent_selection__card_image_container}>
           <div style={{ position: "absolute", width: "100%", height: "100%" }}>
             <Image
               layout="fill"
@@ -192,7 +170,7 @@ const RentCard = ({ item }) => {
             display: "flex",
             width: "100%",
             alignItems: "center",
-            justifyContent: "space-between",
+            justifyContent: "center",
           }}
         >
           <div
@@ -206,19 +184,13 @@ const RentCard = ({ item }) => {
             <h3>{item.name}</h3>
             <span style={{ color: "#8B9197" }}>{item.description}</span>
           </div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              padding: "20px",
-              gap: "0.5em",
-            }}
-          >
-            <h2 style={{ margin: 0, padding: 0 }}>
-              {getPriceForItem(item, rent?.lift)}
-              {CURRENCY.EUR}
-            </h2>
+        </div>
+        <div className={styles.rent_selection__card_action_and_price}>
+          <h2 style={{ margin: 0, padding: 0 }}>
+            {getPriceForItem(item, rent?.lift)}
+            {CURRENCY.EUR}
+          </h2>
+          <div>
             <Button onClick={handleRentItem}>Louer ce monte-meubles</Button>
           </div>
         </div>

@@ -288,18 +288,13 @@ const LiftRentSection = () => {
   });
 
   return (
-    <div>
+    <section>
       <form
         onSubmit={formik.handleSubmit}
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "1em",
-          padding: "50px 98px",
-        }}
+        className={styles.vehicle_rent_search_section__vehicle_container}
       >
-        <div style={{ display: "flex", gap: "1em" }}>
-          <div style={{ width: "50%" }}>
+        <div className={styles.vehicle_rent_search_section__line_wrapper}>
+          <div className={styles.vehicle_rent_search_section__input_wrapper}>
             <label>Votre adresse</label>
             <GeolocationInput
               name={"startAddress"}
@@ -312,7 +307,7 @@ const LiftRentSection = () => {
             )}
           </div>
           <div
-            style={{ display: "flex", flexDirection: "column", width: "50%" }}
+            className={styles.vehicle_rent_search_section__select_input_wrapper}
           >
             <label>Etage</label>
             <FloorSelect
@@ -320,11 +315,21 @@ const LiftRentSection = () => {
               name="floors"
               value={formik.values.floors}
               onChange={formik.handleChange}
+              style={{
+                display: "flex !important",
+                flexDirection: "column !important",
+                maxWidth: "100% !important",
+                minWidth: "100% !important",
+                width: "100% !important",
+              }}
             />
           </div>
         </div>
-        <div style={{ display: "flex", gap: "1em" }}>
-          <div style={{ width: "50%" }}>
+        <div className={styles.vehicle_rent_search_section__line_wrapper}>
+          <div
+            className={styles.vehicle_rent_search_section__input_wrapper}
+            style={{ display: "flex", flexDirection: "column" }}
+          >
             <label>Date</label>
             <DatePicker
               defaultValue={null}
@@ -341,7 +346,7 @@ const LiftRentSection = () => {
             )}
           </div>
           <div
-            style={{ width: "50%", display: "flex", flexDirection: "column" }}
+            className={styles.vehicle_rent_search_section__select_input_wrapper}
           >
             <label>Durée de la manutention</label>
             <MUISelect
@@ -453,7 +458,7 @@ const LiftRentSection = () => {
           </div>
         </footer>
       </form>
-    </div>
+    </section>
   );
 };
 

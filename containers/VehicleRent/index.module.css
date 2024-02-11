@@ -163,6 +163,11 @@
     .vehicle_rent_search_section__input_wrapper {
         width: 100%;
     }
+    .vehicle_rent_search_section__select_input_wrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
     .vehicle_rent_search_section__footer {
         display: flex;
         padding-top: 1em;
@@ -257,6 +262,11 @@
     }
     .vehicle_rent_search_section__input_wrapper {
         width: 100%;
+    }
+    .vehicle_rent_search_section__select_input_wrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
     }
     .vehicle_rent_search_section__footer {
         display: flex;

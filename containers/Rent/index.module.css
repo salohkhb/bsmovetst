@@ -1,3 +1,103 @@
+@media screen and (min-width: 1100px) {
+    .rent_selection__header {
+        padding: 54px 24px;
+        width: 100vw;
+    }
+    .rent_selection__filters {
+        display: flex;
+        align-items: center;
+        gap: 0.5em;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .rent_selection__filter {
+        width: 200px;
+        display: flex;
+        flex-direction: column;
+    }
+    .rent_selection__card {
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        border-radius: 12px;
+        border: 1px solid #DEDEDE;
+        transition: 0.3s;
+        background-color: white;
+        display: flex;
+        padding: 26px;
+        min-height: 259px;
+    }
+    .rent_selection__card_content {
+        display: flex; width: 100%; gap: 2em;
+    }
+    .rent_selection__card_image_container {
+        position: relative;
+        width: 350px;
+        display: flex;
+        align-items: center;
+    }
+    .rent_selection__card_action_and_price {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2em;
+        height: 100%;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .rent_selection__header {
+        padding: 54px 24px;
+        width: 100vw;
+    }
+    .rent_selection__filters {
+        display: flex;
+        align-items: center;
+        gap: 0.5em;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .rent_selection__filter {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+    }
+    .rent_selection__card {
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        border-radius: 12px;
+        border: 1px solid #DEDEDE;
+        transition: 0.3s;
+        background-color: white;
+        display: flex;
+        min-height: 259px;
+    }
+    .rent_selection__card_content {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 20px;
+        gap: 2em;
+        align-items: center;
+    }
+    .rent_selection__card_image_container {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        display: flex;
+        align-items: center;
+    }
+    .rent_selection__card_informations {
+
+    }
+    .rent_selection__card_action_and_price {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 8px;
+        gap: 0.5em;
+        width: 100%;
+    }
+}
+
 .vehicle_illustration {
     object-fit: contain;
 }
