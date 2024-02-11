@@ -30,14 +30,16 @@ export const BasketProvider = ({ children, initialBasket }) => {
   }
 
   function addToItemsList(basketItems, newItem) {
-    if (isObjectEmpty(basketItems)) return [{ ...newItem, quantity: 1 }];
+    if (isObjectEmpty(basketItems))
+      return [{ ...newItem, quantity: 1, base64: "" }];
     const itemFound = basketItems.find(
       (basketItem) => basketItem.id === newItem.id
     )?.quantity;
-    if (!itemFound) return append({ ...newItem, quantity: 1 }, basketItems);
+    if (!itemFound)
+      return append({ ...newItem, quantity: 1, base64: "" }, basketItems);
     const newBasketItemsList = basketItems.map((basketItem) =>
       basketItem?.id === newItem?.id
-        ? { ...basketItem, quantity: basketItem?.quantity + 1 }
+        ? { ...basketItem, quantity: basketItem?.quantity + 1, base64: "" }
         : basketItem
     );
     return newBasketItemsList;

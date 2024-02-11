@@ -9,34 +9,44 @@ import Routes from "../../helpers/routes";
 import messages from "./messages";
 import { isObjectEmpty } from "../../helpers/functions";
 import { number } from "prop-types";
+import { useEffect, useState } from "react";
+import { getB64 } from "../../containers/Basket";
+import api from "../../helpers/api";
 
 export const SummaryFurnitureItem = ({
-  item: {
-    id,
-    base64 = "",
-    price = 0,
-    quantity = 0,
-    name = "[nom_non_defini]",
-  } = {},
-}) => (
-  <div className="summary-component__content_main_item">
-    <div className="summary-component__content_main_item_preview">
-      <Image
-        className="summary-component__content_main_item_preview_illustration"
-        layout="fill"
-        src={base64 || "/images/logo.png"}
-        alt={`${name}-${id}`}
-      />
-    </div>
-    <div className="summary-component__content_main_item_infos">
-      <div className="summary-component__content_main_item_quantity">
-        <div>{name}</div>
-        <div>{`x${quantity || 0}`}</div>
+  item: { id, price = 0, quantity = 0, name = "[nom_non_defini]" } = {},
+}) => {
+  const [b64, setB64] = useState("");
+
+  useEffect(() => {
+    async function getB64(id) {
+      const res = await api.get(`/Products/${id}`);
+      setB64(res.data.base64);
+    }
+    if (id !== undefined) {
+      getB64(id);
+    }
+  }, [id]);
+  return (
+    <div className="summary-component__content_main_item">
+      <div className="summary-component__content_main_item_preview">
+        <Image
+          className="summary-component__content_main_item_preview_illustration"
+          layout="fill"
+          src={b64}
+          alt={`${name}-${id}`}
+        />
       </div>
-      <div>{`${price}€`}</div>
+      <div className="summary-component__content_main_item_infos">
+        <div className="summary-component__content_main_item_quantity">
+          <div>{name}</div>
+          <div>{`x${quantity || 0}`}</div>
+        </div>
+        <div>{`${price}€`}</div>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 const SummaryComponent = ({ deliveryCost = 0 }) => {
   const { basket } = useBasket();

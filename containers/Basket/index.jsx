@@ -21,20 +21,28 @@ import { useOrder } from "../../hooks/order";
 import DeleteDialog from "../../components/DeleteDialog";
 import { useGlobal } from "../../hooks/global";
 import { useCustomer } from "../../hooks/customer";
+import api from "../../helpers/api";
 
 const BasketPageItem = ({ item }) => {
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
+  const [b64, setB64] = useState("");
   const [count, setCount] = useState(undefined);
   const { basket, resetBasketQuantity, addToBasket, removeFromBasket } =
     useBasket();
 
   useEffect(() => {
+    async function getB64(id) {
+      const res = await api.get(`/Products/${id}`);
+      setB64(res.data.base64);
+    }
+
     if (
       !isObjectEmpty(item) &&
       !isObjectEmpty(basket?.items) &&
       count === undefined
     ) {
       setCount(findItemQuantityInBasket(item, basket.items));
+      getB64(item.id);
     }
   }, [item, basket]);
 
@@ -72,7 +80,7 @@ const BasketPageItem = ({ item }) => {
               <Image
                 className={styles.basket_item_img_illustration}
                 layout="fill"
-                src={item.base64 || "/images/logo.png"}
+                src={b64}
                 alt={`${item.name}--${item.id}`}
               />
             </div>
