@@ -61,10 +61,20 @@ const VolumeEstimateSection = ({
   }
 
   function handleChange(event) {
-    if (isNaN(event.target.value)) return;
-    if (touched && !event.target.value)
+    if (
+      event.target.value &&
+      (isNaN(event.target.value) || Number(event.target.value) < 1)
+    )
+      return;
+    console.log("passign ok 1 : ");
+    if (touched && !event.target.value) {
+      handleContinue(false, "Merci de préciser un volume");
       setErrors({ volume: messages.sections.volume.input.errors.empty });
-    else if (touched && event.target.value) setErrors({});
+    } else if (touched && Number(event.target.value) > 0) {
+      setErrors({});
+      handleContinue(true, "");
+    }
+    console.log("passign ok 2 : ");
     const fixedValue = Number(event.target.value)?.toFixed(2);
     addToEstimateInventoryByKey("volume", {
       volume: Number(fixedValue),
@@ -80,10 +90,13 @@ const VolumeEstimateSection = ({
   }, [inventory]);
 
   useEffect(() => {
-    handleContinue(
+    const canContinue =
       isObjectEmpty(errors) &&
-        currentRadioValue === inventoryVolumeKnownOptions[0].value &&
-        (touched || inventory?.volume?.volume)
+      currentRadioValue === inventoryVolumeKnownOptions[0].value &&
+      (touched || inventory?.volume?.volume);
+    handleContinue(
+      canContinue,
+      canContinue ? "" : "Merci de préciser un volume"
     );
   }, [errors, currentRadioValue]);
 
@@ -114,8 +127,8 @@ const VolumeEstimateSection = ({
               placeholder={messages.sections.volume.input.placeholder}
               error={touched && errors.volume}
               name="volume"
-              values={inventory?.volume?.volume}
-              value={inventory?.volume?.volume}
+              values={inventory?.volume?.volume || ""}
+              value={inventory?.volume?.volume || ""}
               onChange={handleChange}
               onFocus={() => setTouched(true)}
               // onBlur={formik.handleBlur}

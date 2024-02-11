@@ -223,6 +223,7 @@ export async function getDistanceWithCoordinates(start, end) {
 
 const EstimateContainer = ({ step = 0, setStep }) => {
   const [canContinue, setCanContinue] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const router = useRouter();
   const { estimate, clearEstimate, priceCalculator } = useEstimate();
   const { auth, customer } = useCustomer();
@@ -230,8 +231,9 @@ const EstimateContainer = ({ step = 0, setStep }) => {
   const { setGlobalLoading } = useLoading();
   const { setAlert } = useAlert();
 
-  function handleContinue(value) {
+  function handleContinue(value, errorMessage = "") {
     setCanContinue(value);
+    setErrorMessage(errorMessage ?? "");
   }
 
   async function handleEstimateConfirmation() {
@@ -263,6 +265,7 @@ const EstimateContainer = ({ step = 0, setStep }) => {
   }
 
   async function handleNextStep() {
+    if (!canContinue) return;
     if (step === 1) return setStep(2);
     if (step === 2) {
       if (!auth?.id) {
@@ -318,10 +321,22 @@ const EstimateContainer = ({ step = 0, setStep }) => {
                 </Button>
               </div>
             ) : (
-              <div className={styles.estimate_page_action_component}>
-                <Button disabled={!canContinue} onClick={handleNextStep}>
-                  {messages.actions.nextStep}
-                </Button>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  width: "100%",
+                  alignItems: "flex-end",
+                }}
+              >
+                <div className={styles.estimate_page_action_component}>
+                  <Button onClick={handleNextStep}>
+                    {messages.actions.nextStep}
+                  </Button>
+                </div>
+                {errorMessage && (
+                  <span style={{ color: "red" }}>{errorMessage}</span>
+                )}
               </div>
             )}
           </div>

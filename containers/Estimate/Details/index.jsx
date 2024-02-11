@@ -401,7 +401,10 @@ const EstimateDetailsComponent = ({ handleContinue, canContinue = false }) => {
         (details?.arrivalInformations?.floor > 0 &&
           details?.arrivalInformations?.elevator === undefined)
       ) {
-        handleContinue(false);
+        handleContinue(
+          false,
+          "Merci de remplir toute les informations avant de continuer"
+        );
         return;
       }
       if (
@@ -410,13 +413,22 @@ const EstimateDetailsComponent = ({ handleContinue, canContinue = false }) => {
         (details?.arrivalInformations?.floor > 0 &&
           details?.arrivalInformations?.furnituresLift === undefined)
       ) {
-        handleContinue(false);
+        handleContinue(
+          false,
+          "Merci de remplir toute les informations avant de continuer"
+        );
         return;
       }
-      handleContinue(true);
+      console.log(
+        "handle continue should turn to true and put the error to nil"
+      );
+      handleContinue(true, "");
       return;
     } else {
-      handleContinue(false);
+      handleContinue(
+        false,
+        "Merci de remplir toute les informations avant de continuer"
+      );
       return;
     }
   }, [details]);
