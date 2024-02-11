@@ -2,27 +2,30 @@ import Routes from "../../../../helpers/routes";
 import styles from "./index.module.css";
 import messages from "./messages";
 import Button from "../../../../components/Button";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import { useRouter } from "next/router";
 import { useRent } from "../../../../hooks/rent";
-import { isObjectEmpty } from "../../../../helpers/functions";
+import { useGlobal } from "../../../../hooks/global";
 
 const VehicleRentValidation = () => {
   const router = useRouter();
-  const { clearRent } = useRent();
-  const { rent } = useRent();
+  const { rent, clearRent } = useRent();
+  const { resetRedirect } = useGlobal();
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    if (isObjectEmpty(rent?.movers)) {
-      router.replace(Routes.HOME_PAGE);
-    }
+    resetRedirect();
   }, [rent]);
 
   function handleBackToMainPage() {
     clearRent();
     return router.push(Routes.HOME_PAGE);
+  }
+
+  function handleBackToProfile() {
+    clearRent();
+    return router.push(Routes.PROFIL_PAGE);
   }
 
   return (

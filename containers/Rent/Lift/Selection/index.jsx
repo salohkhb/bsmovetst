@@ -103,7 +103,8 @@ const LiftRentSelectionHeader = () => {
   );
 };
 
-function getPriceForItem(item, lift) {
+function getPriceForItem(item, lift = {}) {
+  if (!lift) return;
   switch (item.name) {
     case "Échelle électrique":
       return getLiftPrice(

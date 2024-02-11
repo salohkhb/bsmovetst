@@ -5,10 +5,18 @@ import Button from "../../../../components/Button";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import { useRouter } from "next/router";
 import { useRent } from "../../../../hooks/rent";
+import { useGlobal } from "../../../../hooks/global";
+import { useEffect } from "react";
 
 const LiftRentValidation = () => {
   const router = useRouter();
-  const { clearRent } = useRent();
+  const { rent, clearRent } = useRent();
+  const { resetRedirect } = useGlobal();
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    resetRedirect();
+  }, [rent]);
 
   function handleBackToMainPage() {
     clearRent();

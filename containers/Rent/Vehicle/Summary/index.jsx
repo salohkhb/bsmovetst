@@ -157,17 +157,7 @@ const RentSummaryLeft = () => {
         style={{ display: "flex", flexDirection: "column", gap: "20px" }}
       >
         {!auth?.id ? (
-          <div
-            style={{
-              display: "flex",
-              width: "500px",
-              justifyContent: "space-between",
-              border: "1px solid #DEDEDE",
-              borderRadius: "12px",
-              gap: "2em",
-              padding: "30px",
-            }}
-          >
+          <div className={styles.rent_summary__left_container}>
             <div
               style={{
                 display: "flex",
@@ -184,17 +174,7 @@ const RentSummaryLeft = () => {
           </div>
         ) : null}
         <form onSubmit={formik.handleSubmit}>
-          <div
-            style={{
-              display: "flex",
-              width: "500px",
-              flexDirection: "column",
-              border: "1px solid #DEDEDE",
-              borderRadius: "12px",
-              gap: "2em",
-              padding: "30px",
-            }}
-          >
+          <div className={styles.rent_summary__left_container}>
             <h3>Informations personnelles</h3>
             <Input
               label={"Nom"}
@@ -344,19 +324,19 @@ const RentSummaryLeft = () => {
               type="tel"
             />
           </div>
-          <div>
-            <Field
-              name="cgu"
-              checked={formik.values.cgu}
-              component={(props) => (
-                <CguComponent
-                  {...props}
-                  error={formik.touched.cgu && formik.errors.cgu}
-                />
-              )}
-            />
-          </div>
-          <div style={{ maxWidth: "50%" }}>
+          <div className={styles.rent_summary__action_container}>
+            <div>
+              <Field
+                name="cgu"
+                checked={formik.values.cgu}
+                component={(props) => (
+                  <CguComponent
+                    {...props}
+                    error={formik.touched.cgu && formik.errors.cgu}
+                  />
+                )}
+              />
+            </div>
             <Button
               disabled={
                 !isObjectEmpty(formik.errors) || isObjectEmpty(formik.values)
@@ -376,20 +356,8 @@ const RentSummaryRight = () => {
   const { rent } = useRent();
   const router = useRouter();
   return (
-    <article
-      style={{ display: "flex", flexDirection: "column", width: "100%" }}
-    >
-      <div
-        style={{
-          display: "flex",
-          width: "470px",
-          flexDirection: "column",
-          border: "1px solid #DEDEDE",
-          borderRadius: "12px",
-          gap: "1em",
-          padding: "30px",
-        }}
-      >
+    <article className={styles.rent_summary__right_container_wrapper}>
+      <div className={styles.rent_summary__right_container}>
         <div
           style={{
             display: "flex",
@@ -483,18 +451,7 @@ const RentSummaryRight = () => {
           </span>
         </div>
       </div>
-      <div
-        style={{
-          display: "flex",
-          borderRadius: "12px",
-          flexDirection: "column",
-          padding: "41px 30px",
-          gap: "1em",
-          marginTop: "2em",
-          backgroundColor: "#F1F9F5",
-          width: "470px",
-        }}
-      >
+      <div className={styles.rent_summary__included_block}>
         <h2 style={{ margin: 0 }}>{messages.summary.included.title}</h2>
         <p style={{ color: "#8B9197" }}>{messages.summary.included.content}</p>
       </div>
@@ -503,14 +460,7 @@ const RentSummaryRight = () => {
 };
 
 const RentSummary = () => (
-  <section
-    style={{
-      display: "flex",
-      flexDirection: "row",
-      padding: "56px 15%",
-      gap: "114px",
-    }}
-  >
+  <section className={styles.rent_summary__container}>
     <RentSummaryLeft />
     <RentSummaryRight />
   </section>

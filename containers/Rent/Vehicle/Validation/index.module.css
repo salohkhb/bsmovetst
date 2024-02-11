@@ -5,9 +5,8 @@
         align-items: center;
         text-align: center;
         justify-content: center;
-        padding: 30% 20%;
+        padding: 20%;
         row-gap: 2em;
-        max-width: 615px;
     }
     .confirm_vehicle_rent_content {
         color: rgb(94, 98, 110);

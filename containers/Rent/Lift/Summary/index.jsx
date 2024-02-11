@@ -17,6 +17,7 @@ import { useLoading } from "../../../../hooks/loading";
 import { useAlert } from "../../../../hooks/alert";
 import styles from "../../index.module.css";
 import messages from "../messages";
+import { useGlobal } from "../../../../hooks/global";
 
 function mapLiftRentDataToAPI(data = {}) {
   return {
@@ -138,6 +139,12 @@ const LiftRentSummaryLeft = () => {
     }
   }
 
+  const { addToGlobalStateByKey } = useGlobal();
+  function redirectToLogin() {
+    addToGlobalStateByKey("redirect", Routes.LIFT_RENT_PAGE_SUMMARY);
+    router.push(Routes.LOGIN_PAGE);
+  }
+
   const formik = useFormik({
     initialValues,
     validate,
@@ -146,19 +153,28 @@ const LiftRentSummaryLeft = () => {
   });
   return (
     <FormikProvider value={formik}>
-      <article style={{ display: "flex", flexDirection: "column" }}>
+      <article
+        style={{ display: "flex", flexDirection: "column", gap: "20px" }}
+      >
+        {!auth?.id ? (
+          <div className={styles.rent_summary__left_container}>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                minWidth: "60%",
+              }}
+            >
+              <h4>Déjà client?</h4>
+              <span style={{ color: "#8b9197" }}>
+                Connectez-vous et gagnez du temps
+              </span>
+            </div>
+            <Button onClick={redirectToLogin}>Se connecter</Button>
+          </div>
+        ) : null}
         <form onSubmit={formik.handleSubmit}>
-          <div
-            style={{
-              display: "flex",
-              width: "500px",
-              flexDirection: "column",
-              border: "1px solid #DEDEDE",
-              borderRadius: "12px",
-              gap: "2em",
-              padding: "30px",
-            }}
-          >
+          <div className={styles.rent_summary__left_container}>
             <h3>Informations personnelles</h3>
             <Input
               label={"Nom"}
@@ -308,19 +324,19 @@ const LiftRentSummaryLeft = () => {
               type="tel"
             />
           </div>
-          <div>
-            <Field
-              name="cgu"
-              checked={formik.values.cgu}
-              component={(props) => (
-                <CguComponent
-                  {...props}
-                  error={formik.touched.cgu && formik.errors.cgu}
-                />
-              )}
-            />
-          </div>
-          <div>
+          <div className={styles.rent_summary__action_container}>
+            <div>
+              <Field
+                name="cgu"
+                checked={formik.values.cgu}
+                component={(props) => (
+                  <CguComponent
+                    {...props}
+                    error={formik.touched.cgu && formik.errors.cgu}
+                  />
+                )}
+              />
+            </div>
             <Button
               disabled={
                 !isObjectEmpty(formik.errors) || isObjectEmpty(formik.values)
@@ -340,19 +356,8 @@ const LiftRentSummaryRight = () => {
   const { rent } = useRent();
   const router = useRouter();
   return (
-    <article
-      style={{ display: "flex", flexDirection: "column", width: "470px" }}
-    >
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          border: "1px solid #DEDEDE",
-          borderRadius: "12px",
-          gap: "1em",
-          padding: "30px",
-        }}
-      >
+    <article className={styles.rent_summary__right_container_wrapper}>
+      <div className={styles.rent_summary__right_container}>
         <div
           style={{
             display: "flex",
@@ -428,17 +433,7 @@ const LiftRentSummaryRight = () => {
           </span>
         </div>
       </div>
-      <div
-        style={{
-          display: "flex",
-          borderRadius: "12px",
-          flexDirection: "column",
-          padding: "41px 30px",
-          gap: "1em",
-          marginTop: "2em",
-          backgroundColor: "#F1F9F5",
-        }}
-      >
+      <div className={styles.rent_summary__included_block}>
         <h2 style={{ margin: 0 }}>{messages.summary.included.title}</h2>
         <p style={{ color: "#8B9197" }}>{messages.summary.included.content}</p>
       </div>
@@ -447,14 +442,7 @@ const LiftRentSummaryRight = () => {
 };
 
 const RentSummary = () => (
-  <section
-    style={{
-      display: "flex",
-      flexDirection: "row",
-      padding: "56px 15%",
-      gap: "114px",
-    }}
-  >
+  <section className={styles.rent_summary__container}>
     <LiftRentSummaryLeft />
     <LiftRentSummaryRight />
   </section>
