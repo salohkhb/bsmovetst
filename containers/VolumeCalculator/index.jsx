@@ -313,8 +313,9 @@ const VolumeCalculatorContainer = () => {
   function addVolumeToEstimate() {
     addToEstimateInventoryByKey("volume", {
       volumeKnown: true,
-      volume: getTotalVolumeAndQuantityFromRooms(inventory?.volume?.rooms)
-        .volume,
+      volume: Number(
+        getTotalVolumeAndQuantityFromRooms(inventory?.volume?.rooms).volume
+      ).toFixed(2),
     });
     return router.push(Routes.ESTIMATE_INVENTORY_PAGE);
   }
