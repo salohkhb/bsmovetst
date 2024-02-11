@@ -25,16 +25,9 @@ const RentSelectionHeader = () => {
   } = useRent();
 
   return (
-    <header style={{ padding: "54px 0", width: "100vw" }}>
-      <section
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "0.5em",
-          justifyContent: "center",
-        }}
-      >
-        <div style={{ width: "278px" }}>
+    <header className={styles.rent_selection__header}>
+      <section className={styles.rent_selection__filters}>
+        <div className={styles.rent_selection__filter}>
           <label>Départ</label>
           <GeolocationInput
             initialInputValue={vehicle?.startAddress?.placeName}
@@ -44,7 +37,7 @@ const RentSelectionHeader = () => {
             withoutLabel
           />
         </div>
-        <div style={{ width: "278px" }}>
+        <div className={styles.rent_selection__filter}>
           <label>Arrivée</label>
           <GeolocationInput
             initialInputValue={vehicle?.endAddress?.placeName}
@@ -54,7 +47,7 @@ const RentSelectionHeader = () => {
             withoutLabel
           />
         </div>
-        <div style={{ width: "180px" }}>
+        <div className={styles.rent_selection__filter}>
           <label>Date</label>
           <DatePicker
             defaultValue={null}
@@ -66,9 +59,7 @@ const RentSelectionHeader = () => {
             fullWidth={true}
           />
         </div>
-        <div
-          style={{ width: "80px", display: "flex", flexDirection: "column" }}
-        >
+        <div className={styles.rent_selection__filter}>
           <label>Durée</label>
           <MUISelect
             label=""
@@ -82,9 +73,7 @@ const RentSelectionHeader = () => {
             <MUIMenuItem value={FULL_DAY_DURATION}>8h</MUIMenuItem>
           </MUISelect>
         </div>
-        <div
-          style={{ width: "80px", display: "flex", flexDirection: "column" }}
-        >
+        <div className={styles.rent_selection__filter}>
           <label>Déménageurs</label>
           <MUISelect
             label=""
@@ -175,20 +164,9 @@ const RentCard = ({ item }) => {
   }
 
   return (
-    <div
-      style={{
-        boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)",
-        borderRadius: "12px",
-        border: "1px solid #DEDEDE",
-        transition: "0.3s",
-        backgroundColor: "white",
-        display: "flex",
-        padding: "26px",
-        minHeight: "259px",
-      }}
-    >
-      <div style={{ display: "flex", width: "100%", gap: "2em" }}>
-        <div style={{ position: "relative", width: "350px" }}>
+    <div className={styles.rent_selection__card}>
+      <div className={styles.rent_selection__card_content}>
+        <div className={styles.rent_selection__card_image_container}>
           <div style={{ position: "absolute", width: "100%", height: "100%" }}>
             <Image
               layout="fill"
@@ -293,14 +271,14 @@ const RentSelectionContent = ({ list = [] }) => {
             <RentCard key={item.id + index} item={item} />
           ))}
         </ul>
-        <section style={{ display: "flex", justifyContent: "space-between" }}>
+        <section className={styles.rent_selection__selection_footer}>
           <div style={{ fontWeight: "bold" }}>
             <h3>
               Total : {totalPrice}
               {CURRENCY.EUR}{" "}
             </h3>
           </div>
-          <div style={{ width: "30%" }}>
+          <div className={styles.rent_selection__selection_footer_action}>
             <Button fullWidth onClick={handleValidate}>
               Valider les choix
             </Button>
