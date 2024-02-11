@@ -66,7 +66,6 @@ const VolumeEstimateSection = ({
       (isNaN(event.target.value) || Number(event.target.value) < 1)
     )
       return;
-    console.log("passign ok 1 : ");
     if (touched && !event.target.value) {
       handleContinue(false, "Merci de préciser un volume");
       setErrors({ volume: messages.sections.volume.input.errors.empty });
@@ -74,7 +73,6 @@ const VolumeEstimateSection = ({
       setErrors({});
       handleContinue(true, "");
     }
-    console.log("passign ok 2 : ");
     const fixedValue = Number(event.target.value)?.toFixed(2);
     addToEstimateInventoryByKey("volume", {
       volume: Number(fixedValue),

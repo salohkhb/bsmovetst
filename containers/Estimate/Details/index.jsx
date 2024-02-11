@@ -419,9 +419,6 @@ const EstimateDetailsComponent = ({ handleContinue, canContinue = false }) => {
         );
         return;
       }
-      console.log(
-        "handle continue should turn to true and put the error to nil"
-      );
       handleContinue(true, "");
       return;
     } else {
