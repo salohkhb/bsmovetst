@@ -250,7 +250,7 @@ const EstimateContainer = ({ step = 0, setStep }) => {
       headers: { Authorization: auth.id },
     });
     if (res?.ok) {
-      await router.replace(Routes.HOME_PAGE);
+      await router.replace(Routes.ESTIMATE_VALIDATION_PAGE);
       clearEstimate();
     } else
       setAlert({

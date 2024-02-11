@@ -17,6 +17,7 @@ const Routes = {
   ESTIMATE_DETAILS_PAGE: "/estimate/details",
   ESTIMATE_INVENTORY_PAGE: "/estimate/inventory",
   ESTIMATE_SUMMARY_PAGE: "/estimate/summary",
+  ESTIMATE_VALIDATION_PAGE: "/estimate/validation",
   DASHBOARD_PAGE: "/dashboard",
   DASHBOARD_LOGIN_PAGE: "/dashboard/login",
   DASHBOARD_MOVING_PAGE: "/dashboard/moving",

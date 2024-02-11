@@ -105,6 +105,9 @@
     align-items: center;
     row-gap: 2em;
   }
+  .estimate_validation__container {
+    height: 100vh;
+  }
 }
 @media screen and (min-width: 750px) {
   .estimate_page_content_container {
