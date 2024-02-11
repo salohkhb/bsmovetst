@@ -4,18 +4,27 @@ import NavHeader from "../../components/NavHeader";
 import Component from "../../containers/VehicleRent";
 import { handlePageRedirect, parseCookies } from "../../helpers/functions";
 import Footer from "../../components/Footer";
+import { useRouter } from "next/router";
+import { useMemo } from "react";
 
-const VehicleRentPage = ({ cookies }) => (
-  <Layout
-    cookies={cookies}
-    title="Choix de la location"
-    pageId="vehicle-and-lift-rent"
-  >
-    <NavHeader />
-    <Component />
-    <Footer />
-  </Layout>
-);
+const VehicleRentPage = ({ cookies }) => {
+  const router = useRouter();
+  const rentType = useMemo(
+    () => (router?.query?.tab === "lift" ? "monte-meuble" : "camion"),
+    [router.query]
+  );
+  return (
+    <Layout
+      cookies={cookies}
+      title={`Choix de la location de ${rentType || "camion"}`}
+      pageId="vehicle-and-lift-rent"
+    >
+      <NavHeader />
+      <Component />
+      <Footer />
+    </Layout>
+  );
+};
 
 export const getServerSideProps = async (context) => {
   const cookies = await parseCookies(context?.req);
