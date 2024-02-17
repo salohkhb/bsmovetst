@@ -83,12 +83,12 @@ const MainFooter = () => {
           <Link href={Routes.CGU} className={styles.main_footer_blocks_title}>
             {messages.mainFooter.legalsBlock.title}
           </Link>
-          <div className={styles.main_footer_blocks_content}>
+          <Link href={Routes.CGU} className={styles.main_footer_blocks_content}>
             {messages.mainFooter.legalsBlock.cgu}
-          </div>
-          <div className={styles.main_footer_blocks_content}>
+          </Link>
+          <Link href={Routes.CGU} className={styles.main_footer_blocks_content}>
             {messages.mainFooter.legalsBlock.confidentialPolitics}
-          </div>
+          </Link>
         </section>
       </section>
     </section>
