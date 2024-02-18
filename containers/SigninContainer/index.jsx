@@ -45,11 +45,9 @@ const SigninContainer = ({ children, page = "login" }) => {
     <div className={styles.container}>
       <Slide timeout={500} in={true} direction="left" mountOnEnter>
         <Paper elevation={4} className={styles.paper}>
-          <Link href={Routes.HOME_PAGE}>
-            <div className={styles.logo_container}>
-              <Logo />
-            </div>
-          </Link>
+          <div className={styles.logo_container}>
+            <Logo />
+          </div>
           <div className={styles.title_container}>
             <Subtitle className={styles.title}>{messages[page].title}</Subtitle>
           </div>

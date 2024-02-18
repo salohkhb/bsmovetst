@@ -135,9 +135,7 @@ const MobileHeader = ({ basket, handleCartButton, handleProfilButton }) => {
         </IconButton>
         <div className={styles.header_mobile_logo_container}>
           <div className={styles.header_mobile_logo_component}>
-            <Link href={Routes.HOME_PAGE}>
-              <Logo />
-            </Link>
+            <Logo />
           </div>
         </div>
         <S.RightHeader>

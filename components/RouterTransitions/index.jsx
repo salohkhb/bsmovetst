@@ -8,12 +8,10 @@ const RouterTransitions = () => {
   const router = useRouter();
 
   function handleRouterChangeStart() {
-    if (globalLoading) return;
     setGlobalLoading(true);
   }
 
   function handleRouterChangeEnd() {
-    if (!globalLoading) return;
     setGlobalLoading(false);
   }
 

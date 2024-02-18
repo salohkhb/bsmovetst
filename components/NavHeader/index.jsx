@@ -151,9 +151,7 @@ const PrimaryNavHeader = ({ initialTab }) => {
   return (
     <div className={styles.container}>
       <div className={styles.primary_logo_container}>
-        <Link href={Routes.HOME_PAGE}>
-          <Logo />
-        </Link>
+        <Logo />
       </div>
       <S.Tabs
         value={value}
@@ -220,9 +218,7 @@ const SecondaryNavHeader = ({ initialStep = 0, steps = [] }) => {
   return (
     <div className={styles.secondary_nav_header_container}>
       <div className={styles.logo_container}>
-        <Link href={Routes.HOME_PAGE}>
-          <Logo />
-        </Link>
+        <Logo />
       </div>
       <div className={styles.secondary_nav_header_stepper}>
         <Stepper activeStep={initialStep} alternativeLabel={screenWidth <= 750}>

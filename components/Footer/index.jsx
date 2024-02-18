@@ -18,11 +18,9 @@ const MainFooter = () => {
           className={styles.main_footer_blocks}
           onClick={() => router.push(Routes.HOME_PAGE)}
         >
-          <Link href={Routes.HOME_PAGE}>
-            <div className={styles.logo_block}>
-              <Logo />
-            </div>
-          </Link>
+          <div className={styles.logo_block}>
+            <Logo />
+          </div>
         </div>
         <section className={styles.main_footer_blocks}>
           <span className={styles.main_footer_blocks_title}>
