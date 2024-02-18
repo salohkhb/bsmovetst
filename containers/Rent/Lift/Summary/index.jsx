@@ -127,8 +127,8 @@ const LiftRentSummaryLeft = () => {
     setGlobalLoading(false);
     if (res?.ok && !res.errors) {
       router.replace({
-        pathname: Routes.MOVERS_RENT_VALIDATION,
-        query: { name: "movers" },
+        pathname: Routes.LIFT_RENT_VALIDATION,
+        query: { name: "lift" },
       });
       clearRent();
     } else {
@@ -169,8 +169,8 @@ const LiftRentSummaryLeft = () => {
               <span style={{ color: "#8b9197" }}>
                 Connectez-vous et gagnez du temps
               </span>
+              <Button onClick={redirectToLogin}>Se connecter</Button>
             </div>
-            <Button onClick={redirectToLogin}>Se connecter</Button>
           </div>
         ) : null}
         <form onSubmit={formik.handleSubmit}>

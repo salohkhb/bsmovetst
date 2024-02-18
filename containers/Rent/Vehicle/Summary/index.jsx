@@ -169,8 +169,8 @@ const RentSummaryLeft = () => {
               <span style={{ color: "#8b9197" }}>
                 Connectez-vous et gagnez du temps
               </span>
+              <Button onClick={redirectToLogin}>Se connecter</Button>
             </div>
-            <Button onClick={redirectToLogin}>Se connecter</Button>
           </div>
         ) : null}
         <form onSubmit={formik.handleSubmit}>

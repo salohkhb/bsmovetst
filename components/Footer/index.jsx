@@ -119,15 +119,6 @@ const SecondaryFooter = () => (
           alt="footer_logo_visa"
         />
       </section>
-      <section className={styles.secondary_footer_logo_container}>
-        <Image
-          quality={100}
-          className={styles.secondary_footer_logo_component}
-          layout="fill"
-          src="/images/logo_paypal.png"
-          alt="footer_logo_paypal"
-        />
-      </section>
     </div>
   </section>
 );
