@@ -35,21 +35,12 @@ const HomeEstimateSection = ({ technicalIssueAlert }) => {
       </div>
       <div className={styles.home_estimate_section_right}>
         <div className={styles.home_estimate_section_right_img_container}>
-          {screenWidth > 900 ? (
-            <Image
-              className={styles.home_estimage_section_right_img_illustration}
-              layout="fill"
-              src="/images/homescreen_1.png"
-              alt="homepage_section_estimate"
-            />
-          ) : (
-            <Image
-              className={styles.home_estimage_section_right_img_illustration}
-              layout="fill"
-              src="/images/homescreen_1.png"
-              alt="homepage_section_estimate"
-            />
-          )}
+          <Image
+            className={styles.home_estimage_section_right_img_illustration}
+            layout="fill"
+            src="/images/homescreen_1.png"
+            alt="homepage_section_estimate"
+          />
         </div>
       </div>
     </div>
