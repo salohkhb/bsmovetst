@@ -203,6 +203,17 @@ export const EstimateProvider = ({ children, initialEstimate }) => {
   });
 
   function getPriceForExtraFurnitures(extraFurnitures) {
+    if (!extraFurnitures?.needed) {
+      setPriceCalculator((prev) => ({
+        ...prev,
+        priceForStandardFurnitures: 0,
+        priceForStandardWrapping: 0,
+        priceForFragileFurnitures: 0,
+        priceForFragileWrapping: 0,
+        priceForOtherFurnitures: 0,
+      }));
+      return 0;
+    }
     let priceForExtraFurnitures = 0;
     if (extraFurnitures.standard?.items?.length) {
       let totalStandardBoxesQuantity = 0;
@@ -272,6 +283,10 @@ export const EstimateProvider = ({ children, initialEstimate }) => {
         },
         0
       );
+      setPriceCalculator((prev) => ({
+        ...prev,
+        priceForOtherFurnitures: totalOthersBoxesPrice,
+      }));
       priceForExtraFurnitures += totalOthersBoxesPrice;
     }
     return priceForExtraFurnitures;
@@ -478,15 +493,13 @@ export const EstimateProvider = ({ children, initialEstimate }) => {
   }, [estimate?.inventory?.mounting]);
 
   useEffect(() => {
-    if (estimate?.inventory?.mounting?.extraFurnitures?.needed) {
-      const priceExtraFurnitures = getPriceForExtraFurnitures(
-        estimate?.inventory?.mounting?.extraFurnitures
-      );
-      setPriceCalculator((previousPriceCalculator) => ({
-        ...previousPriceCalculator,
-        priceExtraFurnitures,
-      }));
-    }
+    const priceExtraFurnitures = getPriceForExtraFurnitures(
+      estimate?.inventory?.mounting?.extraFurnitures
+    );
+    setPriceCalculator((previousPriceCalculator) => ({
+      ...previousPriceCalculator,
+      priceExtraFurnitures,
+    }));
   }, [estimate?.inventory?.mounting?.extraFurnitures]);
 
   function addToEstimateByKey(key, value) {

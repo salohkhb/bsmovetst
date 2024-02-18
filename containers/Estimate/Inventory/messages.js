@@ -12,6 +12,7 @@ export default {
         name: "volume",
         errors: {
           empty: "Champs requis.",
+          invalid: "Volume invalide",
         },
       },
       button: {

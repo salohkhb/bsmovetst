@@ -46,7 +46,7 @@ const SummaryInventorySection = () => {
             needed: extraFurnituresNeeded = false,
           } = {},
         } = {},
-        volume: { volume } = {},
+        volume = {},
         heavyObjects,
       } = {},
     },
@@ -59,7 +59,12 @@ const SummaryInventorySection = () => {
       <section className={styles.estimate_informations_container}>
         <EstimateSummaryInformationBlock
           label={messages.sections.informations.blockLabel.volume}
-          content={(volume && `${volume?.toFixed(2)}${METRICS.CUBE}`) || UNKNOW}
+          content={
+            (volume?.volume &&
+              !isNaN(volume.volume) &&
+              `${Number(volume.volume).toFixed(2)}${METRICS.CUBE}`) ||
+            UNKNOW
+          }
         />
       </section>
       <Divider />
@@ -231,7 +236,7 @@ const SummaryInventorySection = () => {
       >
         <h3 style={{ fontWeight: "bold" }}>Total</h3>
         <span>
-          {totalPrice}
+          {totalPrice.toFixed(2)}
           {CURRENCY.EUR}
         </span>
       </section>

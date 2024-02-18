@@ -46,6 +46,7 @@ const VolumeEstimateSection = ({
   );
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState(false);
+  const [volumeValue, setVolumeValue] = useState("");
 
   function handleVolumeRedirection() {
     return router.push(Routes.VOLUME_CALCULATOR_PAGE);
@@ -60,20 +61,24 @@ const VolumeEstimateSection = ({
     });
   }
 
+  const replaceComaByPoints = (str) => {
+    return str.replace(",", ".");
+  };
+
   function handleChange(event) {
-    if (
-      event.target.value &&
-      (isNaN(event.target.value) || Number(event.target.value) < 1)
-    )
-      return;
-    if (touched && !event.target.value) {
-      handleContinue(false, "Merci de préciser un volume");
+    const filteredValue = replaceComaByPoints(event.target.value);
+    if (filteredValue && !filteredValue.match(/^[0-9.]+$/)) {
+      handleContinue(false, "Merci de préciser un volume valide");
       setErrors({ volume: messages.sections.volume.input.errors.empty });
-    } else if (touched && Number(event.target.value) > 0) {
+    } else if (touched && !filteredValue) {
+      handleContinue(false, "Merci de préciser un volume valide");
+      setErrors({ volume: messages.sections.volume.input.errors.empty });
+    } else if (touched && Number(filteredValue) > 0) {
       setErrors({});
       handleContinue(true, "");
     }
-    const fixedValue = Number(event.target.value)?.toFixed(2);
+    const fixedValue = Number(filteredValue).toFixed(2);
+    setVolumeValue(filteredValue);
     addToEstimateInventoryByKey("volume", {
       volume: Number(fixedValue),
     });
@@ -94,7 +99,7 @@ const VolumeEstimateSection = ({
       (touched || inventory?.volume?.volume);
     handleContinue(
       canContinue,
-      canContinue ? "" : "Merci de préciser un volume"
+      canContinue ? "" : "Merci de préciser un volume valide"
     );
   }, [errors, currentRadioValue]);
 
@@ -125,8 +130,8 @@ const VolumeEstimateSection = ({
               placeholder={messages.sections.volume.input.placeholder}
               error={touched && errors.volume}
               name="volume"
-              values={inventory?.volume?.volume || ""}
-              value={inventory?.volume?.volume || ""}
+              values={volumeValue || inventory?.volume?.volume || ""}
+              value={volumeValue || inventory?.volume?.volume || ""}
               onChange={handleChange}
               onFocus={() => setTouched(true)}
               // onBlur={formik.handleBlur}

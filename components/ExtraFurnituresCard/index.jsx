@@ -76,6 +76,7 @@ const ExtraFurnitureCard = ({
             extraFurnitures: {
               ...estimate?.inventory?.mounting?.extraFurnitures,
               [category]: {
+                ...estimate?.inventory?.mounting?.extraFurnitures[category],
                 items: [
                   ...estimate?.inventory?.mounting?.extraFurnitures[category]
                     ?.items,
