@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+      
+    <url>
+      <loc>http://localhost:3005/</loc>
+      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+    </url>
+  
+    <url>
+      <loc>http://localhost:3005/cgu</loc>
+      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+    </url>
+  
+    <url>
+      <loc>http://localhost:3005/login</loc>
+      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+    </url>
+  
+    <url>
+      <loc>http://localhost:3005/register</loc>
+      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+    </url>
+  
+    <url>
+      <loc>http://localhost:3005/profil</loc>
+      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+    </url>
+  
+    <url>
+      <loc>http://localhost:3005/reset-password</loc>
+      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+    </url>
+  
+    <url>
+      <loc>http://localhost:3005/forgot-password</loc>
+      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+    </url>
+  
+    <url>
+      <loc>http://localhost:3005/furnitures-buy</loc>
+      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+    </url>
+  
+    <url>
+      <loc>http://localhost:3005/basket</loc>
+      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+    </url>
+  
+    <url>
+      <loc>http://localhost:3005/delivery</loc>
+      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+    </url>
+  
+    <url>
+      <loc>http://localhost:3005/payment</loc>
+      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+    </url>
+  
+    <url>
+      <loc>http://localhost:3005/confirm-payment</loc>
+      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+    </url>
+  
+    <url>
+      <loc>http://localhost:3005/contact</loc>
+      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+    </url>
+  
+    <url>
+      <loc>http://localhost:3005/volume-calculator</loc>
+      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+    </url>
+  
+    <url>
+      <loc>http://localhost:3005/vehicle-rent</loc>
+      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+    </url>
+  
+    <url>
+      <loc>http://localhost:3005/estimate/details</loc>
+      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+    </url>
+  
+    <url>
+      <loc>http://localhost:3005/estimate/inventory</loc>
+      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+    </url>
+  
+    <url>
+      <loc>http://localhost:3005/estimate/summary</loc>
+      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+    </url>
+  
+    <url>
+      <loc>http://localhost:3005/estimate/validation</loc>
+      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+    </url>
+  
+    <url>
+      <loc>http://localhost:3005/dashboard</loc>
+      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+    </url>
+  
+    <url>
+      <loc>http://localhost:3005/dashboard/login</loc>
+      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+    </url>
+  
+    <url>
+      <loc>http://localhost:3005/dashboard/moving</loc>
+      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+    </url>
+  
+    <url>
+      <loc>http://localhost:3005/dashboard/moving/detail</loc>
+      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+    </url>
+  
+    <url>
+      <loc>http://localhost:3005/dashboard/moving/detail/denied</loc>
+      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+    </url>
+  
+    <url>
+      <loc>http://localhost:3005/dashboard/moving/detail/accepted</loc>
+      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+    </url>
+  
+    <url>
+      <loc>http://localhost:3005/dashboard/furnitures-storage</loc>
+      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+    </url>
+  
+    <url>
+      <loc>http://localhost:3005/dashboard/shop</loc>
+      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+    </url>
+  
+    <url>
+      <loc>http://localhost:3005/dashboard/vehicle-renting</loc>
+      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+    </url>
+  
+    <url>
+      <loc>http://localhost:3005/rent/vehicle/selection</loc>
+      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+    </url>
+  
+    <url>
+      <loc>http://localhost:3005/rent/lift/selection</loc>
+      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+    </url>
+  
+    <url>
+      <loc>http://localhost:3005/rent/vehicle/summary</loc>
+      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+    </url>
+  
+    <url>
+      <loc>http://localhost:3005/rent/lift/summary</loc>
+      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+    </url>
+  
+    <url>
+      <loc>http://localhost:3005/rent/movers/summary</loc>
+      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+    </url>
+  
+    <url>
+      <loc>http://localhost:3005/rent/vehicle/validation</loc>
+      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+    </url>
+  
+    <url>
+      <loc>http://localhost:3005/rent/movers/validation</loc>
+      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+    </url>
+  
+    <url>
+      <loc>http://localhost:3005/rent/lift/validation</loc>
+      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+    </url>
+  
+    </urlset>
