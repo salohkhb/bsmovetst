@@ -68,87 +68,93 @@ const SummaryInventorySection = () => {
         />
       </section>
       <Divider />
-      <h3 style={{ paddingTop: "1em", paddingBottom: "1em" }}>
-        {messages.sections.informations.blockLabel.heavy}
-      </h3>
-      <section className={styles.estimate_informations_container}>
-        {heavyObjects?.items?.piano?.present ? (
-          <>
-            <EstimateSummaryInformationBlock
-              label="Type de piano"
-              content={
-                PIANO_OPTIONS.find(
-                  (option) => option.value === heavyObjects.items.piano.type
-                )?.label || UNKNOW
-              }
-            />
-            <EstimateSummaryInformationBlock
-              label="Etages"
-              content={heavyObjects.items.piano.floors}
-            />
-          </>
-        ) : null}
-        {heavyObjects?.items?.fridge?.present ? (
-          <>
-            <EstimateSummaryInformationBlock
-              label="Type de frigo"
-              content={
-                FRIDGE_OPTIONS.find(
-                  (option) => option.value === heavyObjects.items.fridge.type
-                )?.label || UNKNOW
-              }
-            />
-            <EstimateSummaryInformationBlock
-              label="Etages"
-              content={heavyObjects.items.fridge.floors}
-            />
-          </>
-        ) : null}
-        {heavyObjects?.items?.safe?.present ? (
-          <>
-            <EstimateSummaryInformationBlock
-              label="Type de coffre fort"
-              content={
-                SAFE_OPTIONS.find(
-                  (option) => option.value === heavyObjects.items.safe.type
-                )?.label || UNKNOW
-              }
-            />
-            <EstimateSummaryInformationBlock
-              label="Etages"
-              content={heavyObjects.items.safe.floors}
-            />
-          </>
-        ) : null}
-        {heavyObjects?.items?.poolTable?.present ? (
-          <>
-            <EstimateSummaryInformationBlock
-              label="Type de billard"
-              content={
-                POOL_TABLE_OPTIONS.find(
-                  (option) => option.value === heavyObjects.items.poolTable.type
-                )?.label || UNKNOW
-              }
-            />
-            <EstimateSummaryInformationBlock
-              label="Etages"
-              content={heavyObjects.items.poolTable.floors}
-            />
-          </>
-        ) : null}
-        {heavyObjects?.items?.other?.present ? (
-          <>
-            <EstimateSummaryInformationBlock
-              label="Autres"
-              content={heavyObjects?.items?.other?.item?.value}
-            />
-            <EstimateSummaryInformationBlock
-              label="Etages"
-              content={heavyObjects.items.other.floors}
-            />
-          </>
-        ) : null}
-      </section>
+      {heavyObjects?.hasHeavyObjects ? (
+        <>
+          <h3 style={{ paddingTop: "1em", paddingBottom: "1em" }}>
+            {messages.sections.informations.blockLabel.heavy}
+          </h3>
+          <section className={styles.estimate_informations_container}>
+            {heavyObjects?.items?.piano?.present ? (
+              <>
+                <EstimateSummaryInformationBlock
+                  label="Type de piano"
+                  content={
+                    PIANO_OPTIONS.find(
+                      (option) => option.value === heavyObjects.items.piano.type
+                    )?.label || UNKNOW
+                  }
+                />
+                <EstimateSummaryInformationBlock
+                  label="Etages"
+                  content={heavyObjects.items.piano.floors}
+                />
+              </>
+            ) : null}
+            {heavyObjects?.items?.fridge?.present ? (
+              <>
+                <EstimateSummaryInformationBlock
+                  label="Type de frigo"
+                  content={
+                    FRIDGE_OPTIONS.find(
+                      (option) =>
+                        option.value === heavyObjects.items.fridge.type
+                    )?.label || UNKNOW
+                  }
+                />
+                <EstimateSummaryInformationBlock
+                  label="Etages"
+                  content={heavyObjects.items.fridge.floors}
+                />
+              </>
+            ) : null}
+            {heavyObjects?.items?.safe?.present ? (
+              <>
+                <EstimateSummaryInformationBlock
+                  label="Type de coffre fort"
+                  content={
+                    SAFE_OPTIONS.find(
+                      (option) => option.value === heavyObjects.items.safe.type
+                    )?.label || UNKNOW
+                  }
+                />
+                <EstimateSummaryInformationBlock
+                  label="Etages"
+                  content={heavyObjects.items.safe.floors}
+                />
+              </>
+            ) : null}
+            {heavyObjects?.items?.poolTable?.present ? (
+              <>
+                <EstimateSummaryInformationBlock
+                  label="Type de billard"
+                  content={
+                    POOL_TABLE_OPTIONS.find(
+                      (option) =>
+                        option.value === heavyObjects.items.poolTable.type
+                    )?.label || UNKNOW
+                  }
+                />
+                <EstimateSummaryInformationBlock
+                  label="Etages"
+                  content={heavyObjects.items.poolTable.floors}
+                />
+              </>
+            ) : null}
+            {heavyObjects?.items?.other?.present ? (
+              <>
+                <EstimateSummaryInformationBlock
+                  label="Autres"
+                  content={heavyObjects?.items?.other?.item?.value}
+                />
+                <EstimateSummaryInformationBlock
+                  label="Etages"
+                  content={heavyObjects.items.other.floors}
+                />
+              </>
+            ) : null}
+          </section>
+        </>
+      ) : null}
       <Divider />
       {mountingType && mountingType !== "no" ? (
         <section style={{ paddingTop: "1em", paddingBottom: "1em" }}>
