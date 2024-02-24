@@ -9,14 +9,17 @@ import { useMemo } from "react";
 
 const VehicleRentPage = ({ cookies }) => {
   const router = useRouter();
-  const rentType = useMemo(
-    () => (router?.query?.tab === "lift" ? "monte-meuble" : "camion"),
-    [router.query]
-  );
+  const rentType = useMemo(() => {
+    if (router?.query?.tab) {
+      return router?.query?.tab === "lift" ? "monte-meubles" : "camion";
+    } else {
+      return "";
+    }
+  }, [router.query]);
   return (
     <Layout
       cookies={cookies}
-      title={`Choix de la location de ${rentType || "camion"}`}
+      title={`Choix de la location${rentType ? ` de ${rentType}` : ""}`}
       pageId="vehicle-and-lift-rent"
     >
       <NavHeader />
