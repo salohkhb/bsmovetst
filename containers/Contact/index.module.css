@@ -37,6 +37,10 @@
     height: 100%;
   }
 
+  .contact_page__title {
+
+  }
+
   .contact_page_information {
     display: flex;
     flex-direction: column;

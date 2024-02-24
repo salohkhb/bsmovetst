@@ -152,48 +152,61 @@ const ContactContainer = () => {
 
   return (
     <div className={styles.contact_page_container}>
-      <div className={styles.contact_page_information}>
-        <Subtitle>{messages.title}</Subtitle>
-        <div className={styles.contact_page_subtitle}>{messages.subtitle}</div>
-        <div className={styles.contact_page_contact_section_container}>
-          <div className={styles.contact_page_section_title}>
+      <section className={styles.contact_page_information}>
+        <h1 className={styles.contact_page__title}>{messages.title}</h1>
+        <span className={styles.contact_page_subtitle}>
+          {messages.subtitle}
+        </span>
+        <section className={styles.contact_page_contact_section_container}>
+          <span className={styles.contact_page_section_title}>
             {messages.contact.title}
-          </div>
-          <div className={styles.contact_page_section_content}>
+          </span>
+          <a
+            target="_blank"
+            href={` http://maps.google.com/?q=${messages.contact.address.street} ${messages.contact.address.city}`}
+            className={styles.contact_page_section_content}
+          >
             {messages.contact.address.street}
-          </div>
-          <div className={styles.contact_page_section_content}>
+          </a>
+          <a
+            target="_blank"
+            href={` http://maps.google.com/?q=${messages.contact.address.street} ${messages.contact.address.city}`}
+            className={styles.contact_page_section_content}
+          >
             {messages.contact.address.city}
-          </div>
-          <div className={styles.contact_page_section_content}>
+          </a>
+          <a
+            href={`tel:${process.env.NEXT_PUBLIC_CONTACT_PHONE_NUMBER}`}
+            className={styles.contact_page_section_content}
+          >
             {process.env.NEXT_PUBLIC_CONTACT_PHONE_NUMBER}
-          </div>
-        </div>
-        <div className={styles.contact_page_contact_section_container}>
-          <div className={styles.contact_page_section_title}>
+          </a>
+        </section>
+        <section className={styles.contact_page_contact_section_container}>
+          <span className={styles.contact_page_section_title}>
             {messages.schedules.title}
-          </div>
-          <div className={styles.contact_page_section_content}>
+          </span>
+          <span className={styles.contact_page_section_content}>
             {messages.schedules.week.days}
-          </div>
-          <div className={styles.contact_page_section_content}>
+          </span>
+          <span className={styles.contact_page_section_content}>
             {messages.schedules.week.schedule}
-          </div>
-          <div className={styles.contact_page_section_content}>
+          </span>
+          <span className={styles.contact_page_section_content}>
             {messages.schedules.weekEnd.days}
-          </div>
-          <div className={styles.contact_page_section_content}>
+          </span>
+          <span className={styles.contact_page_section_content}>
             {messages.schedules.weekEnd.schedule}
-          </div>
-        </div>
-      </div>
-      <div className={styles.contact_page_form}>
+          </span>
+        </section>
+      </section>
+      <section className={styles.contact_page_form}>
         {!emailSent ? (
           <ContactForm validate={handleValidate} handleSubmit={handleSubmit} />
         ) : (
           <ContactFormEnd />
         )}
-      </div>
+      </section>
     </div>
   );
 };
