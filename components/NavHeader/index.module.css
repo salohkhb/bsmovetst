@@ -170,15 +170,16 @@
   font-family: 'proxima-nova', medium;
   color: rgb(27, 32, 50);
   text-transform: uppercase;
+  padding: 6px 8px;
 }
 
 .menu_item_label {
-  max-width: 90%;
-  width: 90%;
+  max-width: 100%;
+  width: 100%;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  font-size: 12px;
+  font-size: 10px;
 }
 
 .alternative-label {
