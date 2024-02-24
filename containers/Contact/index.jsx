@@ -150,6 +150,9 @@ const ContactContainer = () => {
     return errors;
   }
 
+  const googleTarget =
+    "https://www.google.com/maps/place/Bs+Move+D%C3%A9m%C3%A9nagement/@48.951264,2.912502,17z/data=!3m1!4b1!4m6!3m5!1s0x47e8a1640dbae65d:0xdb1947b55fdb839!8m2!3d48.951264!4d2.912502!16s%2Fg%2F11h2dlt9wl?entry=ttu";
+
   return (
     <div className={styles.contact_page_container}>
       <section className={styles.contact_page_information}>
@@ -163,14 +166,14 @@ const ContactContainer = () => {
           </span>
           <a
             target="_blank"
-            href={` http://maps.google.com/?q=${messages.contact.address.street} ${messages.contact.address.city}`}
+            href={googleTarget}
             className={styles.contact_page_section_content}
           >
             {messages.contact.address.street}
           </a>
           <a
             target="_blank"
-            href={` http://maps.google.com/?q=${messages.contact.address.street} ${messages.contact.address.city}`}
+            href={googleTarget}
             className={styles.contact_page_section_content}
           >
             {messages.contact.address.city}
