@@ -163,7 +163,7 @@ const FurnituresBuyContainer = () => {
           {screenWidth && screenWidth >= 750 ? (
             <>
               <div className={styles.furnitures_buy_description_content}>
-                <Subtitle>{messages.description.title}</Subtitle>
+                <h1>{messages.description.title}</h1>
                 <div className={styles.furnitures_buy_description_content_text}>
                   {messages.description.content}
                 </div>

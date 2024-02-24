@@ -334,7 +334,7 @@ const VolumeCalculatorContainer = () => {
   return (
     <div className={styles.volume_calculator_page_container}>
       <div className={styles.volume_calculator_page_calculator}>
-        <Subtitle>{messages.title}</Subtitle>
+        <h1>{messages.title}</h1>
         <div className={styles.volume_calculator_page_subtitle}>
           {messages.subtitle}
         </div>
