@@ -12,3 +12,5 @@ All the helpers relative to api calls will be set here.
 
 # constants.js
 
+This is automagically pushed to heroku prod.
+
