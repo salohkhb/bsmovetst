@@ -126,7 +126,10 @@ const RentSummaryLeft = () => {
 
   async function handleSubmit(values) {
     setGlobalLoading(true);
-    const requestData = mapMoversRentDataToAPI({ ...rent, ...values });
+    const requestData = mapMoversRentDataToAPI({
+      ...rent,
+      customerInfos: values,
+    });
     const res = await api.post("/Rentals", requestData, {
       headers: { Authorization: auth.id },
     });
