@@ -54,6 +54,8 @@ DashboardLoginPage.getLayout = function getLayout(page) {
             cookies={page?.props?.cookies}
             withoutHeader
             title='Tableau de bord - Connexion'
+            description='Connectez-vous à votre tableau de bord pour accéder à toutes les fonctionnalités de gestion de compte.'
+            keywords='connexion au tableau de bord, compte, utilisateur, connexion, déménagement'
             pageId='dashboard-login'
             display='flex'
         >

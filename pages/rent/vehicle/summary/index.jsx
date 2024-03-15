@@ -13,6 +13,8 @@ const RentSummary = ({ cookies }) => (
   <Layout
     cookies={cookies}
     title="Résumé de la location de camion"
+    description="Consultez un résumé détaillé de votre location de camion avant la confirmation."
+    keywords="Résumé, location, camion, déménagement, détails, services, confirmation"
     pageId="truck-rent-summary"
     withoutHeader
   >

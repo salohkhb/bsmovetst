@@ -7,7 +7,10 @@ import Component from '../../containers/Contact';
 import { handlePageRedirect, parseCookies } from '../../helpers/functions';
 
 const ContactPage = ({ cookies }) => (
-  <Layout cookies={cookies} title='Nous contacter' pageId='contact'>
+  <Layout cookies={cookies} title='BS Move - Nous contacter'
+    description="Prenez contact avec notre équipe pour toute question ou demande d'information sur nos services."
+    keywords='contact, contactez-nous, Nous contacter, déménagement, services, informations'
+    pageId='contact'>
     <NavHeader />
     <Component />
     <Footer />

@@ -167,14 +167,14 @@ const ContactContainer = () => {
           <a
             target="_blank"
             href={googleTarget}
-            className={styles.contact_page_section_content}
+            className={styles.contact_page_section_content} rel="noreferrer"
           >
             {messages.contact.address.street}
           </a>
           <a
             target="_blank"
             href={googleTarget}
-            className={styles.contact_page_section_content}
+            className={styles.contact_page_section_content} rel="noreferrer"
           >
             {messages.contact.address.city}
           </a>

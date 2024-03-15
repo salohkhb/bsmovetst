@@ -21,7 +21,8 @@ S.ChildContainer = styled.div`
 
 export default function Layout({
   title = 'BS Move', pageId = 'bsmove', withoutHeader = false,
-  children, loading, display = 'inherit', cookies = {},
+  children, loading, display = 'inherit', cookies = {}, description = 'Your default description',
+  keywords = 'BS Move, Déménagement, Déménageur, Déménageur professionnel, déménagement, services, transport, logistique, location, véhicules, meubles, emballage, déménageurs, entreprise, devis, estimation, emménagement, emballage, fournitures, cartons, matériel, déménager, déménageur, déménageurs, déménageuse, déménagements, relocation, logistique, camion, utilitaire, déménager pas cher, déménager seul, déménager avec des professionnels, déménager avec des amis, déménager avec des déménageurs, déménager avec des déménageuses, déménager avec des professionnels'
 }) {
   return (
     <CookiesProvider cookies={cookies}>
@@ -33,6 +34,9 @@ export default function Layout({
             <S.ChildContainer display={display}>
               <Head>
                 <title>{title}</title>
+                {/* Added description and keywords as props */}
+                <meta name="description" content={description} />
+                <meta name="keywords" content={keywords} />
               </Head>
               {!withoutHeader && <Header />}
               {children}

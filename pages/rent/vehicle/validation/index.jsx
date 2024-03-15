@@ -13,6 +13,8 @@ const RentSummary = ({ cookies }) => (
   <Layout
     cookies={cookies}
     title="Validation de la location des camions"
+    description="Validez les détails de votre location de camions avant la finalisation de la commande."
+    keywords="Validation, location, camions, déménagement, détails, services, confirmation"
     pageId="truck-rent-validation"
     withoutHeader
   >

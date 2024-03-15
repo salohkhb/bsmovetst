@@ -13,6 +13,8 @@ const LiftRentSelectionPage = ({ cookies }) => (
   <Layout
     cookies={cookies}
     title="Selection du monte-meuble"
+    description="Choisissez le monte-meuble adapté à vos besoins pour faciliter le déménagement de vos biens en hauteur."
+    keywords="sélection de monte-meuble, déménagement, monte-meuble, location, services"
     pageId="lift-rent-selection"
     withoutHeader
   >

@@ -1,7 +1,7 @@
 export default {
   title: 'Calculateur de volume de déménagement',
   noRoom: 'Aucune pièce n\'a été ajoutée',
-  subtitle: 'Sélectionnez les éléments que vous souhaitez déménager, le volume dont vous avez besoin s’affiche ci-contre.',
+  subtitle: "Sélectionnez les éléments que vous souhaitez déménager, et observez le volume nécessaire qui s'affiche à côté. Nous vous aidons à planifier votre déménagement en vous fournissant les outils pour estimer l'espace requis.",
   calculator: {
     action: 'Ajouter une pièce',
     roomAutocomplete: {
@@ -16,7 +16,7 @@ export default {
     title: 'Calcul de votre volume',
     subtitle: ' éléments séléctionnés',
     total: 'Total de votre volume',
-    action: 'Valider',
+    action: 'Valider votre volume',
   },
   dialog: {
     title: 'Ajout de pièce',

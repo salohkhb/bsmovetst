@@ -13,6 +13,7 @@ const EstimateInventoryPage = ({ cookies }) => {
     <Layout
       cookies={cookies}
       title="Devis - Inventaire"
+      description="Établissez un inventaire détaillé de vos biens pour obtenir une estimation précise du coût de votre déménagement."
       pageId="estimate-inventory"
       withoutHeader
     >

@@ -7,7 +7,7 @@ import Component from '../../containers/Profil';
 import { handlePageRedirect, parseCookies } from '../../helpers/functions';
 
 const ProfilPage = ({ cookies = {} }) => (
-  <Layout cookies={cookies} title='Mon profil' pageId='profil'>
+  <Layout cookies={cookies} title='BS Move - Mon profil' description='Gérez votre profil utilisateur, mettez à jour vos informations personnelles et consultez votre historique de commandes.' keywords='profil, compte, utilisateur, déménagement, services' pageId='profil'>
     <NavHeader />
     <Component />
     <Footer />
