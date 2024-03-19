@@ -40,7 +40,7 @@ const ResetPasswordPage = ({ cookies }) => {
   }
 
   return (
-    <Layout cookies={cookies} withoutHeader title='Changement de mot de passe' description='Réinitialisez votre mot de passe en toute sécurité pour accéder à votre compte.' pageId='reset-password' display="flex">
+    <Layout cookies={cookies} withoutHeader title='Changement de mot de passe' description='Réinitialisez votre mot de passe en toute sécurité pour accéder à votre compte.' keywords='réinitialisation de mot de passe, mot de passe oublié, sécurité, connexion' pageId='reset-password' display="flex">
       <SigninContainer page='reset-password'>
         <Component handleSubmit={handleSubmit} />
       </SigninContainer>

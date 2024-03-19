@@ -14,7 +14,7 @@ const EstimateDetailsPage = ({ cookies }) => {
       cookies={cookies}
       title="BS Move - Devis Déménagement Renseignements"
       description="Consultez les détails de votre estimation de déménagement, y compris le volume estimé et les services inclus."
-      keywords="Devis, Renseignements, Devis Renseignements, estimation, déménagement, détails, volume, services"
+      keywords="Devis, Renseignements, Devis Renseignements, estimation, déménagement, détails, volume, services, inclus, déménageurs, véhicules, matériel, emballage, fournitures, cartons, déménager, déménageur, déménageurs, déménageuse, déménagements, relocation, logistique, camion, utilitaire, déménager pas cher, déménager seul, déménager avec des professionnels, déménager avec des amis, déménager avec des déménageurs, déménager avec des déménageuses, déménager avec des professionnels"
       pageId="estimate-details"
       withoutHeader
     >

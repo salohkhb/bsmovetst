@@ -17,7 +17,7 @@ export const getServerSideProps = async context => {
 
 DashboardMovingPage.getLayout = function getLayout(page) {
   return (
-    <Layout cookies={page?.props?.cookies} title='Tableau de bord - Déménagement' description="Consultez les détails de votre déménagement, y compris la date, l'heure et les services sélectionnés." pageId='dashboard-moving' withoutHeader>
+    <Layout cookies={page?.props?.cookies} title='Tableau de bord - Déménagement' description="Consultez les détails de votre déménagement, y compris la date, l'heure et les services sélectionnés." keywords='détails du déménagement, déménagement, détails, tableau de bord' pageId='dashboard-moving' withoutHeader>
       <DashboardLayout>{page}</DashboardLayout>
     </Layout>
   )

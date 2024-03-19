@@ -337,7 +337,7 @@ const HomePageContainer = () => {
       <HomeAdvantagesSection technicalIssueAlert={technicalIssueAlert} />
       <HomeCompetencesSection technicalIssueAlert={technicalIssueAlert} />
       <HomePresentationSection technicalIssueAlert={technicalIssueAlert} />
-      {/*<HomeBlogSection technicalIssueAlert={technicalIssueAlert} />*/}
+      {/* <HomeBlogSection technicalIssueAlert={technicalIssueAlert} /> */}
       <HomeGettingStartedSection technicalIssueAlert={technicalIssueAlert} />
     </div>
   );

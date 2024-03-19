@@ -7,7 +7,7 @@ import Component from '../../containers/FurnituresBuy';
 import { handlePageRedirect, parseCookies } from '../../helpers/functions';
 
 const FurnituresBuyPage = ({ cookies }) => (
-  <Layout cookies={cookies} title='BS Move - Achat de fournitures' description="Parcourez notre sélection de meubles à vendre pour équiper votre nouvel espace de vie." keywords='achats de meubles, déménagement, meubles, achat, mobilier' pageId='furnitures-buy'>
+  <Layout cookies={cookies} title='BS Move - Achat de fournitures' description="Parcourez notre sélection de meubles à vendre pour équiper votre nouvel espace de vie." keywords='achats de meubles, déménagement, meubles, achats, mobilier, produits' pageId='furnitures-buy'>
     <NavHeader />
     <Component />
     <Footer />
