@@ -11,7 +11,9 @@ import { NAV_HEADER_FURNITURES_BUY_STEPS } from "../../helpers/constants";
 const ConfirmPaymentPage = ({ cookies }) => (
   <Layout
     cookies={cookies}
-    title="Confirmation du paiement"
+    title="BS Move - Confirmation du paiement"
+    description="Confirmez le paiement de votre réservation pour finaliser votre commande avec succès."
+    keywords="Confirmation, Paiement, Confirmation Paiement, réservation, commande, succès, déménagement, services"
     pageId="confirm-payment"
     withoutHeader
   >

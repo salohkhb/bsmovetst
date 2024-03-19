@@ -13,6 +13,8 @@ const LiftRentSummaryPage = ({ cookies }) => (
   <Layout
     cookies={cookies}
     title="Résumé de la location du monte-meuble"
+    description="onsultez un résumé détaillé de votre location de monte-meuble avant la confirmation."
+    keywords="résumé de la location de monte-meuble, déménagement, monte-meuble, location, services"
     pageId="lift-rent-summary"
     withoutHeader
   >

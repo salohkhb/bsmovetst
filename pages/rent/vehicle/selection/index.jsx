@@ -13,6 +13,8 @@ const RentSelectionPage = ({ cookies }) => (
   <Layout
     cookies={cookies}
     title="Selection du camion"
+    description="Choisissez le camion adapté à vos besoins pour faciliter le déménagement de vos biens en hauteur."
+    keywords="sélection de camion, déménagement, camion, location, services"
     pageId="truck-rent-selection"
     withoutHeader
   >

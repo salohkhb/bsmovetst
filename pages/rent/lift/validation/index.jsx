@@ -13,6 +13,8 @@ const LiftRentValidationPage = ({ cookies }) => (
   <Layout
     cookies={cookies}
     title="Validation de la location du monte-meuble"
+    description="Validez les détails de votre location de monte-meuble avant la finalisation de la commande."
+    keywords="validation de la location de monte-meuble, déménagement, monte-meuble, location, services"
     pageId="lift-rent-validation"
     withoutHeader
   >

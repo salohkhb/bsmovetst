@@ -1,11 +1,11 @@
 export default {
   sections: {
     details: {
-      movingDate: "Date de votre déménagement",
+      movingDate: "Choisir la date de votre déménagement",
       description:
         "Vous êtes sur le point de commencer votre demande de devis pour un déménagement. La première étape consiste à nous fournir des informations concernant votre point de départ et votre destination, ainsi que des informations concernant le déménagement pour nous permettre de vous proposer un service optimal.",
       departure: {
-        title: "Départ",
+        title: "Adresse de départ",
         input: {
           name: "address",
           label: "Adresse de départ",
@@ -17,7 +17,7 @@ export default {
         },
       },
       arrival: {
-        title: "Arrivée",
+        title: "Adresse d'arrivé",
         input: {
           name: "address",
           label: "Adresse d'arrivé",

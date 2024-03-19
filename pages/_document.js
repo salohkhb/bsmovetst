@@ -6,7 +6,8 @@ import createEmotionCache from "../utils/createEmotionCache";
 export default class MyDocument extends Document {
     render() {
         return (
-            <Html lang="en">
+            // Chnaged the lang to fr
+            <Html lang="fr">
                 <Head>
                     {this.props.emotionStyleTags}
                 </Head>

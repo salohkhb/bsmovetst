@@ -89,7 +89,9 @@ const RegisterPage = ({ cookies }) => {
     <Layout
       cookies={cookies}
       withoutHeader
-      title="Inscription"
+      title="BS Move - Inscription"
+      description="Inscrivez-vous pour créer un compte et accéder à toutes les fonctionnalités de notre plateforme de déménagement."
+      keywords="inscription, compte, utilisateur, déménagement, services"
       pageId="register"
       display="flex"
     >

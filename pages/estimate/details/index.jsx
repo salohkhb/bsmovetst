@@ -12,7 +12,9 @@ const EstimateDetailsPage = ({ cookies }) => {
   return (
     <Layout
       cookies={cookies}
-      title="Devis - Renseignements"
+      title="BS Move - Devis Déménagement Renseignements"
+      description="Consultez les détails de votre estimation de déménagement, y compris le volume estimé et les services inclus."
+      keywords="Devis, Renseignements, Devis Renseignements, estimation, déménagement, détails, volume, services"
       pageId="estimate-details"
       withoutHeader
     >

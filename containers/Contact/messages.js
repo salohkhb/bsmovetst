@@ -1,6 +1,6 @@
 export default {
-  title: "Des questions ?",
-  subtitle: "N'hésitez pas à nous contacter!",
+  title: "Avez-vous des questions ou besoin d'assistance  ?",
+  subtitle: "N'hésitez pas à nous contacter pour obtenir plus d'informations ou pour toute demande spécifique. Notre équipe est là pour vous aider et vous fournir le soutien dont vous avez besoin!",
   contact: {
     title: "Adresse",
     address: {

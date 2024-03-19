@@ -7,7 +7,9 @@ import Footer from "../../components/Footer";
 const CguPage = ({ cookies }) => (
   <Layout
     cookies={cookies}
-    title="Conditions générales d'utilisation"
+    title="BS Move - Conditions générales d'utilisation"
+    description="Consultez nos conditions générales d'utilisation pour comprendre les règles et conditions d'utilisation de notre plateforme."
+    keywords="conditions générales d'utilisation, CGU, termes, contrat, déménagement"
     pageId="cgu"
   >
     <NavHeader />

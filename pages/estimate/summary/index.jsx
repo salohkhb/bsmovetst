@@ -13,6 +13,8 @@ const EstimateSummaryPage = ({ cookies }) => {
     <Layout
       cookies={cookies}
       title="Devis - Récapitulatif et paiement"
+      description="Obtenez un résumé détaillé de votre estimation de déménagement avant de prendre une décision."
+      keywords="résumé de l'estimation, estimation, résumé, déménagement, services"
       pageId="estimate-summary-payment"
       withoutHeader
     >

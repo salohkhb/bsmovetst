@@ -13,6 +13,8 @@ const RentMoversValidation = ({ cookies }) => (
   <Layout
     cookies={cookies}
     title="Validation de la location de déménageurs"
+    description="Validez les détails de votre location de déménageurs avant la finalisation de la commande."
+    keywords="location de déménageurs, déménagement, location, services, validation, détails, finalisation, commande"
     pageId="movers-rent-validation"
     withoutHeader
   >

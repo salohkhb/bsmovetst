@@ -9,8 +9,8 @@ export default {
     finalizeEstimate: "Envoyer la demande de devis",
   },
   helpBox: {
-    title: "Besoin d’aide ?",
-    content: "N'hésitez pas à nous contacter pour plus d'informations.",
+    title: "Avez-vous besoin d’aide ?",
+    content: "Notre équipe est là pour vous guider à chaque étape du processus. Que vous ayez des questions sur nos services, nos devis  ou d’assistance pour choisir les fournitures adaptées, nous sommes là pour vous aider. Cliquez ci-dessous pour nous contacter et bénéficier de notre expertise dès maintenant.",
     action: "Contactez-nous",
   },
 };

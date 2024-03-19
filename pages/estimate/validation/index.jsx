@@ -11,6 +11,8 @@ const EstimateSummaryPage = ({ cookies }) => (
   <Layout
     cookies={cookies}
     title="Devis - Validation"
+    description="Validez les détails de votre estimation de déménagement avant de procéder à la réservation."
+    keywords="validation de l'estimation, estimation, validation, déménagement, services"
     pageId="estimate-validation"
     withoutHeader
   >

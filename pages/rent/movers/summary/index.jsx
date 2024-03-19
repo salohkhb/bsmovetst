@@ -13,6 +13,8 @@ const RentMoversSummary = ({ cookies }) => (
   <Layout
     cookies={cookies}
     title="Résumé de la location de déménageurs"
+    description="Obtenez un aperçu complet des services de déménagement que vous avez sélectionnés."
+    keywords="résumé des déménageurs, déménagement, déménageurs, services, résumé"
     pageId="movers-rent-summary"
     withoutHeader
   >
