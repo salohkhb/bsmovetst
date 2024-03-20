@@ -3,7 +3,7 @@ export default {
     details: {
       movingDate: "Choisir la date de votre déménagement",
       description:
-        "Vous êtes sur le point de commencer votre demande de devis pour un déménagement. La première étape consiste à nous fournir des informations concernant votre point de départ et votre destination, ainsi que des informations concernant le déménagement pour nous permettre de vous proposer un service optimal.",
+        "Vous êtes sur le point de commencer votre demande de devis pour un déménagement. La première étape consiste à nous fournir des informations concernant votre point de départ et votre destination, ainsi que des informations concernant le déménagement pour nous permettre de vous proposer un service optimal. Pour vous assurer une estimation précise, veuillez remplir le formulaire ci-dessous en indiquant tous les détails pertinents tels que la date prévue du déménagement, le type de biens à transporter et toute autre demande spécifique que vous pourriez avoir.",
       departure: {
         title: "Adresse de départ",
         input: {

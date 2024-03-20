@@ -199,6 +199,24 @@ const PrimaryNavHeader = ({ initialTab }) => {
             },
           }}
         />
+        {/* Blog Button */}
+        {/* <Tab
+          label={
+            <Link href={Routes.CONTACT_PAGE}>
+              <span className={styles.menu_label_span}>{messages.contact}</span>
+            </Link>
+          }
+          sx={{
+            color: "#000000",
+            fontWeight: 600,
+            fontFamily: "proxima-nova",
+            fontSize: "80%",
+            minWidth: "8rem",
+            "& Mui-Selected:": {
+              color: "rgb(56, 199, 152)",
+            },
+          }}§
+        /> */}
       </S.Tabs>
       <Link
         className={styles.button_container}

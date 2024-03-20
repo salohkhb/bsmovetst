@@ -8,7 +8,7 @@ import { handlePageRedirect, parseCookies } from '../../helpers/functions';
 import { NAV_HEADER_FURNITURES_BUY_STEPS } from '../../helpers/constants';
 
 const DeliveryPage = ({ cookies, ...rest }) => (
-  <Layout cookies={cookies} title='BS Move - Livraison' description='Planifiez la livraison de vos biens déménagés à votre nouvelle adresse en toute simplicité.' pageId='delivery' withoutHeader>
+  <Layout cookies={cookies} title='BS Move - Livraison' description='Planifiez la livraison de vos biens déménagés à votre nouvelle adresse en toute simplicité.' keywords='livraison, déménagement, service, transport, meubles' pageId='delivery' withoutHeader>
     <NavHeader secondary initialStep={1} steps={NAV_HEADER_FURNITURES_BUY_STEPS} />
     <Component />
     <Footer />

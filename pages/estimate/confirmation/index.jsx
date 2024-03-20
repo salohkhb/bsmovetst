@@ -14,6 +14,7 @@ const EstimateSummaryPage = ({ cookies }) => {
       cookies={cookies}
       title="Devis - Confirmation et paiement"
       description="Confirmez les détails de votre estimation de déménagement avant de procéder à la réservation."
+      keywords="confirmation de l'estimation, estimation, confirmation, déménagement, services"
       pageId="estimate-confirm-payment"
       withoutHeader
     >
