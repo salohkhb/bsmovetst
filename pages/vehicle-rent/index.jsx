@@ -22,11 +22,11 @@ const VehicleRentPage = ({ cookies }) => {
       cookies={cookies}
       title={`BS Move - Choix de la location${rentType ? ` de ${rentType}` : ""}`}
       description="Louez facilement des véhicules pour votre déménagement ou vos déplacements à des tarifs compétitifs."
-      keywords="vehicle, rent, vehicle rent,location, véhicule, camion, déménagement, services, transports, monte-meubles, déménagement, déplacement, tarifs compétitifs, location de camion, location de monte-meubles, location de véhicule"
+      keywords="location, rent, véhicule, camion, déménagement, services, transports, monte-meubles, déménagement, déplacement, tarifs compétitifs, location de camion, location de monte-meubles, location de véhicule"
       pageId="vehicle-and-lift-rent"
     >
       <Head>
-        <link rel="canonical" href="https://www.bsmove.com/BS Move Déménagement - Location de véhicules pour votre déménagement" />
+        <link rel="canonical" href="https://www.bsmove.com/vehicle-rent" />
       </Head>
       <NavHeader />
       <Component />
