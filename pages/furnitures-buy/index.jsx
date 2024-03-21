@@ -7,7 +7,10 @@ import Component from '../../containers/FurnituresBuy';
 import { handlePageRedirect, parseCookies } from '../../helpers/functions';
 
 const FurnituresBuyPage = ({ cookies }) => (
-  <Layout cookies={cookies} title='BS Move - Achat de fournitures' description="Parcourez notre sélection de meubles à vendre pour équiper votre nouvel espace de vie." keywords='furnitures buy, buy, achats de meubles, déménagement, meubles, achats, mobilier, produits' pageId='furnitures-buy'>
+  <Layout cookies={cookies} title='BS Move - Achat de fournitures'
+    description="Découvrez notre large gamme de meubles et mobilier adaptés à vos besoins de déménagement chez BS Move. Que vous recherchiez des fournitures spécifiques ou que vous souhaitiez renouveler votre mobilier, notre sélection couvre tous vos besoins d'achat. Profitez de produits de qualité pour équiper votre espace selon vos envies."
+    keywords='Achat de fournitures, furnitures buy, achat, buy, achats de meubles, déménagement, meubles, achats, mobilier, produits'
+    pageId='furnitures-buy'>
     <NavHeader />
     <Component />
     <Footer />
