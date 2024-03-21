@@ -8,8 +8,8 @@ const CguPage = ({ cookies }) => (
   <Layout
     cookies={cookies}
     title="BS Move - Conditions générales d'utilisation"
-    description="Consultez nos conditions générales d'utilisation pour comprendre les règles et conditions d'utilisation de notre plateforme."
-    keywords="conditions générales d'utilisation, CGU, termes, contrat, déménagement, services, informations, Besoin d'aide, Demande de renseignements, assistance, devis, estimation, Renseignements, Questions, Assistance, déménageur, déménageurs, déménageuse, déménagements, relocation, logistique, camion, utilitaire, déménager pas cher, déménager seul, déménager avec des professionnels, déménager avec des amis, déménager avec des déménageurs, déménager avec des déménageuses, déménager avec des professionnels"
+    description="Consultez les conditions générales d'utilisation de BS Move pour obtenir des informations sur nos services, nos engagements, et nos termes de contrat. Découvrez les informations nécessaires pour utiliser nos services de déménagement, de location de véhicules, et de transport en toute sécurité et conformité avec nos règles d'utilisation."
+    keywords="conditions générales d'utilisation, cgu, termes, contrat, déménagement, services, informations, Besoin d'aide, règles d'utilisation"
     pageId="cgu"
   >
     <NavHeader />
