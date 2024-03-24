@@ -11,7 +11,7 @@ const Routes = {
   DELIVERY_PAGE: "/delivery",
   PAYMENT_PAGE: "/payment",
   CONFIRM_PAYMENT_PAGE: "/confirm-payment",
-  CONTACT_PAGE: "/contact",
+  CONTACT_PAGE: "/Contactez-nous",
   VOLUME_CALCULATOR_PAGE: "/volume-calculator",
   VEHICLE_RENT_PAGE: "/vehicle-rent",
   ESTIMATE_DETAILS_PAGE: "/estimate/details",
