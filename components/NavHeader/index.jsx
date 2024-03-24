@@ -21,9 +21,9 @@ import { useAlert } from "../../hooks/alert";
 
 const categories = [
   { name: "estimate/details", label: "Déménagement" },
-  { name: "vehicle-rent", label: "Location camion", state: "vehicle" },
-  { name: "vehicle-rent", label: "Location monte-meuble", state: "lift" },
-  { name: "furnitures-buy", label: "Achat matériel" },
+  { name: "location-vehicules", label: "Location camion", state: "vehicle" },
+  { name: "location-vehicules", label: "Location monte-meuble", state: "lift" },
+  { name: "achat-fournitures", label: "Achat matériel" },
 ];
 
 const ServicesMenu = ({ label = "", handleOpen, open, anchorRef }) => {
