@@ -7,9 +7,9 @@ import Footer from "../../components/Footer";
 const CguPage = ({ cookies }) => (
   <Layout
     cookies={cookies}
-    title="BS Move - Conditions générales d'utilisation"
-    description="Consultez les conditions générales d'utilisation de BS Move pour obtenir des informations sur nos services, nos engagements, et nos termes de contrat. Découvrez les informations nécessaires pour utiliser nos services de déménagement, de location de véhicules, et de transport en toute sécurité et conformité avec nos règles d'utilisation."
-    keywords="conditions générales d'utilisation, cgu, termes, contrat, déménagement, services, informations, Besoin d'aide, règles d'utilisation"
+    title="BS Move - Conditions générales de vente"
+    description="Les présentes conditions générales de vente et les conditions particulières négociées entre l'entreprise et le client déterminent les droits et obligations de chacun d'eux. Elles s'appliquent de plein droit aux opérations de déménagement objet du présent contrat."
+    keywords="conditions générales de vente, contrat, conditions, déménagement, services, informations, Besoin d'aide, règles de vente"
     pageId="cgu"
   >
     <NavHeader />
