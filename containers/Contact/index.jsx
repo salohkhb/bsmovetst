@@ -3,7 +3,6 @@ import { useFormik } from "formik";
 import { mapObjIndexed, keys, map } from "ramda";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import { useRouter } from "next/router";
-
 import messages from "./messages";
 import styles from "./index.module.css";
 import Input from "../../components/Input";

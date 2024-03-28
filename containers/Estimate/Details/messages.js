@@ -1,4 +1,29 @@
 export default {
+  faq: {
+    title: "Questions posées fréquemment",
+    firstSection: {
+      title:
+        "En tant que gendarme, comment puis-je estimer le coût de mon déménagement ?",
+      content:
+        "En tant que gendarme, vous pouvez estimer le coût de votre déménagement en utilisant notre calculateur de prix et de volume. Entrez simplement les détails de votre déménagement, tels que la distance, le volume des biens à déménager et les services supplémentaires nécessaires, pour obtenir une estimation précise.",
+    },
+    secondSection: {
+      title: "Comment calculer mon volume de déménagement ?",
+      content:
+        "Pour calculer le volume de votre déménagement, vous pouvez mesurer les dimensions de vos meubles et cartons, puis les multiplier pour obtenir le volume total. Vous pouvez également utiliser notre outil de calcul en ligne, où vous entrez les informations sur vos biens et il vous donne une estimation du volume.",
+    },
+    thirdSection: {
+      title:
+        "Comment obtenir un devis pour mon déménagement ?",
+      content:
+        "Pour obtenir un devis précis pour votre déménagement, il vous suffit de remplir notre formulaire en ligne avec les détails de votre déménagement, tels que les adresses de départ et d’arrivée, la date souhaitée, le volume estimé, etc. Notre équipe vous fournira ensuite un devis détaillé gratuitement.",
+    },
+    fourthSection: {
+      title: "Combien de temps avant la réservation dois-je planifier mon déménagement ?",
+      content:
+        "Il est recommandé de planifier votre déménagement dès que possible, surtout si vous prévoyez de déménager pendant la haute saison. En général, il est conseillé de réserver votre déménagement au moins quelques semaines à l’avance pour vous assurer d’avoir la date et les services souhaités.",
+    },
+  },
   sections: {
     details: {
       movingDate: "Choisir la date de votre déménagement",

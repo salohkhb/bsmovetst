@@ -6,6 +6,7 @@ import Footer from "../../../components/Footer";
 import Component from "../../../containers/Estimate";
 import { handlePageRedirect, parseCookies } from "../../../helpers/functions";
 import { NAV_HEADER_ESTIMATE_STEPS } from "../../../helpers/constants";
+import EstimateDetailsFAQ from '../../../containers/Estimate/Details/components/EstimateDetailsFAQ';
 
 const EstimateDetailsPage = ({ cookies }) => {
   const [step, setStep] = useState(0);
@@ -24,6 +25,7 @@ const EstimateDetailsPage = ({ cookies }) => {
         steps={NAV_HEADER_ESTIMATE_STEPS}
       />
       <Component step={step} setStep={setStep} />
+      <EstimateDetailsFAQ />
       <Footer />
     </Layout>
   );

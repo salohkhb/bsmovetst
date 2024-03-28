@@ -3,25 +3,25 @@ export default {
     title: "Questions posées fréquemment",
     firstSection: {
       title:
-        "Comment obtenir un devis en ligne rapidement pour mon déménagement avec Bsmove ?",
+        "Quels sont les avantages de la location d’un monte-meuble pour mon déménagement ou mon projet de levage ?",
       content:
-        "Pour obtenir rapidement un devis en ligne pour votre déménagement avec Bsmove, il vous suffit de visiter notre site web. Sur la page d’accueil, vous trouverez un formulaire de devis simple et rapide à remplir. Indiquez les détails de votre déménagement, tels que la destination, la date prévue et le type de services dont vous avez besoin. Une fois le formulaire soumis, notre équipe vous fournira un devis personnalisé dans les plus brefs délais.",
+        "La location d’un monte-meuble présente plusieurs avantages, notamment la facilité et la rapidité du processus de levage des objets lourds ou encombrants, la réduction du risque de dommages aux biens et aux espaces, ainsi que la possibilité d’accéder aux étages élevés sans endommager les escaliers ou les murs. De plus, cela permet d’optimiser le temps et les efforts nécessaires pour votre déménagement ou votre projet de levage.",
     },
     secondSection: {
-      title: "Quels services sont inclus dans un déménagement standard ?",
+      title: "Puis-je réserver en ligne un camion avec chauffeur pour mon déménagement ?",
       content:
-        "Nos déménagements standards incluent l’emballage, le chargement, le transport et le déchargement de vos biens. Nous proposons également des services optionnels tels que le démontage et le remontage de meubles, l’emballage spécialisé et le stockage temporaire.",
+        "Oui, vous pouvez réserver en ligne votre camion avec chauffeur pour votre déménagement. Notre plateforme de réservation en ligne vous permet de sélectionner le type de camion désiré, d’indiquer les détails de votre déménagement, tels que la date, les adresses de départ et d’arrivée, et d’ajouter les options de services supplémentaires comme l’aide au chargement et au déchargement. Une fois votre réservation confirmée, notre équipe vous contactera pour finaliser les détails.",
     },
     thirdSection: {
       title:
-        "Puis-je obtenir une estimation en ligne de mes coûts de déménagement ?",
+        "Comment puis-je réserver un monte-meuble et quelles sont les modalités de livraison et de récupération ?",
       content:
-        "Oui, vous pouvez obtenir une estimation en ligne en remplissant notre formulaire de devis sur notre site web. Cela nous permet d’évaluer les détails de votre déménagement et de vous fournir une estimation précise de vos coûts.",
+        "Pour réserver un monte-meuble, il vous suffit de nous contacter par téléphone, par e-mail ou via notre site web. Nous vous aiderons à planifier les détails de votre location, comme la date et l’heure de livraison et de récupération, ainsi que les spécifications techniques nécessaires en fonction de votre projet. En ce qui concerne la livraison et la récupération, notre équipe se chargera de transporter et d’installer le monte-meuble à l’endroit désigné, puis de le récupérer une fois votre projet terminé, en veillant à ce que tout se déroule en toute sécurité et selon vos besoins.",
     },
     fourthSection: {
-      title: "Pourquoi choisir Bsmove déménagement ?",
+      title: "Comment est calculé le tarif pour la location de camion avec chauffeur ?",
       content:
-        "Choisir Bsmove déménagement présente de nombreux avantages. Notre équipe professionnelle offre une expertise en emballage sécurisé, assure une manipulation professionnelle de vos biens, assure un transport efficace et fournit une assurance pour garantir la sécurité de vos biens pendant tout le processus de déménagement. Optez pour Bsmove pour une expérience sans souci et fiable.",
+        "Le tarif pour la location de camion avec chauffeur est calculé en fonction du temps de manutention nécessaire et de la distance parcourue en kilomètres. De plus, le type de camion choisi ainsi que les services supplémentaires demandés, tels que l’aide au chargement et au déchargement, peuvent également influencer le prix final. Pour obtenir une estimation précise, vous pouvez utiliser notre outil de réservation en ligne ou nous contacter directement pour discuter de vos besoins spécifiques.",
     },
   },
 };
