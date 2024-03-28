@@ -5,6 +5,7 @@ import NavHeader from '../../components/NavHeader';
 import Footer from '../../components/Footer';
 import Component from '../../containers/Contact';
 import { handlePageRedirect, parseCookies } from '../../helpers/functions';
+import ContactFAQ from '../../containers/Contact/components/ContactFAQ';
 
 const ContactPage = ({ cookies }) => (
   <Layout cookies={cookies} title='BS Move Déménagement - Contactez-nous'
@@ -13,6 +14,7 @@ const ContactPage = ({ cookies }) => (
     pageId='contact'>
     <NavHeader />
     <Component />
+    <ContactFAQ />
     <Footer />
   </Layout>
 )
