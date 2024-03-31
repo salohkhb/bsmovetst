@@ -15,6 +15,7 @@ export default {
       advices: "Conseils déménagement",
       news: "Actus",
       contact: "Contact",
+      blog: "Blog",
     },
   },
 };

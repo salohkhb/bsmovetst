@@ -1,4 +1,5 @@
 export default {
+  blog: 'Blog',
   contact: 'Contact',
   services: 'Services',
   advises: 'Conseils déménagement',

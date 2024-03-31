@@ -35,6 +35,7 @@ const Routes = {
   VEHICLE_RENT_VALIDATION: "/rent/vehicle/validation",
   MOVERS_RENT_VALIDATION: "/rent/movers/validation",
   LIFT_RENT_VALIDATION: "/rent/lift/validation",
+  BLOG_PAGE: "/blog",
 };
 
 export default Routes;

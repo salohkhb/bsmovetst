@@ -246,6 +246,14 @@ const MobileHeader = ({ basket, handleCartButton, handleProfilButton }) => {
                 primary={messages.mobile.categories.contact}
               />
             </ListItem>
+            {/* adding blog button */}
+            <ListItem>
+              <ListItemText
+                onClick={() => handleRedirection(Routes.BLOG_PAGE)}
+                className={styles.header_drawer_category_label}
+                primary={messages.mobile.categories.blog}
+              />
+            </ListItem>
           </List>
         </div>
       </SwipeableDrawer>
