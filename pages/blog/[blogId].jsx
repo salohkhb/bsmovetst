@@ -14,7 +14,6 @@ const BlogPostDetailPage = ({cookies}) => {
       keywords='BS Move, Déménagement, Blog, Actualités, Articles, Conseils, Astuces, Nouveautés, Offres, Promotions, Événements, Services, Produits, Partenariats, Projets, Réalisations, Témoignages, Avis, Retours, Recommandations, Suggestions, Informations, Guides, Tutoriels, Vidéos, Photos, Images, Infographies, Statistiques, Comparatifs, Analyses, Études, Rapports, Enquêtes, Interviews'
       pageId='blog details'
     >
-      <NavHeader />
       <BlogPostDetail />
       <Testemonial />
       <Footer />
