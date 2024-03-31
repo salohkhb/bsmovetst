@@ -131,11 +131,16 @@ const PrimaryNavHeader = ({ initialTab }) => {
   }
 
   const handleChange = (event, newValue) => {
-    if (!newValue || newValue === value) return;
-    if (newValue === 1) {
-      return setValue(newValue);
+    if (newValue !== value) {
+      setValue(newValue);
+      if (newValue === 1) {
+        router.push(Routes.CONTACT_PAGE);
+      } else if (newValue === 2) {
+        router.push(Routes.BLOG_PAGE);
+      } else {
+        handleAlertComingSoon();
+      }
     }
-    return handleAlertComingSoon();
   };
 
   useEffect(() => {
@@ -200,10 +205,10 @@ const PrimaryNavHeader = ({ initialTab }) => {
           }}
         />
         {/* Blog Button */}
-        {/* <Tab
+        <Tab
           label={
-            <Link href={Routes.CONTACT_PAGE}>
-              <span className={styles.menu_label_span}>{messages.contact}</span>
+            <Link href={Routes.BLOG_PAGE}>
+              <span className={styles.menu_label_span}>{messages.blog}</span>
             </Link>
           }
           sx={{
@@ -215,8 +220,8 @@ const PrimaryNavHeader = ({ initialTab }) => {
             "& Mui-Selected:": {
               color: "rgb(56, 199, 152)",
             },
-          }}§
-        /> */}
+          }}
+        />
       </S.Tabs>
       <Link
         className={styles.button_container}

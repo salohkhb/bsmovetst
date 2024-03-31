@@ -4,6 +4,9 @@ import { CacheProvider } from "@emotion/react";
 
 import "../styles/global.css";
 
+import  blogPosts from '../helpers/blogData';
+import { PostsContext } from '../helpers/postsContext';
+
 /* Hooks */
 import ThemeProvider from "../hooks/themeProvider";
 import { LoadingProvider } from "../hooks/loading";
@@ -35,6 +38,9 @@ export default function App({
 
   const getLayout = Component.getLayout || ((page) => page);
 
+  
+
+
   return (
     <CacheProvider value={emotionCache}>
       <GlobalProvider>
@@ -47,9 +53,11 @@ export default function App({
                     <EstimateProvider>
                       <OrderProvider>
                         <RentProvider>
-                          <CssBaseline />
-                          <RouterTransitions />
-                          {getLayout(<Component {...pageProps} />)}
+                          <PostsContext.Provider value={blogPosts}>
+                            <CssBaseline />
+                            <RouterTransitions />
+                            {getLayout(<Component {...pageProps} />)}
+                          </PostsContext.Provider>
                         </RentProvider>
                       </OrderProvider>
                     </EstimateProvider>
