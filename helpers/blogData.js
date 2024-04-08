@@ -1,5 +1,5 @@
 import blog1 from "../public/images/demenagement.jpeg";
-import blog2 from "../public/images/Service-demenagement-france.jpeg";
+import blog2 from "../public/images/Service-demenagement-france.webp";
 import blog3 from "../public/images/securite-demenagment.jpeg";
 import blog4 from "../public/images/d1.jpeg";
 import blog5 from "../public/images/d2.jpeg";
