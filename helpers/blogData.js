@@ -8,6 +8,8 @@ import blog6 from "../public/images/animal.jpeg";
 const blogPosts = [
     {
       id: 1,
+      metatitle: "l’organisation d’un Déménagement",
+      keywords: "organisation déménagement, déménagement organisé, planification déménagement, transition déménagement, guide pratique déménagement",
       title: "Maîtriser l’Art de l’Organisation lors d’un Déménagement",
       description:
         "Le déménagement peut être une aventure excitante, mais une organisation méticuleuse est la clé pour garantir une transition en douceur. Voici un guide pratique pour vous aider à planifier et à exécuter un déménagement organisé et sans stress.",
@@ -58,6 +60,8 @@ const blogPosts = [
     },
     {
       id: 2,
+      metatitle: "Déménagement avec Enfant",
+      keywords: "déménagement avec enfant, enfant en bas âge, guide pratique déménagement, planification déménagement, transition famille déménagement",
       title: "Un Guide Pratique pour un Déménagement Réussi avec un Enfant en Bas Âge",
       description:
         "Le déménagement avec un enfant en bas âge peut présenter des défis uniques, mais une planification soigneuse et une approche adaptée peuvent rendre cette transition plus facile pour toute la famille. Voici un guide pratique pour vous aider à gérer un déménagement avec un petit bout.",
@@ -108,6 +112,8 @@ const blogPosts = [
     },
     {
       id: 3,
+      metatitle: "Sécurité et Assurances en Déménagement",
+      keywords: "sécurité déménagement, assurances déménagement, protection habitation, risques déménagement, couverture déménagement.",
       title: "Déménager en Toute Sécurité : L’Importance des Assurances Pendant le Déménagement",
       description:
         "Le déménagement est une étape excitante, mais il s’accompagne souvent de divers risques. Sous-estimer l’importance des assurances peut être une erreur coûteuse. Voici un guide pour comprendre comment les assurances peuvent vous protéger pendant cette transition cruciale.",
@@ -142,6 +148,8 @@ const blogPosts = [
     },
     {
       id: 4,
+      metatitle: "Changement d'Adresse et Gestion du Courrier",
+      keywords: "Déménagement, Changement, Adresse, Gestion, Courrier, Postal, Notification, Réexpédition, Informations, Ligne, Voisins, Locataire, Système, Cartes, Notification, Changement, Adresse, Postal, Gestion, Courrier, Transition, Douceur",
       title: "Déménager avec Succès à travers le Changement d’Adresse Postal et la Gestion du Courrier",
       description:
         "Le changement d’adresse postal est une étape cruciale lors d’un déménagement, et la gestion efficace du courrier est essentielle pour éviter des complications. Voici un guide pour vous aider à faciliter cette transition en douceur.",
@@ -176,6 +184,8 @@ const blogPosts = [
     },
     {
       id: 5,
+      metatitle: "Aides Financières pour un Déménagement",
+      keywords: "Déménagement, Aides, Financières, France, APL, CAF, Prime, FSL, PAS, Prêt, Accession, Sociale, Logement, Solidarité, Commune, Mairie, Fonds, Solidarité, Logement, FSL, Difficultés, Ressources, Transition, Abordable, Financièrement, Planification, Recherche, Proactive, Options, Aides, Financières, France, Transition, Douceur, Nouveau, Chez-soi",
       title: "Déménager à travers les Aides Financières pour un Déménagement en France",
       description:
         "Le déménagement, bien que souvent excitant, peut être accompagné de coûts considérables. Heureusement, en France, diverses aides financières sont disponibles pour alléger le fardeau financier lié à cette étape importante de la vie.",
@@ -206,6 +216,8 @@ const blogPosts = [
     },
     {
       id: 6,
+      metatitle: "Déménager avec des Animaux",
+      keywords: "Déménagement, Animaux, Chien, Chat, Oiseau, Poisson, Lapin, Hamster, Tortue, Reptile, Transition, Bien-être, Stress, Préparation, Confort, Vétérinaire, Transport, Voyage, Installation, Routines, Exploration, Quartier,",
       title: "Déménager avec des Animaux : Guide Complet pour une Transition Douce",
       description:
         "Déménager avec des animaux de compagnie peut être un défi, mais une planification soigneuse et une attention particulière peuvent rendre cette transition plus douce pour eux. Cet article offre un guide complet pour déménager avec succès tout en prenant en compte le bien-être de vos précieux compagnons.",
