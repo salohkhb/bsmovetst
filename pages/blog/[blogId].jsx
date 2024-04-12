@@ -16,21 +16,21 @@ const BlogPostDetailPage = ({cookies}) => {
 
   if (!post) return <div>Post not found</div>;
   return (
-      <Layout cookies={cookies}
-        pageId='blog details'
-        title={`BS Move - ${post.metatitle}`}
-        description={post.description}
-        keywords={post.keywords}
-      >
-        <Head>
+    <Layout cookies={cookies}
+      pageId='blog details'
+      title={`BS Move - ${post.metatitle}`}
+      description={post.description}
+      keywords={post.keywords}
+    >
+      <Head>
         <title>{`BS Move - ${post.metatitle}`}</title>
         <meta name="description" content={post.description} />
         <meta name="keywords" content={post.keywords} />
-        </Head>
-        <BlogPostDetail title={`BS Move Déménagement - ${post.title}`} description={post.description} post={post}/>
-        <Testemonial />
-        <Footer />
-      </Layout>
+      </Head>
+      <BlogPostDetail title={`BS Move Déménagement - ${post.title}`} description={post.description} post={post}/>
+      <Testemonial />
+      <Footer />
+    </Layout>
   );
 }
 
