@@ -187,33 +187,38 @@
     </url>
   
     <url>
-      <loc>http://localhost:3005/blog/1</loc>
-      <lastmod>2024-04-11T00:00:00.000Z</lastmod>
+      <loc>http://localhost:3005/blog/lorganisation-dun-demenagement</loc>
+      <lastmod>2024-04-13T08:30:00+00:00</lastmod>
     </url>
 
     <url>
-      <loc>http://localhost:3005/blog/2</loc>
-      <lastmod>2024-04-11T00:00:00.000Z</lastmod>
+      <loc>http://localhost:3005/blog/demenagement-avec-enfant</loc>
+      <lastmod>2024-04-13T08:30:00+00:00</lastmod>
     </url>
 
     <url>
-      <loc>http://localhost:3005/blog/3</loc>
-      <lastmod>2024-04-11T00:00:00.000Z</lastmod>
+      <loc>http://localhost:3005/blog/securite-et-assurances-en-demenagement</loc>
+      <lastmod>2024-04-13T08:30:00+00:00</lastmod>
     </url>
 
     <url>
-      <loc>http://localhost:3005/blog/4</loc>
-      <lastmod>2024-04-11T00:00:00.000Z</lastmod>
+      <loc>http://localhost:3005/blog/changement-dadresse-et-gestion-du-courrier</loc>
+      <lastmod>2024-04-13T08:30:00+00:00</lastmod>
     </url>
 
     <url>
-      <loc>http://localhost:3005/blog/5</loc>
-      <lastmod>2024-04-11T00:00:00.000Z</lastmod>
+      <loc>http://localhost:3005/blog/aides-financieres-pour-un-demenagement</loc>
+      <lastmod>2024-04-13T08:30:00+00:00</lastmod>
     </url>
 
     <url>
-      <loc>http://localhost:3005/blog/6</loc>
-      <lastmod>2024-04-11T00:00:00.000Z</lastmod>
+      <loc>http://localhost:3005/blog/demenager-avec-des-animaux</loc>
+      <lastmod>2024-04-13T08:30:00+00:00</lastmod>
+    </url>
+
+    <url>
+      <loc>http://localhost:3005/meaux</loc>
+      <lastmod>2024-04-13T08:30:00+00:00</lastmod>
     </url>
 
     </urlset>
