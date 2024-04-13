@@ -43,6 +43,7 @@ const Routes = {
   BLOG_POST_PAGE_05: "/blog/aides-financieres-pour-un-demenagement",
   BLOG_POST_PAGE_06: "/blog/demenager-avec-des-animaux",
   MEAUX_PAGE: "/meaux",
+  CHELLES_PAGE: "/chelles",
 };
 
 export default Routes;
