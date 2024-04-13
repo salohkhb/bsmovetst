@@ -36,6 +36,13 @@ const Routes = {
   MOVERS_RENT_VALIDATION: "/rent/movers/validation",
   LIFT_RENT_VALIDATION: "/rent/lift/validation",
   BLOG_PAGE: "/blog",
+  BLOG_POST_PAGE_01: "/blog/lorganisation-dun-demenagement",
+  BLOG_POST_PAGE_02: "/blog/demenagement-avec-enfant",
+  BLOG_POST_PAGE_03: "/blog/securite-et-assurances-en-demenagement",
+  BLOG_POST_PAGE_04: "/blog/changement-dadresse-et-gestion-du-courrier",
+  BLOG_POST_PAGE_05: "/blog/aides-financieres-pour-un-demenagement",
+  BLOG_POST_PAGE_06: "/blog/demenager-avec-des-animaux",
+  MEAUX_PAGE: "/meaux",
 };
 
 export default Routes;

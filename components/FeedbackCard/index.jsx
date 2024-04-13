@@ -47,7 +47,7 @@ const FeedbackCard = ({ feedback = "coucou", user, imgSrc }) => {
       >
         <CardContent>
           <div className={styles.feedback_user_container}>
-            <S.Avatar src={imgSrc} />
+            <S.Avatar alt='person' src={imgSrc} />
             <div className={styles.feedback_user_infos}>
               <div className={styles.feedback_user_name}>{user.name}</div>
               {/* <div className={styles.feedback_tags}>"tags"</div> */}
