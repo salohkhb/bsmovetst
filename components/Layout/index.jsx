@@ -37,6 +37,10 @@ export default function Layout({
                 {/* Added description and keywords as props */}
                 <meta name="description" content={description} />
                 <meta name="keywords" content={keywords} />
+                {/* OpenGraph meta tags */}
+                <meta property="og:title" content={title} />
+                <meta property="og:description" content={description} />
+                <meta property="og:type" content="website" />
               </Head>
               {!withoutHeader && <Header />}
               {children}

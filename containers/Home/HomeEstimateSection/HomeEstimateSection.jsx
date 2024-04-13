@@ -15,9 +15,9 @@ const HomeEstimateSection = ({ technicalIssueAlert }) => {
   return (
     <div className={styles.estimate_section}>
       <div className={styles.home_estimate_section_left}>
-        <div className={styles.section_title}>
+        <h2 className={styles.section_title}>
           {messages.estimateSection.title}
-        </div>
+        </h2>
         <h1 className={styles.estimate_section_main_content}>
           {messages.estimateSection.content.main}
         </h1>

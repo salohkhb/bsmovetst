@@ -2,223 +2,223 @@
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
       
     <url>
-      <loc>http://localhost:3005/</loc>
-      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+      <loc>https://www.bsmove.com/</loc>
+      <lastmod>2024-04-13T15:03:41.074Z</lastmod>
     </url>
   
     <url>
-      <loc>http://localhost:3005/cgu</loc>
-      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+      <loc>https://www.bsmove.com/conditions-generales-vente</loc>
+      <lastmod>2024-04-13T15:03:41.074Z</lastmod>
     </url>
   
     <url>
-      <loc>http://localhost:3005/login</loc>
-      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+      <loc>https://www.bsmove.com/login</loc>
+      <lastmod>2024-04-13T15:03:41.074Z</lastmod>
     </url>
   
     <url>
-      <loc>http://localhost:3005/register</loc>
-      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+      <loc>https://www.bsmove.com/register</loc>
+      <lastmod>2024-04-13T15:03:41.074Z</lastmod>
     </url>
   
     <url>
-      <loc>http://localhost:3005/profil</loc>
-      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+      <loc>https://www.bsmove.com/profil</loc>
+      <lastmod>2024-04-13T15:03:41.074Z</lastmod>
     </url>
   
     <url>
-      <loc>http://localhost:3005/reset-password</loc>
-      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+      <loc>https://www.bsmove.com/reset-password</loc>
+      <lastmod>2024-04-13T15:03:41.074Z</lastmod>
     </url>
   
     <url>
-      <loc>http://localhost:3005/forgot-password</loc>
-      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+      <loc>https://www.bsmove.com/forgot-password</loc>
+      <lastmod>2024-04-13T15:03:41.074Z</lastmod>
     </url>
   
     <url>
-      <loc>http://localhost:3005/furnitures-buy</loc>
-      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+      <loc>https://www.bsmove.com/achat-fournitures</loc>
+      <lastmod>2024-04-13T15:03:41.074Z</lastmod>
     </url>
   
     <url>
-      <loc>http://localhost:3005/basket</loc>
-      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+      <loc>https://www.bsmove.com/basket</loc>
+      <lastmod>2024-04-13T15:03:41.074Z</lastmod>
     </url>
   
     <url>
-      <loc>http://localhost:3005/delivery</loc>
-      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+      <loc>https://www.bsmove.com/delivery</loc>
+      <lastmod>2024-04-13T15:03:41.074Z</lastmod>
     </url>
   
     <url>
-      <loc>http://localhost:3005/payment</loc>
-      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+      <loc>https://www.bsmove.com/payment</loc>
+      <lastmod>2024-04-13T15:03:41.074Z</lastmod>
     </url>
   
     <url>
-      <loc>http://localhost:3005/confirm-payment</loc>
-      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+      <loc>https://www.bsmove.com/confirm-payment</loc>
+      <lastmod>2024-04-13T15:03:41.074Z</lastmod>
     </url>
   
     <url>
-      <loc>http://localhost:3005/contact</loc>
-      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+      <loc>https://www.bsmove.com/Contactez-nous</loc>
+      <lastmod>2024-04-13T15:03:41.074Z</lastmod>
     </url>
   
     <url>
-      <loc>http://localhost:3005/volume-calculator</loc>
-      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+      <loc>https://www.bsmove.com/volume-calculator</loc>
+      <lastmod>2024-04-13T15:03:41.074Z</lastmod>
     </url>
   
     <url>
-      <loc>http://localhost:3005/vehicle-rent</loc>
-      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+      <loc>https://www.bsmove.com/location-vehicules</loc>
+      <lastmod>2024-04-13T15:03:41.074Z</lastmod>
     </url>
   
     <url>
-      <loc>http://localhost:3005/estimate/details</loc>
-      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+      <loc>https://www.bsmove.com/estimate/details</loc>
+      <lastmod>2024-04-13T15:03:41.074Z</lastmod>
     </url>
   
     <url>
-      <loc>http://localhost:3005/estimate/inventory</loc>
-      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+      <loc>https://www.bsmove.com/estimate/inventory</loc>
+      <lastmod>2024-04-13T15:03:41.074Z</lastmod>
     </url>
   
     <url>
-      <loc>http://localhost:3005/estimate/summary</loc>
-      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+      <loc>https://www.bsmove.com/estimate/summary</loc>
+      <lastmod>2024-04-13T15:03:41.074Z</lastmod>
     </url>
   
     <url>
-      <loc>http://localhost:3005/estimate/validation</loc>
-      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+      <loc>https://www.bsmove.com/estimate/validation</loc>
+      <lastmod>2024-04-13T15:03:41.074Z</lastmod>
     </url>
   
     <url>
-      <loc>http://localhost:3005/dashboard</loc>
-      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+      <loc>https://www.bsmove.com/dashboard</loc>
+      <lastmod>2024-04-13T15:03:41.074Z</lastmod>
     </url>
   
     <url>
-      <loc>http://localhost:3005/dashboard/login</loc>
-      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+      <loc>https://www.bsmove.com/dashboard/login</loc>
+      <lastmod>2024-04-13T15:03:41.074Z</lastmod>
     </url>
   
     <url>
-      <loc>http://localhost:3005/dashboard/moving</loc>
-      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+      <loc>https://www.bsmove.com/dashboard/moving</loc>
+      <lastmod>2024-04-13T15:03:41.074Z</lastmod>
     </url>
   
     <url>
-      <loc>http://localhost:3005/dashboard/moving/detail</loc>
-      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+      <loc>https://www.bsmove.com/dashboard/moving/detail</loc>
+      <lastmod>2024-04-13T15:03:41.074Z</lastmod>
     </url>
   
     <url>
-      <loc>http://localhost:3005/dashboard/moving/detail/denied</loc>
-      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+      <loc>https://www.bsmove.com/dashboard/moving/detail/denied</loc>
+      <lastmod>2024-04-13T15:03:41.074Z</lastmod>
     </url>
   
     <url>
-      <loc>http://localhost:3005/dashboard/moving/detail/accepted</loc>
-      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+      <loc>https://www.bsmove.com/dashboard/moving/detail/accepted</loc>
+      <lastmod>2024-04-13T15:03:41.074Z</lastmod>
     </url>
   
     <url>
-      <loc>http://localhost:3005/dashboard/furnitures-storage</loc>
-      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+      <loc>https://www.bsmove.com/dashboard/furnitures-storage</loc>
+      <lastmod>2024-04-13T15:03:41.074Z</lastmod>
     </url>
   
     <url>
-      <loc>http://localhost:3005/dashboard/shop</loc>
-      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+      <loc>https://www.bsmove.com/dashboard/shop</loc>
+      <lastmod>2024-04-13T15:03:41.074Z</lastmod>
     </url>
   
     <url>
-      <loc>http://localhost:3005/dashboard/vehicle-renting</loc>
-      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+      <loc>https://www.bsmove.com/dashboard/vehicle-renting</loc>
+      <lastmod>2024-04-13T15:03:41.074Z</lastmod>
     </url>
   
     <url>
-      <loc>http://localhost:3005/rent/vehicle/selection</loc>
-      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+      <loc>https://www.bsmove.com/rent/vehicle/selection</loc>
+      <lastmod>2024-04-13T15:03:41.074Z</lastmod>
     </url>
   
     <url>
-      <loc>http://localhost:3005/rent/lift/selection</loc>
-      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+      <loc>https://www.bsmove.com/rent/lift/selection</loc>
+      <lastmod>2024-04-13T15:03:41.074Z</lastmod>
     </url>
   
     <url>
-      <loc>http://localhost:3005/rent/vehicle/summary</loc>
-      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+      <loc>https://www.bsmove.com/rent/vehicle/summary</loc>
+      <lastmod>2024-04-13T15:03:41.074Z</lastmod>
     </url>
   
     <url>
-      <loc>http://localhost:3005/rent/lift/summary</loc>
-      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+      <loc>https://www.bsmove.com/rent/lift/summary</loc>
+      <lastmod>2024-04-13T15:03:41.074Z</lastmod>
     </url>
   
     <url>
-      <loc>http://localhost:3005/rent/movers/summary</loc>
-      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+      <loc>https://www.bsmove.com/rent/movers/summary</loc>
+      <lastmod>2024-04-13T15:03:41.074Z</lastmod>
     </url>
   
     <url>
-      <loc>http://localhost:3005/rent/vehicle/validation</loc>
-      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+      <loc>https://www.bsmove.com/rent/vehicle/validation</loc>
+      <lastmod>2024-04-13T15:03:41.074Z</lastmod>
     </url>
   
     <url>
-      <loc>http://localhost:3005/rent/movers/validation</loc>
-      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
+      <loc>https://www.bsmove.com/rent/movers/validation</loc>
+      <lastmod>2024-04-13T15:03:41.074Z</lastmod>
     </url>
   
     <url>
-      <loc>http://localhost:3005/rent/lift/validation</loc>
-      <lastmod>2024-02-19T19:56:49.917Z</lastmod>
-    </url>
-
-    <url>
-      <loc>http://localhost:3005/blog</loc>
-      <lastmod>2024-04-11T00:00:00.000Z</lastmod>
+      <loc>https://www.bsmove.com/rent/lift/validation</loc>
+      <lastmod>2024-04-13T15:03:41.074Z</lastmod>
     </url>
   
     <url>
-      <loc>http://localhost:3005/blog/lorganisation-dun-demenagement</loc>
-      <lastmod>2024-04-13T08:30:00+00:00</lastmod>
+      <loc>https://www.bsmove.com/blog</loc>
+      <lastmod>2024-04-13T15:03:41.074Z</lastmod>
     </url>
-
+  
     <url>
-      <loc>http://localhost:3005/blog/demenagement-avec-enfant</loc>
-      <lastmod>2024-04-13T08:30:00+00:00</lastmod>
+      <loc>https://www.bsmove.com/blog/lorganisation-dun-demenagement</loc>
+      <lastmod>2024-04-13T15:03:41.074Z</lastmod>
     </url>
-
+  
     <url>
-      <loc>http://localhost:3005/blog/securite-et-assurances-en-demenagement</loc>
-      <lastmod>2024-04-13T08:30:00+00:00</lastmod>
+      <loc>https://www.bsmove.com/blog/demenagement-avec-enfant</loc>
+      <lastmod>2024-04-13T15:03:41.074Z</lastmod>
     </url>
-
+  
     <url>
-      <loc>http://localhost:3005/blog/changement-dadresse-et-gestion-du-courrier</loc>
-      <lastmod>2024-04-13T08:30:00+00:00</lastmod>
+      <loc>https://www.bsmove.com/blog/securite-et-assurances-en-demenagement</loc>
+      <lastmod>2024-04-13T15:03:41.074Z</lastmod>
     </url>
-
+  
     <url>
-      <loc>http://localhost:3005/blog/aides-financieres-pour-un-demenagement</loc>
-      <lastmod>2024-04-13T08:30:00+00:00</lastmod>
+      <loc>https://www.bsmove.com/blog/changement-dadresse-et-gestion-du-courrier</loc>
+      <lastmod>2024-04-13T15:03:41.074Z</lastmod>
     </url>
-
+  
     <url>
-      <loc>http://localhost:3005/blog/demenager-avec-des-animaux</loc>
-      <lastmod>2024-04-13T08:30:00+00:00</lastmod>
+      <loc>https://www.bsmove.com/blog/aides-financieres-pour-un-demenagement</loc>
+      <lastmod>2024-04-13T15:03:41.074Z</lastmod>
     </url>
-
+  
     <url>
-      <loc>http://localhost:3005/meaux</loc>
-      <lastmod>2024-04-13T08:30:00+00:00</lastmod>
+      <loc>https://www.bsmove.com/blog/demenager-avec-des-animaux</loc>
+      <lastmod>2024-04-13T15:03:41.074Z</lastmod>
     </url>
-
+  
+    <url>
+      <loc>https://www.bsmove.com/meaux</loc>
+      <lastmod>2024-04-13T15:03:41.074Z</lastmod>
+    </url>
+  
     </urlset>

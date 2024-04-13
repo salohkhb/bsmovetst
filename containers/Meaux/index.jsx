@@ -21,9 +21,9 @@ const MeauxEstimateSection = () => {
         <h1 className={styles.section_title}>
           {messages.estimateSection.title}
         </h1>
-        <h1 className={styles.estimate_section_main_content}>
+        <h2 className={styles.estimate_section_main_content}>
           {messages.estimateSection.content.main}
-        </h1>
+        </h2>
         <div className={styles.estimate_section_secondary_content}>
           {messages.estimateSection.content.secondary}
         </div>
@@ -149,12 +149,12 @@ const MeauxMeubleSection = () => {
   return (
     <div className={styles.estimate_section}>
       <div className={styles.home_estimate_section_left}>
-        <h1 className={styles.section_title}>
+        <h2 className={styles.section_title}>
           {messages.meubleSection.title}
-        </h1>
-        <h1 className={styles.estimate_section_main_content}>
+        </h2>
+        <h3 className={styles.estimate_section_main_content}>
           {messages.meubleSection.content.main}
-        </h1>
+        </h3>
         <div className={styles.estimate_section_secondary_content}>
           {messages.meubleSection.content.secondary}
         </div>

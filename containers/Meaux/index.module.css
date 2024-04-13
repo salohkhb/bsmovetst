@@ -24,6 +24,7 @@
   font-size: 1rem;
   color: rgb(56, 199, 152);
   text-transform: uppercase;
+  font-family: sans-serif;
 }
 
 .section_subtitle {
@@ -119,6 +120,7 @@
   color: #1B2032;
   font-size: 2.25rem;
   margin: 0;
+  font-family: sans-serif;
 }
 
 .estimate_section_secondary_content {
