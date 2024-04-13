@@ -13,6 +13,7 @@ const MeauxPage = ({ cookies }) => {
     <Layout cookies={cookies}
       title='Déménagement Meaux - BS Move Déménagement'
       description="À la recherche d'un déménagement clé en main à Meaux? Profitez de nos solutions pratiques et économiques pour un déménagement sans souci."
+      description="À la recherche d'un déménagement clé en main à Meaux? Profitez de nos solutions pratiques et économiques pour un déménagement sans souci."
       keywords='Déménagement Meaux, Location de camion avec chauffeur Meaux, Location de monte-meuble Meaux, Achats de carton de déménagement Meaux, Carton pas cher, Déménagement gendarme, Déménagement clés en main, BS Move déménagement'
       pageId='meaux'
     >
