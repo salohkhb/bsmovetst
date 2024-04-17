@@ -6,9 +6,6 @@ import { useGlobal } from "../../hooks/global";
 import { useRouter } from "next/router";
 import messages from "./messages";
 import Routes from "../../helpers/routes";
-import styled from "styled-components";
-import Card from "@mui/material/Card";
-import { useState } from "react";
   
 const PontaultCombaultEstimateSection = () => {
   const {
@@ -87,59 +84,7 @@ const PontaultCombaultCompetencesSection = () => {
   </div>
   );
 };
-const S = {};
 
-S.AdvantageCard = styled(Card)`
-  max-width: 376px;
-  min-width: 320px;
-`;
-
-const AdvantageCard = ({ title, content }) => {
-  const [raised, setRaised] = useState(false);
-
-  function toggleRaised() {
-    return setRaised((prevRaised) => !prevRaised);
-  }
-  return (
-    <Card
-      onMouseOver={toggleRaised}
-      onMouseOut={toggleRaised}
-      raised={raised}
-      sx={{ backgroundColor: "transparent !important" }}
-    >
-      <S.AdvantageCard elevation={1}>
-        <div className={styles.advantages_card_container}>
-          <div className={styles.advantages_card_title}>{title}</div>
-          <div className={styles.section_content}>{content}</div>
-        </div>
-      </S.AdvantageCard>
-    </Card>
-  );
-};
-const PontaultCombaultAdvantagesSection = () => (
-  <div className={styles.advantages_section}>
-    <div className={styles.section_title}>
-      {messages.advantagesSection.title}
-    </div>
-    <div className={styles.section_subtitle}>
-      {messages.advantagesSection.subtitle}
-    </div>
-    <div className={styles.advantages_section_cards}>
-      <AdvantageCard
-        title={messages.advantagesSection.advantages.first.title}
-        content={messages.advantagesSection.advantages.first.content}
-      />
-      <AdvantageCard
-        title={messages.advantagesSection.advantages.second.title}
-        content={messages.advantagesSection.advantages.second.content}
-      />
-      <AdvantageCard
-        title={messages.advantagesSection.advantages.third.title}
-        content={messages.advantagesSection.advantages.third.content}
-      />
-    </div>
-  </div>
-);
 
 const PontaultCombaultMeubleSection = () => {
   const {
@@ -180,45 +125,6 @@ const PontaultCombaultMeubleSection = () => {
     </div>
   );
 };
-const PontaultCombaultGettingStartedSection = () => {
-  const router = useRouter();
-  return (
-    <div className={styles.getting_started_section}>
-      <div className={styles.getting_started_container}>
-        <div className={styles.getting_started_left_container}>
-          <div className={styles.getting_started_infos}>
-            <div className={styles.section_subtitle}>
-              {messages.gettingStartedSection.subtitle}
-            </div>
-            <div className={styles.section_content}>
-              {messages.gettingStartedSection.content}
-            </div>
-          </div>
-          <div className={styles.getting_started_action_container}>
-            <Button
-              onClick={() => router.push(Routes.ESTIMATE_DETAILS_PAGE)}
-              outlined
-            >
-              {messages.gettingStartedSection.action}
-            </Button>
-          </div>
-        </div>
-        <div className={styles.getting_started_section_right_container}>
-          <div
-            className={styles.getting_started_section_illustration_container}
-          >
-            <Image
-              className={styles.getting_started_illustration}
-              layout="fill"
-              src="/images/ready_to_move_truck_illustration.png"
-              alt="getting_started_truck"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
 
 
 const PontaultCombault = () => {
@@ -227,9 +133,7 @@ const PontaultCombault = () => {
       <PontaultCombaultEstimateSection />
       <HomePrestationsSection />
       <PontaultCombaultCompetencesSection />
-      <PontaultCombaultAdvantagesSection />
       <PontaultCombaultMeubleSection />
-      <PontaultCombaultGettingStartedSection />
     </div>
   )
 }

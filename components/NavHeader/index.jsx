@@ -131,17 +131,30 @@ const PrimaryNavHeader = ({ initialTab }) => {
   }
 
   const handleChange = (event, newValue) => {
-    if (newValue !== value) {
-      setValue(newValue);
-      if (newValue === 1) {
-        router.push(Routes.CONTACT_PAGE);
-      } else if (newValue === 2) {
-        router.push(Routes.BLOG_PAGE);
-      } else {
-        handleAlertComingSoon();
-      }
+  if (newValue !== value) {
+    setValue(newValue);
+    if (newValue === 0) {
+      router.push(Routes.FURNITURES_BUY_PAGE);
+    } else if (newValue === 1) {
+      router.push({
+        pathname: "/location-vehicules",
+        query: { tab: "lift" },
+      });
+    } else if (newValue === 2) {
+      router.push({
+        pathname: "/location-vehicules",
+        query: { tab: "vehicle" },
+      });
+    } else if (newValue === 3) {
+      router.push(Routes.CONTACT_PAGE);
+    } else if (newValue === 4) {
+      router.push(Routes.BLOG_PAGE);
+    } else {
+      handleAlertComingSoon();
     }
-  };
+  }
+};
+
 
   useEffect(() => {
     document
@@ -150,7 +163,7 @@ const PrimaryNavHeader = ({ initialTab }) => {
   }, [anchorRef]);
 
   useEffect(() => {
-    if (value === 1) router.push(Routes.CONTACT_PAGE);
+    if (value === 3) router.push(Routes.CONTACT_PAGE);
   }, [value]);
 
   return (
@@ -165,7 +178,7 @@ const PrimaryNavHeader = ({ initialTab }) => {
           id: value === 0 ? "service-menu_tab-indicator" : undefined,
         }}
       >
-        <Tab
+        {/* <Tab
           id="service-menu"
           onClick={handleOpen}
           label={
@@ -186,7 +199,62 @@ const PrimaryNavHeader = ({ initialTab }) => {
               color: "rgb(56, 199, 152)",
             },
           }}
+        /> */}
+        <Tab
+          label={
+            <Link href={Routes.FURNITURES_BUY_PAGE}>
+              <span className={styles.menu_label_span}>{messages.achat}</span>
+            </Link>
+          }
+          sx={{
+            color: "#000000",
+            fontWeight: 600,
+            fontFamily: "proxima-nova",
+            fontSize: "80%",
+            minWidth: "8rem",
+            "& Mui-Selected:": {
+              color: "rgb(56, 199, 152)",
+            },
+          }}
         />
+        <Tab
+          label={
+            <Link href='/location-vehicules?tab=lift'>
+              <span className={styles.menu_label_span}>{messages.location_meuble}</span>
+            </Link>
+          }
+          sx={{
+            color: "#000000",
+            fontWeight: 600,
+            fontFamily: "proxima-nova",
+            fontSize: "80%",
+            minWidth: "8rem",
+            "& Mui-Selected:": {
+              color: "rgb(56, 199, 152)",
+            },
+          }}
+        />
+        <Tab
+          label={
+            <Link href='/location-vehicules?tab=vehicle'>
+              <span className={styles.menu_label_span}>{messages.location_camion}</span>
+            </Link>
+          }
+          sx={{
+            color: "#000000",
+            fontWeight: 600,
+            fontFamily: "proxima-nova",
+            fontSize: "80%",
+            minWidth: "8rem",
+            "& Mui-Selected:": {
+              color: "rgb(56, 199, 152)",
+            },
+          }}
+        />
+
+
+
+
         <Tab
           label={
             <Link href={Routes.CONTACT_PAGE}>
