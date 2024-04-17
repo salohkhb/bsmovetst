@@ -52,6 +52,8 @@ errorMessagesMap.set("incomplete_expiry", "La date d'expiration est incomplet");
 errorMessagesMap.set("incomplete_cvc", "Le code CVC est incomplet");
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
+console.log('console log stripe public key');
+console.log(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
 
 const createOptions = () => ({
   style: {
@@ -228,5 +230,8 @@ const CreditCardContainer = ({
     />
   </Elements>
 );
+
+
+
 
 export default CreditCardContainer;
