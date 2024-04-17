@@ -167,7 +167,7 @@ const MobileHeader = ({ basket, handleCartButton, handleProfilButton }) => {
       >
         <div>
           <List>
-            <ListItem button onClick={handleSubmenuOpen}>
+            {/* <ListItem button onClick={handleSubmenuOpen}>
               <ListItemText
                 className={styles.header_drawer_category_label}
                 primary={messages.mobile.categories.services.title}
@@ -175,8 +175,8 @@ const MobileHeader = ({ basket, handleCartButton, handleProfilButton }) => {
               <ListItemIcon>
                 {submenuOpen ? <ExpandLess /> : <ExpandMore />}
               </ListItemIcon>
-            </ListItem>
-            <Collapse in={submenuOpen} timeout="auto" unmountOnExit>
+            </ListItem> */}
+            {/* <Collapse in={submenuOpen} timeout="auto" unmountOnExit>
               <List
                 disablePadding
                 className={styles.header_drawer_submenu_container}
@@ -238,7 +238,35 @@ const MobileHeader = ({ basket, handleCartButton, handleProfilButton }) => {
                   </Link>
                 </ListItem>
               </List>
-            </Collapse>
+            </Collapse> */}
+            <ListItem>
+              <ListItemText
+                onClick={() => handleRedirection(Routes.ESTIMATE_DETAILS_PAGE)}
+                className={styles.d}
+                primary={messages.mobile.categories.services.subCategories.moving}
+              />
+            </ListItem>
+            <ListItem>
+              <ListItemText
+                onClick={() => handleRedirection('/location-vehicules?tab=vehicle')}
+                className={styles.header_drawer_category_label}
+                primary={messages.mobile.categories.services.subCategories.rentVehicles}
+              />
+            </ListItem>
+            <ListItem>
+              <ListItemText
+                onClick={() => handleRedirection('/location-vehicules?tab=lift')}
+                className={styles.header_drawer_category_label}
+                primary={messages.mobile.categories.services.subCategories.rentLift}
+              />
+            </ListItem>
+            <ListItem>
+              <ListItemText
+                onClick={() => handleRedirection(Routes.FURNITURES_BUY_PAGE)}
+                className={styles.header_drawer_category_label}
+                primary={messages.mobile.categories.services.subCategories.buyFurnitures}
+              />
+            </ListItem>
             <ListItem>
               <ListItemText
                 onClick={() => handleRedirection(Routes.CONTACT_PAGE)}
