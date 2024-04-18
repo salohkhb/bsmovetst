@@ -46,7 +46,8 @@ const Routes = {
   CHELLES_PAGE: "/chelles",
   PONTAULT_COMBAULT_PAGE: "/pontault-combault",
   SAVIGNY_LE_TEMPLE_PAGE: "/savigny-le-temple",
-
+  VILLEPARISIS_PAGE: "/villeparisis",
+  BUSSYSAINTGEORGES_PAGE: "/bussy-saint-georges"
 };
 
 export default Routes;

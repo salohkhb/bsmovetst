@@ -5,7 +5,8 @@ import CompetencesSection from '../../components/Home/CompetencesSection/index'
 import MeubleSection from '../../components/Home/MeubleSection/index'
 import styles from '../../components/Home/index.module.css'
 
-const SavignyLeTemple = () => {
+
+const BussySaintGeorges = () => {
   return (
     <div className={styles.container}>
       <EstimateSection messages={messages} />
@@ -16,4 +17,4 @@ const SavignyLeTemple = () => {
   )
 }
 
-export default SavignyLeTemple
+export default BussySaintGeorges
