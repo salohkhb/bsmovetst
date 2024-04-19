@@ -26,16 +26,6 @@ const PontaultCombaultPage = ({ cookies }) => {
         <meta property="og:site_name" content="BS Move Déménagement"/>
         <meta property="og:locale" content="fr_FR"/>
         <meta property="og:locale:alternate" content="en_US"/>
-        {/* Schema.org structured data */}
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `
-          {
-            "@context": "http://schema.org",
-            "@type": "Organization",
-            "name": "Déménagement Pontault Combault - BS Move",
-            "url": "${process.env.NEXT_PUBLIC_WEBSITE_URL}",
-            "logo": "${process.env.NEXT_PUBLIC_WEBSITE_URL}/images/logo.png",
-          }
-        ` }} />
       </Head>
       <NavHeader />
       <PontaultCombault />
