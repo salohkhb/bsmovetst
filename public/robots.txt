@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://www.bsmove.com/api/sitemap
+Sitemap: https://www.bsmove.com/sitemap.xml

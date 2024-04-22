@@ -11,27 +11,6 @@ export default {
       rightButton: "En savoir plus",
     },
   },
-  advantagesSection: {
-    title: "avantages",
-    subtitle: "Pourquoi choisir BS Move",
-    advantages: {
-      first: {
-        title: "Gain de temps",
-        content:
-          "Notre équipe expérimentée prend en charge l'emballage efficace de vos biens, la coordination logistique complète, et les formalités administratives. Vous économisez ainsi un temps précieux, pouvant vous concentrer sur d'autres aspects importants de votre transition.",
-      },
-      second: {
-        title: "Accompagnement expert",
-        content:
-          "Nous vous accompagnons à chaque étape de votre déménagement. Du premier contact à l'installation dans votre nouveau lieu de vie, nos experts sont là pour répondre à vos questions, résoudre les problèmes potentiels et assurer une expérience sans stress.",
-      },
-      third: {
-        title: "Service professionnel",
-        content:
-          "En choisissant Bs Move Déménagement , vous optez pour un service professionnel de qualité. Notre équipe dévouée garantit un emballage soigné, un transport sécurisé et une attention méticuleuse aux détails. Vous pouvez avoir confiance en notre engagement envers la satisfaction totale de nos clients.",
-      },
-    },
-  },
   competencesSection: {
     title: "Location de monte meuble et de camion avec chauffeur meaux",
     subtitle: "BS Move Location a Meaux, une équipe professionnelle.",
@@ -53,11 +32,5 @@ export default {
       leftButton: "Achats de cartons",
       rightButton: "En savoir plus",
     },
-  },
-  gettingStartedSection: {
-    subtitle: "Prêt à déménager ?",
-    content:
-      "Le jour J approche, et nous sommes là pour vous simplifier la vie. De l’emballage méticuleux à une logistique bien huilée, notre équipe expérimentée prend en charge chaque étape. Que vous changiez de quartier ou franchissiez les frontières européennes, nous sommes prêts à rendre votre déménagement sans stress. Donnez le coup d’envoi à cette nouvelle aventure avec la confiance que seul Bsmove peut offrir. Prêt à déménager ? Nous sommes à vos côtés.",
-    action: "Déménageons ensemble",
   },
 }

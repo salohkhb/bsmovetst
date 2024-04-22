@@ -47,7 +47,9 @@ const Routes = {
   PONTAULT_COMBAULT_PAGE: "/pontault-combault",
   SAVIGNY_LE_TEMPLE_PAGE: "/savigny-le-temple",
   VILLEPARISIS_PAGE: "/villeparisis",
-  BUSSYSAINTGEORGES_PAGE: "/bussy-saint-georges"
+  BUSSYSAINTGEORGES_PAGE: "/bussy-saint-georges",
+  TORSY_PAGE: "/torcy",
+  DAMMARIELESLYS_PAGE: "/dammarie-les-lys"
 };
 
 export default Routes;
