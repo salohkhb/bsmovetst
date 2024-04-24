@@ -14,7 +14,7 @@ const DammarieLèsLysPage = ({ cookies }) => {
       title='Déménagement Dammarie-lès-Lys - BS Move'
       description="Envisagez-vous un déménagement en toute simplicité àDammarie-lès-Lys ? Explorez nos solutions abordables et efficaces pour un service complet de déménagement."
       keywords='Déménagement Dammarie-lès-Lys, Dammarie-lès-Lys, Location de camion avec chauffeur Dammarie-lès-Lys, Location de monte-meuble Dammarie-lès-Lys, Achats de carton de déménagement Dammarie-lès-Lys, Carton pas cher, Déménagement gendarme, Déménagement clés en main, BS Move déménagement'
-      pageId='villeparisis'
+      pageId='dammarie-les-lys'
     >
       <Head>
         <link rel="canonical" href="https://www.bsmove.com/dammarie-les-lys" />

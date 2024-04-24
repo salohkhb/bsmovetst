@@ -14,7 +14,7 @@ const BussySaintGeorgesPage = ({ cookies }) => {
       title='Déménagement Bussy-Saint-Georges - BS Move'
       description="Vous envisagez un déménagement facile à Bussy-Saint-Georges ? Explorez nos solutions économiques et efficaces pour un service de déménagement complet."
       keywords='Déménagement Bussy-Saint-Georges,Bussy-Saint-Georges, Location de camion avec chauffeur Bussy-Saint-Georges, Location de monte-meuble Bussy-Saint-Georges, Achats de carton de déménagement Bussy-Saint-Georges, Carton pas cher, Déménagement gendarme, Déménagement clés en main, BS Move déménagement'
-      pageId='villeparisis'
+      pageId='bussy-saint-georges'
     >
       <Head>
         <link rel="canonical" href="https://www.bsmove.com/bussy-saint-georges" />

@@ -44,12 +44,15 @@ const Routes = {
   BLOG_POST_PAGE_06: "/blog/demenager-avec-des-animaux",
   MEAUX_PAGE: "/meaux",
   CHELLES_PAGE: "/chelles",
+  MELUN_PAGE: '/melun',
   PONTAULT_COMBAULT_PAGE: "/pontault-combault",
   SAVIGNY_LE_TEMPLE_PAGE: "/savigny-le-temple",
   VILLEPARISIS_PAGE: "/villeparisis",
   BUSSYSAINTGEORGES_PAGE: "/bussy-saint-georges",
   TORSY_PAGE: "/torcy",
-  DAMMARIELESLYS_PAGE: "/dammarie-les-lys"
+  DAMMARIELESLYS_PAGE: "/dammarie-les-lys",
+  MOMTEREAUFAULTYONNE_PAGE: "/montereau-fault-yonne",
+
 };
 
 export default Routes;

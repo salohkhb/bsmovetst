@@ -14,7 +14,7 @@ const TorcyPage = ({ cookies }) => {
       title='Déménagement Torcy - BS Move'
       description="Vous souhaitez déménager en toute tranquillité à Torcy ? Explorez nos solutions pratiques et accessibles pour un déménagement clé en main."
       keywords='Déménagement Torcy,Torcy, Location de camion avec chauffeur Torcy, Location de monte-meuble Torcy, Achats de carton de déménagement Torcy, Carton pas cher, Déménagement gendarme, Déménagement clés en main, BS Move déménagement'
-      pageId='villeparisis'
+      pageId='torcy'
     >
       <Head>
         <link rel="canonical" href="https://www.bsmove.com/torcy" />

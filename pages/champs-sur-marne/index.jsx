@@ -14,7 +14,7 @@ const ChampsSurMarnePage = ({ cookies }) => {
       title='Déménagement Champs-sur-Marne - BS Move'
       description="Vous prévoyez de déménager facilement à Champs-sur-Marne ? Découvrez nos solutions abordables et performantes pour un service de déménagement complet."
       keywords='Déménagement Champs-sur-Marne,Champs-sur-Marne, Location de camion avec chauffeur Champs-sur-Marne, Location de monte-meuble Champs-sur-Marne, Achats de carton de déménagement Champs-sur-Marne, Carton pas cher, Déménagement gendarme, Déménagement clés en main, BS Move déménagement'
-      pageId='villeparisis'
+      pageId='chmaps-sur-marne'
     >
       <Head>
         <link rel="canonical" href="https://www.bsmove.com/champs-sur-marne" />

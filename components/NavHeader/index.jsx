@@ -136,15 +136,9 @@ const PrimaryNavHeader = ({ initialTab }) => {
     if (newValue === 0) {
       router.push(Routes.FURNITURES_BUY_PAGE);
     } else if (newValue === 1) {
-      router.push({
-        pathname: "/location-vehicules",
-        query: { tab: "lift" },
-      });
+      router.push('/location-vehicules?tab=lift');
     } else if (newValue === 2) {
-      router.push({
-        pathname: "/location-vehicules",
-        query: { tab: "vehicle" },
-      });
+      router.push('/location-vehicules?tab=vehicle');
     } else if (newValue === 3) {
       router.push(Routes.CONTACT_PAGE);
     } else if (newValue === 4) {

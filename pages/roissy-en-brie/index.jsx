@@ -14,7 +14,7 @@ const SavignyLeTemplePage = ({ cookies }) => {
       title='Déménagement Roissy-en-Brie - BS Move'
       description="À la recherche d'un déménagement sans tracas à Savigny-le-Temple? Explorez nos solutions pratiques et économiques pour un déménagement clé en main."
       keywords='Déménagement Savigny-le-Temple,Savigny-le-Temple, Location de camion avec chauffeur Savigny-le-Temple, Location de monte-meuble Savigny-le-Temple, Achats de carton de déménagement Savigny-le-Temple, Carton pas cher, Déménagement gendarme, Déménagement clés en main, BS Move déménagement'
-      pageId='pontault-combault'
+      pageId='roissy-en-brie'
     >
       <Head>
         <link rel="canonical" href="https://www.bsmove.com/savigny-le-temple" />
