@@ -50,7 +50,7 @@ export async function handlePageRedirect(
     return {
       redirect: {
         destination: Routes.HOME_PAGE,
-        permanent: false,
+        permanent: true,
       },
     };
   }
@@ -58,7 +58,7 @@ export async function handlePageRedirect(
     return {
       redirect: {
         destination: Routes.LOGIN_PAGE,
-        permanent: false,
+        permanent: true,
       },
     };
   } else if (
@@ -68,14 +68,14 @@ export async function handlePageRedirect(
     return {
       redirect: {
         destination: Routes.RESET_PASSWORD_PAGE,
-        permanent: false,
+        permanent: true,
       },
     };
   } else if (routeType === "public" && !isObjectEmpty(parsedCustomerCookie)) {
     return {
       redirect: {
         destination: Routes.HOME_PAGE,
-        permanent: false,
+        permanent: true,
       },
     };
   } else if (routeType === "admin") {
@@ -83,7 +83,7 @@ export async function handlePageRedirect(
       return {
         redirect: {
           destination: Routes.DASHBOARD_LOGIN_PAGE,
-          permanent: false,
+          permanent: true,
         },
       };
     // TODO : FIND A WAY TO CHECK THE ADMIN HERE
