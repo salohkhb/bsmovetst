@@ -52,8 +52,6 @@ const Routes = {
   TORSY_PAGE: "/torcy",
   DAMMARIELESLYS_PAGE: "/dammarie-les-lys",
   MOMTEREAUFAULTYONNE_PAGE: "/montereau-fault-yonne",
-  LAGNYSURMARNE_PAGE: "/lagny-sur-marne",
-  OZOIRLAFERRIERE_PAGE: "/ozoir-la-ferriere",
 };
 
 export default Routes;
