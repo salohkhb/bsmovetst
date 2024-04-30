@@ -175,7 +175,7 @@ const LiftRentSummaryLeft = () => {
         ) : null}
         <form onSubmit={formik.handleSubmit}>
           <div className={styles.rent_summary__left_container}>
-            <h3>Informations personnelles</h3>
+            <h1>Informations personnelles</h1>
             <Input
               label={"Nom"}
               placeholder={"Ex: Dupont"}

@@ -175,7 +175,7 @@ const RentSummaryLeft = () => {
         ) : null}
         <form onSubmit={formik.handleSubmit}>
           <div className={styles.rent_summary__left_container}>
-            <h3>Informations personnelles</h3>
+            <h1>Informations personnelles</h1>
             <Input
               label={"Nom"}
               placeholder={"Ex: Dupont"}
@@ -407,7 +407,7 @@ const RentSummaryRight = () => {
             </span>
           </div>
           <div style={{ display: "flex", flexDirection: "column" }}>
-            <span style={{ fontWeight: "bold" }}>Adresse d'arrivée</span>
+            <span style={{ fontWeight: "bold" }}>Adresse d&apos;arrivée</span>
             <span style={{ color: "#8B9197" }}>
               {rent?.vehicle?.endAddress?.placeName}
             </span>
