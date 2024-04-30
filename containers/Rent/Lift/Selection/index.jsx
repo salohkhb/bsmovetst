@@ -222,12 +222,12 @@ const LiftRentSelectionContent = ({ list = [] }) => (
       <h3>Information</h3>
       <p style={{ maxWidth: "75%", color: "#8B9197" }}>
         Vous allez commencer votre pré-réservation de monte-meuble. Une fois
-        terminée, l'agence concernée prendra contact avec vous pour valider
+        terminée, l&apos;agence concernée prendra contact avec vous pour valider
         votre dossier ainsi que la disponibilité du monte-meuble.
       </p>
     </div>
     <div style={{ display: "flex", flexDirection: "column" }}>
-      <h2 style={{ padding: 0, margin: 0 }}>Choisissez votre véhicule</h2>
+      <h1 style={{ padding: 0, margin: 0, fontSize: 30 }}>Choisissez votre véhicule</h1>
       <p style={{ color: "#8B9197" }}>
         {list.length} véhicules trouvés à vos dates
       </p>
