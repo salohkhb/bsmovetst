@@ -51,7 +51,7 @@ const LoginPage = ({ history, cookies }) => {
   }
 
   return (
-    <Layout cookies={cookies} withoutHeader title='BS Move - Connexion' description='Connectez-vous à votre compte pour accéder à votre tableau de bord et gérer vos réservations.' keywords='connexion, compte, utilisateur, déménagement, services' pageId='login' display='flex'>
+    <Layout cookies={cookies} withoutHeader title='BS Move Déménagement - Connexion' description='Connectez-vous à votre compte pour accéder à votre tableau de bord et gérer vos réservations.' keywords='connexion, compte, utilisateur, déménagement, services' pageId='login' display='flex'>
       <SigninContainer page='login'>
         <Component
           handleSubmit={handleSubmit}

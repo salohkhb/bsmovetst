@@ -12,12 +12,12 @@
     </url>
   
     <url>
-      <loc>https://www.bsmove.com/login</loc>
+      <loc>https://www.bsmove.com/connexion</loc>
       <lastmod>2024-04-13T15:03:41.074Z</lastmod>
     </url>
   
     <url>
-      <loc>https://www.bsmove.com/register</loc>
+      <loc>https://www.bsmove.com/inscription</loc>
       <lastmod>2024-04-13T15:03:41.074Z</lastmod>
     </url>
   
@@ -27,12 +27,12 @@
     </url>
   
     <url>
-      <loc>https://www.bsmove.com/reset-password</loc>
+      <loc>https://www.bsmove.com/mot-de-passe-oublie</loc>
       <lastmod>2024-04-13T15:03:41.074Z</lastmod>
     </url>
   
     <url>
-      <loc>https://www.bsmove.com/forgot-password</loc>
+      <loc>https://www.bsmove.com/reset-password</loc>
       <lastmod>2024-04-13T15:03:41.074Z</lastmod>
     </url>
   
@@ -42,7 +42,7 @@
     </url>
   
     <url>
-      <loc>https://www.bsmove.com/basket</loc>
+      <loc>https://www.bsmove.com/mon-panier</loc>
       <lastmod>2024-04-13T15:03:41.074Z</lastmod>
     </url>
   
@@ -82,7 +82,7 @@
     </url>
   
     <url>
-      <loc>https://www.bsmove.com/estimate/inventory</loc>
+      <loc>https://www.bsmove.com/estimate/devis-inventaire</loc>
       <lastmod>2024-04-13T15:03:41.074Z</lastmod>
     </url>
   
@@ -102,7 +102,7 @@
     </url>
   
     <url>
-      <loc>https://www.bsmove.com/dashboard/login</loc>
+      <loc>https://www.bsmove.com/dashboard/connexion</loc>
       <lastmod>2024-04-13T15:03:41.074Z</lastmod>
     </url>
   
@@ -152,17 +152,17 @@
     </url>
   
     <url>
-      <loc>https://www.bsmove.com/rent/vehicle/summary</loc>
+      <loc>https://www.bsmove.com/rent/vehicle/resume</loc>
       <lastmod>2024-04-13T15:03:41.074Z</lastmod>
     </url>
   
     <url>
-      <loc>https://www.bsmove.com/rent/lift/summary</loc>
+      <loc>https://www.bsmove.com/rent/lift/resume</loc>
       <lastmod>2024-04-13T15:03:41.074Z</lastmod>
     </url>
   
     <url>
-      <loc>https://www.bsmove.com/rent/movers/summary</loc>
+      <loc>https://www.bsmove.com/rent/movers/resume</loc>
       <lastmod>2024-04-13T15:03:41.074Z</lastmod>
     </url>
   
