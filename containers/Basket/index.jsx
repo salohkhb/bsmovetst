@@ -234,7 +234,7 @@ const BasketContainer = () => {
   return (
     <div className={styles.basket_page_container}>
       <div className={styles.basket_page_header}>
-        <div className={styles.basket_page_title}>{messages.title}</div>
+        <h1 className={styles.basket_page_title}>{messages.title}</h1>
         <div className={styles.basket_page_total_articles}>{`(${
           basket.totalItems || 0
         } ${messages.articles})`}</div>
