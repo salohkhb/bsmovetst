@@ -75,7 +75,7 @@ const LoginComponent = ({ handleSubmit, page = "login" }) => {
         </div>
         {page === "login-admin" ? null : (
           <div className={styles.forgot_password_container}>
-            <Link href="/forgot-password">
+            <Link href="/mot-de-passe-oublie">
               <span className={styles.forgot_password}>
                 {messages.forgotPassword}
               </span>

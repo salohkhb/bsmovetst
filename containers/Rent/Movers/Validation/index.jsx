@@ -34,9 +34,9 @@ const VehicleRentValidation = () => {
         <CheckCircleIcon className={styles.confirm_vehicle_rent_icon} />
       </div>
       <div>
-        <div className={styles.confirm_vehicle_rent_title}>
+        <h1 className={styles.confirm_vehicle_rent_title}>
           {messages.title["movers"]}
-        </div>
+        </h1>
       </div>
       <div className={styles.confirm_vehicle_rent_contact_informations}>
         <span>{messages.contact}</span>

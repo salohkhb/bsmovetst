@@ -34,9 +34,9 @@ const LiftRentValidation = () => {
         <CheckCircleIcon className={styles.confirm_lift_rent_icon} />
       </div>
       <div>
-        <div className={styles.confirm_lift_rent_title}>
+        <h1 className={styles.confirm_lift_rent_title}>
           {messages.title["lift"]}
-        </div>
+        </h1>
         <div className={styles.confirm_lift_rent_content}>
           <span>{messages.content.text}</span>
           <span
