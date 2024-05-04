@@ -49,9 +49,14 @@ const Routes = {
   SAVIGNY_LE_TEMPLE_PAGE: "/savigny-le-temple",
   VILLEPARISIS_PAGE: "/villeparisis",
   BUSSYSAINTGEORGES_PAGE: "/bussy-saint-georges",
+  CHAMPSSURMARNE_PAGE: "/champs-sur-marne",
+  ROISSYENBRIE_PAGE: "/roissy-en-brie",
   TORSY_PAGE: "/torcy",
   DAMMARIELESLYS_PAGE: "/dammarie-les-lys",
   MOMTEREAUFAULTYONNE_PAGE: "/montereau-fault-yonne",
+  COMBSLAVILLE_PAGE: "/combs-la-ville",
+  LAGNYSURMARNE_PAGE: "/lagny-sur-marne",
+  OZOIRLAFERRIERE_PAGE: "/ozoir-la-ferriere",
 };
 
 export default Routes;
