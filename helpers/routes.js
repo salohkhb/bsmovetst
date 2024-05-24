@@ -57,6 +57,9 @@ const Routes = {
   COMBSLAVILLE_PAGE: "/combs-la-ville",
   LAGNYSURMARNE_PAGE: "/lagny-sur-marne",
   OZOIRLAFERRIERE_PAGE: "/ozoir-la-ferriere",
+  LEMEESURSEINE_PAGE: "/le-mee-sur-seine",
+  MITRYMORY_PAGE: "/mitry-mory",
+
 };
 
 export default Routes;

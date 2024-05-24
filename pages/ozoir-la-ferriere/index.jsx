@@ -14,7 +14,7 @@ const OzoirLaFerrierePage = ({ cookies }) => {
       title='Déménagement Ozoir-la-Ferrière - BS Move Déménagement'
       description="À la recherche d'un déménagement clé en main à Ozoir-la-Ferrière? Profitez de nos solutions pratiques et économiques pour un déménagement sans souci."
       keywords='Déménagement Ozoir-la-Ferrière, Location de camion avec chauffeur Ozoir-la-Ferrière, Location de monte-meuble Ozoir-la-Ferrière, Achats de carton de déménagement Ozoir-la-Ferrière, Carton pas cher, Déménagement gendarme, Déménagement clés en main, BS Move déménagement'
-      pageId='melun'
+      pageId='ozoir-la-ferriere'
     >
       <Head>
         <link rel="canonical" href="https://www.bsmove.com/ozoir-la-ferriere" />
