@@ -59,6 +59,7 @@ const Routes = {
   OZOIRLAFERRIERE_PAGE: "/ozoir-la-ferriere",
   LEMEESURSEINE_PAGE: "/le-mee-sur-seine",
   MITRYMORY_PAGE: "/mitry-mory",
+
 };
 
 export default Routes;
