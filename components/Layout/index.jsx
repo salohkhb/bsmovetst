@@ -33,6 +33,17 @@ export default function Layout({
           : (
             <S.ChildContainer display={display}>
               <Head>
+                {/* Google tag (gtag.js) */}
+                <script async src="https://www.googletagmanager.com/gtag/js?id=G-NHMW1DV87R"></script>
+                <script dangerouslySetInnerHTML={{
+                  __html: `
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+
+                    gtag('config', 'G-NHMW1DV87R');
+                  `,
+                }} />
                 <title>{title}</title>
                 {/* Added description and keywords as props */}
                 <meta name="description" content={description} />
