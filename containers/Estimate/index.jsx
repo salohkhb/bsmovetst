@@ -232,7 +232,6 @@ const EstimateContainer = ({ step = 0, setStep }) => {
   const router = useRouter();
   const { estimate, clearEstimate, priceCalculator } = useEstimate();
   // const { auth, customer } = useCustomer();
-  // const { auth, customer } = useCustomer();
   const { resetRedirect, addToGlobalStateByKey } = useGlobal();
   const { setGlobalLoading } = useLoading();
   const { setAlert } = useAlert();
@@ -243,7 +242,6 @@ const EstimateContainer = ({ step = 0, setStep }) => {
   }
 
   const [formData, setFormData] = useState({});
-
 
   function handleContinue(value, errorMessage = "") {
     setCanContinue(value);
@@ -256,18 +254,16 @@ const EstimateContainer = ({ step = 0, setStep }) => {
       estimate?.details?.departureInformations?.address,
       estimate?.details?.arrivalInformations?.address
     );
-
     const requestData = mapValuesToEstimateRequest(estimate, {
       distance,
       priceCalculator,
     }, formData);
-
+    
+    console.log("Request Data:", requestData);
     const res = await api.post("/Estimates/no-auth", requestData);
     if (res?.ok) {
       await router.replace(Routes.ESTIMATE_VALIDATION_PAGE);
       clearEstimate();
-      console.log("API Response:", res);
-
       console.log("API Response:", res);
 
     } else
@@ -294,11 +290,14 @@ const EstimateContainer = ({ step = 0, setStep }) => {
     }
     if (step === 3) {
       // resetRedirect();
-      return router.push(Routes.HOME_PAGE);
+      // return router.push(Routes.HOME_PAGE);
+      return setStep(4);
+    }
+    if (step === 4) {
+      return router.push(Routes.HOME_PAGE)
     }
     await router.push(STEPS[step + 1]);
   }
-
 
   async function handlePreviousStep() {
     if (step === 0) return router.push(Routes.HOME_PAGE);
@@ -326,14 +325,13 @@ const EstimateContainer = ({ step = 0, setStep }) => {
               handleContinue={handleContinue}
             />
           ) : null}
-          
-          {step === 1 ? (
+          {step === 1 || step === 2 ? (
             <EstimateInventoryComponent
               step={step}
               handleContinue={handleContinue}
             />
           ) : null}
-          {step === 2 ? (
+          {step === 3 ? (
             <EstimateUserFormComponent
               handleContinue={handleContinue}
               step={step}
@@ -341,11 +339,11 @@ const EstimateContainer = ({ step = 0, setStep }) => {
               onSubmit={handleFormSubmit} // Pass the handleFormSubmit function
             />
           ) : null}
-          {step === 3 ? (
+          {step === 4 ? (
             <EstimateSummaryComponent handleContinue={handleContinue} />
           ) : null}
           <div className={styles.estimate_page_action_container}>
-            {step === 3 ? (
+            {step === 4 ? (
               <div className={styles.estimate_confirmation_actions_container}>
                 <Button outlined={true} onClick={handleModifyEstimate}>
                   {messages.actions.modifyOrder}
@@ -359,7 +357,6 @@ const EstimateContainer = ({ step = 0, setStep }) => {
                 style={{
                   display: "flex",
                   flexDirection: "row",
-                  flexDirection: "row",
                   width: "100%",
                   alignItems: "flex-end",
                 }}
@@ -368,13 +365,12 @@ const EstimateContainer = ({ step = 0, setStep }) => {
                   display: 'flex',
                   flexDirection: 'row-reverse',
                   width: '100%',
-                  gap: '10px',
-                  marginRight: '20px'
+                  gap: '10px'
                 }}>
                   <Button onClick={handleNextStep}>
                     {messages.actions.nextStep}
                   </Button>
-                  {step > 0 && step != 2 && (
+                  {step > 0 && step != 4 && (
                     <Button onClick={handlePreviousStep}>
                       {messages.actions.previousStep}
                     </Button>
