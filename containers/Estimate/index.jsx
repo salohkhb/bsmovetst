@@ -232,6 +232,7 @@ const EstimateContainer = ({ step = 0, setStep }) => {
   const router = useRouter();
   const { estimate, clearEstimate, priceCalculator } = useEstimate();
   // const { auth, customer } = useCustomer();
+  // const { auth, customer } = useCustomer();
   const { resetRedirect, addToGlobalStateByKey } = useGlobal();
   const { setGlobalLoading } = useLoading();
   const { setAlert } = useAlert();
@@ -242,6 +243,7 @@ const EstimateContainer = ({ step = 0, setStep }) => {
   }
 
   const [formData, setFormData] = useState({});
+
 
   function handleContinue(value, errorMessage = "") {
     setCanContinue(value);
@@ -254,16 +256,18 @@ const EstimateContainer = ({ step = 0, setStep }) => {
       estimate?.details?.departureInformations?.address,
       estimate?.details?.arrivalInformations?.address
     );
+
     const requestData = mapValuesToEstimateRequest(estimate, {
       distance,
       priceCalculator,
     }, formData);
-    
-    console.log("Request Data:", requestData);
+
     const res = await api.post("/Estimates/no-auth", requestData);
     if (res?.ok) {
       await router.replace(Routes.ESTIMATE_VALIDATION_PAGE);
       clearEstimate();
+      console.log("API Response:", res);
+
       console.log("API Response:", res);
 
     } else
@@ -295,6 +299,7 @@ const EstimateContainer = ({ step = 0, setStep }) => {
     await router.push(STEPS[step + 1]);
   }
 
+
   async function handlePreviousStep() {
     if (step === 0) return router.push(Routes.HOME_PAGE);
     await router.push(STEPS[step - 1]);
@@ -321,6 +326,7 @@ const EstimateContainer = ({ step = 0, setStep }) => {
               handleContinue={handleContinue}
             />
           ) : null}
+          
           {step === 1 ? (
             <EstimateInventoryComponent
               step={step}
@@ -353,6 +359,7 @@ const EstimateContainer = ({ step = 0, setStep }) => {
                 style={{
                   display: "flex",
                   flexDirection: "row",
+                  flexDirection: "row",
                   width: "100%",
                   alignItems: "flex-end",
                 }}
@@ -361,17 +368,14 @@ const EstimateContainer = ({ step = 0, setStep }) => {
                   display: 'flex',
                   flexDirection: 'row-reverse',
                   width: '100%',
-                  gap: '10px'
+                  gap: '10px',
+                  marginRight: '20px'
                 }}>
                   <Button onClick={handleNextStep}>
                     {messages.actions.nextStep}
                   </Button>
                   {step > 0 && step != 2 && (
-                    <Button onClick={handlePreviousStep} style={{
-                      backgroundColor: 'white',
-                      color: '#38c798',
-                      border: '0.5px solid #38c798',
-                    }}>
+                    <Button onClick={handlePreviousStep}>
                       {messages.actions.previousStep}
                     </Button>
                   )}

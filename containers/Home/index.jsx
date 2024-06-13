@@ -17,13 +17,17 @@ import HomePrestationsSection from "./HomePrestationsSection/HomePrestationsSect
 import OurPriorityService from "./OurPriorityService/OurPriorityService";
 import { useState } from "react";
 
-const HomeGuidelineSection = () => (
+const HomeGuidelineSection = () => {
+  const router = useRouter(); 
+  return(
   <div className={styles.container_guideline}>
   <div className={styles.guideline_section}>
     <div className={styles.left_guideline}>
       <h3>Obtenez votre devis immédiatement et gratuitement</h3>
       <p>Recevez instantanément votre devis gratuit en quelques clics ! Profitez d'une estimation rapide et sans engagement.</p>
-      <button>Estimez votre déménagement</button>
+      <button style={{
+        cursor: 'pointer',
+      }} onClick={() => router.push(Routes.ESTIMATE_DETAILS_PAGE)}>Estimez votre déménagement</button>
     </div>
     <div className={styles.right_guideline}>
       <div className={styles.right_guideline_card}>
@@ -50,7 +54,7 @@ const HomeGuidelineSection = () => (
     </div>
   </div>
   </div>
-);
+)};
 
 const S = {};
 
@@ -89,9 +93,21 @@ const HomeAdvantagesSection = () => (
       <h3>Pourquoi choisir BS Move</h3>
       <p>Gagnez du temps précieux grâce à notre équipe expérimentée qui prend en charge l'emballage, la logistique et les formalités administratives. Du premier contact à l'installation, nos experts vous accompagnent pour une transition sans stress. Avec Bs Move Déménagement, bénéficiez d'un service professionnel de qualité, où chaque détail compte pour assurer votre satisfaction totale.</p>
       <div className={styles.AdvantageFlex2}>
-        <h5>Gain de temps</h5>
-        <h5>Accompagnement expert</h5>
-        <h5>Service professionnel</h5>
+        <h5 style={{
+          padding: '15px',
+          backgroundColor: '#ecfdf5',
+          borderRadius: '10px',
+        }}>Gain de temps</h5>
+        <h5 style={{
+          padding: '15px',
+          backgroundColor: '#fffbeb',
+          borderRadius: '10px',
+        }}>Accompagnement expert</h5>
+        <h5 style={{
+          padding: '15px',
+          backgroundColor: '#e8edfb',
+          borderRadius: '10px',
+        }}>Service professionnel</h5>
       </div>
     </div>
   </div>
