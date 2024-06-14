@@ -69,8 +69,8 @@ const EstimateUserFormComponent = ({ onSubmit, handleContinue, initialFormData, 
             type="email"
             id="email"
             name="email"
-            label={"Prénom"}
-            placeholder={"Ex: Jean"}
+            label={"Email"}
+            placeholder={"Ex: contact@bsmove.com"}
             value={formDataState.email}
             onChange={handleChange}
             required
