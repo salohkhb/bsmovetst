@@ -59,6 +59,8 @@ const Routes = {
   OZOIRLAFERRIERE_PAGE: "/ozoir-la-ferriere",
   LEMEESURSEINE_PAGE: "/le-mee-sur-seine",
   MITRYMORY_PAGE: "/mitry-mory",
+  BRIECOMTEROBERT_PAGE: "/brie-comte-robert",
+  MOISSYCRAMAYEL_PAGE: "/moissy-cramayel",
 
 };
 
