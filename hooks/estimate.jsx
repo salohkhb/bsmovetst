@@ -340,12 +340,12 @@ export const EstimateProvider = ({ children, initialEstimate }) => {
     setPriceCalculator((prevPriceCalculator) => ({
       ...prevPriceCalculator,
       totalPrice:
-        priceCalculator.priceWithKmAndVolume +
+        (priceCalculator.priceWithKmAndVolume +
         priceCalculator.priceWithElevator +
         priceCalculator.priceWithPortage +
         priceCalculator.priceHeavyObjects +
         priceCalculator.priceExtraFurnitures +
-        priceCalculator.priceMounting,
+        priceCalculator.priceMounting) * 0.8, // adding a discount of 20%
     }));
   }, [
     priceCalculator.priceWithKmAndVolume,
