@@ -42,6 +42,7 @@
 @media (max-width: 1000px) {
   .flex {
     flex-direction: column;
+    gap: 2rem;
   }
 }
 .flex1 {
@@ -52,6 +53,12 @@
   width: 50%;
   height: 600px;
 }
+@media (max-width: 1000px) {
+  .flex1 {
+    width: 80%;
+    height: 500px;
+  }
+}
 .flex1 h3 {
   font-family: Satoshi;
   font-size: 48px;
@@ -61,7 +68,9 @@
 }
 @media (max-width: 1000px) {
   .flex1 h3 {
-    font-size: 30px;
+    font-size: 25px;
+    line-height: 35px;
+    text-align: center;
   }
 }
 .flex1 p {
@@ -71,6 +80,13 @@
   font-style: normal;
   font-weight: 400;
   line-height: 30px;
+}
+@media (max-width: 1000px) {
+  .flex1 p {
+    font-size: 15px;
+    line-height: 25px;
+    text-align: center;
+  }
 }
 .flex2 {
   display: flex;
@@ -98,9 +114,10 @@
 }
 @media (max-width: 1000px) {
   .card {
-    width: 400px;
+    width: 380px;
     margin: 10px 50px;
     padding: 5px;
+    gap: 3px;
   }
 }
 .card:first-child {
@@ -119,11 +136,24 @@
   font-weight: 700;
   line-height: 30px; 
 }
-
+@media (max-width: 1000px) {
+  .card h5 {
+    font-size: 20px;
+    text-align: center;
+    line-height: 20px;
+  }
+}
 .card p {
   font-family: Satoshi;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: 20px; /* 24px */
+}
+@media (max-width: 1000px) {
+  .card p {
+    font-size: 13px;
+    text-align: center;
+    line-height: 20px;
+  }
 }
