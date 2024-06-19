@@ -18,6 +18,29 @@ import { useAlert } from "../../hooks/alert";
 import PriceCalculator from "../../components/PriceCalculator";
 import { useGlobal } from "../../hooks/global";
 import { BorderLeft, Email } from "@mui/icons-material";
+import VehicleRentPresentationAccordion from '../VehicleRent/Components/VehicleRentPresentationAccordion'
+
+const EstimateFAQ = () => (
+  <main className={styles.vehicle_rent_faq__main}>
+    <h2 style={{
+      textAlign: 'center',
+    }}>{messages.faq.title}</h2>
+    <section className={styles.vehicle_rent_faq__accordion_wrapper}>
+      <VehicleRentPresentationAccordion
+        summary={messages.faq.firstSection.title}
+        content={messages.faq.firstSection.content}
+      />
+      <VehicleRentPresentationAccordion
+        summary={messages.faq.secondSection.title}
+        content={messages.faq.secondSection.content}
+      />
+      <VehicleRentPresentationAccordion
+        summary={messages.faq.thirdSection.title}
+        content={messages.faq.thirdSection.content}
+      />
+    </section>
+  </main>
+);
 
 const HelpBox = () => {
   const router = useRouter();
@@ -389,6 +412,7 @@ const EstimateContainer = ({ step = 0, setStep }) => {
           </div>
         )}
       </section>
+      <EstimateFAQ />
     </div>
   );
 };

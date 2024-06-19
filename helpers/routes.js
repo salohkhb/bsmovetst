@@ -61,7 +61,8 @@ const Routes = {
   MITRYMORY_PAGE: "/mitry-mory",
   BRIECOMTEROBERT_PAGE: "/brie-comte-robert",
   MOISSYCRAMAYEL_PAGE: "/moissy-cramayel",
-
+  FONTAINEBLEAU_PAGE: "/fontainebleau",
+  NOISIEL_PAGE: "/noisiel",
 };
 
 export default Routes;

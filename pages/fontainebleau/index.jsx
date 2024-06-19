@@ -1,24 +1,24 @@
 import Layout from "../../components/Layout";
 import NavHeader from '../../components/NavHeader';
 // import Footer from '../../components/Footer';
-import MoissyCramayel from "../../containers/Moissy-Cramayel";
+import Fontainebleau from "../../containers/Fontainebleau";
 import Head from 'next/head';
 import dynamic from 'next/dynamic'
 
 const DynamicFooter = dynamic(() => import('../../components/Footer'), {
   loading: () => <p>Loading...</p>,
 })
-const MoissyCramayelPage = ({ cookies }) => {
+const FontainebleauPage = ({ cookies }) => {
   return (
     <Layout cookies={cookies}
-      title='Déménagement Moissy-Cramayel - BS Move Déménagement'
-      description="Vous recherchez un déménagement clé en main à  Moissy-Cramayel ? Découvrez nos solutions pratiques et économiques pour un déménagement sans souci."
-      keywords='Déménagement Moissy-Cramayel, Location de camion avec chauffeur Moissy-Cramayel, Location de monte-meuble Moissy-Cramayel, Achats de carton de déménagement Moissy-Cramayel, Carton pas cher, Déménagement gendarme, Déménagement clés en main, BS Move déménagement'
-      pageId='moissy-cramayel'
+      title='Déménagement Fontainebleau - BS Move Déménagement'
+      description="Vous recherchez un déménagement clé en main à Fontainebleau ? Découvrez nos solutions pratiques et économiques pour un déménagement sans souci."
+      keywords='Déménagement Fontainebleau, Location de camion avec chauffeur Fontainebleau, Location de monte-meuble Fontainebleau, Achats de carton de déménagement Fontainebleau, Carton pas cher, Déménagement gendarme, Déménagement clés en main, BS Move déménagement'
+      pageId='fontainebleau'
     >
       <Head>
-        <link rel="canonical" href="https://www.bsmove.com/moissy-cramayel" />
-        <meta property="og:url" content="https://www.bsmove.com/moissy-cramayel"/>
+        <link rel="canonical" href="https://www.bsmove.com/fontainebleau" />
+        <meta property="og:url" content="https://www.bsmove.com/fontainebleau"/>
         <meta property="og:image" content="https://www.bsmove.com/images/logo.png"/>
         <meta property="og:image:width" content="1200"/>
         <meta property="og:image:height" content="630"/>
@@ -28,11 +28,11 @@ const MoissyCramayelPage = ({ cookies }) => {
         <meta property="og:locale:alternate" content="en_US"/>
       </Head>
       <NavHeader />
-      <MoissyCramayel />
+      <Fontainebleau />
       <DynamicFooter />
 
     </Layout>
   )
 }
 
-export default MoissyCramayelPage
+export default FontainebleauPage
