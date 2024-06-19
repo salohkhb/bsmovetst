@@ -63,6 +63,7 @@ const Routes = {
   MOISSYCRAMAYEL_PAGE: "/moissy-cramayel",
   FONTAINEBLEAU_PAGE: "/fontainebleau",
   NOISIEL_PAGE: "/noisiel",
+
 };
 
 export default Routes;
