@@ -63,6 +63,8 @@ const Routes = {
   MOISSYCRAMAYEL_PAGE: "/moissy-cramayel",
   FONTAINEBLEAU_PAGE: "/fontainebleau",
   NOISIEL_PAGE: "/noisiel",
+  COULOMMIERS_PAGE: "/coulommiers",
+  LONGES_PAGE: "lognes"
 };
 
 export default Routes;
