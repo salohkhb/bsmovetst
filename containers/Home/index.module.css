@@ -337,13 +337,17 @@
   flex-direction: column;
   align-items: start;
   justify-content: space-around;
-  width: 400px;
+  width: 340px;
   /* height: 314px; */
   /* margin: 0.5rem; */
   border-radius: 16px;
   background-color: #FFFFFF;
   cursor: pointer;
-
+}
+@media (min-width: 1100px) {
+  .prestation_section_category {
+    width: 400px;
+  }
 }
 .prestation_section_category_container {
   display: flex;

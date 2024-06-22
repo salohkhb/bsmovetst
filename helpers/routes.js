@@ -64,7 +64,9 @@ const Routes = {
   FONTAINEBLEAU_PAGE: "/fontainebleau",
   NOISIEL_PAGE: "/noisiel",
   COULOMMIERS_PAGE: "/coulommiers",
-  LONGES_PAGE: "lognes"
+  LONGES_PAGE: "lognes",
+  SAINTFARGEAUPONTHIERRY_PAGE: "/saint-fargeau-ponthierry",
+  MOTEVRAIN_PAGE: "/montévrain",
 };
 
 export default Routes;
