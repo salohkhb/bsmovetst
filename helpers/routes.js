@@ -67,6 +67,8 @@ const Routes = {
   LONGES_PAGE: "lognes",
   SAINTFARGEAUPONTHIERRY_PAGE: "/saint-fargeau-ponthierry",
   MOTEVRAIN_PAGE: "/montévrain",
+  LIEUSANT_PAGE: "/lieusaint",
+  AVON_PAGE: "/avon",
 };
 
 export default Routes;
