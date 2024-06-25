@@ -69,6 +69,7 @@ const Routes = {
   MOTEVRAIN_PAGE: "/montévrain",
   LIEUSANT_PAGE: "/lieusaint",
   AVON_PAGE: "/avon",
+
 };
 
 export default Routes;
