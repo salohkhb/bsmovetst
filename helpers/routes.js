@@ -69,6 +69,9 @@ const Routes = {
   MOTEVRAIN_PAGE: "/montévrain",
   LIEUSANT_PAGE: "/lieusaint",
   AVON_PAGE: "/avon",
+  VAIRES_SUR_MARNE_PAGE: "/vaires-sur-marne",
+  NEMOURS_PAGE: "/nemours",
+  
 
 };
 
