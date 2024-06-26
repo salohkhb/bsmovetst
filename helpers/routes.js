@@ -72,6 +72,7 @@ const Routes = {
   VAIRES_SUR_MARNE_PAGE: "/vaires-sur-marne",
   NEMOURS_PAGE: "/nemours",
   
+
 };
 
 export default Routes;
