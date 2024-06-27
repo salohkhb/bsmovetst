@@ -71,8 +71,8 @@ const Routes = {
   AVON_PAGE: "/avon",
   VAIRES_SUR_MARNE_PAGE: "/vaires-sur-marne",
   NEMOURS_PAGE: "/nemours",
-  
-
+  MORETLOINGETORVANNE_PAGE: "/moret-loing-et-orvanne",
+  CLAYESOUILLY_PAGE: "/claye-souilly",
 };
 
 export default Routes;
