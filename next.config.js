@@ -2,7 +2,12 @@
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
-    swcMinify: true
+    swcMinify: true,
+    styledComponents: true
 }
 
-module.exports = nextConfig
+module.exports = {
+  compiler: {
+    styledComponents: true,
+  },
+}

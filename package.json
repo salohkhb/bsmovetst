@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev -p 3005",
     "build": "next build",
-    "start": "next start -p $PORT"
+    "start": "next start -p 3005"
   },
   "dependencies": {
     "@babel/traverse": "^7.24.0",
@@ -16,6 +16,8 @@
     "@mui/icons-material": "^5.11.0",
     "@mui/material": "^5.11.1",
     "@mui/x-date-pickers": "^5.0.12",
+    "@next/font": "^14.2.4",
+    "@next/swc-darwin-x64": "^14.2.4",
     "@stripe/react-stripe-js": "^1.4.1",
     "@stripe/stripe-js": "^1.16.0",
     "apisauce": "^3.0.1",
