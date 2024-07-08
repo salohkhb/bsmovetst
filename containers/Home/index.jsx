@@ -260,16 +260,16 @@ const HomeGettingStartedSection = ({ technicalIssueAlert }) => {
               {messages.gettingStartedSection.content}
             </p>
             <div className={styles.buttons}>
-            <button
-              onClick={() => router.push(Routes.ESTIMATE_DETAILS_PAGE)}
-            >
-              Estimez votre déménagement
-            </button>
-            <button
-              onClick={() => router.push(Routes.CONTACT_PAGE)}
-            >
-              Contactez-nous
-            </button>
+              <button
+                onClick={() => router.push(Routes.ESTIMATE_DETAILS_PAGE)}
+              >
+                Estimez votre déménagement
+              </button>
+              <button
+                onClick={() => router.push(Routes.CONTACT_PAGE)}
+              >
+                Contactez-nous
+              </button>
             </div>
           </div>
         </div>

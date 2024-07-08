@@ -148,13 +148,11 @@
 
 .main_footer_blocks_title {
   font-weight: 600;
-  font-family: 'proxima-nova', sans-serif;
   font-size: 1.250rem;
   color: rgba(27, 32, 50, 1);
 }
 
 .main_footer_blocks_content {
-  font-family: 'proxima-nova', sans-serif;
   color: rgba(27, 32, 50, 0.7);
   font-size: 1rem;
 }

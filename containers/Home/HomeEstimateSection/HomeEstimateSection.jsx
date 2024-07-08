@@ -7,12 +7,14 @@ import messages from "../messages";
 import Routes from "../../../helpers/routes";
 import { any } from "prop-types";
 import { colors } from "@mui/material";
+import dynamic from 'next/dynamic';
 
 const HomeEstimateSection = ({ technicalIssueAlert }) => {
   const {
     global: { screenWidth },
   } = useGlobal();
   const router = useRouter();
+  const LazyImage = dynamic(() => import('next/image'));
   return (
     <div className={styles.estimate_section}>
       <div className={styles.home_estimate_section_left}>
@@ -26,12 +28,11 @@ const HomeEstimateSection = ({ technicalIssueAlert }) => {
           {messages.estimateSection.content.secondary}
         </div>
         <div className={styles.estimate_section_actions_container}>
-          <Button
+          <button
             onClick={() => router.push(Routes.ESTIMATE_DETAILS_PAGE)}
-            margin="0 4px 0 0"
           >
             {messages.estimateSection.actions.leftButton}
-          </Button>
+          </button>
           <button
             onClick={() => router.push(Routes.CONTACT_PAGE)}
             className={styles.estimate_section_actions_right_button}
@@ -42,11 +43,12 @@ const HomeEstimateSection = ({ technicalIssueAlert }) => {
       </div>
       <div className={styles.home_estimate_section_right}>
         <div className={styles.home_estimate_section_right_img_container}>
-          <Image
+          <LazyImage
             className={styles.home_estimage_section_right_img_illustration}
             layout="fill"
             src="/images/image1.jpeg"
             alt="homepage_section_estimate"
+            loading="lazy"
           />
           <div className={styles.stats_container}>
             <div className={styles.stats}>

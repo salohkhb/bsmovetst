@@ -20,7 +20,6 @@ S.ButtonLabel = styled.div`
   text-decoration: ${({ active }) => (active ? "underline" : "none")};
   font-weigth: 600;
   transition: 0.3s;
-  font-family: "proxima-nova", sans-serif;
 `;
 
 const VerticalTab = ({ index, title, active, handleTabChange, tabValue }) => (

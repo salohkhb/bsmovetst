@@ -252,19 +252,19 @@ export async function getDistanceWithCoordinates(start, end) {
 const EstimateContainer = ({ step = 0, setStep }) => {
   const [canContinue, setCanContinue] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [formData, setFormData] = useState({});
   const router = useRouter();
   const { estimate, clearEstimate, priceCalculator } = useEstimate();
   // const { auth, customer } = useCustomer();
   const { resetRedirect, addToGlobalStateByKey } = useGlobal();
   const { setGlobalLoading } = useLoading();
   const { setAlert } = useAlert();
-  // Function to handle form data submission from EstimateUserFormComponent
+  
   function handleFormSubmit(data) {
     setFormData(data); // Update the state with form data
-    console.log("Form data:", formData);
+    // console.log("Form data:", formData);
   }
 
-  const [formData, setFormData] = useState({});
 
   function handleContinue(value, errorMessage = "") {
     setCanContinue(value);
@@ -282,7 +282,7 @@ const EstimateContainer = ({ step = 0, setStep }) => {
       priceCalculator,
     }, formData);
     
-    console.log("Request Data:", requestData);
+    // console.log("Request Data:", requestData);
     const res = await api.post("/Estimates/no-auth", requestData);
     if (res?.ok) {
       await router.replace(Routes.ESTIMATE_VALIDATION_PAGE);

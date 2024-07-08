@@ -1,9 +1,4 @@
-/* .estimate_section_main_content {
-  color: #1B2032;
-  font-size: 3em;
-  width: 700px;
-  margin: 0;
-} */
+
 
 .container {
   display: flex;
@@ -26,7 +21,6 @@
   font-weight: 400;
   line-height: 27px;
   font-style: normal;
-  font-family: 'Satoshi';
 }
 
 .section_subtitle {
@@ -80,7 +74,6 @@
   height: 46em;
   width: 50%;
   flex-wrap: wrap;
-  font-family: 'Satoshi';
 }
 
 .home_estimate_section_right {
@@ -104,8 +97,6 @@
 }
 
 .home_estimage_section_right_img_illustration {
-  /* position: absolute; */
-  /* border: 5px solid #FFFFFF;   */
   border-radius: 32px;
   object-fit: fill;
   -webkit-border-radius: 32px;
@@ -141,8 +132,7 @@
 .stats {
   display: flex;
   flex-direction: column;
-  align-items: start;
-  /* justify-content: center; */
+  align-items: flex-start;
   padding-top: 5px;
 
 }
@@ -167,7 +157,6 @@
   border: 1px solid #009B73;
   background: #F2FFF5;
   color: black;
-  font-family: Satoshi;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -175,32 +164,6 @@
   width: 350px;
   cursor: pointer;
 }
-/*@media (min-width: 901px) and (max-width: 1200px) {*/
-
-/*  .home_estimate_section_right {*/
-/*    display: flex;*/
-/*    background-color: red;*/
-/*    height: 46em;*/
-/*    width: 35vw;*/
-/*    position: relative;*/
-/*    align-items: center;*/
-/*    justify-content: center;*/
-/*  }*/
-/*  .home_estimate_section_right_img_container {*/
-/*    display: flex;*/
-/*    align-items: center;*/
-/*    justify-content: flex-start;*/
-/*    position: relative;*/
-/*    height: 70%;*/
-/*    width: 70%;*/
-/*  }*/
-
-/*  .home_estimage_section_right_img_illustration {*/
-/*    position: absolute;*/
-/*    width: 80%;*/
-/*    height: 80%;*/
-/*  }*/
-/*}*/
 
 .estimate_section_main_content {
   color: #1B2032;
@@ -212,7 +175,6 @@
   margin: 30px 0;
   font-size: 20px;
   color: rgba(139, 145, 151, 1);
-  font-family: 'Satoshi';
   width: 75%;
   font-style: normal;
   font-weight: 400;
@@ -222,11 +184,40 @@
 .estimate_section_actions_container {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  margin-top: 40px;
-  width: 325px;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
+.estimate_section_actions_container button:first-child {
+  font-family: "Rubik", sans-serif;
+  background-color: #009B73;
+  color: white;
+  border-radius: 11px;
+  background: #009B73;
+  padding: 12px 10px;
+  height: 50px;
+  min-width: 220px;
+  border: 1px solid #009B73;
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.estimate_section_actions_container button:last-child {
+  font-family: "Rubik", sans-serif;
+  background-color: #009B73;
+  color: black;
+  border-radius: 11px;
+  background: #F2FFF5;
+  height: 50px;
+  padding: 12px 10px;
+  border: 1px solid #009B73;
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+  width: 200px;
+}
 .feedbacks_section {
   display: flex;
   flex-direction: column;
@@ -335,11 +326,9 @@
 .prestation_section_category {
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
   justify-content: space-around;
   width: 340px;
-  /* height: 314px; */
-  /* margin: 0.5rem; */
   border-radius: 16px;
   background-color: #FFFFFF;
   cursor: pointer;
@@ -472,7 +461,6 @@
   color: white;
   padding: 12px 24px;
   border: none;
-  font-family: 'Satoshi';
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
@@ -499,15 +487,15 @@
   z-index: 10;
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 24px;
 }
 .right_guideline_card {
   display: flex;
-align-items: flex-start;
-align-self: stretch;
-  justify-content: start;
+  align-items: flex-start;
+  align-self: stretch;
+  justify-content: flex-start;
   gap: 24px;
   padding: 10px 24px;
   border-radius: 24px;
@@ -906,7 +894,6 @@ line-height: 33.6px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-family: 'Satoshi';
   cursor: pointer;
   font-size: 16px;
   font-style: normal;
@@ -1121,6 +1108,7 @@ line-height: 33.6px;
 }
 
 .buttons button:first-child {
+  font-family: "Rubik", sans-serif;
   background-color: #009B73;
   color: white;
   border-radius: 11px;
@@ -1133,6 +1121,7 @@ line-height: 33.6px;
 }
 
 .buttons button:last-child {
+  font-family: "Rubik", sans-serif;
   background-color: #009B73;
   color: black;
   border-radius: 11px;
@@ -1182,7 +1171,6 @@ line-height: 33.6px;
     width: 100%;
     max-width: 100%;
     margin: 0;
-    font-family: 'proxima-nova, black';
   }
 
   .estimate_section_actions_container {
