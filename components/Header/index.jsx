@@ -33,7 +33,6 @@ const S = {};
 
 S.LeftHeader = styled.p`
   font-size: 16px;
-  font-family: 'Satoshi', sans-serif;
   font-weight: 400;
   padding: 0 1rem;
   text-decoration-line: underline;
@@ -47,7 +46,6 @@ S.RightHeader = styled.div`
   align-items: center;
   justify-content: space-evenly;
   font-size: 1rem;
-  font-family: 'Satoshi', sans-serif;
   font-weight: 600;
   width: 6.5rem;
   height: 48px;

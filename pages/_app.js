@@ -21,7 +21,14 @@ import RouterTransitions from "../components/RouterTransitions";
 import createEmotionCache from "../utils/createEmotionCache";
 import { RentProvider } from "../hooks/rent";
 
+import { Rubik } from 'next/font/google'
+
+export const rubik = Rubik({ subsets: ['latin'] })
+
 const clientSideEmotionCache = createEmotionCache();
+
+
+
 
 export default function App({
   Component,
@@ -42,6 +49,7 @@ export default function App({
 
 
   return (
+    <main className={rubik.className}>
     <CacheProvider value={emotionCache}>
       <GlobalProvider>
         <StyledEngineProvider injectFirst>
@@ -69,5 +77,6 @@ export default function App({
         </StyledEngineProvider>
       </GlobalProvider>
     </CacheProvider>
+    </main>
   );
 }

@@ -2,7 +2,7 @@
 import Head from 'next/head';
 import styled from 'styled-components';
 import Fade from '@mui/material/Fade';
-
+import Script from 'next/script'
 import Header from '../Header';
 import LoadingComponent from '../LoadingComponent';
 import styles from './index.module.css';
@@ -34,7 +34,7 @@ export default function Layout({
             <S.ChildContainer display={display}>
               <Head>
                 {/* Google tag (gtag.js) */}
-                <script async src="https://www.googletagmanager.com/gtag/js?id=G-NHMW1DV87R"></script>
+                <Script async src="https://www.googletagmanager.com/gtag/js?id=G-NHMW1DV87R"></Script>
                 <script dangerouslySetInnerHTML={{
                   __html: `
                     window.dataLayer = window.dataLayer || [];
