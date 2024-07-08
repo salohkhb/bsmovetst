@@ -75,6 +75,7 @@ const Routes = {
   CLAYESOUILLY_PAGE: "/claye-souilly",
   PROVINS_PAGE: "/provins",
   VAUXLEPENIL_PAGE: "/vaux-le-penil",
+
 };
 
 export default Routes;
