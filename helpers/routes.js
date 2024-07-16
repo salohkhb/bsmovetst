@@ -73,9 +73,6 @@ const Routes = {
   NEMOURS_PAGE: "/nemours",
   MORETLOINGETORVANNE_PAGE: "/moret-loing-et-orvanne",
   CLAYESOUILLY_PAGE: "/claye-souilly",
-  PROVINS_PAGE: "/provins",
-  VAUXLEPENIL_PAGE: "/vaux-le-penil",
-
 };
 
 export default Routes;
