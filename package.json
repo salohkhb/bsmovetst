@@ -45,12 +45,5 @@
     "eslint-plugin-react": "^7.32.2",
     "prettier": "2.8.8",
     "prop-types": "^15.7.2"
-  },
-  "engines": {
-    "node": "20.18.0",
-    "npm": "10.8.2"
-  },
-  "scripts": {
-    "heroku-postbuild": "npm install sharp && next build"
   }
 }
