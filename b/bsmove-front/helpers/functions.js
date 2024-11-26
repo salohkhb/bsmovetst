@@ -1,4 +1,4 @@
-import cookie from "cookie";
+import cookie from "cookie-js";
 import moment from "moment";
 import "moment/locale/fr";
 import Routes from "./routes";
@@ -10,7 +10,8 @@ export function isObjectEmpty(obj) {
 }
 
 export async function parseCookies(req) {
-  const serverCookie = await cookie.parse(
+  const serverCookie = ""
+  await cookie.parse(
     req ? req.headers.cookie || "" : document?.cookie
   );
   return serverCookie;
