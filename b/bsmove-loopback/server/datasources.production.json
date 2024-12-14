@@ -1,0 +1,30 @@
+{
+  "bsmoveprod": {
+    "host": "n1-c2-mongodb-clevercloud-customers.services.clever-cloud.com,n2-c2-mongodb-clevercloud-customers.services.clever-cloud.com",
+    "port": 27017,
+    "url": "",
+    "database": "buzvrkubde0ahlc",
+    "password": "hHtqHTWfv2s4blHjm4nz",
+    "name": "bsmoveprod",
+    "user": "uqo1ykiipqc8pa0z4vsz",
+    "connector": "mongodb",
+    "replicaSet": "rs0",
+    "readPreference": "primaryPreferred"
+  },
+  "emailDatasource": {
+    "name": "emailDatasource",
+    "connector": "mail",
+    "transports": [
+      {
+        "type": "SMTP",
+        "host": "smtp.ionos.fr",
+        "secure": true,
+        "port": 465,
+        "auth": {
+          "user": "contact@bsmove.com",
+          "pass": "Jannah77100!"
+        }
+      }
+    ]
+  }
+}

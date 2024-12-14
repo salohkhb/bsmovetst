@@ -1,0 +1,88 @@
+{
+  "name": "Rental",
+  "plural": "Rentals",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "startAddress": {
+      "type": "object",
+      "required": true
+    },
+    "startDate": {
+      "type": "date",
+      "required": true
+    },
+    "duration": {
+      "type": "number"
+    },
+    "vehicle": {
+      "type": "object"
+    },
+    "lift": {
+      "type": "object"
+    },
+    "movers": {
+      "type": "object"
+    },
+    "customerInfos": {
+      "type": "object",
+      "required": true
+    },
+    "status": {
+      "type": "string",
+      "default": "WAITING_ACTION"
+    },
+    "totalPrice": {
+      "type": "number",
+      "required": true
+    },
+    "totalQuantity": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "customer": {
+      "type": "belongsTo",
+      "model": "Customer",
+      "foreignKey": ""
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

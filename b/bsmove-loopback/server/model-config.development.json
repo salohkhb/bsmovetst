@@ -1,0 +1,72 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "User": {
+    "dataSource": "bsmove"
+  },
+  "AccessToken": {
+    "dataSource": "bsmove",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "bsmove",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "bsmove",
+    "public": false,
+    "options": {
+      "strictObjectIDCoercion": true
+    }
+  },
+  "Role": {
+    "dataSource": "bsmove",
+    "public": false
+  },
+  "Email": {
+    "dataSource": "emailDatasource"
+  },
+  "Customer": {
+    "dataSource": "bsmove",
+    "public": true,
+    "options": {
+      "emailVerificationRequired": true
+    }
+  },
+  "StripeAccount": {
+    "dataSource": "bsmove",
+    "public": true
+  },
+  "Product": {
+    "dataSource": "bsmove",
+    "public": true
+  },
+  "Order": {
+    "dataSource": "bsmove",
+    "public": true
+  },
+  "Furniture": {
+    "dataSource": "bsmove",
+    "public": true
+  },
+  "Estimate": {
+    "dataSource": "bsmove",
+    "public": true
+  },
+  "Rental": {
+    "dataSource": "bsmove",
+    "public": true
+  }
+}

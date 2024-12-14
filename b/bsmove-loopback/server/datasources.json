@@ -1,0 +1,22 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "emailDatasource": {
+    "name": "emailDatasource",
+    "connector": "mail",
+    "transports": [
+      {
+        "type": "SMTP",
+        "host": "smtp.ionos.fr",
+        "secure": true,
+        "port": 465,
+        "auth": {
+          "user": "contact@bsmove.com",
+          "pass": "Jannah77100!"
+        }
+      }
+    ]
+  }
+}
