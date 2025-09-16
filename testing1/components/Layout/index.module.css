@@ -1,0 +1,9 @@
+/* Layout module */
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg, #fff);
+  color: var(--text, #222);
+  font-family: "Rubik", sans-serif;
+}

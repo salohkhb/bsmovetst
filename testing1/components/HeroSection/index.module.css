@@ -1,0 +1,205 @@
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+  color: white;
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(11, 62, 54, 0.65);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;      /* Centre horizontal */
+  justify-content: center;  /* Centre vertical */
+  text-align: center;
+  min-height: 80vh;         /* Hauteur visible */
+  padding: 20px;
+  color: white;
+}
+
+.content h1 {
+  font-size: 2.8rem;
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+
+.content p {
+  font-size: 1.2rem;
+  margin-bottom: 24px;
+  max-width: 700px;
+}
+
+.buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btnPrimary {
+  background: #0fbf72;
+  color: white;
+  padding: 14px 26px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.btnPrimary:hover {
+  background: #0aa45f;
+}
+
+.btnSecondary {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btnSecondary:hover {
+  background: white;
+  color: #0b3e36;
+}
+
+/* Anim */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .content h1 {
+    font-size: 2rem;
+  }
+  .content p {
+    font-size: 1rem;
+  }
+  .buttons {
+    flex-direction: column;
+  }
+}
+
+/* .hero {
+  position: relative;
+  width: 100%;
+  min-height: 70vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Rubik", sans-serif;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font-family: "Rubik", sans-serif;
+}
+
+.content {
+  text-align: center;
+  max-width: 800px;
+  color: white;
+  padding: 0 15px;
+  font-family: "Rubik", sans-serif;
+}
+
+.content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-family: "Rubik", sans-serif;
+}
+
+.content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  font-family: "Rubik", sans-serif;
+}
+
+.buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-family: "Rubik", sans-serif;
+}
+
+.btnPrimary, .btnSecondary {
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-family: "Rubik", sans-serif;
+}
+
+.btnPrimary {
+  background-color: #ffffff;
+  color: #0b3e36;
+  border: 2px solid #0b3e36;
+  font-family: "Rubik", sans-serif;
+}
+
+.btnPrimary:hover {
+  background-color: #0b3e36;
+  color: white;
+  font-family: "Rubik", sans-serif;
+}
+
+.btnSecondary {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  font-family: "Rubik", sans-serif;
+}
+
+.btnSecondary:hover {
+  background-color: white;
+  color: #0b3e36;
+  font-family: "Rubik", sans-serif;
+}
+
+
+@media (max-width: 768px) {
+  .content h1 {
+    font-size: 1.8rem;
+  }
+
+  .content p {
+    font-size: 1rem;
+  }
+
+  .buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+  
+
+
+
+ */

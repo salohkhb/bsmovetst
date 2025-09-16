@@ -1,0 +1,32 @@
+.tape {
+  width: 100%;
+  overflow: hidden;
+  background: linear-gradient(90deg, #0b3e36, #0fbf72);
+  padding: 14px 0;
+  position: relative;
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  animation: scroll 20s linear infinite;
+}
+
+.item {
+  margin: 0 40px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}

@@ -1,0 +1,109 @@
+.section {
+  padding: 80px 20px;
+  font-family: "Rubik", sans-serif;
+  background: #f9fbfd;
+}
+
+.inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0b3e36;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.title::after {
+  content: "";
+  display: block;
+  width: 90px;
+  height: 4px;
+  background: linear-gradient(90deg, #0b3e36, #0fbf72);
+  margin: 14px auto 0;
+  border-radius: 3px;
+}
+
+.swiper {
+  padding-bottom: 50px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 30px 24px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  text-align: left;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.12);
+}
+
+.quoteIcon {
+  font-size: 3rem;
+  color: #0fbf72;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.text {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.authorBox {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #0fbf72;
+}
+
+.name {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #0b3e36;
+}
+
+.role {
+  font-size: 0.9rem;
+  color: #0fbf72;
+}
+
+/* Swiper pagination */
+.swiper .swiper-pagination-bullet {
+  background: #0b3e36;
+  opacity: 0.5;
+}
+.swiper .swiper-pagination-bullet-active {
+  background: #0fbf72;
+  opacity: 1;
+}
+
+/* Swiper navigation */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #0b3e36;
+  transition: color 0.3s;
+}
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  color: #0fbf72;
+}
