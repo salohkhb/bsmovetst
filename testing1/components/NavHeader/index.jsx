@@ -1,12 +1,26 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { FaUser, FaShoppingCart, FaBars, FaTimes } from "react-icons/fa";
+import { FaUser, FaShoppingCart, FaBars } from "react-icons/fa";
 import styles from "./index.module.css";
 
 export default function NavHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  // Prevent page scroll when menu is open
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [menuOpen]);
+
+  // Close menu after clicking a link
+  const handleLinkClick = () => {
+    setMenuOpen(false);
+  };
 
   return (
     <header className={styles.header}>
@@ -36,25 +50,34 @@ export default function NavHeader() {
           />
         </Link>
 
-        {/* Hamburger Button (Mobile) */}
+        {/* Hamburger Button (Mobile only) */}
         <button 
           className={styles.menuToggle} 
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
+          onClick={() => setMenuOpen(true)}
+          aria-label="Open menu"
         >
-          {menuOpen ? <FaTimes /> : <FaBars />}
+          <FaBars />
         </button>
 
         {/* Desktop / Mobile Nav */}
         <nav className={`${styles.nav} ${menuOpen ? styles.active : ""}`}>
-          <Link href="/achats">Achats matériels</Link>
-          <Link href="/monte-meuble">Location monte-meuble</Link>
-          <Link href="/camion">Location camion</Link>
-          <Link href="/contact" className={styles.contactBtn}>
+          {/* Close button inside menu */}
+          <button 
+            className={styles.closeBtn} 
+            onClick={() => setMenuOpen(false)}
+            aria-label="Close menu"
+          >
+            ×
+          </button>
+
+          <Link href="/achats" onClick={handleLinkClick}>Achats matériels</Link>
+          <Link href="/monte-meuble" onClick={handleLinkClick}>Location monte-meuble</Link>
+          <Link href="/camion" onClick={handleLinkClick}>Location camion</Link>
+          <Link href="/contact" className={styles.contactBtn} onClick={handleLinkClick}>
             Contact
           </Link>
-          <Link href="/blog">Blog</Link>
-          <Link href="/devis" className={styles.cta}>
+          <Link href="/blog" onClick={handleLinkClick}>Blog</Link>
+          <Link href="/devis" className={styles.cta} onClick={handleLinkClick}>
             Devis gratuit
           </Link>
         </nav>
