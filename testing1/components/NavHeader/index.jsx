@@ -1,9 +1,13 @@
-import Link from 'next/link';
-import Image from 'next/image';
-import { FaUser, FaShoppingCart } from 'react-icons/fa';
-import styles from './index.module.css';
+"use client";
+import { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { FaUser, FaShoppingCart, FaBars, FaTimes } from "react-icons/fa";
+import styles from "./index.module.css";
 
 export default function NavHeader() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <header className={styles.header}>
       {/* Top Bar */}
@@ -32,7 +36,17 @@ export default function NavHeader() {
           />
         </Link>
 
-        <nav className={styles.nav}>
+        {/* Hamburger Button (Mobile) */}
+        <button 
+          className={styles.menuToggle} 
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
+        >
+          {menuOpen ? <FaTimes /> : <FaBars />}
+        </button>
+
+        {/* Desktop / Mobile Nav */}
+        <nav className={`${styles.nav} ${menuOpen ? styles.active : ""}`}>
           <Link href="/achats">Achats matériels</Link>
           <Link href="/monte-meuble">Location monte-meuble</Link>
           <Link href="/camion">Location camion</Link>
