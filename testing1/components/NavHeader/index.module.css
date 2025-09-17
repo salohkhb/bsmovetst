@@ -9,11 +9,11 @@
 .topBar {
   background: #214653;
   color: #fff;
-  padding: 0.3rem 2rem;
+  padding: 0.3rem 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 
 .topBar a {
@@ -47,7 +47,7 @@
 /* --- Main nav --- */
 .inner {
   background: #fff;
-  padding: 0.8rem 2rem;
+  padding: 0.8rem 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -95,4 +95,42 @@
 
 .cta:hover {
   background: #0b8f7a;
+}
+
+/* --- Responsive --- */
+.menuToggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+  color: #333;
+}
+
+/* Small screens */
+@media (max-width: 768px) {
+  .nav {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: #fff;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+    gap: 1rem;
+    width: 70%;
+    max-width: 280px;
+    height: calc(100vh - 70px);
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    box-shadow: -2px 0 8px rgba(0,0,0,0.1);
+  }
+
+  .nav.active {
+    transform: translateX(0);
+  }
+
+  .menuToggle {
+    display: block;
+  }
 }
